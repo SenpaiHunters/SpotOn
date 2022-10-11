@@ -40,9 +40,17 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
 
 
 Chrome -  ✅
+
+
 Firefox -  ✅
+
+
 Orion -  ✅*
+
+
 Safari - ❌
+
+
 
 * = Slower performance than chrome based web browsing; as it uses an open-sourced safari code. (Safari with extensions)
 
