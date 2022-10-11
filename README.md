@@ -57,6 +57,9 @@ Safari - ❌
 ✅ = Supportation of __Windows + Mac__ , there are no required system requirements as it’s simply a userscript/javascript, 
 however, low-end hardware may face some performance drops or lower than expected speed
 
+
+❌ = Safari does not allow for the user of Javascript/Userscripts
+
 # Install 
 1. Install [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/get-it/) or [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/)
 2. Copy the [Code V3](https://github.com/SenpaiHunters/SpotOn/blob/17c1e80474aa0a969558c83eec151501737aa2fd/Code%20V3) contents
