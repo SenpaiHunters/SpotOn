@@ -40,7 +40,7 @@
 # What is SpotOn?
 
 
-SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com/) design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned __hidden__ Now Playing Bar __(scroll down to see it, want to see how it looks, look above)__, a changeable time to the right of the progress bar __(Refer to the above image to see this, to envoke it, simply click it)__, a blured backdrop, ___rainbow controls___ __(These can be turned off simply by removing the command line)__ a hidden Spotify Logo __(Can be turned back on)__, removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter _(can turn off by removing ___first-letter {", "    text-transform: uppercase !important;}",___. But try it before you remove it, you might like it!)_
+SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com/) design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned __hidden__ Now Playing Bar __(scroll down to see it, want to see how it looks, look above)__, a changeable time to the right of the progress bar __(Refer to the above image to see this, to invoke it, simply click it)__, a blurred backdrop, ___rainbow controls___ __(These can be turned off simply by removing the command line)__ a hidden Spotify Logo __(Can be turned back on)__, removal of the bottom content bar, that hosts the social links of Spotify. Capitalisation of the first letter _(can turn off by removing ___first-letter {", "    text-transform: uppercase !important;}",___. But try it before you remove it, you might like it!)_
 
 
 
@@ -52,7 +52,7 @@ This is incompatible with the installed app. If i get enough popularity i may lo
 unlikely, and very time consuming. 
 
 
-# SpotOn's supported platfroms?
+# SpotOn's supported platforms?
 
 
 SpotOn is a complete **userscript/javascript**, which means you, the user, may _customise_ anything! The majority of the script is labelled with **// (entry)** or **"*/*/",** but not all of it. You'll need to Command + F (Find) some of these by typing the name out; I'm currently going over this and adding entries to the script.
