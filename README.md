@@ -18,14 +18,19 @@
 # Preview
 
 
-### Spotify - SpotOn - Overhaul
-![Spotify - SpotOn](https://user-images.githubusercontent.com/103985728/195014667-f55ea9f3-7fc2-4097-a835-9cbccbe42992.jpeg)
+### Spotify - SpotOn - Overhaul (Pic of Beta - will update when page is fully finished)
+
+
+![Spotify - SpotOn](https://user-images.githubusercontent.com/103985728/195334253-10d5066e-a6f8-4f45-91ba-3b3da8cc6959.jpeg)
+
 
 
 ### Hidden menu bar with remaining time
 
 
 ![Hidden menu bar with remaining time](https://user-images.githubusercontent.com/103985728/195015082-d31a1ecf-1df0-4a8f-8051-c78f0bfef0a9.png)
+
+
 ### Hidden menu bar with total time
 
 
