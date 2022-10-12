@@ -1,20 +1,34 @@
 # **SpotOn *[V 0.3]***
-##### The Spotify Overhaul!
-### Made by ***Kami***
-<details><summary>Socials and support</summary>
+### The Spotify Overhaul!
+##### Made by ***Kami***
+
+
+# Socials and Support
+<details><summary>Click me</summary>
 <p>
 
-##### Support via Discord - https://discord.gg/pjNn2M22ct
-##### Help Support Me -  https://www.buymeacoffee.com/KamiAMVS
+### [Support via Discord](https://discord.gg/pjNn2M22ct)
+### [Buy me a coffee](https://www.buymeacoffee.com/KamiAMVS)
+### [YouTube](https://www.youtube.com/channel/UCzSgmjr--CdIPmdkdiLRNow)
+
 </p>
 </details>
 
 
-##### Spotify - SpotOn
+# Preview
+
+
+### Spotify - SpotOn - Overhaul
 ![Spotify - SpotOn](https://user-images.githubusercontent.com/103985728/195014667-f55ea9f3-7fc2-4097-a835-9cbccbe42992.jpeg)
-##### Hidden menu bar with remaining time
+
+
+### Hidden menu bar with remaining time
+
+
 ![Hidden menu bar with remaining time](https://user-images.githubusercontent.com/103985728/195015082-d31a1ecf-1df0-4a8f-8051-c78f0bfef0a9.png)
-##### Hidden menu bar with total time
+### Hidden menu bar with total time
+
+
 ![Hidden menu bar with total time](https://user-images.githubusercontent.com/103985728/195015092-5f12509b-b312-4884-b179-35a3c4f7d064.png)
 
 
@@ -39,28 +53,42 @@ unlikely, and very time consuming.
 SpotOn is a complete **userscript/javascript**, which means you, the user, may _customise_ anything! The majority of the script is labelled with **// (entry)** or **"*/*/",** but not all of it. You'll need to Command + F (Find) some of these by typing the name out; I'm currently going over this and adding entries to the script.
 
 
-Chrome -  ✅
+### Chrome -  ✅
 
 
-Firefox -  ✅
+### Firefox -  ✅
 
 
-Orion -  ✅*
+### Orion -  ✅
+ - Slower performance than expected in testing
 
 
-Safari - ❌
+### Safari - ✅
+
+
+### Microsoft Edge - ✅
+
+
+### Opera - ✅
 
 
 
-* = Slower performance than chrome based web browsing; as it uses an open-sourced safari code. (Safari with extensions)
-
-✅ = Supportation of __Windows + Mac__ , there are no required system requirements as it’s simply a userscript/javascript, 
-however, low-end hardware may face some performance drops or lower than expected speed
+### ✅ = Supportation of __Windows + Mac__ , there are no required system requirements as it’s simply a userscript/javascript, however, low-end hardware may face some performance drops or lower than expected speed
 
 
-❌ = Safari does not allow for the user of Javascript/Userscripts
+# Supported Script-Managers
 
-# Install 
+
+- ### Firefox: Greasemonkey, Tampermonkey, or Violentmonkey
+- ### Safari: Tampermonkey or Userscripts
+- ### Microsoft Edge: Tampermonkey
+- ### Opera: Tampermonkey or Violentmonkey
+- ### AdGuard: (no additional software required)
+
+# Install
+
+
+### For our install guide, it'll be using TamperMoneky! But, it should be the same for all scriot managers.
 1. Install [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/get-it/) or [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/)
 2. Copy the [Code V3](https://github.com/SenpaiHunters/SpotOn/blob/17c1e80474aa0a969558c83eec151501737aa2fd/Code%20V3) contents
 3. Load the settings of Tampermoneky
