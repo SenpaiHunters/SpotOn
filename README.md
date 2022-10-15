@@ -1,4 +1,4 @@
-# **SpotOn *[V 0.3]***
+# **SpotOn *[V 0.4]***
 ### The Spotify Overhaul!
 ##### Made by ***Kami***
 
@@ -37,6 +37,8 @@
 ![Hidden menu bar with total time](https://user-images.githubusercontent.com/103985728/195015092-5f12509b-b312-4884-b179-35a3c4f7d064.png)
 
 
+
+
 # What is SpotOn?
 
 
@@ -50,6 +52,47 @@ SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com
 SpotOn needs the usage of Spotify Web Player and is not supported by Spotify's app. To be clear, only Spotify Web Player supports it. 
 This is incompatible with the installed app. If i get enough popularity i may look into a way of porting it to the app. But, that's very
 unlikely, and very time consuming. 
+
+
+# How do i enable V 0.4 - No Spotify Lyrics? Then Let's Check Genius!
+
+
+### To enable it do follow this Step-By-Step!
+1. Click on Tampermonkey (or any userscript)
+
+
+
+![Click on Tampermonkey](https://user-images.githubusercontent.com/103985728/195988967-4ed93961-7b84-4b0c-9938-a2aba8b075f8.png)
+
+
+2. Click on "No Spotify Lyrics? Then Lets Check Genius! Show Lyrics"
+
+
+![SCR-20221016-l5](https://user-images.githubusercontent.com/103985728/195988969-c1b47c85-86b1-40ac-8253-f1bb183f2e5d.png)
+
+
+
+3. It'll automatically load in, with the current playing song with the lyrics if Genius has it.
+
+
+![SCR-20221016-lc](https://user-images.githubusercontent.com/103985728/195988973-cb6dd937-d524-44e9-87ed-9bddaa1d94ce.jpeg)
+
+
+4. To hide the sidebar, either reload, or press 'hide'.  
+  - If it's not auto loaded (1 sec of time) to the next lyrics press 'Wrong Lyrics'
+    - It'll bring you back to the search, if neither Genius nor Spotify has the lyrics it'll say "Lyrics not found'
+    - If you reloaded repeat steps 1 & 2
+
+
+![SCR-20221016-lj](https://user-images.githubusercontent.com/103985728/195988974-03d14f4d-e4ad-4370-b6d4-c48c7df55089.png)
+
+
+5.  If you press 'Hide' you'll see a little Genius Button cleanly off to the right
+     - If you reloaded repeat steps 1 & 2 for the button to come back.
+
+
+![SCR-20221016-ln](https://user-images.githubusercontent.com/103985728/195988976-16e8f960-f829-40e7-95a2-d2474ed6e514.png)
+
 
 
 # SpotOn's supported platforms?
@@ -95,7 +138,7 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
 
 ### For our install guide, it'll be using TamperMoneky! But, it should be the same for all scriot managers.
 1. Install [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/get-it/) or [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/)
-2. Copy the [Code V3](https://github.com/SenpaiHunters/SpotOn/blob/17c1e80474aa0a969558c83eec151501737aa2fd/Code%20V3) contents
+2. Copy the [Code](https://github.com/SenpaiHunters/SpotOn/blob/17c1e80474aa0a969558c83eec151501737aa2fd/Code%20V3) contents
 3. Load the settings of Tampermoneky
    - First by clicking on the extention
    - Click 'Dashboard'
