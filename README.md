@@ -138,13 +138,13 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
 
 ### For our install guide, it'll be using TamperMoneky! But, it should be the same for all scriot managers.
 1. Install [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/get-it/) or [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/)
-2. Copy the [Code](https://github.com/SenpaiHunters/SpotOn/blob/17c1e80474aa0a969558c83eec151501737aa2fd/Code%20V3) contents
+2. Copy the [Code V 0.4](https://github.com/SenpaiHunters/SpotOn/blob/Main/Code%20V4) contents
 3. Load the settings of Tampermoneky
    - First by clicking on the extention
    - Click 'Dashboard'
 4. You'll first load into 'Installed-Scripts'
 5. You then want to click the little plus icon
-6. With the contents of [Code V3](https://github.com/SenpaiHunters/SpotOn/blob/17c1e80474aa0a969558c83eec151501737aa2fd/Code%20V3)
+6. With the contents of [Code V 0.4](https://github.com/SenpaiHunters/SpotOn/blob/Main/Code%20V4)
 7. You'll want to press ___Command+A___ to select everything, and then press ___Command+V___ to paste
 8. Hit ___Command+S___ to save
 9. You have now successfully installed SpotOn!
