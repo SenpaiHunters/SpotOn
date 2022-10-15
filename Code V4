@@ -1,39 +1,54 @@
 // ==UserScript==
-// @name          Spotify - OnSpot
-// @icon          https://avatars.githubusercontent.com/u/251374?s=200&v=4
-// @namespace     https://docs.google.com/document/d/1GZ5Ibb0a5bjOIq8-8Jv8na2d1nhgQjZLPPKM2ZNgM8o/edit#
+// @name          SpotOn
 // @namespace     https://github.com/SenpaiHunters/SpotOn
+// @icon          https://avatars.githubusercontent.com/u/251374?s=200&v=4
 // @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
-// @namespace     http://userstyles.org
-// @description	  My version of Spotify focuses on personal taste - Your taste. - Feel free to check out my socials and/or support me, https://linktr.ee/SenpaiHunter - (Still in the development stages, so this is not the final code!) Help Support Me - https://www.buymeacoffee.com/KamiAMVS
+// @namespace     https://docs.google.com/document/d/1GZ5Ibb0a5bjOIq8-8Jv8na2d1nhgQjZLPPKM2ZNgM8o/edit#
+// @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
+// @version       0.4
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
+// @match         https://open.spotify.com/*
+// @match         https://genius.com/songs/new
 // @match         https://*.open.spotify.com/*
+// @match         https://open.spotify.com/*
+// @match         https://genius.com/songs/new
+// @require       https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
+// @require       https://greasyfork.org/scripts/406698-geniuslyrics/code/GeniusLyrics.js
+// @grant         GM.setClipboard
+// @grant         GM_setClipboard
+// @supportURL      https://github.com/SenpaiHunters/SpotOn/issues
+// @grant           GM.xmlHttpRequest
+// @grant           GM.setValue
+// @grant           GM.getValue
+// @grant           GM.registerMenuCommand
+// @grant           GM_openInTab
+// @connect         genius.com
 // @run-at        document-start
-// @version       0.3
 // @copyright     2022, Kami
 // ==/UserScript==
+
 
 /*
  * # What is SpotOn?
  *
- * SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, 
+ * SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar,
  * a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar
- * (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) 
- * a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. 
- * Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. 
+ * (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line)
+ * a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify.
+ * Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",.
  * But try it before you remove it, you might like it!)
  *
- * How do i use SpotOn?
- * SpotOn needs the usage of Spotify Web Player and is not supported by Spotify's app. To be clear, only Spotify Web Player supports it. 
- * This is incompatible with the installed app. 
+ * # How do i use SpotOn?
+ * SpotOn needs the usage of Spotify Web Player and is not supported by Spotify's app. To be clear, only Spotify Web Player supports it.
+ * This is incompatible with the installed app.
  * If i get enough popularity i may look into a way of porting it to the app. But, that's very unlikely, and very time consuming.
  *
- * SpotOn's supported platfroms?
- * SpotOn is a complete userscript/javascript, which means you, the user, may customise anything! 
- * The majority of the script is labelled with // (entry) or "//", but not all of it. 
+ * # SpotOn's supported platfroms?
+ * SpotOn is a complete userscript/javascript, which means you, the user, may customise anything!
+ * The majority of the script is labelled with // (entry) or "//", but not all of it.
  * You'll need to Command + F (Find) some of these by typing the name out; I'm currently going over this and adding entries to the script.
  *
  * Chrome - ✅
@@ -42,14 +57,11 @@
  *
  * Orion - ✅*
  *
- * Safari - ❌
- *
- * = Slower performance than chrome based web browsing; as it uses an open-sourced safari code. (Safari with extensions)
+ * = Slower performance than chrome based web browsing.
  * ✅ = Supportation of Windows + Mac , there are no required system requirements as it’s simply a userscript/javascript, however, low-end hardware may face some performance drops or lower than expected speed
- * 
- * ❌ = Safari does not allow for the user of Javascript/Userscripts
  *
- * Install
+ *
+ * # Install
  * Install Tampermonkey, Violentmonkey or Greasemonkey
  * Copy the Code V3 contents
  * Load the settings of Tampermoneky
@@ -63,10 +75,10 @@
  * You have now successfully installed SpotOn!
  * (Note) For windows the keybind is Cntrl instead of Command
  *
- * Notice
- * It is recommended you install Spotify Dynamic Theme Plus extension for the background, and now playing bar to function correctly. 
- * The Dynamic Theme is also required for the Now Playing Bar to auto-hide. If it isn’t installed, the bar will load at the top by default. 
- * (This can be changed in settings, as the script is fully user customisable! - look for ‘// main now playing bar’). 
+ * # Notice
+ * It is recommended you install Spotify Dynamic Theme Plus extension for the background, and now playing bar to function correctly.
+ * The Dynamic Theme is also required for the Now Playing Bar to auto-hide. If it isn’t installed, the bar will load at the top by default.
+ * (This can be changed in settings, as the script is fully user customisable! - look for ‘// main now playing bar’).
  *
  * # Feel like thanking me for my hard work?
  *
@@ -78,12 +90,12 @@
  * YouTube - https://www.youtube.com/channel/UCzSgmjr--CdIPmdkdiLRNow
  * Help Support Me -  https://www.buymeacoffee.com/KamiAMVS
  *
- * Latest release notes
+ * # Latest release notes
  * Check out the GitHub (https://github.com/SenpaiHunters/SpotOn)
  */
 
 (function() {var css = [
-	"/* Version 0.3 */",
+	"/* Version 0.4 */",
 	"",
 	"",
 	"/* Background layer */",
@@ -188,20 +200,6 @@
 	"    --barCol100: rgba(var(--barCol),1) ;",
 	"    --firstLsize: 1.50em ;}    ",
 	"",
-	"._2xTC2WcXRpmoZBliqieiS9, ._2UzxvZHwCBmRIowVNIeNvU {",
-	"    display: none !important;}",
-	"",
-	".Root__nav-bar.Root__nav-bar--has-notice-bar{",
-	"    margin-top: 30px !important;",
-	"    height: calc(100% - 50px) !important;}",
-	"",
-	".navBar-signupPrompt._3nonY0buM5Z1AF4aRrP8VY p button.btn.btn-white.btn--no-margin.btn--full-width._1XvaFLD3_IpAQNG-OJU2-H._1xNlj_ScH8hEMWzrkRt1A,",
-	".navBar-signupPrompt._3nonY0buM5Z1AF4aRrP8VY p button.btn.btn-black.btn--no-margin.btn--full-width.P7Qjj40AVoE8Igi7Ji05m._1xNlj_ScH8hEMWzrkRt1A{",
-	"    width: 100px !important;",
-	"    margin-left: -70px !important;",
-	"    padding-top: 0.2em !important;",
-	"    padding-bottom: 1em !important;}",
-	"",
 	".navBar, .navBar-expand {",
 	"    -webkit-box-flex: 1;    ",
 	"    flex: 1;",
@@ -212,176 +210,6 @@
 	"    height: 0px !important;",
 	"    width: 100% !important;",
 	"    text-align: center;}",
-	"",
-	"@media (max-width: 1700px) { ",
-	".navBar-signupPrompt._3nonY0buM5Z1AF4aRrP8VY p button.btn.btn-white.btn--no-margin.btn--full-width._1XvaFLD3_IpAQNG-OJU2-H._1xNlj_ScH8hEMWzrkRt1A,",
-	".navBar-signupPrompt._3nonY0buM5Z1AF4aRrP8VY p button.btn.btn-black.btn--no-margin.btn--full-width.P7Qjj40AVoE8Igi7Ji05m._1xNlj_ScH8hEMWzrkRt1A{",
-	"    width: 100px !important;",
-	"    margin-left: -70px !important;}",
-	"",
-	"._2ypW2_NbqnDwuBDrAIINHR a {",
-	"    margin-left: -70px;}}",
-	"",
-	"._1YMukI_FrE7QRuUVSvq_Qe, .content.ZI0UgbCT8bKeDxk-G9uhC, body{",
-	"    background: var(--wallpaper), #181818 center center fixed !important;",
-	"    background-size: 100% 100%  !important;",
-	"    width: 100% !important;",
-	"    background-color: rgba(0,0,0,50%) !important;",
-	"    background-blend-mode: multiply !important; }",
-	"",
-	"._1Fj-rlIZXTSNgYOCuLh7xo, .entity-info .mo-info-name, .user-header .user-info .user-name {",
-	"    font-size: 0px;",
-	"    font-weight: 0;}",
-	"    ",
-	".rmvsOLgX-HXE05AJQb-2T::after, header.artist-header::before, .view-header::before, .related-artists {",
-	"    background: backdrop-filter: blur(5px); !important;}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj._1-aXXBO8bQU1WTFY-7B0m-::after {",
-	"    background-color: backdrop-filter: blur(5px); !important;",
-	"    letter-spacing: 0px;}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj._1-aXXBO8bQU1WTFY-7B0m-::before {",
-	"    content: none;",
-	"    background-color: backdrop-filter: blur(5px); !important;}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 23px !important;",
-	"    letter-spacing: -.2px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter {",
-	"    font-size: var(--firstLsize) !important;",
-	"    letter-spacing: -1.5px !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 21px !important;",
-	"    letter-spacing: -.2px !important;",
-	"    line-height: 1px;}   ",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"    font-size: var(--firstLsize) !important;",
-	"    letter-spacing: -1.5px !important;}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button  {",
-	"    margin-bottom: 15px !important;",
-	"    margin-top: 0px !important;",
-	"    margin-left: 4px !important;",
-	"    margin-right: 4px !important; ",
-	"    font-weight: 100;",
-	"    letter-spacing: normal;}",
-	"",
-	"@media (min-width: 1500px) {",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header  {",
-	"    margin-left: 15px !important;",
-	"    padding-left: 0px !important;}",
-	"",
-	".btn.btn-green.btn-small.asideButton-button{",
-	"    margin-left: -110px !important;",
-	"    margin-right: 110px !important;}}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj._1-aXXBO8bQU1WTFY-7B0m-, .UserWidget__link--is-active {",
-	"    color: var(--marker);}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter, .component-user .public-playlists-header::first-letter, .btn.btn-green.btn-small.asideButton-button::first-letter  {",
-	"    text-transform: capitalize;}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button {",
-	"    letter-spacing: 0px;",
-	"    text-transform: lowercase !important;}",
-	"",
-	"@media (max-width: 1319px) { ",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 19px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter, .btn.btn-green.btn-small.asideButton-button::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 18px !important;",
-	"    line-height: 1px;}   ",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"        font-size: var(--firstLsize) !important;}}",
-	"",
-	"@media (min-width: 1320px) { ",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 20px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter, .btn.btn-green.btn-small.asideButton-button::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 19px !important;",
-	"    line-height: 1px;}   ",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"        font-size: var(--firstLsize) !important;}}",
-	"",
-	"@media (min-width: 1370px) { ",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 20px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter, .btn.btn-green.btn-small.asideButton-button::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 19px !important;",
-	"    line-height: 1px;}   ",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"        font-size: var(--firstLsize) !important;}}",
-	"",
-	"@media (min-width: 1450px) { ",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header {",
-	"    font-size: 21px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 20px !important;",
-	"    line-height: 1px;}   ",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"        font-size: var(--firstLsize) !important;}}",
-	"",
-	"@media (min-width: 1540px) { ",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header {",
-	"    font-size: 22px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 21px !important;",
-	"    line-height: 1px;}   ",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"        font-size: var(--firstLsize) !important;}}",
-	"",
-	"@media (min-width: 1630px) { ",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header {",
-	"    font-size: 23px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 22px !important;",
-	"    line-height: 1px;}   ",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"        font-size: var(--firstLsize) !important;}}",
-	"",
-	"@media (min-width: 1700px) { ",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header {",
-	"    font-size: 24px !important;}",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	".btn.btn-green.btn-small.asideButton-button {",
-	"    font-size: 23px !important;",
-	"    line-height: 1px;}",
-	".btn.btn-green.btn-small.asideButton-button::first-letter{",
-	"        font-size: var(--firstLsize) !important;}}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button  {",
-	"    margin-bottom: 20px !important;",
-	"    margin-top: 0px !important;",
-	"    margin-left: 4px !important;",
-	"    margin-right: 4px !important; ",
-	"    font-weight: 100;",
-	"    letter-spacing: normal;}    ",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj._1-aXXBO8bQU1WTFY-7B0m-, .UserWidget__link--is-active {",
-	"    color: var(--marker);}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj::first-letter, .component-user .public-playlists-header::first-letter, .btn.btn-green.btn-small.asideButton-button::first-letter  {",
-	"    text-transform: capitalize;}",
-	"",
-	".EYVkZXmTImKH4iH48N7Uj, .component-user .public-playlists-header, .btn.btn-green.btn-small.asideButton-button {",
-	"    letter-spacing: 0px;",
-	"    text-transform: lowercase !important;}",
-	"",
-	".navBar-group-header::first-letter, .navBar-item .type::first-letter {",
-	"    text-transform: capitalize;}",
 	"",
 	".navBar-group-header, .navBar-item .type {",
 	"    letter-spacing: 0.6px;",
@@ -407,6 +235,7 @@
 	"#main { ",
 	"    text-shadow: 1px 2px 0px #000 !important;}",
 	"",
+    // Max size
 	"@media (min-width: 1600px) {",
 	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
 	"    text-align: center !important;",
@@ -415,6 +244,7 @@
 	".asideButton-container .asideButton{",
 	"    margin-left: 0 !important;}}",
 	"",
+    // Min size
 	"@media (max-width: 1599px) {",
 	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
 	"    text-align: center !important;",
@@ -422,38 +252,6 @@
 	"    width: 180px !important;}",
 	".asideButton-container .asideButton{",
 	"    margin-left: 0 !important;}}",
-	"",
-	" .contentSpacing, .artist.content {",
-	"    margin-top: 100px !important;}",
-	"",
-	".ArtistAbout__content {",
-	"    margin-top: 0px !important;}",
-	"",
-	".playlist, section.contentSpacing {",
-	"    padding: 0px 2em;}",
-	"",
-	".content.album, .contentSpacing {",
-	"    padding: 0px 2em !important;}",
-	"",
-	".related-artists {",
-	"    padding-top: 2em !important;}",
-	"",
-	".col-md-8 {",
-	"    min-width: 100% !important;}",
-	"",
-	".col-md-4 {",
-	"    min-width: 10% !important;",
-	"    float: left !important;",
-	"    margin-top: 1.75em;}",
-	"",
-	"#main .Root .Root__top-container {",
-	"    margin-top: 0px !important;}",
-	"",
-	".col-xs-12.col-lg-9.col-xl-8 {",
-	"    margin-top: -30px;}",
-	"",
-	".entity-info .media-object {",
-	"    margin-top: -20px !important;}",
 	"",
 	".asideButton-container ._11pfm-p6kRU6CrLDyLhi3a {",
 	"    margin-left: 13.25%;}",
@@ -472,17 +270,19 @@
 	"    background: backdrop-filter: blur(5px); !important;",
 	"    position: fixed;",
     // change pos for menu bar layout
-	"    height: 2px;",
+	"    height: 1px;",
 	"    width: calc(100% - 50px);",
-	"    top: 8px; ",
+	"    top: 3px; ",
 	"    left: -12px; ",
 	"    padding-right: 10px !important;",
 	"    margin-bottom: 50px;}",
 	"",
+    // Chnages the whole NPB Bar boxed outline left or right
+    // Chnage 'left' value higher to move right, lower that value to move left.
 	"@media (min-width: 1700px) { ",
 	"#main .Root .Root__now-playing-bar {   ",
 	"    width: calc(100% - 30px);",
-	"    left: 40px;}}",
+	"    left: 14px;}}",
 	"",
     // NPB start
 	".now-playing-bar{",
@@ -538,19 +338,19 @@
 	"",
 	".btn.btn-green.cta-button, .btn.btn-black.btn-small, .btn.btn-green, .btn.btn-black, .btn.btn-black:hover, .btn.btn-fg-green, .btn.btn-transparent, .btn.btn-blue.btn-small, .btn-landing.btn-white, .btn-landing.btn-green, .btn.btn-sm.btn-block.btn-facebook.ng-binding, .btn.btn-sm.btn-block.btn-green.ng-binding, .btn.btn-white._3zghGNfKZCH7FVEyqNY3my, button.btn.btn--no-margin.btn--full-width.P7Qjj40AVoE8Igi7Ji05m._1xNlj_ScH8hEMWzrkRt1A, .ResponsiveViewMoreButton__button, .btn.btn-white {",
 	"    background: var(--barCol65) !important;  ",
-	"    border: -3px solid var(--line) !important;",
+	"    border: -2px solid var(--line) !important;",
 	"    border-left: -6px solid rgba(48,48,48,.2) !important;",
 	"    border-radius: 3px 150px 6px 6px !important;",
 	"    border-right: -6px solid rgba(38,38,38,.2) !important;",
 	"    border-radius: -6px !important;  ",
-	"    box-shadow: 10px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;}",
+	"    box-shadow: 20px 10px 10px -7px rgba(0,0,0,1), -7px 10px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;}",
 	"",
     // Now plaing menu bar - boxed size change
 	".Root__now-playing-bar {",
 	"    background: linear-gradient(to right, rgba(var(--barCol),.55) 0%  ,rgba(var(--barCol),.95) 44% ,rgba(var(--barCol),1) 55%,rgba(var(--barCol),.95) 65%, rgba(var(--barCol),.55) 100%) !important;",
 	"    border: -60px solid var(--line) !important;",
 	"    border-left: 120px solid rgba(48,48,48,.2) !important;",
-	"    border-radius: 70px 70px 30px 40px !important;",
+	"    border-radius: 70px 70px 70px 70px !important;",
 	"    border-right: -20px solid rgba(38,38,38,.2) !important;",
 	"    border-radius: 50px !important;  ",
 	"    box-shadow: 16px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
@@ -561,14 +361,16 @@
     // Left side bar - boxed size change
 	".Root__nav-bar {",
 	"    background: var(--barCol60);  ",
-	"    border: -16px solid var(--line) !important;",
+	"    border: -12px solid var(--line) !important;",
 	"    border-left: 1px solid rgba(48,48,48,.2) !important;",
-	"    border-radius: 60px 70px 4px 4px !important;",
+	"    border-radius: 70px 70px 70px 70px !important;",
 	"    border-right: -1px solid rgba(38,38,38,.2) !important;",
-	"    border-radius: 7px !important;  ",
-	"    box-shadow: 9px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
-	"    margin-top: 75px !important;",
-	"    height: calc(100% - 80px) !important;",
+	"    border-radius: 12px !important;  ",
+	"    box-shadow: 10px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
+    // moves the left bar up or down
+	"    margin-top: 65px !important;",
+	"    height: calc(100% - 85px) !important;",
+    // if you want it fully off to the left side, remove overflow-x
 	"    overflow-x:hidden;}",
 	"",
 	".recently-played.navBar-group {",
@@ -585,23 +387,28 @@
 	"    margin-top: 20px;",
 	"    margin-bottom: 0px !important;}",
 	"    ",
+    // Max width
 	"@media (max-width: 1699px) { ",
 	".container-fluid.ArtistAbout__container {       ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important}}",
 	"",
+    // Min Width
 	"@media (min-width: 1700px) { ",
 	".container-fluid.ArtistAbout__container {   ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important;}}",
 	"",
+    // Spacing content
 	"section.content.artist div div.container-fluid.ArtistAbout__container .contentSpacing {",
 	"    max-width: 100%;}",
 	"",
+    // About adjustment
 	".ArtistAbout__insights {",
 	"    float: right !important;",
 	"    flex: 1 !important;}",
 	"",
+    // Max adjustment width
 	"@media (max-width: 1700px) {",
 	".ArtistAbout__insights {",
 	"    float: right !important;",
@@ -610,6 +417,7 @@
 	".col-xs-12.col-lg-9.col-xl-8 .tracklist-container  {",
 	"    margin-top: 50px !important;}",
 	"",
+    // View header
 	"header.artist-header, .view-header {",
 	"    padding-left: 0 !important;",
 	"    margin-top: -20px !important;",
@@ -636,42 +444,12 @@
 	".view-header {",
 	"    height: 340px !important;}",
 	"",
-	".views--negativeTopMargin{",
-	"    margin-top: 40px !important;}",
-	"",
-	".sessionInfo .UserWidget__user-link, .UserWidget__user-avatar {",
-	"    margin: 0 !important; ",
-	"    font-size: inherit;",
-	"    transition-property: color;",
-	"    transition-duration: .2s;",
-	"    transition-timing-function: linear;}",
-	"",
-	".sessionInfo {",
-	"    padding-left: 0px;}",
-	"",
-	".UserWidget__link {color: hsla(0,0%,100%,.6);}",
-	"",
-	".UserWidget__user-avatar { ",
-	"    float: right; ",
-	"    right: -3px;}",
-	"",
 	"@media (min-width: 1700px) {",
 	".UserWidget__user-avatar { ",
 	"    float: right; ",
 	"    right: 8px;}}",
 	"",
-	".UserWidget__container {",
-	"    transition-property: color;",
-	"    transition-duration: .2s;",
-	"    transition-timing-function: linear;",
-	"    color: hsla(0,0%,100%,.6);}",
-	"",
-	".sessionInfo .UserWidget__container:focus, .sessionInfo .UserWidget__container a:hover {",
-	"    color: #fff;}",
-	"",
-	".sessionInfo .UserWidget__container a:focus, .navBar-item--small a:focus {",
-	"    color: var(--marker);}   ",
-	"",
+    // Mics Nav bar
 	".navBar-item .collection-icon, .navBar-item .collection-active-icon, .navBar-item .home-icon, .navBar-item .home-active-icon, .navBar-item .search-icon, .navBar-item .search-active-icon {",
 	"    margin-left: 150px !important;}",
 	"",
@@ -1702,6 +1480,274 @@
 	"     background: #00866873;",
     "  /******     End for colour chaing icons / spins - and end for V 0.3 - Stay tuned for more!  *********/",
 	"",
+
+        "  /******     V 0.4 - Copy track info! This means the song name and artist!  *********/",
+(function () {
+  const translations = {
+    en: ['Copy track info', 'Copied: %s'],
+  }
+  let [menuString, copiedString] = translations.en
+  for (const lang in translations) {
+    if (navigator.language.startsWith(lang)) {
+      [menuString, copiedString] = translations[lang]
+      // console.log(lang + ' <- ' + navigator.language) - Allow for lang other then Eng.
+      break
+    }
+  }
+
+  let showInfoID
+  const showInfo = function (str) {
+    window.clearTimeout(showInfoID)
+    if (!document.getElementById('copied_song_info_outer')) {
+      document.head.appendChild(document.createElement('style')).innerHTML = '#copied_song_info_outer {z-index: 20000;height:0;margin: -62px auto 0;padding-bottom: 62px;pointer-events: none;display: inline-block;}#copied_song_info_inner {max-width: none;display: inline-block;background: #2e77d0;border-radius: 8px;box-shadow: 0 4px 12px 4px rgba(0,0,0,.5);color: #fff;font-size: 16px;line-height: 20px;max-width: 450px;opacity: 1;padding: 12px 36px;text-align: center;transition: none .5s cubic-bezier(.3,0,.4,1);transition-property: opacity;}'
+      $('<div id="copied_song_info_outer"><div id="copied_song_info_inner"></div></div>').appendTo('.Root__main-view')
+    }
+    const copiedSongInfoOuter = $('#copied_song_info_outer')
+    const copiedSongInfoInner = $('#copied_song_info_inner')
+
+    copiedSongInfoOuter.css('display', 'inline-block')
+    copiedSongInfoInner.css('opacity', 1)
+    copiedSongInfoInner.html(str.replace('\n', '<br>\n'))
+
+    showInfoID = window.setTimeout(function () {
+      copiedSongInfoInner.css('opacity', 0)
+      showInfoID = window.setTimeout(function () {
+        copiedSongInfoOuter.css('display', 'none')
+      }, 700)
+    }, 4000)
+  }
+
+  const getSongTitle = function ($titlenodes) {
+    let titleText
+
+    if ($titlenodes && $titlenodes.length > 0) {
+      titleText = $titlenodes.text()
+      if (titleText && titleText.trim()) {
+        return titleText.trim()
+      }
+    }
+
+    if ($('.track-info__name').length > 0) {
+      titleText = $('.track-info__name')[0].innerText
+      if (titleText && titleText.trim()) {
+        return titleText.trim()
+      }
+    }
+
+    return ''
+  }
+
+  const getArtistName = function ($artistnodes) {
+    let artistText
+
+    if (typeof $artistnodes === 'string') {
+      return $artistnodes.trim()
+    }
+
+    if ($artistnodes) {
+      const artistTextNodes = $artistnodes.not((i, e) => e.className)
+      if (artistTextNodes.length === 1) {
+        artistText = artistTextNodes.text()
+        if (artistText && artistText.trim()) {
+          return artistText.trim()
+        }
+      } else if (artistTextNodes.length > 1) {
+        artistText = artistTextNodes.map((i, e) => e.textContent.trim()).get()
+        artistText = artistText.join(', ')
+        return artistText.trim()
+      }
+
+      // If in playlist:
+      if ($artistnodes.find('.ellipsis-one-line').length > 0) {
+        artistText = $artistnodes.find('.ellipsis-one-line')[0].innerText
+        if (artistText && artistText.trim()) {
+          return artistText.trim()
+        }
+      }
+      if ($artistnodes.find('.standalone-ellipsis-one-line').length > 0) {
+        artistText = $artistnodes.find('.standalone-ellipsis-one-line')[0].innerText
+        if (artistText && artistText.trim()) {
+          return artistText.trim()
+        }
+      }
+
+      if ($artistnodes.find('a[href^="/artist/"]').length > 0) {
+        return $.map($artistnodes.find('a[href^="/artist/"]'), (element) => $(element).text().trim()).join(', ')
+      }
+    }
+
+    if (document.location.pathname.startsWith('/artist/')) {
+      if ($('.content.artist>div h1').length > 0) {
+        artistText = $('.content.artist>div h1')[0].textContent
+        if (artistText && artistText.trim()) {
+          return artistText.trim()
+        }
+      } else {
+        if ($('.Root__main-view h1').length > 0) {
+          artistText = $('.Root__main-view h1')[0].textContent
+          if (artistText && artistText.trim()) {
+            return artistText.trim()
+          }
+        }
+      }
+    }
+
+    if (document.location.pathname.startsWith('/album/')) {
+      artistText = document.querySelector('.os-content h1').textContent
+      if (artistText && artistText.trim()) {
+        return artistText.trim()
+      }
+    }
+
+    if ($('.track-info__artists').length > 0) {
+      artistText = $('.track-info__artists')[0].innerText
+      if (artistText && artistText.trim()) {
+        return artistText.trim()
+      }
+    }
+
+    return ''
+  }
+
+  const populateContextMenu = function (ev) {
+    console.debug('populateContextMenu')
+    let $this = $(this)
+
+    let menu = $('.react-contextmenu--visible')
+    if (!menu[0]) {
+      menu = $('#context-menu-root')
+    }
+    if (!menu[0]) {
+      menu = $('#context-menu')
+    }
+
+    let title = $this.find('.tracklist-name')
+    if (title.length === 0) {
+      title = $this.find('div[data-testid="tracklist-row"] .standalone-ellipsis-one-line')
+    }
+    if (title.length === 0) {
+      title = $this.find('div[role="gridcell"] img').parent().find('.standalone-ellipsis-one-line')
+    }
+    if (title.length === 0 && $this.hasClass('now-playing')) {
+      title = $this.find('.ellipsis-one-line>.ellipsis-one-line').eq(0)
+    }
+    let artist = $this.find('.artists-album span')
+    if (artist.length === 0 && $this.hasClass('now-playing')) {
+      artist = $this.find('.ellipsis-one-line>.ellipsis-one-line').eq(1)
+    }
+    if (artist.length === 0 && title.length === 0 && $this.find('[data-testid="nowplaying-track-link"]')) {
+      title = $this.find('[data-testid="nowplaying-track-link"]')
+      artist = $this.find('[data-testid="nowplaying-artist"]')
+    }
+    if (artist.length === 0) {
+      if ($this.find('.second-line').length !== 0) {
+        artist = $this.find('.second-line') // If in playlist
+      }
+      if ($this.parents('.now-playing').length !== 0) {
+        // Copy fof NPB
+        $this = $($this.parents('.now-playing')[0])
+        if ($this.find('.ellipsis-one-line a[href^="/artist/"]').length !== 0) {
+          artist = $this.find('.ellipsis-one-line a[href^="/artist/"]')
+          title = $this.find('a[data-testid="nowplaying-track-link"]')
+        }
+      }
+      if ($this.parents('.Root__now-playing-bar').length !== 0) {
+        $this = $($this.parents('.Root__now-playing-bar')[0])
+        if ($this.find('.ellipsis-one-line a[href^="/artist/"],.standalone-ellipsis-one-line a[href^="/artist/"]').length !== 0) {
+          artist = $this.find('.ellipsis-one-line a[href^="/artist/"],.standalone-ellipsis-one-line a[href^="/artist/"]')
+          title = $this.find('.ellipsis-one-line a[href^="/album/"],.ellipsis-one-line a[href^="/track/"],.standalone-ellipsis-one-line a[href^="/album/"],.standalone-ellipsis-one-line a[href^="/track/"]')
+        } else if ($this.find('[data-testid="context-item-info-artist"]').length !== 0) {
+          artist = $this.find('a[data-testid="context-item-info-artist"][href^="/artist/"],[data-testid="context-item-info-artist"] a[href^="/artist/"]')
+          title = $this.find('[data-testid="context-item-info-title"] a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/track/"]')
+        } else if ($this.find('a[href^="/artist/"],a[href^="/album/"],a[href^="/track/"]').length > 1) {
+          artist = $this.find('a[href^="/artist/"]')
+          title = $this.find('a[href^="/album/"],a[href^="/track/"]')
+        }
+      }
+
+      const artistGridCell = $this.find('*[role="gridcell"] a[href^="/artist/"]')
+      if (artistGridCell.length > 0) {
+        artist = artistGridCell.parent()
+        title = $(artistGridCell.parent().parent().find('span')[0])
+        if (artist.has(title)) {
+          if (artist.parent().parent().find('div.standalone-ellipsis-one-line').length) {
+            title = $(artist.parent().parent().find('div.standalone-ellipsis-one-line')[0])
+          }
+        }
+      }
+
+      const artistContent = $('.content.artist>div h1')
+      if (artistContent.length > 0) {
+        // Artist page
+        artist = artistContent[0].textContent
+      }
+    }
+
+    if (title && artist && menu[0]) {
+      const titleText = getSongTitle(title)
+      const artistText = getArtistName(artist)
+      if (!titleText || !artistText) {
+        return
+      }
+
+      // Create context menu entry
+      if (menu.attr('id').startsWith('context-menu')) {
+        let entry = menu.find('.gmcopytrackinfo')
+        if (entry.length === 0 || !entry[0]) {
+          let li = menu.find('li')
+          if (li.length > 4) {
+            li = $(li[4])
+          } else {
+            li = $(li[0])
+          }
+          entry = $('<li role="presentation"><button role="menuitem" tabindex="-1"><span as="span" dir="auto">' + menuString + '</span></button></li>')
+            .appendTo(li)
+            .click(function (ev) {
+              // Copy strings to clipboard
+              const s = entry.data('gmcopy')
+              if (typeof GM_setClipboard !== 'undefined') {
+                GM_setClipboard(s)
+              } else if (GM.setClipboard) {
+                GM.setClipboard(s)
+              } else {
+                navigator.clipboard.writeText(s)
+              }
+              showInfo(copiedString.replace('%s', s))
+              menu.parent().remove()
+            })
+            // Allow copy classes from an existing entry
+          entry.addClass('gmcopytrackinfo')
+          entry.addClass(li.attr('class'))
+          entry.find('button').addClass(li.find('button').attr('class'))
+          entry.find('button span').addClass(li.find('button span').attr('class'))
+        }
+        entry.data('gmcopy', artistText + ' - ' + titleText)
+      }
+    }
+  }
+
+  const onContextMenu = function (ev) {
+    // Wait for the React context menu to open
+    const t = this
+    window.setTimeout(function () {
+      populateContextMenu.call(t, ev)
+    }, 200)
+  }
+
+  const bindEvents = function () {
+    // Remove all events and then reattach them
+    if ($('.react-contextmenu-wrapper').length > 0) {
+      $('.react-contextmenu-wrapper').unbind('.gmcopytrackinfo').bind('contextmenu.gmcopytrackinfo', onContextMenu)
+    } else {
+      $('*[data-testid="tracklist-row"],.now-playing,*[data-testid="now-playing-widget"]').unbind('.gmcopytrackinfo').bind('contextmenu.gmcopytrackinfo', onContextMenu)
+    }
+  }
+
+  window.setTimeout(bindEvents, 500)
+
+  window.setInterval(bindEvents, 1000)
+})()
+
 ].join("\n");
 if (typeof GM_addStyle != "undefined") {
 	GM_addStyle(css);
@@ -1715,8 +1761,676 @@ if (typeof GM_addStyle != "undefined") {
 	if (heads.length > 0) {
 		heads[0].appendChild(node);
 	} else {
-		// no head yet, stick it wherever
 		document.documentElement.appendChild(node);
 	}
 }
 })();
+
+// Hide Podcasts!
+(function HidePodcasts() {
+    setTimeout(() => {
+        const mainView = document.getElementsByClassName("Root__main-view")[0];
+
+        const observer = new MutationObserver(() => {
+            const elements = document.querySelectorAll(`a[href*="/episode/"], a[href*="/show/"]`);
+
+            for (const element of elements) {
+                let parent = element.parentElement;
+                while (!parent || parent.tagName !== "SECTION") {
+                    parent = parent.parentElement;
+                }
+
+                parent.style.display = "none";
+            }
+        });
+
+        observer.observe(mainView, { attributes: true, childList: true, subtree: true });
+    }, 7000);
+
+
+
+
+    //V 0.4  Addition of Copying tracks, and addition of Genius Lyric if Spotify doesn't already have it
+
+'use strict'
+
+const scriptName = 'No Spotify Lyrics? Then Lets Check Genius!'
+let genius
+let resizeLeftContainer
+let resizeContainer
+let optionCurrentSize = 30.0
+GM.getValue('optioncurrentsize', optionCurrentSize).then(function (value) {
+  optionCurrentSize = value
+})
+
+function closeModalUIs () {
+  document.querySelectorAll('.modal_ui_spotify_genius_lyrics').forEach(div => div.remove())
+}
+
+function alertUI (text, buttons = { OK: true }) {
+  return new Promise(function (resolve) {
+    const bg = document.body.appendChild(document.createElement('div'))
+    bg.style.display = 'block'
+    bg.style.position = 'fixed'
+    bg.style.backgroundColor = 'rgba(0,0,0,0.5)'
+    bg.style.top = '0'
+    bg.style.left = '0'
+    bg.style.width = '100%'
+    bg.style.height = '100%'
+    bg.style.zIndex = '999'
+    bg.classList.add('modal_ui_spotify_genius_lyrics')
+    const div = bg.appendChild(document.createElement('div'))
+    div.style.display = 'block'
+    div.style.position = 'fixed'
+    div.style.backgroundColor = '#bbb'
+    div.style.top = '50%'
+    div.style.left = '50%'
+    div.style.transform = 'translate(-50%, -50%)'
+    div.style.padding = '20px'
+    div.style.borderRadius = '10px'
+    div.style.boxShadow = '0 0 10px 0 rgba(0,0,0,0.5)'
+    div.style.zIndex = '1000'
+    div.style.width = '400px'
+    div.style.height = 'auto'
+    div.style.textAlign = 'center'
+    div.style.fontSize = '20px'
+    div.style.lineHeight = '1.5'
+    div.style.fontFamily = 'sans-serif'
+    div.style.color = 'black'
+    div.style.wordBreak = 'break-word'
+    div.style.overflowWrap = 'break-word'
+    div.style.whiteSpace = 'pre-wrap'
+    div.style.overflow = 'auto'
+    div.style.maxHeight = '80%'
+    div.style.maxWidth = '80%'
+    div.innerHTML = text
+    const buttonDiv = div.appendChild(document.createElement('div'))
+    buttonDiv.style.marginTop = '20px'
+    Object.entries(buttons).forEach(function (pair) {
+      const button = buttonDiv.appendChild(document.createElement('button'))
+      button.style.margin = '0 10px'
+      button.style.padding = '10px'
+      button.style.borderRadius = '5px'
+      button.style.border = 'none'
+      button.style.backgroundColor = '#ddd'
+      button.style.color = 'black'
+      button.style.fontFamily = 'sans-serif'
+      button.style.fontSize = '16px'
+      button.style.cursor = 'pointer'
+      button.innerHTML = pair[0]
+      button.addEventListener('click', function () {
+        bg.remove()
+        resolve(pair[1])
+      })
+    })
+  })
+}
+
+function confirmUI (text) {
+  return alertUI(text, {
+    OK: true,
+    Cancel: false
+  })
+}
+
+function setFrameDimensions (container, iframe, bar) {
+  iframe.style.width = container.clientWidth - 6 + 'px'
+  try {
+    iframe.style.height = (document.querySelector('.Root__nav-bar nav,nav.Root__nav-bar').clientHeight + document.querySelector('.Root__now-playing-bar').clientHeight - bar.clientHeight) + 'px'
+  } catch (e) {
+    console.error(e)
+    iframe.style.height = document.documentElement.clientHeight + 'px'
+  }
+}
+
+function onResize () {
+  const iframe = document.getElementById('lyricsiframe')
+  if (iframe) {
+    iframe.style.width = document.getElementById('lyricscontainer').clientWidth - 1 + 'px'
+    try {
+      iframe.style.height = (document.querySelector('.Root__nav-bar nav,nav.Root__nav-bar').clientHeight + document.querySelector('.Root__now-playing-bar').clientHeight - document.querySelector('.lyricsnavbar').clientHeight) + 'px'
+    } catch (e) {
+      console.error(e)
+      iframe.style.height = document.documentElement.clientHeight + 'px'
+    }
+  }
+}
+function initResize () {
+  window.addEventListener('mousemove', onMouseMoveResize)
+  window.addEventListener('mouseup', stopResize)
+  window.removeEventListener('resize', onResize)
+}
+function onMouseMoveResize (e) {
+  optionCurrentSize = 100 - (e.clientX / document.body.clientWidth * 100)
+  resizeLeftContainer.style.width = (100 - optionCurrentSize) + '%'
+  resizeContainer.style.width = optionCurrentSize + '%'
+}
+function stopResize () {
+  window.removeEventListener('mousemove', onMouseMoveResize)
+  window.removeEventListener('mouseup', stopResize)
+  window.addEventListener('resize', onResize)
+  onResize()
+  GM.setValue('optioncurrentsize', optionCurrentSize)
+}
+function getCleanLyricsContainer () {
+  document.querySelectorAll('.loadingspinner').forEach((spinner) => spinner.remove())
+
+  const topContainer = document.querySelector('.Root__top-container')
+  if (!document.getElementById('lyricscontainer')) {
+    topContainer.style.width = (100 - optionCurrentSize) + '%'
+    topContainer.style.float = 'left'
+    resizeContainer = document.createElement('div')
+    resizeContainer.id = 'lyricscontainer'
+    resizeContainer.style = 'min-height: 100%; width: ' + optionCurrentSize + '%; position: relative; z-index: 1; float:left;background-color: rgb(80, 80, 80);background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgb(18, 18, 18))'
+    topContainer.parentNode.insertBefore(resizeContainer, topContainer.nextSibling)
+  } else {
+    resizeContainer = document.getElementById('lyricscontainer')
+    resizeContainer.innerHTML = ''
+    topContainer.parentNode.insertBefore(resizeContainer, topContainer.nextSibling)
+  }
+  resizeLeftContainer = topContainer
+  resizeContainer.style.zIndex = 10
+
+  return document.getElementById('lyricscontainer')
+}
+
+function onNewSongPlaying () {
+  closeModalUIs()
+}
+
+async function onNoResults (songTitle, songArtistsArr) {
+  const showSpotifyLyricsEnabled = await GM.getValue('show_spotify_lyrics', true)
+  const submitSpotifyLyricsEnabled = await GM.getValue('submit_spotify_lyrics', true)
+  const submitSpotifyLyricsIgnored = JSON.parse(await GM.getValue('submit_spotify_lyrics_ignore', '[]'))
+
+  const key = songTitle + ' - ' + songArtistsArr.join(', ')
+  if (submitSpotifyLyricsIgnored.indexOf(key) !== -1) {
+    // User has previously clicked "Cancel" on the confirm dialog for this song
+    console.debug('onNoResults() Key "' + key + '" is ignored')
+    return
+  }
+
+  if (showSpotifyLyricsEnabled && document.querySelector('[data-testid="lyrics-button"]')) {
+    // Open lyrics if they are not already open
+    if (!document.querySelector('[data-testid="fullscreen-lyric"]')) {
+      document.querySelector('[data-testid="lyrics-button"]').click()
+    }
+    // Wait one second for lyrics to open
+    window.setTimeout(async function () {
+      const lyrics = Array.from(document.querySelectorAll('[data-testid="fullscreen-lyric"]')).map(div => div.textContent).join('\n')
+      if (submitSpotifyLyricsEnabled && lyrics && lyrics.trim()) {
+        // Add this song to the ignored list so we don't ask again
+        GM.getValue('submit_spotify_lyrics_ignore', '[]').then(async function (s) {
+          const arr = JSON.parse(s)
+          arr.push(key)
+          await GM.setValue('submit_spotify_lyrics_ignore', JSON.stringify(arr))
+        })
+        // Ask user if they want to submit the lyrics
+        closeModalUIs()
+        if (await confirmUI(`Genius.com doesn't have the lyrics for this song but Spotify has the lyrics. Would you like to submit the lyrics from Spotify to Genius.com?\n(You need a Genius.com account to do this)\n${songTitle} by ${songArtistsArr.join(', ')}`)) {
+          submitLyricsToGenius(songTitle, songArtistsArr, lyrics)
+        } else {
+          // Once (globally) show the suggestion to disable this feature
+          GM.getValue('suggest_to_disable_submit_spotify_lyrics', true).then(async function (suggestToDisable) {
+            if (suggestToDisable) {
+              alertUI('You can disable this suggestion in the options of the script.')
+              GM.setValue('suggest_to_disable_submit_spotify_lyrics', false)
+            }
+          })
+        }
+      }
+    }, 1000)
+  }
+}
+
+function submitLyricsToGenius (songTitle, songArtistsArr, lyrics) {
+  GM.setValue('submitToGenius', JSON.stringify({
+    lyrics,
+    songTitle,
+    songArtistsArr
+  })).then(function () {
+    GM_openInTab('https://genius.com/songs/new')
+  })
+}
+
+async function fillGeniusForm () {
+  const data = JSON.parse(await GM.getValue('submitToGenius', '{}'))
+  await GM.setValue('submitToGenius', '{}')
+  if ('lyrics' in data && 'songTitle' in data && 'songArtistsArr' in data) {
+    document.getElementById('song_primary_artist').value = data.songArtistsArr.join(', ')
+    document.getElementById('song_title').value = data.songTitle
+    document.getElementById('song_lyrics').value = data.lyrics
+
+    // Create keyup event on song name, to generate the warning about duplicates
+    const evt = new KeyboardEvent('keyup', { bubbles: true, cancelable: true, key: 'e', char: 'e' })
+    document.getElementById('song_primary_artist').dispatchEvent(evt)
+    document.getElementById('song_title').dispatchEvent(evt)
+  }
+}
+
+function hideLyrics () {
+  addLyricsButton()
+  document.querySelectorAll('.loadingspinner').forEach((spinner) => spinner.remove())
+  if (document.getElementById('lyricscontainer')) {
+    document.getElementById('lyricscontainer').parentNode.removeChild(document.getElementById('lyricscontainer'))
+    const topContainer = document.querySelector('.Root__top-container')
+    topContainer.style.width = '100%'
+    topContainer.style.removeProperty('float')
+  }
+}
+
+function listSongs (hits, container, query) {
+  if (!container) {
+    container = getCleanLyricsContainer()
+  }
+  container.style.backgroundColor = 'rgba(0,0,0,.8)'
+
+  // Back to search button
+  const backToSearchButton = document.createElement('a')
+  backToSearchButton.href = '#'
+  backToSearchButton.appendChild(document.createTextNode('Back to search'))
+  backToSearchButton.addEventListener('click', function backToSearchButtonClick (ev) {
+    ev.preventDefault()
+    if (query) {
+      showSearchField(query)
+    } else if (genius.current.artists) {
+      showSearchField(genius.current.artists + ' ' + genius.current.title)
+    } else {
+      showSearchField()
+    }
+  })
+
+  const separator = document.createElement('span')
+  separator.setAttribute('class', 'second-line-separator')
+  separator.setAttribute('style', 'padding:0px 3px')
+  separator.appendChild(document.createTextNode('•'))
+
+  // Hide button
+  const hideButton = document.createElement('a')
+  hideButton.href = '#'
+  hideButton.appendChild(document.createTextNode('Hide'))
+  hideButton.addEventListener('click', function hideButtonClick (ev) {
+    ev.preventDefault()
+    hideLyrics()
+  })
+
+  // List search results
+  const trackhtml = `
+<div class="geniushiticon">
+  <div class="geniushiticonout">
+    <span style="color:silver;font-size:1.0em">🅖</span>
+  </div>
+  <div class="geniushiticonover">
+    <span style="opacity:0.7;font-size:1.5em">📄</span>
+  </div>
+</div>
+<div class="geniushitname">
+  <div class="track-name-wrapper tracklist-top-align">
+    <div class="tracklist-name ellipsis-one-line" dir="auto">$title</div>
+    <div class="second-line">
+      <span class="ellipsis-one-line" dir="auto">$artist</span>
+      <span class="second-line-separator" aria-label="in album">•</span>
+      <span class="ellipsis-one-line" dir="auto">👁 <span style="font-size:0.8em">$stats.pageviews</span></span>
+      <span class="second-line-separator" aria-label="in album">•</span>
+      <span class="geniusbadge">$lyrics_state</span>
+    </div>
+  </div>
+</div>`
+  container.innerHTML = '<section class="tracklist-container"><ol class="tracklist geniushits" style="width:99%"></ol></section>'
+
+  container.insertBefore(hideButton, container.firstChild)
+  container.insertBefore(separator, container.firstChild)
+  container.insertBefore(backToSearchButton, container.firstChild)
+
+  const ol = container.querySelector('ol.tracklist')
+  const searchresultsLengths = hits.length
+  const title = genius.current.title
+  const artists = genius.current.artists
+  const onclick = function onclick () {
+    genius.f.rememberLyricsSelection(title, artists, this.dataset.hit)
+    genius.f.showLyrics(JSON.parse(this.dataset.hit), searchresultsLengths)
+  }
+  hits.forEach(function forEachHit (hit) {
+    const li = ol.appendChild(document.createElement('li'))
+    li.setAttribute('class', 'tracklist-row')
+    li.setAttribute('role', 'button')
+    li.innerHTML = trackhtml.replace(/\$title/g, hit.result.title_with_featured).replace(/\$artist/g, hit.result.primary_artist.name).replace(/\$lyrics_state/g, hit.result.lyrics_state).replace(/\$stats\.pageviews/g, 'pageviews' in hit.result.stats ? genius.f.metricPrefix(hit.result.stats.pageviews, 1) : ' - ')
+    li.dataset.hit = JSON.stringify(hit)
+
+    li.addEventListener('click', onclick)
+
+    const geniushitname = li.querySelector('.geniushitname')
+    if (geniushitname.clientWidth > (li.clientWidth - 30)) {
+      geniushitname.style.width = (li.clientWidth - 30) + 'px'
+      geniushitname.classList.add('runningtext')
+    }
+  })
+}
+
+const songTitleQuery = 'a[data-testid="nowplaying-track-link"],.Root__now-playing-bar .ellipsis-one-line a[href^="/track/"],.Root__now-playing-bar .ellipsis-one-line a[href^="/album/"],.Root__now-playing-bar .standalone-ellipsis-one-line a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/track/"]'
+
+function addLyrics (force, beLessSpecific) {
+  let songTitle = document.querySelector(songTitleQuery).innerText
+  songTitle = genius.f.cleanUpSongTitle(songTitle)
+
+  let musicIsPlaying = false
+  if (document.querySelector('.now-playing-bar .player-controls__buttons .control-button.control-button--circled')) {
+    musicIsPlaying = document.querySelector('.now-playing-bar .player-controls__buttons .control-button.control-button--circled').className.toLowerCase().indexOf('pause') !== -1
+  } else if (document.querySelector('.Root__now-playing-bar .player-controls__buttons button')) {
+    document.querySelectorAll('.Root__now-playing-bar .player-controls__buttons button').forEach(function (button) {
+      if (button.getAttribute('aria-label') === 'Pause' ||
+          button.innerHTML.indexOf('M3 2h3v12H3zM10 2h3v12h-3z') !== -1 ||
+          button.innerHTML.indexOf('M3 2h3v12H3zm7 0h3v12h-3z') !== -1 ||
+          button.innerHTML.indexOf('M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0') !== -1
+      ) {
+        musicIsPlaying = true
+      }
+    })
+  }
+
+  const songArtistsArr = []
+  document.querySelectorAll('.Root__now-playing-bar .ellipsis-one-line a[href^="/artist/"],.Root__now-playing-bar .standalone-ellipsis-one-line a[href^="/artist/"],a[data-testid="context-item-info-artist"][href^="/artist/"],[data-testid="context-item-info-artist"] a[href^="/artist/"]').forEach((e) => songArtistsArr.push(e.innerText))
+
+  genius.f.loadLyrics(force, beLessSpecific, songTitle, songArtistsArr, musicIsPlaying)
+}
+
+let lastPos = null
+function updateAutoScroll () {
+  let pos = null
+  try {
+    const els = document.querySelectorAll('.Root__now-playing-bar [data-testid="playback-position"],.Root__now-playing-bar [data-testid="playback-duration"]')
+    if (els.length !== 2) {
+      throw new Error(`Expected 2 playback elements, found ${els.length}`)
+    }
+    const [current, total] = Array.from(els).map(e => e.textContent.trim()).map(s => s.split(':').reverse().map((d, i, a) => parseInt(d) * Math.pow(60, i)).reduce((a, c) => a + c, 0))
+    pos = current / total
+  } catch (e) {
+    // Could not parse current song position
+    pos = null
+    console.debug(`Could not parse song position: ${e}`)
+  }
+  if (pos != null && !Number.isNaN(pos) && lastPos !== pos) {
+    genius.f.scrollLyrics(pos)
+    lastPos = pos
+  }
+}
+
+function showSearchField (query) {
+  const b = getCleanLyricsContainer()
+  const div = b.appendChild(document.createElement('div'))
+  div.style = 'padding:5px'
+  div.appendChild(document.createTextNode('Search genius.com: '))
+
+  // Hide button
+  const hideButton = div.appendChild(document.createElement('a'))
+  hideButton.href = '#'
+  hideButton.style = 'float: right; padding-right: 10px;'
+  hideButton.appendChild(document.createTextNode('Hide'))
+  hideButton.addEventListener('click', function hideButtonClick (ev) {
+    ev.preventDefault()
+    hideLyrics()
+  })
+
+  const br = div.appendChild(document.createElement('br'))
+  br.style.clear = 'right'
+
+  div.style.paddingRight = '15px'
+  const input = div.appendChild(document.createElement('input'))
+  input.style = 'width:92%;border:0;border-radius:500px;padding:8px 5px 8px 25px;text-overflow:ellipsis'
+  input.placeholder = 'Search genius.com...'
+  if (query) {
+    input.value = query
+  } else if (genius.current.artists) {
+    input.value = genius.current.artists
+  }
+  input.addEventListener('change', function onSearchLyricsButtonClick () {
+    this.style.color = 'black'
+    if (input.value) {
+      genius.f.searchByQuery(input.value, b)
+    }
+  })
+  input.addEventListener('keyup', function onSearchLyricsKeyUp (ev) {
+    this.style.color = 'black'
+    if (ev.keyCode === 13) {
+      ev.preventDefault()
+      if (input.value) {
+        genius.f.searchByQuery(input.value, b)
+      }
+    }
+  })
+  input.focus()
+  const mag = div.appendChild(document.createElement('div'))
+  mag.style.marginTop = '-27px'
+  mag.style.marginLeft = '3px'
+  mag.appendChild(document.createTextNode('🔎'))
+}
+
+function addLyricsButton () {
+  if (document.getElementById('showlyricsbutton')) {
+    return
+  }
+  const b = document.createElement('div')
+  b.setAttribute('id', 'showlyricsbutton')
+    // change the size of the 🅖 icon off to the right hand side
+  b.setAttribute('style', 'position:absolute; top: 0px; right:0px; font-size:10px; color:#ffff64; cursor:pointer; z-index:3000;')
+  b.setAttribute('title', 'Load lyrics from genius.com')
+  b.appendChild(document.createTextNode('🅖'))
+  b.addEventListener('click', function onShowLyricsButtonClick () {
+    genius.option.autoShow = true // Temporarily enable showing lyrics automatically on song change
+    window.clearInterval(genius.iv.main)
+    genius.iv.main = window.setInterval(main, 2000)
+    b.remove()
+    addLyrics(true)
+  })
+  document.body.appendChild(b)
+  if (b.clientWidth < 10) {
+    b.setAttribute('style', 'position:absolute; top: 0px; right:0px; font-size:14px; background-color:#0007; color:#ffff64; cursor:pointer; z-index:3000;border:1px solid #ffff64;border-radius: 100%;padding: 0px 5px;font-size: 10px;')
+    b.innerHTML = 'G'
+  }
+}
+
+function configShowSpotifyLyrics (div) {
+  // Input: Show lyrics from Spotify if no lyrics found on genius.com
+  const id = 'input945455'
+
+  const input = div.appendChild(document.createElement('input'))
+  input.type = 'checkbox'
+  input.id = id
+  GM.getValue('show_spotify_lyrics', true).then(function (v) {
+    input.checked = v
+  })
+
+  const label = div.appendChild(document.createElement('label'))
+  label.setAttribute('for', id)
+  label.appendChild(document.createTextNode('Open lyrics from Spotify if no lyrics found on genius.com'))
+
+  const onChange = function onChangeListener () {
+    GM.setValue('show_spotify_lyrics', input.checked)
+  }
+  input.addEventListener('change', onChange)
+}
+
+function configSubmitSpotifyLyrics (div) {
+  // Input: Submit lyrics from Spotify to genius.com
+  const id = 'input337565'
+
+  const input = div.appendChild(document.createElement('input'))
+  input.type = 'checkbox'
+  input.id = id
+  input.setAttribute('title', '...in case Spotify has lyrics that genius.com does not have')
+  GM.getValue('submit_spotify_lyrics', true).then(function (v) {
+    input.checked = v
+  })
+
+  const label = div.appendChild(document.createElement('label'))
+  label.setAttribute('for', id)
+  label.appendChild(document.createTextNode('Suggest to submit lyrics from Spotify to genius.com'))
+  label.setAttribute('title', '...in case Spotify has lyrics that genius.com does not have')
+
+  const onChange = function onChangeListener () {
+    GM.setValue('submit_spotify_lyrics', input.checked)
+  }
+  input.addEventListener('change', onChange)
+}
+
+function addCss () {
+  document.head.appendChild(document.createElement('style')).innerHTML = `
+  .lyricsiframe {
+    opacity:0.1;
+    transition:opacity 2s;
+    margin:0px;
+    padding:0px;
+  }
+  .loadingspinnerholder {
+    position:absolute;
+    top:100px;
+    left:100px;
+    cursor:progress
+  }
+  .lyricsnavbar span,.lyricsnavbar a:link,.lyricsnavbar a:visited {
+    color: rgb(179, 179, 179);
+    text-decoration:none;
+    transition:color 400ms;
+  }
+  .lyricsnavbar a:hover,.lyricsnavbar span:hover {
+    color:white;
+    text-decoration:none;
+  }
+
+  .geniushits li {
+    cursor:pointer
+  }
+  .geniushits li:hover {
+    background-color: #fff5;
+    border-radius: 5px;
+  }
+  .geniushits li .geniushiticonout {
+    display:inline-block
+  }
+  .geniushits li:hover .geniushiticonout {
+    display:none
+  }
+  .geniushits li .geniushiticonover {
+    display:none
+  }
+  .geniushits li:hover .geniushiticonover {
+    display:inline-block
+  }
+  .geniushiticon {
+    width:25px;
+    height:2em;
+    display:inline-block;
+  }
+  .geniushitname {
+    display:inline-block;
+    position: relative;
+    overflow:hidden
+  }
+  .geniushitname .tracklist-name {
+    font-size: 16px;
+    font-weight: 400;
+    color:white;
+  }
+  .geniushitname.runningtext .tracklist-name {
+    display: inline-block;
+    position: relative;
+    animation: 3s linear 0s infinite alternate runtext;
+  }
+
+  .geniushits .second-line-separator {
+    opacity: 0.7
+  }
+
+  .geniushitname .geniusbadge {
+    color: #121212;
+    background-color: hsla(0,0%,100%,.6);
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-size: 9px;
+    line-height: 10px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 2px;
+    margin: 0 3px;
+  }
+
+  @keyframes runtext {
+    0%, 25% {
+      transform: translateX(0%);
+      left: 0%;
+    }
+    75%, 100% {
+      transform: translateX(-100%);
+      left: 100%;
+    }
+  }
+
+  `
+}
+
+function main () {
+  if (document.querySelector('.Root__now-playing-bar .playback-bar') && document.querySelector(songTitleQuery)) {
+    if (genius.option.autoShow) {
+      addLyrics()
+    } else {
+      addLyricsButton()
+    }
+  }
+}
+    window.setInterval(function removeAds () {
+  // Remove "premium" button
+    try {
+      const button = document.querySelector('.Root__top-bar header>button')
+      if (button && button.outerHTML.toLowerCase().indexOf('premium') !== -1) {
+        button.style.display = 'none'
+      }
+    } catch (e) {
+      console.warn(e)
+    }
+    // Remove "install app" button
+    try {
+      const button = document.querySelector('a[href*="/download"]')
+      if (button) {
+        button.parentNode.style.display = 'none'
+      }
+    } catch (e) {
+      console.warn(e)
+    }
+  }, 3000)
+
+  genius = geniusLyrics({
+    GM,
+    scriptName,
+    scriptIssuesURL: 'https://github.com/SenpaiHunters/SpotOn/issues',
+    scriptIssuesTitle: 'Report problem: https://github.com/SenpaiHunters/SpotOn/issues',
+    domain: 'https://open.spotify.com',
+    emptyURL: 'https://open.spotify.com/robots.txt',
+    main,
+    addCss,
+    listSongs,
+    showSearchField,
+    addLyrics,
+    hideLyrics,
+    getCleanLyricsContainer,
+    setFrameDimensions,
+    initResize,
+    onResize,
+    config: [configShowSpotifyLyrics, configSubmitSpotifyLyrics],
+    toggleLyricsKey: {
+      shiftKey: true,
+      ctrlKey: false,
+      altKey: false,
+      key: 'L'
+    },
+    onNoResults,
+    onNewSongPlaying
+  })
+
+  GM.registerMenuCommand(scriptName + ' - Show lyrics', () => addLyrics(true))
+  GM.registerMenuCommand(scriptName + ' - Options', () => genius.f.config())
+  window.setInterval(updateAutoScroll, 7000)
+}
+)();
+// End of V 0.4! Stay tuned for more - Remember to follow my socials!!!
+// GitHub (support, and new code) - https://github.com/SenpaiHunters/SpotOn/issues
+// Greasyfork.org - https://greasyfork.org/en/scripts/452921-spotify-spoton
