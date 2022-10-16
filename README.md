@@ -1,5 +1,5 @@
 # **SpotOn *[V 0.4]***
-### The Spotify Overhaul!
+### The complete _Spotify_ __Overhaul!__
 ##### Made by ***Kami***
 
 
@@ -42,7 +42,7 @@
 # What is SpotOn?
 
 
-SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com/) design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned __hidden__ Now Playing Bar __(scroll down to see it, want to see how it looks, look above)__, a changeable time to the right of the progress bar __(Refer to the above image to see this, to invoke it, simply click it)__, a blurred backdrop, ___rainbow controls___ __(These can be turned off simply by removing the command line)__ a hidden Spotify Logo __(Can be turned back on)__, removal of the bottom content bar, that hosts the social links of Spotify. Capitalisation of the first letter _(can turn off by removing ___first-letter {", "    text-transform: uppercase !important;}",___. But try it before you remove it, you might like it!)_
+SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com/) design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned __hidden__ Now Playing Bar __(scroll down to see it, want to see how it looks, look above)__, a changeable time to the right of the progress bar __(Refer to the above image to see this, to invoke it, simply click it)__, a blurred backdrop, Auto lyric search on Genius, ___rainbow controls [Affected buttons - Full screen, lyrics, like song, queue, devices, and volume)___ __(This can be turned off simply by removing the command line)__ a hidden Spotify Logo __(Can be turned back on)__, hidden 'install' app, hidden podcasts, removal of the bottom content bar (which hosts the social links of Spotify). capitalisation of the first letter _(can turn off by removing ___first-letter {", "    text-transform: uppercase !important;}",___. But try it before you remove it, you might like it!)_, misc performance fixes, increased site wide readability, and so much more! 
 
 
 
@@ -54,10 +54,10 @@ This is incompatible with the installed app. If i get enough popularity i may lo
 unlikely, and very time consuming. 
 
 
-# How do i enable V 0.4 - No Spotify Lyrics? Then Let's Check Genius!
+# How do i enable V 0.4 - 'No Spotify Lyrics? Then Let's Check Genius!'
 
 
-### To enable it do follow this Step-By-Step!
+### To enable it, simply follow this Step-By-Step guide!
 1. Click on Tampermonkey (or any userscript)
 
 
@@ -73,15 +73,15 @@ unlikely, and very time consuming.
 
 
 3. It'll automatically load in, with the current playing song with the lyrics if Genius has it.
+      - If it's not auto loaded (1 sec of time) to the next lyrics press 'Wrong Lyrics'
+      - It'll bring you back to the search, if neither Genius nor Spotify has the lyrics it'll say "Lyrics not found'
 
 
 ![SCR-20221016-lc](https://user-images.githubusercontent.com/103985728/195988973-cb6dd937-d524-44e9-87ed-9bddaa1d94ce.jpeg)
 
 
-4. To hide the sidebar, either reload, or press 'hide'.  
-  - If it's not auto loaded (1 sec of time) to the next lyrics press 'Wrong Lyrics'
-    - It'll bring you back to the search, if neither Genius nor Spotify has the lyrics it'll say "Lyrics not found'
-    - If you reloaded repeat steps 1 & 2
+4. To hide the sidebar, either reload, or press 'hide'. 
+    - If you reloaded repeat steps 1 & 2 to reenable it.
 
 
 ![SCR-20221016-lj](https://user-images.githubusercontent.com/103985728/195988974-03d14f4d-e4ad-4370-b6d4-c48c7df55089.png)
