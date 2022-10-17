@@ -18,23 +18,24 @@
 # Preview
 
 
-### Spotify - SpotOn - Overhaul (Pic of Beta - will update when page is fully finished)
+### Spotify - SpotOn - Overhaul (Pic of Beta)
 
 
-![Spotify - SpotOn](https://user-images.githubusercontent.com/103985728/195334253-10d5066e-a6f8-4f45-91ba-3b3da8cc6959.jpeg)
-
+![Spotify - SpotOn](https://user-images.githubusercontent.com/103985728/196183158-14926d06-479d-43d5-b66f-1c30dab9bdaf.png)
 
 
 ### Hidden menu bar with remaining time
 
 
-![Hidden menu bar with remaining time](https://user-images.githubusercontent.com/103985728/195015082-d31a1ecf-1df0-4a8f-8051-c78f0bfef0a9.png)
+![Hidden menu bar with remaining time](https://user-images.githubusercontent.com/103985728/196182482-29b0d0f9-750a-4eca-bc9b-012b4537a534.png)
+
 
 
 ### Hidden menu bar with total time
 
 
-![Hidden menu bar with total time](https://user-images.githubusercontent.com/103985728/195015092-5f12509b-b312-4884-b179-35a3c4f7d064.png)
+![Hidden menu bar with total time](https://user-images.githubusercontent.com/103985728/196182656-23e6d4e0-390e-4b9a-b4f6-4d631d4218b8.png)
+
 
 
 # Copy track information, that being the __name__ of the song and the __artist__.
