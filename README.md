@@ -37,6 +37,19 @@
 ![Hidden menu bar with total time](https://user-images.githubusercontent.com/103985728/195015092-5f12509b-b312-4884-b179-35a3c4f7d064.png)
 
 
+# Copy track information, that being the __name__ of the song and the __artist__.
+
+
+### Imbedded into Spotify's Menu!
+
+
+![Imbedded right into Spotify's Menu](https://user-images.githubusercontent.com/103985728/195324014-728d02a2-af67-4051-8582-ae701f3861c9.png)
+
+
+### A clean copy box shows up!
+![A Imbedded box](https://user-images.githubusercontent.com/103985728/195324024-6f64e4ce-c5ce-41e8-945e-614f5bee2145.png)
+
+
 
 
 # What is SpotOn?
@@ -49,8 +62,7 @@ SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com
 # How do i use SpotOn?
 
 
-SpotOn needs the usage of Spotify Web Player and is not supported by Spotify's app. To be clear, only Spotify Web Player supports it. 
-This is incompatible with the installed app. If i get enough popularity i may look into a way of porting it to the app. But, that's very
+SpotOn needs the usage of [Spotify Web Player's](https://open.spotify.com/) and is not supported by Spotify's app. To be clear, only Spotify Web Player supports it. This is incompatible with the installed app. If i get enough popularity i may look into a way of porting it to the app. But, that's very
 unlikely, and very time consuming. 
 
 
@@ -98,7 +110,7 @@ unlikely, and very time consuming.
 # SpotOn's supported platforms?
 
 
-SpotOn is a complete **userscript/javascript**, which means you, the user, may _customise_ anything! The majority of the script is labelled with **// (entry)** or **"*/*/",** but not all of it. You'll need to Command + F (Find) some of these by typing the name out; I'm currently going over this and adding entries to the script.
+SpotOn is a complete **userscript/javascript**, which means you, the user, may _customise_ anything! The majority of the script is labelled with __// (entry)__ or __"*/*/"__ but not all of it. Sometimes you'll need to find it __(Command + F)__ by typing the name out; I'm currently going over this and adding entries to the script, some are not needed as they are not changeable, but what can be modified will have an entry.
 
 
 ### Chrome -  ✅
