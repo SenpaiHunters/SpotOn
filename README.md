@@ -4,18 +4,12 @@
 
 
 # Socials and Support
-<details><summary>Click me</summary>
-<p>
-
-### [Support via Discord](https://discord.gg/pjNn2M22ct)
+### [Support on Discord](https://discord.gg/pjNn2M22ct)
 ### [Buy me a coffee](https://www.buymeacoffee.com/KamiAMVS)
 ### [YouTube](https://www.youtube.com/channel/UCzSgmjr--CdIPmdkdiLRNow)
+### [Insta](https://www.instagram.com/yt_kami_/?hl=en&theme=dark)
 
-</p>
-</details>
-
-
-# Preview
+# What does SpotOn look like?
 
 
 ### Spotify - SpotOn - Overhaul (Pic of Beta)
@@ -38,7 +32,7 @@
 
 
 
-# Copy track information, that being the __name__ of the song and the __artist__.
+# Now copy track information!
 
 
 ### Imbedded into Spotify's Menu!
@@ -59,11 +53,150 @@
 SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com/) design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned __hidden__ Now Playing Bar __(scroll down to see it, want to see how it looks, look above)__, a changeable time to the right of the progress bar __(Refer to the above image to see this, to invoke it, simply click it)__, a blurred backdrop, Auto lyric search on Genius, copy track info, ___rainbow controls [Affected buttons - Full screen, lyrics, like song, queue, devices, and volume)___ __(This can be turned off simply by removing the command line)__ a hidden Spotify Logo __(Can be turned back on)__, hidden 'install' app, hidden podcasts, removal of the bottom content bar (which hosts the social links of Spotify). capitalisation of the first letter _(can turn off by removing ___first-letter {", "    text-transform: uppercase !important;}",___. But try it before you remove it, you might like it!)_, misc performance fixes, increased site wide readability, and so much more! 
 
 
+# How to use the Spotify Web Player
+
+<details><summary>For the info, click me!</summary>
+<p> 
+      
+      If you want to reduce the number of apps you've installed on your PC, using the Spotify Web Player
+      on your browser is a convenient solution. You'll notice very few differences between the web player and the app. 
+      And if you enjoy streaming free music online, the web player works even if you have a free Spotify account.
+      
+      The Spotify Web Player is supported by Google Chrome, Mozilla Firefox, Microsoft Edge, and Opera.
+      
+      Access the Spotify Web Player
+      To access the Spotify Web Player, launch your favorite Internet browser and follow these steps:
+      - Go to the Spotify Browse page.
+      - Select Log In.
+      - If you don't have a Spotify account, select Sign Up and create an account using either an email or Facebook account.
+      - Enter your username and password and select Login. Or, select Log In With Facebook.
+      
+      
+      Spotify Web Player Home
+      Once you've logged into Spotify's Web Player you'll
+      see that it's a simple layout. The left pane lists your available options with the first four
+      being ones that you'll use the most. These are Search, Home, Your Library, and Recently Played.
+      
+      
+      The Home page gives a broad look at all of the main options. Here you'll find:
+      Quick links at the top to Featured, Podcasts, Charts, Genres, New Releases, and Discover.
+      Suggested music based on your listening history.
+      Your recently played music.
+      "More Like" sections with specific artists related to your music tastes.
+      Themed suggestions based on the day of the week or special holidays.
+      Top music lists.
+      The Home page is customized based on your listening behavior, so you may see more or fewer options than listed above.
+      
+      
+      Spotify Search
+      If you know what you're looking for then choose this option. 
+      Once you do this, a text box displays at the top of the screen. Enter your search
+      phrase to find the music you want. 
+      This can be an artist's name, the title of a song or album, a playlist, or even a music genre. Once you start
+      typing, a list of results displays. 
+      Select a result from the list to start listening. 
+      The results page is categorized into useful sections 
+      such as Artists, Albums, Playlists, Podcasts, Episodes, and more.
+      
+      
+      Your Spotify Library
+      The Your Library section of the Spotify Web Player displays an overview of all
+      of the music you've listened to or saved. These are organized into
+      Playlists, Songs, Albums, Artists, and Podcasts, with quick links at the top. 
+      If you want to customize your own playlist, select New Playlist in the
+      upper right corner of the screen. Spotify recommends music based on your playlist title.
+      Add music in the Create Playlist screen, or just add music
+      as you browse Spotify and listen to music.
+
+      Discover New Music
+      Spotify is also a music recommendation service, and this option provides a great way to discover new music.
+
+      The results you see are suggestions that Spotify thinks you might like.
+      These are based on various factors including the type of music you've been listening to. 
+      Tracks are also listed if they are currently popular and fit into the genres of music you listen to.
+
+
+      Stream Music With Spotify Web Player
+      There are a lot of features tucked deep into the web app. These are almost identical to the desktop app. 
+      To find these, just look for the More menu (the three dot icons) beside playlists or individual tracks.
+
+
+
+      Start Radio: Launches a special Spotify Web Player 
+      feature and plays songs related to the artist, playlist, or song you launched it from.
+      Save to Your Library: Stores the song in your library for easy access later.
+      Add to Queue: Lines up individual tracks in the order you want to listen to them.
+      Add to Playlist: Quickly saves tracks to any of your playlists.
+      Copy Song Link: Shares the track to friends on social media or in an email.
+      Play Music Using the Spotify Web Player Hotkeys
+      One thing you may miss when you switch to the Spotify Web Player is that many 
+      keyboard hotkeys that worked in the desktop app won't work in the web
+      player. However, by installing the Spotify Web Player Hotkeys extension, 
+      you can still control song play with your keyboard with the following controls.
+
+
+      Chrome Spotify Web Player Hotkey:
+
+      
+      Pause or Play: Alt+Shift+P
+
+      
+      Play Next Track: Alt+Shift+.
+
+      
+      Play Previous Track: Alt+Shift+,
+
+      
+      Save Track: Alt+Shift+F
+
+      
+      
+      Firefox Spotify Hotkeys:
+
+      
+      Pause or Play: Alt+Shift+P
+
+      
+      Play Next Track: Alt+Shift+.
+
+      
+      Play Previous Track: Alt+Shift+,
+
+      
+      Shuffle: Alt+Shift+F
+
+      
+      Repeat: Alt+Shift+R
+
+      
+      Play Album: Alt+Shift+B
+      
+      
+      
+      Other Benefits of the Spotify Web Player
+      If you aren't convinced yet that streaming music with the Spotify Web Player doesn't 
+      detract from your music listening experience, consider all of
+      the extra benefits that this offers.
+      
+      Save PC resources: The desktop Spotify client launches on start-up and uses system resources. 
+      Avoid the clutter and CPU usage by uninstalling the
+      desktop client and using the web player instead.
+      Listening to music should be a hassle-free experience. 
+      With the features that the Spotify Web Player offers, there's really no reason to use the
+      desktop client.
+      
+      
+</p>
+</details>
+
+
+
+
 
 # How do i use SpotOn?
 
 
-SpotOn needs the usage of [Spotify Web Player's](https://open.spotify.com/) and is not supported by Spotify's app. To be clear, only Spotify Web Player supports it. This is incompatible with the installed app. If i get enough popularity i may look into a way of porting it to the app. But, that's very
+SpotOn needs the usage of [Spotify Web Player's](https://open.spotify.com/) and is not supported by Spotify's app. To be clear, only [Spotify Web Player's](https://open.spotify.com/) supports it. This is incompatible with the installed app. If i get enough popularity i may look into a way of porting it to the app. But, that's very
 unlikely, and very time consuming. 
 
 
@@ -139,14 +272,14 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
 
 # Supported Script-Managers
 
-
-- ### Firefox: Greasemonkey, Tampermonkey, or Violentmonkey
-- ### Safari: Tampermonkey or Userscripts
-- ### Microsoft Edge: Tampermonkey
-- ### Opera: Tampermonkey or Violentmonkey
+- ### Chrome: [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/get-it/)
+- ### Firefox: [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/), [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/get-it/)
+- ### Safari: [Tampermonkey](https://www.tampermonkey.net/) or Userscripts
+- ### Microsoft Edge: [Tampermonkey](https://www.tampermonkey.net/)
+- ### Opera: [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/get-it/)
 - ### AdGuard: (no additional software required)
 
-# Install
+# Installation Guide
 
 
 ### For our install guide, it'll be using TamperMoneky! But, it should be the same for all scriot managers.
@@ -164,5 +297,5 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
   - __(Note)__ For windows the keybind is ___Cntrl___ instead of ___Command___
   
   
-# Notice
+# Things To Be Aware Of
 It is recommended you install [Spotify Dynamic Theme Plus extension](https://chrome.google.com/webstore/detail/spotify-dynamic-theme-plu/bhonlncoengmlbidemffnajjlaijkemm) for the background, and now playing bar to function correctly. The Dynamic Theme is also required for the Now Playing Bar to auto-hide. If it isn’t installed, the bar will load at the top by __default__. _(This can be changed in settings, as the script is fully user customisable! - look for ‘//  main now playing bar’)._
