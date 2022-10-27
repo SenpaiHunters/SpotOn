@@ -53,6 +53,9 @@
 SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com/) design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned __hidden__ Now Playing Bar __(scroll down to see it, want to see how it looks, look above)__, a changeable time to the right of the progress bar __(Refer to the above image to see this, to invoke it, simply click it)__, a blurred backdrop, Auto lyric search on Genius, copy track info, ___rainbow controls [Affected buttons - Full screen, lyrics, like song, queue, devices, and volume)___ __(This can be turned off simply by removing the command line)__ a hidden Spotify Logo __(Can be turned back on)__, hidden 'install' app, hidden podcasts, removal of the bottom content bar (which hosts the social links of Spotify). capitalisation of the first letter _(can turn off by removing ___first-letter {", "    text-transform: uppercase !important;}",___. But try it before you remove it, you might like it!)_, misc performance fixes, increased site wide readability, and so much more! 
 
 
+
+
+
 # How to use the Spotify Web Player
 
 <details><summary>For the info, click me!</summary>
@@ -193,14 +196,14 @@ SpotOn is a complete overhaul of [Spotify Web Player's](https://open.spotify.com
 
 
 
-# How do i use SpotOn?
+# How do I use SpotOn?
 
 
 SpotOn needs the usage of [Spotify Web Player's](https://open.spotify.com/) and is not supported by Spotify's app. To be clear, only [Spotify Web Player's](https://open.spotify.com/) supports it. This is incompatible with the installed app. If i get enough popularity i may look into a way of porting it to the app. But, that's very
 unlikely, and very time consuming. 
 
 
-# How do i enable V 0.4 - 'No Spotify Lyrics? Then Let's Check Genius!'
+# How do I enable V 0.4 - 'No Spotify Lyrics? Then Let's Check Genius!'
 
 
 ### To enable it, simply follow this Step-By-Step guide!
@@ -270,6 +273,11 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
 ### ✅ = Supportation of __Windows + Mac__ , there are no required system requirements as it’s simply a userscript/javascript, however, low-end hardware may face some performance drops or lower than expected speed
 
 
+# If you encounter an issue please report it!
+![dog-wow-gif-by-tikivideo](https://user-images.githubusercontent.com/103985728/198218667-7216e2a0-d94e-4c30-a7a6-f2b7acca874f.gif)
+
+
+
 # Supported Script-Managers
 
 - ### Chrome: [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/get-it/)
@@ -299,3 +307,7 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
   
 # Things To Be Aware Of
 It is recommended you install [Spotify Dynamic Theme Plus extension](https://chrome.google.com/webstore/detail/spotify-dynamic-theme-plu/bhonlncoengmlbidemffnajjlaijkemm) for the background, and now playing bar to function correctly. The Dynamic Theme is also required for the Now Playing Bar to auto-hide. If it isn’t installed, the bar will load at the top by __default__. _(This can be changed in settings, as the script is fully user customisable! - look for ‘//  main now playing bar’)._
+
+![lol-anime-lol-gif](https://user-images.githubusercontent.com/103985728/198219303-4bfc57cf-a8ab-408f-a4be-108cf7776d8d.gif)
+
+
