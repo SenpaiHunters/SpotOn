@@ -1,4 +1,4 @@
-# **SpotOn *[V 0.4]***
+# **SpotOn *[V 0.5]***
 ### The complete _Spotify_ __Overhaul!__
 ##### Made by ***Kami***
 
@@ -9,13 +9,77 @@
 ### [YouTube](https://www.youtube.com/channel/UCzSgmjr--CdIPmdkdiLRNow)
 ### [Insta](https://www.instagram.com/yt_kami_/?hl=en&theme=dark)
 
+
+# What's new in V 0.5?
+
+<details><summary>For the info, click me!</summary>
+<p> 
+
+# What's new!?
+
+
+### No need for a extra download!
+
+
+This release is **BIG!** There no longer is a need to download an extra extension for the background to work! This by default is now the cover art of the song blurred! This includes a dynamic background with transparency and __animations__ for Spotify, this changes background to the song/album cover that's playing also adds many __effects and transitions__.
+
+
+### Dark background
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/103985728/199708466-672d4a1d-8d0d-4c73-955a-4c47f8ccb63c.png">
+
+
+### Light background
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/103985728/199708535-1df07bab-a09d-44fe-be75-a5876d71a702.png">
+
+
+
+# A new mode!!!
+
+
+In this new mode, the now playing bar at the bottom no longer is hidden!
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/103985728/199707792-a5351e83-9e06-4c5a-b382-5fd6ff16f4f1.png">
+
+### Genius integration now auto searches for the song when going to the next song.
+  - __NOTE__ Having this open will reduce song loading speed if you have a lot going on in the background
+  - To enable this, simply press the 'Hide Lyrics' then reopen the lyrics by pressing the 'G' on the top right. (Pic for ref)
+<img width="112" alt="image" src="https://user-images.githubusercontent.com/103985728/199701731-0857b88b-3414-4d79-83df-599c7c1f6176.png">
+
+
+# Bug fixes
+- Ironing out Genius integration with Spotify + Fonts. As well as 'Options'. 
+- Menu bar and now playing bar has increased readability.
+- Text is easier to read.
+- Copying links are now faster
+- Fixed several padding issues
+- New colour on highlight!
+
+
+
+# Some things to note
+With the release of V0.5, users on low-end software might encounter a slight performance drop. But! I've tested it on the lowest of hardware and it's not really noticeable, unless you reload the Spotify page every single second, sometimes the images won't change, and for that to fix itself simply skip the song back and forwards.
+
+
+# Addition of light weight SpotOn 
+This has got many features, but is intended for low performance hardware. The performance difference between the 3 different 'SpotOn's are about 0.43% Performance gain.  So, it won't be getting looked at, nor will have any good features. 
+
+
+</p>
+</details>
+
+
 # What does SpotOn look like?
 
 
-### Spotify - SpotOn - Overhaul (Pic of Beta)
+### Spotify - SpotOn - Overhaul
 
 
-![Spotify - SpotOn](https://user-images.githubusercontent.com/103985728/196183158-14926d06-479d-43d5-b66f-1c30dab9bdaf.png)
+### Dark background
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/103985728/199708466-672d4a1d-8d0d-4c73-955a-4c47f8ccb63c.png">
+
+
+### Light background
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/103985728/199708535-1df07bab-a09d-44fe-be75-a5876d71a702.png">
+
 
 
 ### Hidden menu bar with remaining time
@@ -305,9 +369,7 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
   - __(Note)__ For windows the keybind is ___Cntrl___ instead of ___Command___
   
   
-# Things To Be Aware Of
-It is recommended you install [Spotify Dynamic Theme Plus extension](https://chrome.google.com/webstore/detail/spotify-dynamic-theme-plu/bhonlncoengmlbidemffnajjlaijkemm) for the background, and now playing bar to function correctly. The Dynamic Theme is also required for the Now Playing Bar to auto-hide. If it isn’t installed, the bar will load at the top by __default__. _(This can be changed in settings, as the script is fully user customisable! - look for ‘//  main now playing bar’)._
+# Addition of SpotOn Lightweight
+This has got many features, but is intended for low performance hardware. The performance difference between the 3 different SpotOn's are about 0.43% Performance gain.  So, it won't be getting looked at, nor will have any good features. 
 
 ![lol-anime-lol-gif](https://user-images.githubusercontent.com/103985728/198219303-4bfc57cf-a8ab-408f-a4be-108cf7776d8d.gif)
-
-
