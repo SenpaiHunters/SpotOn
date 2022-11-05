@@ -370,6 +370,6 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
   
   
 # Addition of SpotOn Lightweight
-This has got many features, but is intended for low performance hardware. The performance difference between the 3 different SpotOn's are about 0.43% Performance gain.  So, it won't be getting looked at, nor will have any good features. 
+This has not many features, but is intended for low performance hardware. The performance difference between the 3 different SpotOn's are about 0.43% Performance gain.  So, it won't be getting looked at, nor will have any good features. 
 
 ![lol-anime-lol-gif](https://user-images.githubusercontent.com/103985728/198219303-4bfc57cf-a8ab-408f-a4be-108cf7776d8d.gif)
