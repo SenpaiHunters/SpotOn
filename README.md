@@ -60,7 +60,7 @@ With the release of V0.5, users on low-end software might encounter a slight per
 
 
 # Addition of light weight SpotOn 
-This has got many features, but is intended for low performance hardware. The performance difference between the 3 different 'SpotOn's are about 0.43% Performance gain.  So, it won't be getting looked at, nor will have any good features. 
+This has not got many features, but is intended for low performance hardware. The performance difference between the 3 different 'SpotOn's are about 0.43% Performance gain.  So, it won't be getting looked at, nor will have any good features. 
 
 
 </p>
@@ -354,19 +354,19 @@ SpotOn is a complete **userscript/javascript**, which means you, the user, may _
 # Installation Guide
 
 
-### For our install guide, it'll be using TamperMoneky! But, it should be the same for all scriot managers.
+### For our install guide, it'll be using TamperMoneky! But, it should be the same for all script managers.
 1. Install [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/get-it/) or [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/)
-2. Copy the [Code V 0.4](https://github.com/SenpaiHunters/SpotOn/blob/Main/Code%20V4) contents
+2. Copy the [Code V 0.5](https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js) contents
 3. Load the settings of Tampermoneky
    - First by clicking on the extention
    - Click 'Dashboard'
 4. You'll first load into 'Installed-Scripts'
 5. You then want to click the little plus icon
-6. With the contents of [Code V 0.4](https://github.com/SenpaiHunters/SpotOn/blob/Main/Code%20V4)
+6. With the contents of [Code V 0.5](https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js)
 7. You'll want to press ___Command+A___ to select everything, and then press ___Command+V___ to paste
 8. Hit ___Command+S___ to save
 9. You have now successfully installed SpotOn!
-  - __(Note)__ For windows the keybind is ___Cntrl___ instead of ___Command___
+  - __(Note)__ For windows the keybind is ___Cntrl___ _instead of_ ___Command___
   
   
 # Addition of SpotOn Lightweight
