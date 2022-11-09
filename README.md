@@ -8,6 +8,7 @@
 ### [Buy me a coffee](https://www.buymeacoffee.com/KamiAMVS)
 ### [YouTube](https://www.youtube.com/channel/UCzSgmjr--CdIPmdkdiLRNow)
 ### [Insta](https://www.instagram.com/yt_kami_/?hl=en&theme=dark)
+### [Spotify Playlist](https://open.spotify.com/playlist/0qNgbzAW1pFdr1E0LvOaMQ)
 
 
 # What's new in V 0.5?
