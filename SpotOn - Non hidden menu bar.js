@@ -5,7 +5,7 @@
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
-// @version       0.5
+// @version       0.5.2
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
@@ -16,6 +16,8 @@
 // @match         https://genius.com/songs/new
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require       https://greasyfork.org/scripts/406698-geniuslyrics/code/GeniusLyrics.js
+// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
+// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
 // @grant         GM.setClipboard
 // @grant         GM_setClipboard
 // @supportURL      https://github.com/SenpaiHunters/SpotOn/issues
@@ -24,6 +26,10 @@
 // @grant           GM.getValue
 // @grant           GM.registerMenuCommand
 // @grant           GM_openInTab
+// @grant           GM_getValue
+// @grant           GM_addStyle
+// @grant           GM_deleteValue
+// @noframes
 // @connect         genius.com
 // @run-at        document-start
 // @license       MIT
@@ -2239,7 +2245,6 @@ function addCss () {
     color:white;
     text-decoration:none;
   }
-
   .geniushits li {
     cursor:pointer
   }
@@ -2279,11 +2284,9 @@ function addCss () {
     position: relative;
     animation: 3s linear 0s infinite alternate runtext;
   }
-
   .geniushits .second-line-separator {
     opacity: 0.7
   }
-
   .geniushitname .geniusbadge {
     color: rgb(255, 192, 203);
     background-color: rgb(255, 192, 203);
@@ -2296,7 +2299,6 @@ function addCss () {
     padding: 0 2px;
     margin: 0 3px;
   }
-
   @keyframes runtext {
     0%, 25% {
       transform: translateX(0%);
@@ -2307,7 +2309,6 @@ function addCss () {
       left: 100%;
     }
   }
-
   `
 }
 
@@ -2401,7 +2402,6 @@ function gotMessage(message, sender, sendResponse) {
     });
     document.head.appendChild(script);
   })();
-
 var timescroll;
 var timesincescroll;
 var currtime;
@@ -2413,12 +2413,10 @@ window.onscroll = function (e)
 	}
 setInterval(function() {
 	currtime = d.getSeconds();
-
 	timesincescroll = currtime - timescroll;
 	console.log("checked: "+timesincescroll);
 }, 1000)
  let didScroll = false;
-
     window.onscroll = () => didScroll = true;
     setInterval(() => {
         if ( didScroll ) {
@@ -2429,7 +2427,6 @@ setInterval(function() {
     }, 250);
 setInterval(() => {
 var syntheticEvent = new WheelEvent("syntheticWheel");
-
 console.log(syntheticEvent.deltaY);
 }, 250);
 /*window.addEventListener("scroll",function(){
@@ -2447,13 +2444,8 @@ function skin(exe) {
 	if(exe == true){
 		let css = "";
 		css += `@charset "UTF-8";
-
-
-
 `;
  css += `/* ------Created by Kami--------
-
-
  */
 :root {
     --overlay-heavy: rgba(0, 0, 0, 0.4);
@@ -2463,7 +2455,6 @@ function skin(exe) {
     --blur: 20px; }
 .encore-dark-theme {
     --text-subdued: #ffffffe0!important; }
-
 /*------------------dynamic background-----------------------*/
 @supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
     :root,
@@ -2506,8 +2497,6 @@ function skin(exe) {
     position: absolute; }
 .Root__top-container {
     backdrop-filter: blur(50px); }
-
-
 #main > div {
     box-shadow: inset 0px 2px 70px 4px #0000006e; }
 .Root__top-container,
@@ -2526,10 +2515,6 @@ function skin(exe) {
     padding-top: 10px;
     padding-left: 120px;
     padding-right: 30px; }
-
-
-
-
 /*-------Home button-----*/
 #main > div.Root.encore-dark-theme.nav-alt > div.Root__top-container > div.Root__fixed-top-bar > div:nth-child(2) > a:hover {
     filter: brightness(1.5);
@@ -2558,7 +2543,6 @@ function skin(exe) {
     left: 0;
     z-index: -1;
 }
-
 /*---------------text-----------------*/
 .RootlistItem__link:link,
 .RootlistItem__link:visited,
@@ -2573,8 +2557,6 @@ function skin(exe) {
 .d1c9699572913ee01b0280946ab1f470-scss,
 main-navBar-navBarLinkActive {
     background-color: var(--hoverback); }
-
-
 ._966e29b71d2654743538480947a479b3-scss a,
 standalone-ellipsis-one-line a,
 .c6287512c50a737d01bd9db32b301fab-scss a,
@@ -2601,11 +2583,9 @@ body,
 .FS85JWWz3ayMxrFzBjRD,
 .os-content a {
     color: #ffffffe0!important; }
-
 ._kd5kutoy5xRha0qD0Vz:hover,
 .os-content a:hover {
     color: #fff!important; }
-
 .da0bc4060bb1bdb4abb8e402916af32e-scss,
 .main-trackList-rowTitle,
 .f3fc214b257ae2f1d43d4c594a94497f-scss,
@@ -2628,10 +2608,8 @@ body,
 ._cx_B0JpuGl6cJE7YqU1.ggAaYdWWy1P_IcJbsMeZ .eyyspMJ_K_t8mHpLP_kP,
 ._cx_B0JpuGl6cJE7YqU1.ggAaYdWWy1P_IcJbsMeZ .zM1OMw7zDqUcaPz7XCa3 {
     color: #33ff7b!important; }
-
 #main > div.Root.encore-dark-theme > div.Root__top-container > div.Root__main-view > main > div.os-host.os-host-foreign.os-theme-spotify.os-host-resize-disabled.os-host-scrollbar-horizontal-hidden.main-view-container__scroll-node.os-host-transition.os-host-overflow.os-host-overflow-y > div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div.ShMHCGsT93epRGdxJp2w.Ss6hr6HYpN4wjHJ9GHmi > div.JUa6JJNj7R_Y3i4P8YUX > div:nth-child(2) > div > div > div > div > div {
     filter: contrast(1.5); }
-
 .vQ8EkR_krbAi5mYmmpCn {
     cursor: pointer;
     color: #ffffffe0; }
@@ -2644,8 +2622,6 @@ body,
     background: rgba(0, 0, 0, 0.5)!important; }
 .Z1sHXP1EI_v36FCALBRd:hover {
     background: rgb(35 35 35 / 50%)!important; }
-
-
 /*-------------home page-----------------*/
 .B0VIs50K6LXh5MDmmmJs,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div,
@@ -2660,7 +2636,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section:nth-child(2) > div:nth-child(3) > div,
 div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div {
     background: rgba(0, 0, 0, 0.2)!important; }
-
 .B0VIs50K6LXh5MDmmmJs:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div:nth-child(2) > div:hover,
@@ -2672,8 +2647,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section:nth-child(2) > div:nth-child(3) > div:hover,
 div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div:hover {
     background: rgba(0, 0, 0, 0.5)!important; }
-
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div {
     overflow: visible; }
 ._7ae3a7b5ef70bce1740ff486c4467d56-scss,
@@ -2688,7 +2661,6 @@ div.os-padding > div > div > div > main > div > div {
     background-color: transparent!important;
     background-image: none!important;
     transition-duration: 0s; }
-
 .main-card-card:hover main-card-imageContainer,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div > div > div > div:nth-child(1),
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div > div > div > div:nth-child(1),
@@ -2699,8 +2671,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(2) > div > div:nth-child(2) > div > div:nth-child(n+2) > div > div > div:nth-child(1),
 div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div > div > div > div:nth-child(1) {
     transition-duration: 0.2s; }
-
-
 .OALAQFKvC7XQOVYpklB4:hover .JI_jg7MaIJ2TCTmebcdd,
 .main-card-card:hover main-card-imageContainer,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div > div:hover > div > div:nth-child(1),
@@ -2714,9 +2684,6 @@ div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div
     transform: scale(1.05);
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
-
-
-
 main-card-imageContainer,
 .OALAQFKvC7XQOVYpklB4 .JI_jg7MaIJ2TCTmebcdd {
     transition-duration: 0.4s;
@@ -2726,7 +2693,6 @@ view-homeShortcutsGrid-shortcut:hover view-homeShortcutsGrid-imageContainer,
 .B0VIs50K6LXh5MDmmmJs:hover .icV9eS36uZs9fhQmUujh,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section:nth-child(1) > div > div:hover > div > div:nth-child(1) {
     transform: scale(1.1) translateX(3px)!important; }
-
 .KL469QQzoRZLOmKomNzk .B3i7kN8tRTwP9s4XEK10,
 view-homeShortcutsGrid-shortcut view-homeShortcutsGrid-imageContainer,
 .icV9eS36uZs9fhQmUujh {
@@ -2758,9 +2724,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section:nth-child(1) > div > div > div > div:nth-child(2) {
     transition-duration: 0.2s!important;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)!important; }
-
-
-
 /*-------------profile page-----------------*/
 ._6f1bb16d690aec58cb10e82de1ac2410-scss,
 ._9764a8966c108117bdf6f47cb601747a-scss,
@@ -2779,12 +2742,8 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div > main > section > div > div > div {
     background-color: #0000! important;
     background-image: none !important; }
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div {
     background: rgba(0, 0, 0, 0.0)!important; }
-
-
-
 .c108b4ada40c10926b10bba3ff614fd0-scss,
 .wQi0raQMEJJrELuj_2FP,
 .YboT9C61kapUCdQnsEmR,
@@ -2829,7 +2788,6 @@ div.under-main-view > div > div {
     height: 41vh; }
 .f39dd6caa689537bffdfc875c3f33d08-scss {
     padding: 10px 32px!important; }
-
 /*------------discografy page-------------*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div:nth-child(1) {
     background-color: #0000! important;
@@ -2837,8 +2795,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     box-shadow: none!important; }
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(1) {
     top: auto; }
-
-
 /*------------allbum page-------------*/
 ._11b29b5a5f3bcae347f832a4278b28b8-scss,
 ._5d10f53f6ab203d3259e148b9f1c2278-scss,
@@ -2853,7 +2809,6 @@ div.os-padding > div > div > div > main > section > div > div.contentSpacing > d
 div.os-padding > div > div > div > main > section > div > div:nth-child(4) > div > div > img{
     -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .5)!important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, .5)!important; }
-
 ._83d9fef4ae69148dc1fc9b8323f8528b-scss._2dc8cce76d72af90f5e00e781db42541-scss,
 .g9n_9K5pFI3B_JuDI_hS.LcjM521yr5D14A54HbQl,
 ._jtsyLN4SfPrV5dZONPP.uwzZYE9AYS0OMBzvAopr,
@@ -2865,7 +2820,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     position: initial !important;
     background: #00000000!important;
     box-shadow: none!important; }
-
 ._235729a60d5e265806e8509d8633b779-scss,
 .b1b53e70887a91051a9d7dc85160fc6b-scss,
 .a232f016804d04ce9c5bbfd1a5e00d54-scss,
@@ -2880,14 +2834,11 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(1) {
     background: #00000000!important; }
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div > div > img,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div > div > div:nth-child(2) > div > div > div > div > img,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div.contentSpacing > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div > div > div > div > img,
 div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div.contentSpacing > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(1) > div > img {
     display: none!important; }
-
-
 /*-------podcasts--------------*/
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
     color: #fff!important;
@@ -2897,14 +2848,10 @@ div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div
 ._UFTK833WfTNGb4agRTd,
 .Ic3iDUCnC09k55peZBfC {
     background: #00000000!important; }
-
 /*-----Spotify Lists-----*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div > div {
     background: #00000000!important; }
-
-
-
 /*-------now playing bar--------------*/
 .Root__now-playing-bar {
     padding-top: 10px; }
@@ -2943,32 +2890,24 @@ a:focus,
 a:hover,
 a {
     transition-duration: 0.2s; }
-
 /*----------------Misc---------------------*/
 body > div:nth-child(10) {
     display: none; }
-
 ._7b6273541d969069bb18c4fcae4120e7-scss,
 .e2JzVB2WkGm7GMT8rkEg,
 .kYBlAcRblnjQ6kKW4JCy,
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > div > div > div:nth-child(3) > div {
     background: none; }
-
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div.fVB_YDdnaDlztX7CcWTA {
     top: 0px;
     position: initial !important; }
-
 ._748c0c69da51ad6d4fc04c047806cd4d-scss {
     color: #000!important;
     text-shadow: 0 0 black; }
 #searchPage > div > div > div > div > div {}
-
 /*lyrics*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > div > div {
     background: none; }
-
-
 /*now playing img*/
 .d6e5892a336f6ae43bf066f2245c81b1-scss,
 ._4fac214bccd807d7c6fed21d4e0ea6de-scss,
@@ -2980,13 +2919,10 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 ._8b45c1ef6e792bfe1014b26c48673e5a-scss,
 .i0XB7255K_4QFLJsSGc_ {
     background: none!important; }
-
-
 ._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss,
 .i_0L07qd2CAeOLFiK8dP {
     overflow-y: visible!important;
     backdrop-filter: blur(3px)!important; }
-
 /*albums previews*/
 ._2f859138f9d0ecc3c687296f572c5dca-scss,
 ._3802c04052af0bb5d03956299250789e-scss,
@@ -3001,7 +2937,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > ul > li > a,
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > ul > li:nth-child(3) > div > a {
     background: rgba(0, 0, 0, 0)!important; }
-
 ._2f859138f9d0ecc3c687296f572c5dca-scss:hover,
 ._3802c04052af0bb5d03956299250789e-scss:hover,
 ._28be3af50433a1164b3a62a898dce43e-scss:hover,
@@ -3013,15 +2948,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > ul > li:nth-child(3) > div > a:hover {
     background: rgba(0, 0, 0, 0.5)!important;
     /*background: rgb(35 35 35 / 50%)!important;*/ }
-
 .byhpDrPqhYGoCXVANcn9 {
     transition-duration: 0.2s; ; }
 .YWQ6MaodStrAvAMCg1wx:hover .byhpDrPqhYGoCXVANcn9 {
     transform: scale(1.05);
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
-
-
 /*play button*/
 ._13e5c5964387e0139bbe6e468e9aa649-scss > *,
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
@@ -3030,13 +2962,9 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 ._8e7d398e09c25b24232d92aac8a15a81-scss:hover {
     box-shadow: 2px -1px 20px 0px #000000c7;
     z-index: 1; }
-
 /*playing album*/
 ._233cba0ebe7615236e86592034108e77-scss {
     justify-content: center; }
-
-
-
 /*track scale*/
 ._OpqIZJH2IqpNqAS9iJ7,
 ._cx_B0JpuGl6cJE7YqU1,
@@ -3048,7 +2976,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div > div > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div > div:nth-child(2) > div {
     transition: transform var(--standard-ease); }
-
 ._OpqIZJH2IqpNqAS9iJ7,
 ._cx_B0JpuGl6cJE7YqU1:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div:nth-child(4) > div > div > div:nth-child(2) > div > div:hover,
@@ -3059,14 +2986,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div > div > div:nth-child(2) > div:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div > div:nth-child(2) > div:hover {
     transform: scale(1.025) }
-
 .ggAaYdWWy1P_IcJbsMeZ .FnW_fQBaMbSCZnG14SfL,
 .iSbqnFdjb1SuyJ3uWydl .RfidWIoz8FON2WhFoItU {
     opacity: 1;
     color: #31ff55 }
 .ggAaYdWWy1P_IcJbsMeZ .g_2jIhVKp2v60nnkBkUN {
     opacity: 0; }
-
 ._4b308d5c9250cfb0620ce3b40765ef4a-scss,
 .tracklist-row--active,
 .SzCNXJJQz7BiDOO0B2Xv,
@@ -3074,15 +2999,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 .iSbqnFdjb1SuyJ3uWydl {
     transform: scale(1.025)!important;
     background-color: #0003; }
-
-
 ._4b308d5c9250cfb0620ce3b40765ef4a-scss ._99bbcff33ae810da0bfc335662ae2c1d-scss,
 .fynR25MOeILQ7mCZ8247 {
     opacity: 0!important; }
 ._5814e6eb4f933d11bfa18c01b92eff76-scss,
 .WBTm60_TPRG_oYwBuS7_ {
     display: none!important; }
-
 /*pointers*/
 .bd0f04911fe4adb022e666269a90a739-scss,
 ._38168f0d5f20e658506cd3e6204c1f9a-scss,
@@ -3092,7 +3014,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     cursor: pointer; }
 .ec1b5762556429ac3aeedbae72433491-scss {
     color: #ffffffe0!important; }
-
 /*transparent elements*/
 .Root__now-playing-bar,
 .i_0L07qd2CAeOLFiK8dP,
@@ -3165,7 +3086,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 		var temp = ""
 		setInterval(function back() {
 			'use strict';
-
 			if(document.getElementsByClassName("cover-art-image")[0] != undefined){
 				if (temp != document.getElementsByClassName("cover-art-image")[0].src) {
 					setTimeout(() => { console.log("Changing background!");
@@ -3191,7 +3111,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 					//}
 				}
 			}
-
 		}, 1500)
         */
 	}
@@ -3270,3 +3189,419 @@ setInterval(function() {
 //scrolltimeout=0;
 
 },5000);
+
+
+ // // // // // // // // // // // //
+
+// @name         Spotify Controler
+// @description  Adds keyboard shortcuts to open.spotify.com
+
+(function() {
+    'use strict';
+
+    GM_deleteValue('exhv');
+    var pause = GM_getValue('pause', 'keyk'),
+        next = GM_getValue('next', 'keyn'),
+        prev = GM_getValue('prev', 'keyb'),
+        nexta = GM_getValue('nexta', 'arrowright'),
+        preva = GM_getValue('preva', 'arrowleft'),
+        shuffle = GM_getValue('shuffle', 'keys'),
+        shufflea = GM_getValue('shufflea', 'keya'),
+        repeat = GM_getValue('repeat', 'keyr'),
+        mute = GM_getValue('mute', 'keym'),
+        like = GM_getValue('like', 'keyf'),
+        likea = GM_getValue('likea', 'keyl'),
+        pip = GM_getValue('pip', 'keyp'),
+        query = GM_getValue('query', 'keyq'),
+        vals = [pause, next, nexta, prev, preva, shuffle, shufflea, repeat, mute, like, likea, pip, query],
+        gsct = GM_getValue('cmd', false),
+        gssh = GM_getValue('shift', true),
+        gsal = GM_getValue('alt', true); //Alt is 'Option' for mac
+
+    GM_getTab(function(o) {
+        o.host = location.host
+        GM_saveTab(o);
+    });
+// Inside style -- fun thing
+    GM_addStyle("#SC_overlay::-webkit-scrollbar-corner {width: 0; height: 0; } #SC_overlay::-webkit-scrollbar-thumb {border-radius: 50px; } #SC_settings {height: 35px; width: 180px; color: white; margin-left: 50px; color: #a5a5a6; fill: #9b9c9f; font-weight: var(--glue-font-weight-bold); transition: fill 0.5s, color 0.5s; cursor: pointer; } #SC_settings div {position: absolute; margin-top: -2.5px; font-size: 14px; line-height: 20px; letter-spacing: .015em; } #SC_settings:hover {color: white !important; fill: white !important; } .SC_highlight {color: white !important; fill: white !important; } #SC_settings svg {height: 15px; width: 30px; fill: inherit; margin-left: -30px; } #SC_settings svg:hover {fill: white !important; } #SC_overlay {z-index: 99999; overflow: scroll; padding: 20px; width: 400px; background: black; text-align: center; margin-left: 10px; margin-bottom: 30px; border-radius: 25px; border-bottom-left-radius: 5px; box-shadow: 0px 0px 50px 15px #9b9c9f; } #SC_overlay div h2 {text-align: left; } #SC_save_settings {outline-width: 0; width: 60px; bottom: 165px; margin-left: -70px; color: #9b9c9f; font-size: 15px; font-weight: bolder; border: none; background-color: black; transition: color 0.3s, background-color 0.3s; cursor: pointer; } #SC_reset_settings {outline-width: 0; width: 60px; bottom: 165px; margin-left: 20px; color: #9b9c9f; font-size: 15px; font-weight: bolder; border: none; background-color: black; transition: color 0.3s, background-color 0.3s; cursor: pointer; } #SC_save_settings:hover, #SC_reset_settings:hover {color: black; background-color: #9b9c9f; } #SC_overlay_background {z-index: 99998; background-color: rgb(0, 0, 0, 0.8); width: 1600px; height: 800px; position: absolute; top: 0; right: 0; } #SC_close_settings_svg {position: absolute; top: 5px; right: 5px; z-index: 99998; cursor: pointer; fill: white; } #SC_menu {transition: padding 0.5s, margin 0.5s, height 0.5s, width 0.5s; } #SC_menu input {width: 150px; height: 25px; border: none; color: black; background-color: #555; font-weight: 900; margin: 5px 15px; outline: none; text-align: center; text-transform: capitalize; transition: inherit; } #SC_menu input:focus {margin: 10px 15px; box-shadow: 0px 0px 5px 3px #b3b3b3; } .noscroll {overflow: hidden; }");
+
+    if (location.host === 'open.spotify.com') {
+        GM_setValue('sio', true);
+
+        function getsv() {
+            var p1 = document.querySelector('.control-button.spoticon-play-16.control-button--circled'),
+                p2 = document.querySelector('.control-button.spoticon-pause-16.control-button--circled'),
+                s1 = document.querySelector('.control-button.spoticon-shuffle-16'),
+                s2 = document.querySelector('.control-button.spoticon-shuffle-16.control-button--active.control-button--active-dot'),
+                r1 = document.querySelector('.control-button.spoticon-repeat-16'),
+                r2 = document.querySelector('.control-button.spoticon-repeat-16.control-button--active.control-button--active-dot'),
+                r3 = document.querySelector('.control-button.spoticon-repeatonce-16'),
+                l1 = document.querySelector('.control-button.spoticon-heart-16'),
+                l2 = document.querySelector('.control-button.spoticon-heart-active-16'),
+                m1 = document.querySelector('spoticon-volume-off-16'),
+                m2 = document.querySelector('.control-button.volume-bar__icon'),
+                ar = [];
+            if (p1) ar.push('paused');
+            else ar.push('playing');
+            if (s2) ar.push('shuffling');
+            else ar.push('noshuffle');
+            if (l1) ar.push('disliked');
+            else ar.push('liked');
+            if (r2) ar.push('repeatingA');
+            else if (r3) ar.push('repeatingO');
+            else ar.push('norepeat');
+            if (m1) ar.push('muted');
+            else ar.push('nomute');
+
+            return ar;
+        }
+        setTimeout(function() {
+            var f = GM_setValue('getsv', getsv());
+        }, 1000);
+    } else {
+        function cisio() {
+            GM_setValue('sio', false);
+            GM_getTabs(function(d) {
+                for (var i in d) {
+                    if (d[i].host === 'open.spotify.com') GM_setValue('sio', true);
+                }
+            });
+            setTimeout(function() {
+                if (GM_getValue('sio') === false) {
+                    window.open('https://open.spotify.com/browse', '_blank');
+                    GM_setValue('sio', true);
+                }
+            }, 1000);
+        }
+
+        function exs() {
+            var gsui = document.createElement('div'),
+                gsuim = document.createElement('div'),
+                getsvv = GM_getValue('getsv'),
+                svgc = '<svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; fill: #fff; transition: inherit; transform: rotate(0deg);" viewBox="0 0 24 24"> <path d="M 12.0625 0 C 9.7745 -1.9428903e-16 9.8125 0.21875 9.8125 0.21875 C 9.5405 1.53775 9.2555 2.43275 9.0625 2.96875 C 7.8965 3.34975 6.82525 3.94775 5.90625 4.71875 C 5.35225 4.60975 4.45775 4.40675 3.21875 3.96875 C 3.21875 3.96875 3.052 3.8235 1.875 5.8125 C 0.696 7.7995 0.875 7.90625 0.875 7.90625 C 1.788 8.76425 2.387 9.426 2.75 9.875 C 2.593 10.559 2.5 11.268 2.5 12 C 2.5 12.663 2.5585 13.3125 2.6875 13.9375 C 2.3145 14.3785 1.70525 15.043 0.78125 15.875 C 0.78125 15.875 0.613 15.95675 1.75 17.96875 C 2.886 19.98075 3.03125 19.84375 3.03125 19.84375 C 4.28225 19.43075 5.193 19.25325 5.75 19.15625 C 6.666 19.95925 7.72925 20.56375 8.90625 20.96875 C 9.10025 21.49675 9.4065 22.41425 9.6875 23.78125 C 9.6875 23.78125 9.6505 24 11.9375 24 C 14.2215 24 14.21875 23.78125 14.21875 23.78125 C 14.49075 22.46325 14.7435 21.56625 14.9375 21.03125 C 16.1035 20.65025 17.17575 20.05225 18.09375 19.28125 C 18.64875 19.39025 19.54325 19.59225 20.78125 20.03125 C 20.78125 20.03125 20.944 20.1755 22.125 18.1875 C 23.302 16.1985 23.125 16.09375 23.125 16.09375 C 22.211 15.23575 21.613 14.573 21.25 14.125 C 21.406 13.439 21.5 12.732 21.5 12 C 21.5 11.337 21.4415 10.6875 21.3125 10.0625 C 21.6855 9.6225 22.29375 8.958 23.21875 8.125 C 23.21875 8.125 23.387 8.04425 22.25 6.03125 C 21.114 4.01825 20.96875 4.15625 20.96875 4.15625 C 19.71875 4.56925 18.807 4.74675 18.25 4.84375 C 17.334 4.04175 16.26975 3.43625 15.09375 3.03125 C 14.90075 2.50425 14.5945 1.58475 14.3125 0.21875 C 14.3125 0.21875 14.3465 0 12.0625 0 z M 12 4 C 16.418 4 20 7.582 20 12 C 20 16.418 16.418 20 12 20 C 7.582 20 4 16.418 4 12 C 4 7.582 7.582 4 12 4 z M 12 5 C 8.134 5 5 8.134 5 12 C 5 15.866 8.134 19 12 19 C 15.866 19 19 15.866 19 12 C 19 8.134 15.866 5 12 5 z M 12 8 C 14.209 8 16 9.791 16 12 C 16 14.209 14.209 16 12 16 C 9.791 16 8 14.209 8 12 C 8 9.791 9.791 8 12 8 z"/> </svg>';
+            gsui.id = 'SC_gsui';
+            gsuim.id = 'SC_gsuim';
+            gsui.style = 'z-index: 9999999; top: 0; right: 0; position: fixed; width: 360px; height: 25px; background-color: #000; color: #fff; font-size: 14px; border-bottom-left-radius: 10px; user-select: none; white-space: nowrap; transition: width 0.5s, height 0.5s, transform 0.3s; overflow: hidden;';
+            gsui.innerHTML = '<div style="margin: 5 5 0 5; transition: inherit; "> <span id="SC_ex_cl" title="Collapse This Menu" style="margin-left: 10px; cursor: pointer; font-weight: bold; transition: inherit; transform: rotate(0deg); "> >> </span> <span style="font-weight: bold; margin-left: 40px; transition: inherit; ">Hans - Spotify Controler</span> <span style="position: absolute; transition:inherit; right: 5px;"> <span id="SC_ex_cog" title="Edit Global Shortcuts" style="transform: rotate(0deg); margin-right: 10px; cursor: pointer; transition: inherit; ">' + svgc + '</span> </span> <br><br> </div>';
+            gsuim.style = 'top: 100px; border-radius: 10px 0 0 10px; right: 0; position: fixed; margin-right: -360px; background-color: black; color: white; height: 200px; width: 350px; user-select: none; white-space: nowrap; transition: width 0.5s, height 0.5s, transform 0.3s, margin-right 0.6s; z-index: 9999999;';
+            gsuim.innerHTML = '<div style="margin: 10px 10px 10px 10px;"> <h2> Edit Global Shortcuts: </h2> <br> Use CTRL Key: <input type="radio" name="SC_ex_cti" value="true" style="-webkit-appearance: checkbox; margin-left: 15px; ">Yes<input type="radio" name="SC_ex_cti" value="false" checked="true" style="-webkit-appearance: checkbox; ">No <br> Use SHIFT Key: <input type="radio" name="SC_ex_shi" value="true" style="-webkit-appearance: checkbox; margin-left: 10px; ">Yes<input type="radio" name="SC_ex_shi" checked="true" value="false" style="-webkit-appearance: checkbox; ">No <br> Use ALT Key: <input type="radio" name="SC_ex_ati" value="true" style="-webkit-appearance: checkbox; margin-left: 30px; ">Yes<input type="radio" name="SC_ex_ati" checked="true" value="false" style="-webkit-appearance: checkbox; ">No <br> <br> <button id="SC_ex_save" style="margin-left: 140px; border-radius: 10px; border-color: grey; padding: 1px 5px; background-color: black; color: white; cursor: pointer; outline-width: 0; font-size: 18px; "> Save </button> </div>';
+            document.body.appendChild(gsui);
+            document.body.appendChild(gsuim);
+            gsui = document.querySelector('#SC_gsui');
+            gsuim = document.querySelector('#SC_gsuim');
+            var sw = gsui.querySelector('#SC_ex_cog').parentElement;
+            var cog = gsui.querySelector('span#SC_ex_cog svg');
+            cog.addEventListener('click', function() {
+                if (cog.style.transform === 'rotate(0deg)') {
+                    cog.style.transform = 'rotate(-90deg)';
+                    gsuim.style.marginRight = '0px';
+                } else {
+                    cog.style.transform = 'rotate(0deg)';
+                    gsuim.style.marginRight = '-360px';
+                }
+            });
+            var s = gsui.querySelector('span#SC_ex_cl');
+            s.addEventListener('click', function() {
+                if (s.style.transform === 'rotate(0deg)') {
+                    gsui.style.width = '35px';
+                    s.style.transform = 'rotate(180deg)';
+                    sw.style.position = 'unset';
+                    s.innerText = '<<';
+                    s.title = 'Expand This Menu';
+                } else {
+                    gsui.style.width = '360px';
+                    s.style.transform = 'rotate(0deg)';
+                    sw.style.position = 'absolute';
+                    s.innerText = '>>';
+                    s.title = 'Collapse This Menu';
+                }
+            });
+            s.click();
+            if (gsct) document.querySelector('input[name=SC_ex_cti]').checked = true;
+            if (gssh) document.querySelector('input[name=SC_ex_shi]').checked = true;
+            if (gsal) document.querySelector('input[name=SC_ex_ati]').checked = true;
+            document.querySelector('#SC_ex_save').addEventListener('click', function() {
+                var cti = document.querySelector('input[name=SC_ex_cti]');
+                var shi = document.querySelector('input[name=SC_ex_shi]');
+                var ati = document.querySelector('input[name=SC_ex_ati]');
+                if (cti.checked) GM_setValue('ctrl', true);
+                else GM_setValue('ctrl', false);
+                if (shi.checked) GM_setValue('shift', true);
+                else GM_setValue('shift', false);
+                if (ati.checked) GM_setValue('alt', true);
+                else GM_setValue('alt', false);
+            });
+            var finja = document.querySelector('#SC_ex_c');
+            for (var hfh = 0; hfh < 8; hfh++) finja.children[hfh].tabIndex = -1;
+        }
+        setTimeout(exs, 1000);
+    }
+
+    window.addEventListener('keyup', function(e) {
+        var ee = {
+            code: e.code,
+            ctrlKey: e.ctrlKey,
+            altKey: e.altKey,
+            shiftKey: e.shiftKey,
+            metaKey: e.metaKey,
+            target: {
+                tagName: 'DIV'
+            }
+        }
+        if (e.altKey === gsal && e.shiftKey === gssh && e.ctrlKey === gsct) GM_setValue('exhv', ee);
+    });
+
+    setInterval(function() {
+        if (location.host === 'open.spotify.com') {
+            var f = GM_getValue('exhv');
+            if (!f) return;
+            rvals();
+            if (f.altKey === gsal && f.shiftKey === gssh && f.ctrlKey === gsct) {
+                handler(true, f);
+                GM_deleteValue('exhv');
+            }
+        }
+    });
+
+    function handler(ex = false, e) {
+        if (ex === false) {
+            if (e.target.tagName === 'INPUT' || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+        } else if (ex === true && e.metaKey) return;
+        rvals();
+        var k = e.code.toLowerCase();
+        if (!document.querySelector('.control-button.spoticon-skip-forward-16')) return;
+        var n = document.querySelector('.control-button.spoticon-skip-forward-16');
+        var b = document.querySelector('.control-button.spoticon-skip-back-16');
+        var p1 = document.querySelector('.control-button.spoticon-play-16.control-button--circled');
+        var p2 = document.querySelector('.control-button.spoticon-pause-16.control-button--circled');
+        var s = document.querySelector('.control-button.spoticon-shuffle-16');
+        var r1 = document.querySelector('.control-button.spoticon-repeat-16');
+        var r2 = document.querySelector('.control-button.spoticon-repeatonce-16');
+        var l1 = document.querySelector('.control-button.spoticon-heart-16');
+        var l2 = document.querySelector('.control-button.spoticon-heart-active-16');
+        var p = document.querySelector('.picture-in-picture-button.control-button');
+        var q = document.querySelector('.control-button.spoticon-queue-16');
+        var m = document.querySelector('.control-button.volume-bar__icon');
+        switch (k) {
+            case next:
+                if (n) n.click();
+                break;
+            case prev:
+                if (b) b.click();
+                break;
+            case nexta:
+                if (n) n.click();
+                break;
+            case preva:
+                if (b) b.click();
+                break;
+            case pause:
+                if (p1) p1.click();
+                else p2.click();
+                break;
+            case shuffle:
+                if (s) s.click();
+                break;
+            case shufflea:
+                if (s) s.click();
+                break;
+            case repeat:
+                if (r1) r1.click();
+                else r2.click();
+                break;
+            case like:
+                if (l1) l1.click();
+                else l2.click();
+                break;
+            case likea:
+                if (l1) l1.click();
+                else l2.click();
+                break;
+            case query:
+                if (q) {
+                    if (location.pathname === '/queue') history.back();
+                    else q.click();
+                }
+                break;
+            case mute:
+                if (m) m.click();
+                break;
+            case pip:
+                if (pip) p.click();
+        }
+    }
+    window.addEventListener('keyup', function(event) {
+        handler(false, event);
+    });
+
+    function clean(k) {
+        if (typeof k === 'number') k = k;
+        else if (/comma|period|semicolon|quote|backslash|slash/g.test(k)) k = k;
+        else if (/bracket/g.test(k)) k = 'Bracket ' + k.replace('bracket', '');
+        else if (k.substring(0, 3) === 'key') k = 'Key ' + k[3].toUpperCase();
+        else if (k === 'arrowleft') k = 'Arrow Left';
+        else if (k === 'arrowright') k = 'Arrow Right';
+        else if (k === 'arrowup') k = 'Arrow Up';
+        else if (k === 'arrowdown') k = 'Arrow Down';
+        else if (k === 'space') k = 'Space';
+        else if (k.substring(0, 5) === 'digit') k = 'Digit ' + k[5];
+        else if (k.substring(0, 6) === 'numpad' && k[6].search(/[0-9]/) > -1) k = 'Numpad ' + k[6];
+        else k = '';
+        return k;
+    }
+    var cvals = [clean(vals[0]), clean(vals[1]), clean(vals[2]), clean(vals[3]), clean(vals[4]), clean(vals[5]), clean(vals[6]), clean(vals[7]), clean(vals[8]), clean(vals[9]), clean(vals[10]), clean(vals[11]), clean(vals[12])];
+
+    function rvals() {
+        pause = GM_getValue('pause', 'keyk');
+        next = GM_getValue('next', 'keyn');
+        prev = GM_getValue('prev', 'keyb');
+        nexta = GM_getValue('nexta', 'arrowright');
+        preva = GM_getValue('preva', 'arrowleft');
+        shuffle = GM_getValue('shuffle', 'keys');
+        shufflea = GM_getValue('shufflea', 'keya');
+        repeat = GM_getValue('repeat', 'keyr');
+        mute = GM_getValue('mute', 'keym');
+        like = GM_getValue('like', 'keyf');
+        likea = GM_getValue('likea', 'keyl');
+        pip = GM_getValue('pip', 'keyp');
+        query = GM_getValue('query', 'keyq');
+        gsct = GM_getValue('ctrl', false);
+        gssh = GM_getValue('shift', true);
+        gsal = GM_getValue('alt', true);
+        vals = [pause, next, nexta, prev, preva, shuffle, shufflea, repeat, mute, like, likea, pip, query];
+        cvals = [clean(vals[0]), clean(vals[1]), clean(vals[2]), clean(vals[3]), clean(vals[4]), clean(vals[5]), clean(vals[6]), clean(vals[7]), clean(vals[8]), clean(vals[9]), clean(vals[10]), clean(vals[11]), clean(vals[12])];
+    }
+
+    if (location.host !== 'open.spotify.com') return;
+
+    function check(v) {
+        try {
+            var i = document.querySelectorAll('#SC_menu input');
+            var r;
+            var a = [];
+            i.forEach(function(e) { a.push(e.value); });
+            a.splice(a.indexOf(v), 1);
+            if (a.includes(v)) r = true;
+            else r = false;
+            return r;
+        } catch (e) {
+            console.error(e + '\n' +
+                          v + '\n' +
+                          a + '\n' +
+                          r);
+        }
+    }
+
+    function dt(k) {}
+
+    function f() {
+        var i = document.querySelectorAll('#SC_menu input'),
+            p = document.querySelector('#SC_menu'),
+            c = 0,
+            n = [];
+        i.forEach(function(e) {
+            console.log(e);
+            e.setAttribute('sc-value', vals[c]);
+            e.setAttribute('sc-new-value', '');
+            e.value = cvals[c];
+            e.addEventListener('blur', function() {
+                var v = this.getAttribute('sc-value');
+                var nv = this.getAttribute('sc-new-value');
+                if (this.value === '') {
+                    this.value = clean(v);
+                    this.setAttribute('sc-new-value', v);
+                } else if (check(this.value)) {
+                    this.value = clean(v);
+                    this.setAttribute('sc-new-value', v);
+                } else {
+                    this.setAttribute('sc-new-value', nv);
+                }
+            });
+            e.addEventListener('focus', function() { this.value = ''; });
+            e.addEventListener('keyup', function(event) {
+                var k = event.code.toLowerCase();
+                if (k === 'tab') return;
+                else var ck = clean(k);
+                this.value = '';
+                this.value = ck;
+                this.setAttribute('sc-new-value', k);
+            });
+            c++;
+        });
+    }
+
+    setTimeout(function() {
+        var settings = document.createElement('div');
+        settings.id = 'SC_settings';
+        settings.innerHTML = '<div>Spotify Controler Settings</div> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12.0625 0 C 9.7745 -1.9428903e-16 9.8125 0.21875 9.8125 0.21875 C 9.5405 1.53775 9.2555 2.43275 9.0625 2.96875 C 7.8965 3.34975 6.82525 3.94775 5.90625 4.71875 C 5.35225 4.60975 4.45775 4.40675 3.21875 3.96875 C 3.21875 3.96875 3.052 3.8235 1.875 5.8125 C 0.696 7.7995 0.875 7.90625 0.875 7.90625 C 1.788 8.76425 2.387 9.426 2.75 9.875 C 2.593 10.559 2.5 11.268 2.5 12 C 2.5 12.663 2.5585 13.3125 2.6875 13.9375 C 2.3145 14.3785 1.70525 15.043 0.78125 15.875 C 0.78125 15.875 0.613 15.95675 1.75 17.96875 C 2.886 19.98075 3.03125 19.84375 3.03125 19.84375 C 4.28225 19.43075 5.193 19.25325 5.75 19.15625 C 6.666 19.95925 7.72925 20.56375 8.90625 20.96875 C 9.10025 21.49675 9.4065 22.41425 9.6875 23.78125 C 9.6875 23.78125 9.6505 24 11.9375 24 C 14.2215 24 14.21875 23.78125 14.21875 23.78125 C 14.49075 22.46325 14.7435 21.56625 14.9375 21.03125 C 16.1035 20.65025 17.17575 20.05225 18.09375 19.28125 C 18.64875 19.39025 19.54325 19.59225 20.78125 20.03125 C 20.78125 20.03125 20.944 20.1755 22.125 18.1875 C 23.302 16.1985 23.125 16.09375 23.125 16.09375 C 22.211 15.23575 21.613 14.573 21.25 14.125 C 21.406 13.439 21.5 12.732 21.5 12 C 21.5 11.337 21.4415 10.6875 21.3125 10.0625 C 21.6855 9.6225 22.29375 8.958 23.21875 8.125 C 23.21875 8.125 23.387 8.04425 22.25 6.03125 C 21.114 4.01825 20.96875 4.15625 20.96875 4.15625 C 19.71875 4.56925 18.807 4.74675 18.25 4.84375 C 17.334 4.04175 16.26975 3.43625 15.09375 3.03125 C 14.90075 2.50425 14.5945 1.58475 14.3125 0.21875 C 14.3125 0.21875 14.3465 0 12.0625 0 z M 12 4 C 16.418 4 20 7.582 20 12 C 20 16.418 16.418 20 12 20 C 7.582 20 4 16.418 4 12 C 4 7.582 7.582 4 12 4 z M 12 5 C 8.134 5 5 8.134 5 12 C 5 15.866 8.134 19 12 19 C 15.866 19 19 15.866 19 12 C 19 8.134 15.866 5 12 5 z M 12 8 C 14.209 8 16 9.791 16 12 C 16 14.209 14.209 16 12 16 C 9.791 16 8 14.209 8 12 C 8 9.791 9.791 8 12 8 z"/></svg>';
+        settings.title = 'Edit Spotify Controler Settings';
+        document.querySelector('.os-content').appendChild(settings);
+        var overlay = document.createElement('div');
+        overlay.id = 'SC_overlay';
+        overlay.innerHTML = '<div> <h2> Edit Shortcuts </h2><br> <div id="SC_menu"> Pause\Play: <input sc-value="" type="text"><br> Next Song: <input sc-value="" type="text"><br> Next Song ALT: <input sc-value="" type="text"><br> Prev Song: <input sc-value="" type="text"><br> Prev Song ALT: <input sc-value="" type="text"><br> Shuffle: <input sc-value="" type="text"><br> Shuffle ALT: <input sc-value="" type="text"><br> Repeat: <input sc-value="" type="text"><br> Mute: <input sc-value="" type="text"><br> Like Song: <input sc-value="" type="text"><br> Like Song ALT: <input sc-value="" type="text"><br> Play in Picture: <input sc-value="" type="text"><br> Open Queue: <input sc-value="" type="text"><br> <button id="SC_save_settings"> SAVE </button> <button id="SC_reset_settings"> RESET </button> </div> </div>';
+        overlay.style = 'display: none;';
+        document.querySelector('.Root__main-view').appendChild(overlay);
+        var d = document.createElement('div');
+        d.innerHTML = '<div title="Close Menu"> <svg id="SC_close_settings_svg" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"> <path d="M21.125,0H4.875C2.182,0,0,2.182,0,4.875v16.25C0,23.818,2.182,26,4.875,26h16.25 C23.818,26,26,23.818,26,21.125V4.875C26,2.182,23.818,0,21.125,0z M18.78,17.394l-1.388,1.387c-0.254,0.255-0.67,0.255-0.924,0 L13,15.313L9.533,18.78c-0.255,0.255-0.67,0.255-0.925-0.002L7.22,17.394c-0.253-0.256-0.253-0.669,0-0.926l3.468-3.467L7.221,9.534 c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468 c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467 C19.033,16.725,19.033,17.138,18.78,17.394z"/> </svg> </div>';
+        d.id = 'SC_overlay_background';
+        d.style = 'display: none;'
+        document.querySelector('#main').appendChild(d);
+        document.body.classList.add('noscroll');
+        d.addEventListener('click', function() {
+            overlay.style = 'display: none;';
+            d.style = 'display: none;'
+            settings.classList.remove('SC_highlight');
+        });
+        settings.addEventListener('click', function() {
+            rvals();
+            f();
+            overlay.style = 'display: block;';
+            d.style = 'display: block;'
+            settings.classList.add('SC_highlight');
+        });
+        document.querySelector('#SC_save_settings').addEventListener('click', function() {
+            var i = document.querySelectorAll('#SC_menu input');
+            var iv = [];
+            i.forEach(function(e) {
+                var v = e.getAttribute('sc-new-value');
+                if (v === '' || v === undefined || v === null) v = e.getAttribute('sc-value');
+                iv.push(v);
+            });
+            GM_setValue('pause', iv[0]);
+            GM_setValue('next', iv[1]);
+            GM_setValue('prev', iv[2]);
+            GM_setValue('nexta', iv[3]);
+            GM_setValue('preva', iv[4]);
+            GM_setValue('shuffle', iv[5]);
+            GM_setValue('shufflea', iv[6]);
+            GM_setValue('repeat', iv[7]);
+            GM_setValue('mute', iv[8]);
+            GM_setValue('like', iv[9]);
+            GM_setValue('likea', iv[10]);
+            GM_setValue('pip', iv[11]);
+            GM_setValue('query', iv[12]);
+            rvals();
+            d.click();
+        });
+        document.querySelector('#SC_reset_settings').addEventListener('click', function() {
+            GM_setValue('pause', 'keyk');
+            GM_setValue('next', 'keyn');
+            GM_setValue('prev', 'keyb');
+            GM_setValue('nexta', 'arrowright');
+            GM_setValue('preva', 'arrowleft');
+            GM_setValue('shuffle', 'keys');
+            GM_setValue('shufflea', 'keya');
+            GM_setValue('repeat', 'keyr');
+            GM_setValue('mute', 'keym');
+            GM_setValue('like', 'keyf');
+            GM_setValue('likea', 'keyl');
+            GM_setValue('pip', 'keyp');
+            GM_setValue('query', 'keyq');
+            GM_setValue('ctrl', false);
+            GM_setValue('shift', true);
+            GM_setValue('alt', true);
+            rvals();
+            d.click();
+        });
+    }, 2000);
+})();
