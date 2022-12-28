@@ -1,11 +1,14 @@
 // ==UserScript==
-// @name          SpotOn - Non hidden now playing bar
+// @name          SpotOn
 // @namespace     https://github.com/SenpaiHunters/SpotOn
 // @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
 // @version       0.5.6
+// @supportURL    https://github.com/SenpaiHunters/SpotOn/issues
+// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js
+// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
@@ -16,20 +19,13 @@
 // @match         https://genius.com/songs/new
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require       https://greasyfork.org/scripts/406698-geniuslyrics/code/GeniusLyrics.js
-// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
-// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
 // @grant         GM.setClipboard
 // @grant         GM_setClipboard
-// @supportURL      https://github.com/SenpaiHunters/SpotOn/issues
 // @grant           GM.xmlHttpRequest
 // @grant           GM.setValue
 // @grant           GM.getValue
 // @grant           GM.registerMenuCommand
 // @grant           GM_openInTab
-// @grant           GM_getValue
-// @grant           GM_addStyle
-// @grant           GM_deleteValue
-// @noframes
 // @connect         genius.com
 // @run-at        document-start
 // @license       MIT
@@ -105,23 +101,23 @@
     "",
 	"/* Import Font */",
 	"@font-face {",
-	"    font-family: Vibes;",
-	"    src: url(https://www.1001fonts.com/) ;",
+	"    font-family: Aguafina;",
+	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap')) ;",
 	"}",
 	" @font-face {",
-	"    font-family: Vibes;",
-	"    src: url(https://www.1001fonts.com/);",
+	"    font-family: Aguafina;",
+	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap'));",
 	"    font-weight:bold;",
 	"}",
 	"",
 	"/*Fonts for links */",
 	".mo-info-name{",
-	" font-family: Vibes; ",
+	" font-family: Aguafina; ",
 	"    font-weight:normal!important;",
 	"}",
 	"",
 	"h1, h2, .link-subtle{",
-	" 	font-family: Vibes !important;  ",
+	" 	font-family: Aguafina !important;  ",
 	"    font-weight:normal!important;",
 	"}",
 	"",
@@ -138,6 +134,7 @@
 	"    --barCol65: rgba(var(--barCol),.65) ;",
 	"    --barCol95: rgba(var(--barCol),.95) ;",
 	"    --barCol100: rgba(var(--barCol),1) ;",
+    "    --text-base: #000;",
 	"    --firstLsize: 1.50em ;}    ",
 	"",
 	".navBar, .navBar-expand {",
@@ -154,11 +151,12 @@
 	".navBar-group-header, .navBar-item .type {",
 	"    letter-spacing: -3px;",
 	"    text-transform: lowercase !important;",
-	"    font-size: 1000px;}",
+        "    --text-base: #000;",
+	"    font-size: 100px;}",
 	"",
 	"body, body.login, body.login *, .SearchInputBox__input, .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title  {",
-	"    font-family: Vibes;",
-	"    src: url(https://www.1001fonts.com/) ;",
+	"    font-family: Aguafina;",
+	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap')) ;",
 	"}",
 	"* {",
 	"    text-decoration: none!important;",
@@ -168,7 +166,7 @@
     // highlight colour when hovering over items - menu bar! Only hex code works.
     // E.G.s, #a020f0b3 is a semi transparent pink, while #000 is black.
 	"a, a:focus, a:hover {",
-	"    color: #ff0080 ;}",
+	"    color: #f47fff;}",
 	"",
     // Main text shadow
 	"#main { ",
@@ -184,7 +182,7 @@
 	"    margin-left: 0 !important;}}",
 	"",
     // Min size
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1599px) {",
 	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
 	"    text-align: center !important;",
 	"    margin-left: -30px !important;",
@@ -204,8 +202,6 @@
 	"#main .Root .Root__top-container .main-view-container--has-ads .ads-container, .AdsContainer{",
 	"    display: none !important;}",
 	"",
-    " .beQQox;",
-    " color: #333 !important;}",
     // main now playing menu bar sub
 	".Root__now-playing-bar {",
     " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
@@ -237,7 +233,7 @@
 	".now-playing-bar__center {",
 	"    margin-left: -20px;}",
 	"",
-	"@media (max-width: 2160px) { ",
+	"@media (max-width: 1000px) { ",
 	".now-playing-bar__center {",
 	"    margin-left: 12%;}}",
 	"",
@@ -287,6 +283,7 @@
 	"    border-radius: -6px !important;  ",
 	"    box-shadow: 20px 10px 10px -7px rgba(0,0,0,1), -7px 10px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;}",
 	"",
+  	"",
    // Now plaing menu bar - boxed size change
 	".Root__now-playing-bar {",
     // see below nav bar colour for infomation on how to change this! (Markdown - SLS)
@@ -329,13 +326,13 @@
 	"    margin-bottom: 0px !important;}",
 	"    ",
     // Max width
-	"@media (max-width: 2200px) { ",
+	"@media (max-width: 1699px) { ",
 	".container-fluid.ArtistAbout__container {       ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important}}",
 	"",
     // Min Width
-	"@media (min-width: 2200px) { ",
+	"@media (min-width: 1700px) { ",
 	".container-fluid.ArtistAbout__container {   ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important;}}",
@@ -350,7 +347,7 @@
 	"    flex: 1 !important;}",
 	"",
     // Max adjustment width
-	"@media (max-width: 2200px) {",
+	"@media (max-width: 1700px) {",
 	".ArtistAbout__insights {",
 	"    float: right !important;",
 	"    flex: 2 !important;}}",
@@ -413,7 +410,7 @@
 	"[dir=\"ltr\"] .navBar-item--with-icon-left .navbar-link__text {",
 	"    margin-left: -175px !important;}}",
 	"",
-	"@media (max-width: 2160px){",
+	"@media (max-width: 1700px){",
 	"section.content.artist div div.container-fluid.ArtistAbout__container {",
 	"    margin-right: 15px !important;",
 	"    width: calc(100% - 30px);} ",
@@ -429,7 +426,7 @@
 	"    margin-right: 60px !important;",
 	"    width: calc(100% - 150px);}}",
 	"",
-	"@media (max-width: 2160px) { ",
+	"@media (max-width: 1700px) { ",
 	".Root__nav-bar {   ",
 	"    width:200px;",
 	"    margin-left: 20px !important;}}",
@@ -441,23 +438,23 @@
 	".sessionInfo  {",
 	"    margin-bottom: -90px !important;}",
 	"",
-	"@media (max-height: 2160px) {",
+	"@media (max-height: 869px) {",
 	".recently-played .recently-played__item-5 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 2160px) {",
+	"@media(max-height: 819px) {",
 	".recently-played .recently-played__item-4 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 2160px) {",
+	"@media(max-height: 769px) {",
 	".recently-played .recently-played__item-3 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 2160px) {",
+	"@media(max-height: 719px) {",
 	".recently-played .recently-played__item-2 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 2160px) {",
+	"@media(max-height: 669px) {",
 	".recently-played {",
 	"    display: none !important;}}",
 	"",
@@ -629,7 +626,7 @@
 	".search-history .btn.btn-black{",
 	"    width: 300px !important;}",
 	"",
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1440px) {",
 	".horizontal-list > button:nth-child(1) {",
 	"    width: 160px !important;",
 	"    margin-left: 0px !important;",
@@ -738,7 +735,7 @@
 	".link-subtle.navBar-link.ellipsis-one-line {",
 	"    font-size: 1rem !important;}",
 	"",
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1500px) {",
 	".link-subtle.navBar-link.ellipsis-one-line, .user-link {",
 	"    font-size: .9rem !important;}}",
 	"",
@@ -847,7 +844,7 @@
 	"    padding: 27px;",
 	"    margin-bottom:20px;}",
 	"",
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1700px) {",
 	".navBar-header .logo {",
 	"    margin-left: -27px;}}",
 	"",
@@ -855,11 +852,11 @@
 	"    padding-top: 80px;",
 	"    padding-left: 25px;}",
 	"",
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1700px) {",
 	".inputBox {",
 	"    margin-left: -25px ;}}",
 	"",
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1440px) {",
 	".inputBox {",
 	"    margin-left: -25px ;}}",
 	"",
@@ -1019,7 +1016,7 @@
 	"    border-right: 0px solid var(--marker) !important;}}",
 	"",
 	"@media screen and (-webkit-min-device-pixel-ratio:0) {",
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1700px) {",
 	".navBar-header, .navBar-header:active {",
 	"    margin-left: 17px !important;",
 	"    height: 160px !important;",
@@ -1085,7 +1082,7 @@
 	"    width: 118px !important;",
 	"    transition: ease .2s ;}",
 	"",
-	"@media (max-width: 2160px) {",
+	"@media (max-width: 1700px) {",
 	".navBar-header .logo .spotify-logo--text {",
 	"    margin-top: 5px;",
 	"    height: 97px !important;",
