@@ -1,14 +1,11 @@
 // ==UserScript==
-// @name          SpotOn
+// @name          SpotOn - Non hidden now playing bar
 // @namespace     https://github.com/SenpaiHunters/SpotOn
 // @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
-// @version       0.5.2
-// @supportURL    https://github.com/SenpaiHunters/SpotOn/issues
-// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js
-// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js
+// @version       0.5.6
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
@@ -19,13 +16,20 @@
 // @match         https://genius.com/songs/new
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require       https://greasyfork.org/scripts/406698-geniuslyrics/code/GeniusLyrics.js
+// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
+// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
 // @grant         GM.setClipboard
 // @grant         GM_setClipboard
+// @supportURL      https://github.com/SenpaiHunters/SpotOn/issues
 // @grant           GM.xmlHttpRequest
 // @grant           GM.setValue
 // @grant           GM.getValue
 // @grant           GM.registerMenuCommand
 // @grant           GM_openInTab
+// @grant           GM_getValue
+// @grant           GM_addStyle
+// @grant           GM_deleteValue
+// @noframes
 // @connect         genius.com
 // @run-at        document-start
 // @license       MIT
@@ -92,7 +96,7 @@
  */
 
 (function() {var css = [
-	"/* Version 0.5 */",
+	"/* Version 0.5.6 */",
 	"",
 	"}",
     // Font for the whole of spotify, change the woff link to what you wish
@@ -101,23 +105,23 @@
     "",
 	"/* Import Font */",
 	"@font-face {",
-	"    font-family: Aguafina;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap')) ;",
+	"    font-family: Vibes;",
+	"    src: url(https://www.1001fonts.com/) ;",
 	"}",
 	" @font-face {",
-	"    font-family: Aguafina;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap'));",
+	"    font-family: Vibes;",
+	"    src: url(https://www.1001fonts.com/);",
 	"    font-weight:bold;",
 	"}",
 	"",
 	"/*Fonts for links */",
 	".mo-info-name{",
-	" font-family: Aguafina; ",
+	" font-family: Vibes; ",
 	"    font-weight:normal!important;",
 	"}",
 	"",
 	"h1, h2, .link-subtle{",
-	" 	font-family: Aguafina !important;  ",
+	" 	font-family: Vibes !important;  ",
 	"    font-weight:normal!important;",
 	"}",
 	"",
@@ -134,7 +138,6 @@
 	"    --barCol65: rgba(var(--barCol),.65) ;",
 	"    --barCol95: rgba(var(--barCol),.95) ;",
 	"    --barCol100: rgba(var(--barCol),1) ;",
-    "    --text-base: #000;",
 	"    --firstLsize: 1.50em ;}    ",
 	"",
 	".navBar, .navBar-expand {",
@@ -151,12 +154,11 @@
 	".navBar-group-header, .navBar-item .type {",
 	"    letter-spacing: -3px;",
 	"    text-transform: lowercase !important;",
-        "    --text-base: #000;",
-	"    font-size: 100px;}",
+	"    font-size: 1000px;}",
 	"",
 	"body, body.login, body.login *, .SearchInputBox__input, .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title  {",
-	"    font-family: Aguafina;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap')) ;",
+	"    font-family: Vibes;",
+	"    src: url(https://www.1001fonts.com/) ;",
 	"}",
 	"* {",
 	"    text-decoration: none!important;",
@@ -166,7 +168,7 @@
     // highlight colour when hovering over items - menu bar! Only hex code works.
     // E.G.s, #a020f0b3 is a semi transparent pink, while #000 is black.
 	"a, a:focus, a:hover {",
-	"    color: #f47fff;}",
+	"    color: #ff0080 ;}",
 	"",
     // Main text shadow
 	"#main { ",
@@ -182,7 +184,7 @@
 	"    margin-left: 0 !important;}}",
 	"",
     // Min size
-	"@media (max-width: 1599px) {",
+	"@media (max-width: 2160px) {",
 	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
 	"    text-align: center !important;",
 	"    margin-left: -30px !important;",
@@ -202,6 +204,8 @@
 	"#main .Root .Root__top-container .main-view-container--has-ads .ads-container, .AdsContainer{",
 	"    display: none !important;}",
 	"",
+    " .beQQox;",
+    " color: #333 !important;}",
     // main now playing menu bar sub
 	".Root__now-playing-bar {",
     " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
@@ -233,7 +237,7 @@
 	".now-playing-bar__center {",
 	"    margin-left: -20px;}",
 	"",
-	"@media (max-width: 1000px) { ",
+	"@media (max-width: 2160px) { ",
 	".now-playing-bar__center {",
 	"    margin-left: 12%;}}",
 	"",
@@ -283,14 +287,11 @@
 	"    border-radius: -6px !important;  ",
 	"    box-shadow: 20px 10px 10px -7px rgba(0,0,0,1), -7px 10px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;}",
 	"",
-    // Now plaing menu bar - boxed size change
+   // Now plaing menu bar - boxed size change
 	".Root__now-playing-bar {",
     // see below nav bar colour for infomation on how to change this! (Markdown - SLS)
 	"    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%  ,rgba(0,0,0,0.6) 45% ,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.6) 100%) !important;",
-	"    border: -60px solid var(--line) !important;",
-	"    border-left: 120px solid rgba(48,48,48,.2) !important;",
-	"    border-radius: 70px 70px 70px 70px !important;",
-	"    border-right: -20px solid rgba(38,38,38,.2) !important;",
+	"    border-left: 120px solid rgba(0,0,0,.01) !important;",
 	"    border-radius: 50px !important;  ",
 	"    box-shadow: 16px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
 	"    height: 98px;",
@@ -301,7 +302,7 @@
 	".Root__nav-bar {",
     // left nav bar colour - do background: transparent for no colour, but i like that little pink hue.
 	"    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
-	"    border-left: -1px solid rgba(255,192,203,0.3) !important;",
+	"    border-left: -1px solid rgba(0,0,0,.2) !important;",
 	"    border-radius: 99px 99px 99px 99px !important;",
 	"    border-right: -1px solid rgba(255,192,203,0.3) !important;",
 	"    border-radius: 22px !important;  ",
@@ -328,13 +329,13 @@
 	"    margin-bottom: 0px !important;}",
 	"    ",
     // Max width
-	"@media (max-width: 1699px) { ",
+	"@media (max-width: 2200px) { ",
 	".container-fluid.ArtistAbout__container {       ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important}}",
 	"",
     // Min Width
-	"@media (min-width: 1700px) { ",
+	"@media (min-width: 2200px) { ",
 	".container-fluid.ArtistAbout__container {   ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important;}}",
@@ -349,7 +350,7 @@
 	"    flex: 1 !important;}",
 	"",
     // Max adjustment width
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2200px) {",
 	".ArtistAbout__insights {",
 	"    float: right !important;",
 	"    flex: 2 !important;}}",
@@ -412,7 +413,7 @@
 	"[dir=\"ltr\"] .navBar-item--with-icon-left .navbar-link__text {",
 	"    margin-left: -175px !important;}}",
 	"",
-	"@media (max-width: 1700px){",
+	"@media (max-width: 2160px){",
 	"section.content.artist div div.container-fluid.ArtistAbout__container {",
 	"    margin-right: 15px !important;",
 	"    width: calc(100% - 30px);} ",
@@ -428,7 +429,7 @@
 	"    margin-right: 60px !important;",
 	"    width: calc(100% - 150px);}}",
 	"",
-	"@media (max-width: 1700px) { ",
+	"@media (max-width: 2160px) { ",
 	".Root__nav-bar {   ",
 	"    width:200px;",
 	"    margin-left: 20px !important;}}",
@@ -440,23 +441,23 @@
 	".sessionInfo  {",
 	"    margin-bottom: -90px !important;}",
 	"",
-	"@media (max-height: 869px) {",
+	"@media (max-height: 2160px) {",
 	".recently-played .recently-played__item-5 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 819px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played .recently-played__item-4 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 769px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played .recently-played__item-3 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 719px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played .recently-played__item-2 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 669px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played {",
 	"    display: none !important;}}",
 	"",
@@ -628,7 +629,7 @@
 	".search-history .btn.btn-black{",
 	"    width: 300px !important;}",
 	"",
-	"@media (max-width: 1440px) {",
+	"@media (max-width: 2160px) {",
 	".horizontal-list > button:nth-child(1) {",
 	"    width: 160px !important;",
 	"    margin-left: 0px !important;",
@@ -737,7 +738,7 @@
 	".link-subtle.navBar-link.ellipsis-one-line {",
 	"    font-size: 1rem !important;}",
 	"",
-	"@media (max-width: 1500px) {",
+	"@media (max-width: 2160px) {",
 	".link-subtle.navBar-link.ellipsis-one-line, .user-link {",
 	"    font-size: .9rem !important;}}",
 	"",
@@ -846,7 +847,7 @@
 	"    padding: 27px;",
 	"    margin-bottom:20px;}",
 	"",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".navBar-header .logo {",
 	"    margin-left: -27px;}}",
 	"",
@@ -854,11 +855,11 @@
 	"    padding-top: 80px;",
 	"    padding-left: 25px;}",
 	"",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".inputBox {",
 	"    margin-left: -25px ;}}",
 	"",
-	"@media (max-width: 1440px) {",
+	"@media (max-width: 2160px) {",
 	".inputBox {",
 	"    margin-left: -25px ;}}",
 	"",
@@ -1018,7 +1019,7 @@
 	"    border-right: 0px solid var(--marker) !important;}}",
 	"",
 	"@media screen and (-webkit-min-device-pixel-ratio:0) {",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".navBar-header, .navBar-header:active {",
 	"    margin-left: 17px !important;",
 	"    height: 160px !important;",
@@ -1084,7 +1085,7 @@
 	"    width: 118px !important;",
 	"    transition: ease .2s ;}",
 	"",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".navBar-header .logo .spotify-logo--text {",
 	"    margin-top: 5px;",
 	"    height: 97px !important;",
@@ -1181,7 +1182,7 @@
 	"",
 	"",
 	"/* Spin */",
-	" .cover-art-image.cover-art-image-loaded, .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art-image.cover-art-image-loaded, .cover-art-image:before, .cover-art-image-loaded, .cover-art.shadow, .actionable.cover-art--with-auto-height{",
+	" .cover-art-image.cover-art-image-loaded, .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art-image.cover-art-image-loaded, .cover-art-image:before, .cover-art-image-loaded, .cover-art.shadow, .actionable.cover-art--with-auto-height, .Ws8Ec3GREpT5PAUesr9b {",
 	"     -webkit-animation: spin .6s linear 1;",
 	"     -moz-animation: spin .6s linear 1;",
 	"     animation: spin .6s linear 1;",
@@ -1203,12 +1204,27 @@
 	"         transform: rotate(360deg);",
 	"    }",
 	"}",
-	"/* Round albums - in order for this to be active commands from above need to be removed! This is off by default*/",
-	" .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art.shadow {",
-	"     border-radius: 100000px;",
+	"/* Round albums */",
+	" .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art.shadow, .cover-art-image, .Nd_DeCpszONzyaLe5Wd1, .IPVjkkhh06nan7aZK7Bx, .Ws8Ec3GREpT5PAUesr9b, .mMx2LUixlnN_Fu45JpFB, .CmkY1Ag0tJDfnFXbGgju, ._EShSNaBK1wUIaZQFJJQ, .Yn2Ei5QZn19gria6LjZj {",
+	"     border-radius: 10px;",
 	"}",
+
+    " /* Rounded quick search */",
+    " .zi377dMLSwXnFiejYnRa, .EhyK_jJzB2PcWXd5lg24 {",
+    " background-color: rgb(24 24 24);",
+    " border-radius: 8px;",
+    " padding: 16px;",
+    "}",
+    "",
+    " .KDlcc1SFTcA90eMUcn5P, .EhyK_jJzB2PcWXd5lg24 {",
+    " height: 100%;",
+    " overflow-y: auto;",
+    " padding: 21px;",
+    " border-radius: 50px;",
+    "}",
+    "",
 		"/* Nav bar rainbow background */",
-	" .nav-bar-container, .now-playing-bar-container {",
+	" .nav-bar-container, .Root__now-playing-bar-container, .Button-sc-1dqy6lx {",
 	"     background: linear-gradient(124deg, #ff000036, #ff800036, #ffff0036, #80ff0036, #00ff0036, #00ff8036, #00ffff36, #0080ff36, #0000ff36, #8000ff36, #ff008036);",
 	"     -webkit-animation: rainbow 10s linear infinite;",
 	"     -z-animation: rainbow 10s linear infinite;",
@@ -1300,7 +1316,7 @@
 	"     font-size: 20px!important;",
 	"}",
 	"/* Now playing alignment buttons*/",
-	" .player-controls__buttons {",
+	" .player-controls__buttons, .OCY4jHBICVZEyGvtSv0J, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd {",
 	"     margin-bottom: 0px;",
 	"     cursor: default;",
 	"     display: -ms-flexbox;",
@@ -1312,7 +1328,7 @@
 	"     flex-flow: row nowrap;",
 	"}",
 	"/* NOWPLAYING PLAY BUTTON */",
-	" .control-button {",
+	" .control-button, .KAZD28usA1vPz5GVpm63, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd {",
 	"     animation: rainbow-text 30s infinite;",
 	"     background-color: transparent;",
 	"     cursor: pointer;",
@@ -1369,58 +1385,56 @@
 	"         color: #ff0080;",
 	"    }",
 	"}",
-	"/* *****************Scroll bar (This may not work) ************ */",
-	"/* Scroll bar - size */",
-	" ::-webkit-scrollbar {",
-	"     width: 15px;",
-	"     height: 2px;",
+	"/* *****************Scroll bar************** */",
+    "",
+" ::-webkit-scrollbar {",
+	    " width: 5px;",
+	    " height: 1px;",
 	"}",
-	"/* Scroll bar - padding */",
-	" ::-webkit-scrollbar-button {",
-	"     width: 0px;",
-	"     height: 0px;",
+"",
+"::-webkit-scrollbar-button {",
+	   " width: 0px;",
+	   " height: 0px;",
 	"}",
-	"/* Scroll bar - not in use*/",
-	" ::-webkit-scrollbar-thumb {",
-	"     background: linear-gradient(230deg, #ff000036, #ff800036, #ffff0036, #80ff0036, #00ff0036, #00ff8036, #00ffff36, #0080ff36, #0000ff36, #8000ff36, #ff008036);",
-	"     -webkit-animation: rainbow 10s linear infinite;",
-	"     -z-animation: rainbow 10s linear infinite;",
-	"     -o-animation: rainbow 10s linear infinite;",
-	"     animation: rainbow 10s ease infinite;",
-	"     border-radius:50px;",
+" ::-webkit-scrollbar-thumb {",
+	" background: linear-gradient(230deg, #ff000036, #ff800036, #ffff0036, #80ff0036, #00ff0036, #00ff8036, #00ffff36, #0080ff36, #0000ff36, #8000ff36, #ff008036);",
+"",
+	    " -webkit-animation: rainbow 10s linear infinite;",
+	    " -z-animation: rainbow 10s linear infinite;",
+	    " -o-animation: rainbow 10s linear infinite;",
+	    " animation: rainbow 10s ease infinite;,",
+	    " border-radius:50px;",
 	"}",
-	"/* Scroll bar - hover over */",
-	" ::-webkit-scrollbar-thumb:hover {",
-	"     background: linear-gradient(230deg, #ff00007a, #ff80007a, #ffff007a, #80ff007a, #00ff007a, #00ff807a, #00ffff7a, #0080ff7a, #0000ff7a, #8000ff7a, #ff00807a);",
-	"     -webkit-animation: rainbow 10s linear infinite;",
-	"     -z-animation: rainbow 10s linear infinite;",
-	"     -o-animation: rainbow 10s linear infinite;",
-	"     animation: rainbow 1s ease infinite;",
+"",
+" ::-webkit-scrollbar-thumb:hover {",
+	     " background: linear-gradient(230deg, #ff00007a, #ff80007a, #ffff007a, #80ff007a, #00ff007a, #00ff807a, #00ffff7a, #0080ff7a, #0000ff7a, #8000ff7a, #ff00807a);",
+	     " -webkit-animation: rainbow 10s linear infinite;",
+	     " -z-animation: rainbow 10s linear infinite;",
+	" -o-animation: rainbow 10s linear infinite;",
+	  "   animation: rainbow 1s ease infinite;",
 	"}",
-	"/* Scroll bar - in use active*/",
-	" ::-webkit-scrollbar-thumb:active {",
-	"     background: linear-gradient(230deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff0080);",
-	"     -webkit-animation: rainbow 10s linear infinite;",
-	"     -z-animation: rainbow 10s linear infinite;",
-	"     -o-animation: rainbow 10s linear infinite;",
-	"     animation: rainbow 1s ease infinite;",
+"",
+" ::-webkit-scrollbar-thumb:active {",
+	    " background: linear-gradient(230deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff0080);",
+	    " -webkit-animation: rainbow 10s linear infinite;",
+	    " -z-animation: rainbow 10s linear infinite;",
+	    " -o-animation: rainbow 10s linear infinite;",
+	    " animation: rainbow 1s ease infinite;",
+   "}",
+"",
+" ::-webkit-scrollbar-track {",
+	     " background: #0f0f0f;",
+	     " border: 2px 1px #171717;",
+	     " border-radius: 50px;",
 	"}",
-	"/* Scroll bar - not in use */",
-	" ::-webkit-scrollbar-track {",
-	"     background: #056f572e;",
-	"     border: 0px none #ffffff;",
-	"     border-radius: 50px;",
+"",
+" ::-webkit-scrollbar-track:hover {",
+	      " background: #280B0F;",
 	"}",
-	"/* Scroll bar - hover over */",
-	" ::-webkit-scrollbar-track:hover {",
-	"     background: #0086682e;",
-	"}",
-	"/* Scroll bar - active */",
-	" ::-webkit-scrollbar-track:active {",
-	"     background: #00866873;",
-    "  /******     End for colour chaing icons / spins - and end for V 0.3 - Stay tuned for more!  *********/",
-	"",
-
+"",
+" ::-webkit-scrollbar-track:active {",
+	     " background: #000000;",
+    "",
         "  /******     V 0.4 - Copy track info! This means the song name and artist!  *********/",
 (function () {
   const translations = {
@@ -1776,7 +1790,7 @@ function alertUI (text, buttons = { OK: true }) {
     div.style.fontSize = '20px'
     div.style.lineHeight = '1.5'
     div.style.fontFamily = 'sans-serif'
-    div.style.color = 'pink' // colour
+    div.style.color = 'black'
     div.style.wordBreak = 'break-word'
     div.style.overflowWrap = 'break-word'
     div.style.whiteSpace = 'pre-wrap'
@@ -1792,8 +1806,8 @@ function alertUI (text, buttons = { OK: true }) {
       button.style.padding = '10px'
       button.style.borderRadius = '5px'
       button.style.border = 'none'
-      button.style.backgroundColor = '#6b7280'
-      button.style.color = 'pink' // colour
+      button.style.backgroundColor = '#ddd'
+      button.style.color = 'black'
       button.style.fontFamily = 'sans-serif'
       button.style.fontSize = '16px'
       button.style.cursor = 'pointer'
@@ -2236,7 +2250,6 @@ function addCss () {
     color:white;
     text-decoration:none;
   }
-
   .geniushits li {
     cursor:pointer
   }
@@ -2276,11 +2289,9 @@ function addCss () {
     position: relative;
     animation: 3s linear 0s infinite alternate runtext;
   }
-
   .geniushits .second-line-separator {
     opacity: 0.7
   }
-
   .geniushitname .geniusbadge {
     color: rgb(255, 192, 203);
     background-color: rgb(255, 192, 203);
@@ -2293,7 +2304,6 @@ function addCss () {
     padding: 0 2px;
     margin: 0 3px;
   }
-
   @keyframes runtext {
     0%, 25% {
       transform: translateX(0%);
@@ -2304,7 +2314,6 @@ function addCss () {
       left: 100%;
     }
   }
-
   `
 }
 
@@ -2372,8 +2381,7 @@ function main () {
 }
 )();
 // End of V 0.4! Stay tuned for more - Remember to follow my socials!!!
-// GitHub (support, and new code) - https://github.com/SenpaiHunters/SpotOn/issues
-// Greasyfork.org - https://greasyfork.org/en/scripts/452921-spotify-spoton
+// GitHub (support, and new code) - https://github.com/SenpaiHunters/SpotOn
 
 skin(true);
 chrome.runtime.onMessage.addListener(gotMessage);
@@ -2387,70 +2395,15 @@ function gotMessage(message, sender, sendResponse) {
 	skin(true);
 	}
 }
-/*(function() {
-    // Load the script
-    const script = document.createElement("script");
-    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
-    script.type = 'text/javascript';
-    script.addEventListener('load', () => {
-      console.log(`jQuery ${$.fn.jquery} has been loaded successfully!`);
-      // use jQuery below
-    });
-    document.head.appendChild(script);
-  })();
 
-var timescroll;
-var timesincescroll;
-var currtime;
-var d = new Date();
-window.onscroll = function (e)
-	{
-		console.log("scrolled");
-		timescroll = d.getSeconds();
-	}
-setInterval(function() {
-	currtime = d.getSeconds();
-
-	timesincescroll = currtime - timescroll;
-	console.log("checked: "+timesincescroll);
-}, 1000)
- let didScroll = false;
-
-    window.onscroll = () => didScroll = true;
-    setInterval(() => {
-        if ( didScroll ) {
-            didScroll = false;
-			window.lastScrollTime = new Date().getTime()
-            console.log('Someone scrolled me!')
-        }
-    }, 250);
-setInterval(() => {
-var syntheticEvent = new WheelEvent("syntheticWheel");
-
-console.log(syntheticEvent.deltaY);
-}, 250);
-/*window.addEventListener("scroll",function(){
-    window.lastScrollTime = new Date().getTime()
-	console.log("scrolled");
-});
-function is_scrolling() {
-	console.log("checked:");
-    return window.lastScrollTime && new Date().getTime() < window.lastScrollTime + 60000
-}
-*/
 
 var scrolltimeout=0;
 function skin(exe) {
 	if(exe == true){
 		let css = "";
 		css += `@charset "UTF-8";
-
-
-
 `;
  css += `/* ------Created by Kami--------
-
-
  */
 :root {
     --overlay-heavy: rgba(0, 0, 0, 0.4);
@@ -2460,7 +2413,6 @@ function skin(exe) {
     --blur: 20px; }
 .encore-dark-theme {
     --text-subdued: #ffffffe0!important; }
-
 /*------------------dynamic background-----------------------*/
 @supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
     :root,
@@ -2503,8 +2455,6 @@ function skin(exe) {
     position: absolute; }
 .Root__top-container {
     backdrop-filter: blur(50px); }
-
-
 #main > div {
     box-shadow: inset 0px 2px 70px 4px #0000006e; }
 .Root__top-container,
@@ -2523,10 +2473,6 @@ function skin(exe) {
     padding-top: 10px;
     padding-left: 120px;
     padding-right: 30px; }
-
-
-
-
 /*-------Home button-----*/
 #main > div.Root.encore-dark-theme.nav-alt > div.Root__top-container > div.Root__fixed-top-bar > div:nth-child(2) > a:hover {
     filter: brightness(1.5);
@@ -2555,7 +2501,6 @@ function skin(exe) {
     left: 0;
     z-index: -1;
 }
-
 /*---------------text-----------------*/
 .RootlistItem__link:link,
 .RootlistItem__link:visited,
@@ -2570,8 +2515,6 @@ function skin(exe) {
 .d1c9699572913ee01b0280946ab1f470-scss,
 main-navBar-navBarLinkActive {
     background-color: var(--hoverback); }
-
-
 ._966e29b71d2654743538480947a479b3-scss a,
 standalone-ellipsis-one-line a,
 .c6287512c50a737d01bd9db32b301fab-scss a,
@@ -2598,11 +2541,9 @@ body,
 .FS85JWWz3ayMxrFzBjRD,
 .os-content a {
     color: #ffffffe0!important; }
-
 ._kd5kutoy5xRha0qD0Vz:hover,
 .os-content a:hover {
     color: #fff!important; }
-
 .da0bc4060bb1bdb4abb8e402916af32e-scss,
 .main-trackList-rowTitle,
 .f3fc214b257ae2f1d43d4c594a94497f-scss,
@@ -2625,10 +2566,8 @@ body,
 ._cx_B0JpuGl6cJE7YqU1.ggAaYdWWy1P_IcJbsMeZ .eyyspMJ_K_t8mHpLP_kP,
 ._cx_B0JpuGl6cJE7YqU1.ggAaYdWWy1P_IcJbsMeZ .zM1OMw7zDqUcaPz7XCa3 {
     color: #33ff7b!important; }
-
 #main > div.Root.encore-dark-theme > div.Root__top-container > div.Root__main-view > main > div.os-host.os-host-foreign.os-theme-spotify.os-host-resize-disabled.os-host-scrollbar-horizontal-hidden.main-view-container__scroll-node.os-host-transition.os-host-overflow.os-host-overflow-y > div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div.ShMHCGsT93epRGdxJp2w.Ss6hr6HYpN4wjHJ9GHmi > div.JUa6JJNj7R_Y3i4P8YUX > div:nth-child(2) > div > div > div > div > div {
     filter: contrast(1.5); }
-
 .vQ8EkR_krbAi5mYmmpCn {
     cursor: pointer;
     color: #ffffffe0; }
@@ -2641,10 +2580,8 @@ body,
     background: rgba(0, 0, 0, 0.5)!important; }
 .Z1sHXP1EI_v36FCALBRd:hover {
     background: rgb(35 35 35 / 50%)!important; }
-
-
 /*-------------home page-----------------*/
-.B0VIs50K6LXh5MDmmmJs,
+.B0VIs50K6LXh5MDmmmJs, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P, .e4ETsc5zxjzyF9nyb4LI, .cyXplMovoowBozEe4r2x, .EhyK_jJzB2PcWXd5lg24, .tsv7E_RBBw6v0XTQlcRo, .zi377dMLSwXnFiejYnRa, .aIWRvSjvEN4rTMCIi4vG, .wIyyGaSPOHR78wksX3Us, .G8UNZJv4HT1kOIolA_e7,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > section > div:nth-child(5) > section > div:nth-child(2) > div,
@@ -2657,7 +2594,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section:nth-child(2) > div:nth-child(3) > div,
 div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div {
     background: rgba(0, 0, 0, 0.2)!important; }
-
 .B0VIs50K6LXh5MDmmmJs:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div:nth-child(2) > div:hover,
@@ -2669,8 +2605,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section:nth-child(2) > div:nth-child(3) > div:hover,
 div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div:hover {
     background: rgba(0, 0, 0, 0.5)!important; }
-
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div {
     overflow: visible; }
 ._7ae3a7b5ef70bce1740ff486c4467d56-scss,
@@ -2685,7 +2619,6 @@ div.os-padding > div > div > div > main > div > div {
     background-color: transparent!important;
     background-image: none!important;
     transition-duration: 0s; }
-
 .main-card-card:hover main-card-imageContainer,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div > div > div > div:nth-child(1),
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div > div > div > div:nth-child(1),
@@ -2696,8 +2629,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(2) > div > div:nth-child(2) > div > div:nth-child(n+2) > div > div > div:nth-child(1),
 div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div > div > div > div:nth-child(1) {
     transition-duration: 0.2s; }
-
-
 .OALAQFKvC7XQOVYpklB4:hover .JI_jg7MaIJ2TCTmebcdd,
 .main-card-card:hover main-card-imageContainer,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div > div:hover > div > div:nth-child(1),
@@ -2711,9 +2642,6 @@ div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div
     transform: scale(1.05);
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
-
-
-
 main-card-imageContainer,
 .OALAQFKvC7XQOVYpklB4 .JI_jg7MaIJ2TCTmebcdd {
     transition-duration: 0.4s;
@@ -2723,7 +2651,6 @@ view-homeShortcutsGrid-shortcut:hover view-homeShortcutsGrid-imageContainer,
 .B0VIs50K6LXh5MDmmmJs:hover .icV9eS36uZs9fhQmUujh,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section:nth-child(1) > div > div:hover > div > div:nth-child(1) {
     transform: scale(1.1) translateX(3px)!important; }
-
 .KL469QQzoRZLOmKomNzk .B3i7kN8tRTwP9s4XEK10,
 view-homeShortcutsGrid-shortcut view-homeShortcutsGrid-imageContainer,
 .icV9eS36uZs9fhQmUujh {
@@ -2755,9 +2682,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section:nth-child(1) > div > div > div > div:nth-child(2) {
     transition-duration: 0.2s!important;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)!important; }
-
-
-
 /*-------------profile page-----------------*/
 ._6f1bb16d690aec58cb10e82de1ac2410-scss,
 ._9764a8966c108117bdf6f47cb601747a-scss,
@@ -2776,12 +2700,8 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div > main > section > div > div > div {
     background-color: #0000! important;
     background-image: none !important; }
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div {
     background: rgba(0, 0, 0, 0.0)!important; }
-
-
-
 .c108b4ada40c10926b10bba3ff614fd0-scss,
 .wQi0raQMEJJrELuj_2FP,
 .YboT9C61kapUCdQnsEmR,
@@ -2826,7 +2746,6 @@ div.under-main-view > div > div {
     height: 41vh; }
 .f39dd6caa689537bffdfc875c3f33d08-scss {
     padding: 10px 32px!important; }
-
 /*------------discografy page-------------*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div:nth-child(1) {
     background-color: #0000! important;
@@ -2834,8 +2753,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     box-shadow: none!important; }
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(1) {
     top: auto; }
-
-
 /*------------allbum page-------------*/
 ._11b29b5a5f3bcae347f832a4278b28b8-scss,
 ._5d10f53f6ab203d3259e148b9f1c2278-scss,
@@ -2850,7 +2767,6 @@ div.os-padding > div > div > div > main > section > div > div.contentSpacing > d
 div.os-padding > div > div > div > main > section > div > div:nth-child(4) > div > div > img{
     -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .5)!important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, .5)!important; }
-
 ._83d9fef4ae69148dc1fc9b8323f8528b-scss._2dc8cce76d72af90f5e00e781db42541-scss,
 .g9n_9K5pFI3B_JuDI_hS.LcjM521yr5D14A54HbQl,
 ._jtsyLN4SfPrV5dZONPP.uwzZYE9AYS0OMBzvAopr,
@@ -2862,7 +2778,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     position: initial !important;
     background: #00000000!important;
     box-shadow: none!important; }
-
 ._235729a60d5e265806e8509d8633b779-scss,
 .b1b53e70887a91051a9d7dc85160fc6b-scss,
 .a232f016804d04ce9c5bbfd1a5e00d54-scss,
@@ -2877,14 +2792,11 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(1) {
     background: #00000000!important; }
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(3) > div > div > div:nth-child(2) > div > div > div > div > img,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div > div > div:nth-child(2) > div > div > div > div > img,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div.contentSpacing > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div > div > div > div > img,
 div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div.contentSpacing > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(1) > div > img {
     display: none!important; }
-
-
 /*-------podcasts--------------*/
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
     color: #fff!important;
@@ -2894,14 +2806,10 @@ div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div
 ._UFTK833WfTNGb4agRTd,
 .Ic3iDUCnC09k55peZBfC {
     background: #00000000!important; }
-
 /*-----Spotify Lists-----*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div > div {
     background: #00000000!important; }
-
-
-
 /*-------now playing bar--------------*/
 .Root__now-playing-bar {
     padding-top: 10px; }
@@ -2940,32 +2848,24 @@ a:focus,
 a:hover,
 a {
     transition-duration: 0.2s; }
-
 /*----------------Misc---------------------*/
 body > div:nth-child(10) {
     display: none; }
-
 ._7b6273541d969069bb18c4fcae4120e7-scss,
 .e2JzVB2WkGm7GMT8rkEg,
 .kYBlAcRblnjQ6kKW4JCy,
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > div > div > div:nth-child(3) > div {
     background: none; }
-
-
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div.fVB_YDdnaDlztX7CcWTA {
     top: 0px;
     position: initial !important; }
-
 ._748c0c69da51ad6d4fc04c047806cd4d-scss {
     color: #000!important;
     text-shadow: 0 0 black; }
 #searchPage > div > div > div > div > div {}
-
 /*lyrics*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > div > div {
     background: none; }
-
-
 /*now playing img*/
 .d6e5892a336f6ae43bf066f2245c81b1-scss,
 ._4fac214bccd807d7c6fed21d4e0ea6de-scss,
@@ -2977,13 +2877,10 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 ._8b45c1ef6e792bfe1014b26c48673e5a-scss,
 .i0XB7255K_4QFLJsSGc_ {
     background: none!important; }
-
-
 ._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss,
 .i_0L07qd2CAeOLFiK8dP {
     overflow-y: visible!important;
     backdrop-filter: blur(3px)!important; }
-
 /*albums previews*/
 ._2f859138f9d0ecc3c687296f572c5dca-scss,
 ._3802c04052af0bb5d03956299250789e-scss,
@@ -2998,7 +2895,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > ul > li > a,
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > ul > li:nth-child(3) > div > a {
     background: rgba(0, 0, 0, 0)!important; }
-
 ._2f859138f9d0ecc3c687296f572c5dca-scss:hover,
 ._3802c04052af0bb5d03956299250789e-scss:hover,
 ._28be3af50433a1164b3a62a898dce43e-scss:hover,
@@ -3010,15 +2906,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > ul > li:nth-child(3) > div > a:hover {
     background: rgba(0, 0, 0, 0.5)!important;
     /*background: rgb(35 35 35 / 50%)!important;*/ }
-
 .byhpDrPqhYGoCXVANcn9 {
     transition-duration: 0.2s; ; }
 .YWQ6MaodStrAvAMCg1wx:hover .byhpDrPqhYGoCXVANcn9 {
     transform: scale(1.05);
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
-
-
 /*play button*/
 ._13e5c5964387e0139bbe6e468e9aa649-scss > *,
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
@@ -3027,13 +2920,9 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 ._8e7d398e09c25b24232d92aac8a15a81-scss:hover {
     box-shadow: 2px -1px 20px 0px #000000c7;
     z-index: 1; }
-
 /*playing album*/
 ._233cba0ebe7615236e86592034108e77-scss {
     justify-content: center; }
-
-
-
 /*track scale*/
 ._OpqIZJH2IqpNqAS9iJ7,
 ._cx_B0JpuGl6cJE7YqU1,
@@ -3045,7 +2934,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div > div > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div > div:nth-child(2) > div {
     transition: transform var(--standard-ease); }
-
 ._OpqIZJH2IqpNqAS9iJ7,
 ._cx_B0JpuGl6cJE7YqU1:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div:nth-child(4) > div > div > div:nth-child(2) > div > div:hover,
@@ -3056,14 +2944,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div > div > div:nth-child(2) > div:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div > div:nth-child(2) > div:hover {
     transform: scale(1.025) }
-
 .ggAaYdWWy1P_IcJbsMeZ .FnW_fQBaMbSCZnG14SfL,
 .iSbqnFdjb1SuyJ3uWydl .RfidWIoz8FON2WhFoItU {
     opacity: 1;
     color: #31ff55 }
 .ggAaYdWWy1P_IcJbsMeZ .g_2jIhVKp2v60nnkBkUN {
     opacity: 0; }
-
 ._4b308d5c9250cfb0620ce3b40765ef4a-scss,
 .tracklist-row--active,
 .SzCNXJJQz7BiDOO0B2Xv,
@@ -3071,15 +2957,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 .iSbqnFdjb1SuyJ3uWydl {
     transform: scale(1.025)!important;
     background-color: #0003; }
-
-
 ._4b308d5c9250cfb0620ce3b40765ef4a-scss ._99bbcff33ae810da0bfc335662ae2c1d-scss,
 .fynR25MOeILQ7mCZ8247 {
     opacity: 0!important; }
 ._5814e6eb4f933d11bfa18c01b92eff76-scss,
 .WBTm60_TPRG_oYwBuS7_ {
     display: none!important; }
-
 /*pointers*/
 .bd0f04911fe4adb022e666269a90a739-scss,
 ._38168f0d5f20e658506cd3e6204c1f9a-scss,
@@ -3089,7 +2972,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     cursor: pointer; }
 .ec1b5762556429ac3aeedbae72433491-scss {
     color: #ffffffe0!important; }
-
 /*transparent elements*/
 .Root__now-playing-bar,
 .i_0L07qd2CAeOLFiK8dP,
@@ -3162,7 +3044,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 		var temp = ""
 		setInterval(function back() {
 			'use strict';
-
 			if(document.getElementsByClassName("cover-art-image")[0] != undefined){
 				if (temp != document.getElementsByClassName("cover-art-image")[0].src) {
 					setTimeout(() => { console.log("Changing background!");
@@ -3188,7 +3069,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 					//}
 				}
 			}
-
 		}, 1500)
         */
 	}
@@ -3267,20 +3147,6 @@ setInterval(function() {
 //scrolltimeout=0;
 
 },5000);
-
-(function() {
-    'use strict';
-    window.addEventListener('keydown', (event) => {
-        switch(event.code) {
-            case 'ArrowLeft':
-                document.querySelector('.spoticon-skip-back-16').click();
-                break;
-            case 'ArrowRight':
-                document.querySelector('.spoticon-skip-forward-16').click();
-                break;
-        }
-    }, false);
-})();
 
 
  // // // // // // // // // // // //
