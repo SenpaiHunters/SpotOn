@@ -1,14 +1,11 @@
 // ==UserScript==
-// @name          SpotOn
+// @name          SpotOn - Non hidden now playing bar
 // @namespace     https://github.com/SenpaiHunters/SpotOn
 // @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
-// @version       0.5.6
-// @supportURL    https://github.com/SenpaiHunters/SpotOn/issues
-// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js
-// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20V%200.5.js
+// @version       0.5.7
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
@@ -19,14 +16,21 @@
 // @match         https://genius.com/songs/new
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require       https://greasyfork.org/scripts/406698-geniuslyrics/code/GeniusLyrics.js
+// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
+// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
 // @grant         GM.setClipboard
 // @grant         GM_setClipboard
+// @supportURL      https://github.com/SenpaiHunters/SpotOn/issues
 // @grant           GM.xmlHttpRequest
 // @grant           GM.setValue
 // @grant           GM.getValue
 // @grant           GM.registerMenuCommand
 // @grant           GM_openInTab
+// @grant           GM_getValue
+// @grant           GM_addStyle
+// @grant           GM_deleteValue
 // @connect         genius.com
+// @sandbox         JavaScript
 // @run-at        document-start
 // @license       MIT
 // @copyright     2022, Kami
@@ -84,7 +88,7 @@
  *
  * Check my socials out - https://linktr.ee/SenpaiHunter
  * Support via discord - https://discord.gg/pjNn2M22ct
- * YouTube - https://www.youtube.com/channel/UCzSgmjr--CdIPmdkdiLRNow
+ * YouTube - https://www.youtube.com/@Kami_YT
  * Help Support Me -  https://www.buymeacoffee.com/KamiAMVS
  *
  * # Latest release notes
@@ -92,82 +96,124 @@
  */
 
 (function() {var css = [
-	"/* Version 0.5.6 */",
+	"/* Version 0.5.7 */",
 	"",
 	"}",
     // Font for the whole of spotify, change the woff link to what you wish
 	"",
     "/* Change the URL and Name for any font you'd like */",
     "",
-	"/* Import Font */",
+	"/* Font Face + New font - change to what you please */",
 	"@font-face {",
-	"    font-family: Aguafina;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap')) ;",
+	"    font-family: 'Akronim', cursive;",
+	"    src: url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
 	"}",
 	" @font-face {",
-	"    font-family: Aguafina;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap'));",
-	"    font-weight:bold;",
-	"}",
+	"    font-family: 'Akronim', cursive;;",
+	"    src: url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
+	"    font-weight:bold;}",
 	"",
-	"/*Fonts for links */",
 	".mo-info-name{",
-	" font-family: Aguafina; ",
-	"    font-weight:normal!important;",
-	"}",
+	" font-family: 'Akronim'; ",
+	"    font-weight: normal !important;}",
 	"",
 	"h1, h2, .link-subtle{",
-	" 	font-family: Aguafina !important;  ",
-	"    font-weight:normal!important;",
+	" 	font-family: 'Akronim', cursive !important;  ",
+	"    font-weight: normal !important;",
+    "  font-size: 3rem;",
 	"}",
 	"",
-	":root {     ",
-	"    --wallpaper: url(\"https://source.unsplash.com/featured/8192x4608/?+hd-wallpaper-%2B-hd-wallpapers\") ; ",
-    // i set that as the featured so, if you reload the page you'll see a new image!
-	"    --marker: #57A9FF ;",
-	"    --playCol: #57A9FF ;",
-	"    --hoverCol: #FBCF87 ;",
-	"    --line: #00334d ;",
-	"    --barCol: 2,2,2 ;",
-	"    --barCol55: rgba(var(--barCol),.55) ;",
-	"    --barCol60: rgba(var(--barCol),.60) ;",
-	"    --barCol65: rgba(var(--barCol),.65) ;",
-	"    --barCol95: rgba(var(--barCol),.95) ;",
-	"    --barCol100: rgba(var(--barCol),1) ;",
-    "    --text-base: #000;",
+	"/* First letter captial */",
+	" :root {     ",
 	"    --firstLsize: 1.50em ;}    ",
 	"",
-	".navBar, .navBar-expand {",
+	"body, body.login, body.login *, .SearchInputBox__input, .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title  {",
+	"    font-family: Akronim;",
+	"    src: url(https://fonts.gstatic.com/s/akronim/v23/fdN-9sqWtWZZlHRpygl7kXQO6a5IYA.woff2) format('woff2');",
+	"}",
+	"* {",
+	"    text-decoration: auto;",
+	"    border: none !important;",
+	"    word-wrap: break-word;}",
+    "",
+    ".navBar, .navBar-expand {",
 	"    -webkit-box-flex: 1;    ",
 	"    flex: 1;",
 	"    max-height: calc(100% - 100px) !important;}",
 	"",
-	"._2ypW2_NbqnDwuBDrAIINHR a {",
-	"    line-height: 50px !important;",
-	"    height: 0px !important;",
-	"    width: 100% !important;",
-	"    text-align: center;}",
+    " .fhrvNw, .rEN7ncpaUeSGL9z0NGQR, Fb61sprjhh75aOITDnsJ {",
+    "  font-size: 3rem;",
+    "  display: contents;",
+    "  text-align: -webkit-center;",
+    " } ",
+    "",
+	"/* Hides selected items */",
+    "/* Items include, Spotify logo, Install app, content bar, resizer and more */",
+    " .fwTMCeAaUoWDj9WcQbgy, .NyIynkmMpZXSoaE3XGhA, .HImFiUWOg93pvTefeAD, .xYgjMpAjE5XT05aRIezb, .LayoutResizer__inline-end, .HsbczDqu9qjcYr7EIdHR, .LayoutResizer__resize-bar {",
+    " visibility: hidden;",
+    " position: fixed;",
+    " } ",
+    " .gQoa8JTSpjSmYyABcag2.T3hkVxXuSbCYOD2GIeQd, .gQoa8JTSpjSmYyABcag2, .GD2gbRtcs5dOjMGAM_Y4, .main-view-container__scroll-node-child-spacer,  {",
+    " display: none;",
+    "}",
+    " .eCtSle, .main-view-container_mh-footer-container {",
+     "display: none:",
+    "}",
+    "/* Stop */",
+    "",
+    " .main-view-container__scroll-node-child-spacer { ",
+    " height: -36px; ",
+    " margin-top: -40px;",
+    " position: absolute; } ",
+    "",
+    " .DG9CsoFIptJhAneKoo_F { ",
+    " margin-top: -105px; ",
+    " margin-bottom: 26px; }",
+    "",
+    "",
+    " .os-viewport, .os-theme-spotify .os-viewport, .os-host-overflow>.os-padding, .os-viewport {",
+    " margin-bottom: 10px;",
+    " } ",
+    "",
+    " .fEBgUb {",
+    " margin-block: -66px;",
+    " font-size: 2rem;",
+    "}",
+    "",
+    ".Root__main-view { ",
+    " width: -webkit-fill-available; ",
+    " top: auto;",
+    "}",
+    "",
 	"",
-	".navBar-group-header, .navBar-item .type {",
-	"    letter-spacing: -3px;",
-	"    text-transform: lowercase !important;",
-        "    --text-base: #000;",
-	"    font-size: 100px;}",
+    " .tUwyjggD2n5KvEtP5z1B {",
+    " cursor: auto; ",
+    " flex-direction: column-reverse;",
+    // for flex direction chnage colum to colum-reverse to reverse the look (album art top, home, search & your libary at the bottom)
+    " min-height: -webkit-fill-available; ",
+    " height: -webkit-fill-available:",
+    " width: -webkit-fill-available;",
+    " padding-top: 20px;",
+    "}",
+    "",
+    " .fGuZQO {",
+    " display: hidden;",
+    "}",
+    "",
+    " .RP2rRchy4i8TIp1CTmb7 {",
+    " justify-content: center;",
+    " counter-increment: inherit;",
+    " background-size: cover;",
+    " inline-size: fit-content;",
+    " } ",
 	"",
-	"body, body.login, body.login *, .SearchInputBox__input, .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title  {",
-	"    font-family: Aguafina;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap')) ;",
-	"}",
-	"* {",
-	"    text-decoration: none!important;",
-	"    border: none !important;",
-	"    word-wrap: break-word;}",
-	"",
-    // highlight colour when hovering over items - menu bar! Only hex code works.
-    // E.G.s, #a020f0b3 is a semi transparent pink, while #000 is black.
-	"a, a:focus, a:hover {",
-	"    color: #f47fff;}",
-	"",
+    " .uhDzVbFHyCQDH6WrwZaC _ejNsts52hRqOuZcc_NXi {",
+    " max-width: 774px;",
+    " } ",
+    "",
+    " ejNsts52hRqOuZcc_ NXi {",
+    " padding: • 21px;",
+    " } ",
     // Main text shadow
 	"#main { ",
 	"    text-shadow: 2px -1px 0px #333 !important;}",
@@ -182,7 +228,7 @@
 	"    margin-left: 0 !important;}}",
 	"",
     // Min size
-	"@media (max-width: 1599px) {",
+	"@media (max-width: 2160px) {",
 	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
 	"    text-align: center !important;",
 	"    margin-left: -30px !important;",
@@ -202,10 +248,12 @@
 	"#main .Root .Root__top-container .main-view-container--has-ads .ads-container, .AdsContainer{",
 	"    display: none !important;}",
 	"",
+    " .beQQox;",
+    " color: #333 !important;}",
     // main now playing menu bar sub
 	".Root__now-playing-bar {",
     " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
-	"    position: fixed;",
+	"    position: relative;",
     // change pos for menu bar layout
 	"    height: 1px;",
 	"    width: calc(100% - 50px);",
@@ -218,7 +266,8 @@
     // Chnage 'left' value higher to move right, lower that value to move left.
 	"@media (min-width: 1700px) { ",
 	"#main .Root .Root__now-playing-bar {   ",
-	"    width: calc(100% - 30px);",
+	"    position: relative;",
+    "    width: calc(100% - 30px);",
 	"    left: 14px;}}",
 	"",
     // NPB start
@@ -228,12 +277,12 @@
 	"    margin-top: 15px;}",
 	"",
 	".now-playing-bar-container {",
-	"    background-color: backdrop-filter: blur(5px);;}",
+	"    background-color: backdrop-filter: blur(5px);}",
 	"",
 	".now-playing-bar__center {",
 	"    margin-left: -20px;}",
 	"",
-	"@media (max-width: 1000px) { ",
+	"@media (max-width: 2160px) { ",
 	".now-playing-bar__center {",
 	"    margin-left: 12%;}}",
 	"",
@@ -283,15 +332,14 @@
 	"    border-radius: -6px !important;  ",
 	"    box-shadow: 20px 10px 10px -7px rgba(0,0,0,1), -7px 10px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;}",
 	"",
-  	"",
    // Now plaing menu bar - boxed size change
 	".Root__now-playing-bar {",
     // see below nav bar colour for infomation on how to change this! (Markdown - SLS)
-	"    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%  ,rgba(0,0,0,0.6) 45% ,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.6) 100%) !important;",
-	"    border-left: 120px solid rgba(0,0,0,.01) !important;",
-	"    border-radius: 50px !important;  ",
-	"    box-shadow: 16px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
-	"    height: 98px;",
+		"    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
+	  "    border-left: 120px solid rgba(0,0,0,.01) !important;",
+	 "    border-radius: 50px !important;  ",
+	  "    box-shadow: 16px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
+	    "    height: 98px;",
     // height of the box ( downwards )
 	"    padding: 2px 4px;}",
 	"",
@@ -308,7 +356,7 @@
 	"    margin-top: 65px !important;",
 	"    height: calc(100% - 85px) !important;",
     // if you want it fully off to the left side, remove overflow-x
-	"    overflow-x:hidden;}",
+	"    overflow-x: hidden;}",
 	"",
 	".recently-played.navBar-group {",
 	"    margin-top: 10px !important;",
@@ -326,13 +374,13 @@
 	"    margin-bottom: 0px !important;}",
 	"    ",
     // Max width
-	"@media (max-width: 1699px) { ",
+	"@media (max-width: 2200px) { ",
 	".container-fluid.ArtistAbout__container {       ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important}}",
 	"",
     // Min Width
-	"@media (min-width: 1700px) { ",
+	"@media (min-width: 2200px) { ",
 	".container-fluid.ArtistAbout__container {   ",
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important;}}",
@@ -347,7 +395,7 @@
 	"    flex: 1 !important;}",
 	"",
     // Max adjustment width
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2200px) {",
 	".ArtistAbout__insights {",
 	"    float: right !important;",
 	"    flex: 2 !important;}}",
@@ -410,7 +458,7 @@
 	"[dir=\"ltr\"] .navBar-item--with-icon-left .navbar-link__text {",
 	"    margin-left: -175px !important;}}",
 	"",
-	"@media (max-width: 1700px){",
+	"@media (max-width: 2160px){",
 	"section.content.artist div div.container-fluid.ArtistAbout__container {",
 	"    margin-right: 15px !important;",
 	"    width: calc(100% - 30px);} ",
@@ -426,7 +474,7 @@
 	"    margin-right: 60px !important;",
 	"    width: calc(100% - 150px);}}",
 	"",
-	"@media (max-width: 1700px) { ",
+	"@media (max-width: 2160px) { ",
 	".Root__nav-bar {   ",
 	"    width:200px;",
 	"    margin-left: 20px !important;}}",
@@ -438,23 +486,23 @@
 	".sessionInfo  {",
 	"    margin-bottom: -90px !important;}",
 	"",
-	"@media (max-height: 869px) {",
+	"@media (max-height: 2160px) {",
 	".recently-played .recently-played__item-5 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 819px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played .recently-played__item-4 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 769px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played .recently-played__item-3 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 719px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played .recently-played__item-2 {",
 	"    display: none !important;}}",
 	"",
-	"@media(max-height: 669px) {",
+	"@media(max-height: 2160px) {",
 	".recently-played {",
 	"    display: none !important;}}",
 	"",
@@ -505,7 +553,7 @@
 	"    border: 0px solid rgb(30,30,30) !important;}",
 	"",
 	".now-playing-bar__right__inner {",
-	"    padding-right:6x !important;}",
+	"    padding-right: 6px !important;}",
     // inner right padding for menu bar
 	"",
 	".accountPage .icon, .downloadPage-inner {",
@@ -563,26 +611,8 @@
 	".btn.btn-green.cta-button, .btn.btn-black.btn-small, .btn.btn-green, .btn.btn-black, .btn.btn-black:hover, .btn.btn-fg-green, .btn.btn-transparent, .btn.btn-blue.btn-small, .btn-landing.btn-white, .btn-landing.btn-green, .btn.btn-sm.btn-block.btn-facebook.ng-binding, .btn.btn-sm.btn-block.btn-green.ng-binding, .btn.btn-white._3zghGNfKZCH7FVEyqNY3my, button.btn.btn--no-margin.btn--full-width.P7Qjj40AVoE8Igi7Ji05m._1xNlj_ScH8hEMWzrkRt1A, .ResponsiveViewMoreButton__button, .btn.btn-white {",
 	"    font-size: 21px !important;",
 	"    font-weight: 400 !important;",
-	"    /* Import Font */",
-	"@font-face {",
-	"    font-family: caviarDreams;",
-	"    src: url(https://cyberlapse.github.io/SpotifyStylishExtension/CaviarDreams.woff) ;",
-	"}",
-	" @font-face {",
-	"    font-family: caviarDreams;",
-	"    src: url(https://cyberlapse.github.io/SpotifyStylishExtension/CaviarDreams_Bold.ttf) format(\'truetype\');",
-	"    font-weight:bold;",
-	"}",
-	"",
-	"/*Fonts for links */",
-	".mo-info-name{",
-	" font-family:caviarDreams; ",
-	"    font-weight:normal!important;",
-	"}",
-	"",
-	"h1, h2, .link-subtle{",
-	" 	font-family:caviarDreams !important;  ",
-	"    font-weight:normal!important;",
+
+
 	"}",
 	"    text-transform: lowercase !important;",
 	"    letter-spacing: 1px;",
@@ -626,7 +656,7 @@
 	".search-history .btn.btn-black{",
 	"    width: 300px !important;}",
 	"",
-	"@media (max-width: 1440px) {",
+	"@media (max-width: 2160px) {",
 	".horizontal-list > button:nth-child(1) {",
 	"    width: 160px !important;",
 	"    margin-left: 0px !important;",
@@ -670,6 +700,13 @@
 	".player-controls__buttons {",
 	"    margin-top: 15px;}",
 	"",
+
+
+    ".OgkbKIVYE_mrNpYESylB {",
+    " min-width: 180px;",
+    " }",
+
+
 	".control-button {",
 	"    width: 26px;",
 	"    min-width: 26px;",
@@ -677,6 +714,8 @@
 	"    position: relative;",
 	"    transition: all 33ms cubic-bezier(.3,0,.7,1);}",
 	"",
+    "",
+    // markdown -- -- -- -- -- -- -- - - - - - --  -- - - - - -  --  -- - - - - - -- - - - --  -- - - -- - - - - - - - --  -- - - - - - - - - - -- - - - - - - - - - - -
 	".progress-bar { ",
 	"    position: relative;}",
 	"",
@@ -715,7 +754,8 @@
 	"    margin-bottom: 2px !important;",
 	"    margin-top:-1px !important;",
 	"    min-width: 50px;}",
-	"",
+    "",
+    "",
 	".playback-bar__progress-time::first-letter {",
 	"    font-size: var(--firstLsize) !important;}",
     "",
@@ -735,7 +775,7 @@
 	".link-subtle.navBar-link.ellipsis-one-line {",
 	"    font-size: 1rem !important;}",
 	"",
-	"@media (max-width: 1500px) {",
+	"@media (max-width: 2160px) {",
 	".link-subtle.navBar-link.ellipsis-one-line, .user-link {",
 	"    font-size: .9rem !important;}}",
 	"",
@@ -844,7 +884,7 @@
 	"    padding: 27px;",
 	"    margin-bottom:20px;}",
 	"",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".navBar-header .logo {",
 	"    margin-left: -27px;}}",
 	"",
@@ -852,11 +892,11 @@
 	"    padding-top: 80px;",
 	"    padding-left: 25px;}",
 	"",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".inputBox {",
 	"    margin-left: -25px ;}}",
 	"",
-	"@media (max-width: 1440px) {",
+	"@media (max-width: 2160px) {",
 	".inputBox {",
 	"    margin-left: -25px ;}}",
 	"",
@@ -1016,7 +1056,7 @@
 	"    border-right: 0px solid var(--marker) !important;}}",
 	"",
 	"@media screen and (-webkit-min-device-pixel-ratio:0) {",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".navBar-header, .navBar-header:active {",
 	"    margin-left: 17px !important;",
 	"    height: 160px !important;",
@@ -1082,7 +1122,7 @@
 	"    width: 118px !important;",
 	"    transition: ease .2s ;}",
 	"",
-	"@media (max-width: 1700px) {",
+	"@media (max-width: 2160px) {",
 	".navBar-header .logo .spotify-logo--text {",
 	"    margin-top: 5px;",
 	"    height: 97px !important;",
@@ -1150,21 +1190,20 @@
     "/* On wards new in version 0.3 - commands below should hide the spotify logo! */",
     "/* Hide spotify logo */",
 	".logo path {",
-	"	display:none;",
+	"	display: none;",
 	"}",
 	"/* remove space */",
 	" .navBar-header {  ",
 	"     height:0px;",
 	"     padding:0px;",
 	"}",
-    "*/ new addition in V 0.3 - elements having a ranbow coloue, which is fully customisable!/",
    	"/***********************************Advanced Customization For Update V 0.3 **********************************************/",
 	"",
 	"",
 	"/* Search bar*/",
-	".SearchInputBox{",
-	"    padding-top: 80px!important;",
-	"    padding-bottom: 5px!important;",
+	".SearchInputBox {",
+	"    padding-top: 80px !important;",
+	"    padding-bottom: 5px !important;",
 	"    background: none;",
 	"    padding: 0 0em;",
 	"    margin: 0 auto;",
@@ -1173,12 +1212,12 @@
 	"    padding-left: 0px;",
 	"}",
 	"",
-	"._1Fj-rlIZXTSNgYOCuLh7xo{",
-	"    font-size:30px!important;",
+	"._1Fj-rlIZXTSNgYOCuLh7xo {",
+	"    font-size:30px !important;",
 	"}",
 	"",
 	"",
-	"/* Spin */",
+	"/* -----Spining album/cover art------ */",
 	" .cover-art-image.cover-art-image-loaded, .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art-image.cover-art-image-loaded, .cover-art-image:before, .cover-art-image-loaded, .cover-art.shadow, .actionable.cover-art--with-auto-height, .Ws8Ec3GREpT5PAUesr9b {",
 	"     -webkit-animation: spin .6s linear 1;",
 	"     -moz-animation: spin .6s linear 1;",
@@ -1202,10 +1241,13 @@
 	"    }",
 	"}",
 	"/* Round albums */",
-	" .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art.shadow, .cover-art-image, .Nd_DeCpszONzyaLe5Wd1, .IPVjkkhh06nan7aZK7Bx, .Ws8Ec3GREpT5PAUesr9b, .mMx2LUixlnN_Fu45JpFB, .CmkY1Ag0tJDfnFXbGgju, ._EShSNaBK1wUIaZQFJJQ, .Yn2Ei5QZn19gria6LjZj {",
+	" .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art-image, .Nd_DeCpszONzyaLe5Wd1, .IPVjkkhh06nan7aZK7Bx, .Ws8Ec3GREpT5PAUesr9b, .mMx2LUixlnN_Fu45JpFB, .CmkY1Ag0tJDfnFXbGgju, ._EShSNaBK1wUIaZQFJJQ, .Yn2Ei5QZn19gria6LjZj, .Z35BWOA10YGn5uc9YgAp, .jvWzgRWM_y_9FFTYRCcB,  {",
 	"     border-radius: 10px;",
 	"}",
-
+    " .cover-art.shadow {",
+    " border-radius 15px;",
+    "}",
+    "",
     " /* Rounded quick search */",
     " .zi377dMLSwXnFiejYnRa, .EhyK_jJzB2PcWXd5lg24 {",
     " background-color: rgb(24 24 24);",
@@ -1220,14 +1262,6 @@
     " border-radius: 50px;",
     "}",
     "",
-		"/* Nav bar rainbow background */",
-	" .nav-bar-container, .Root__now-playing-bar-container, .Button-sc-1dqy6lx {",
-	"     background: linear-gradient(124deg, #ff000036, #ff800036, #ffff0036, #80ff0036, #00ff0036, #00ff8036, #00ffff36, #0080ff36, #0000ff36, #8000ff36, #ff008036);",
-	"     -webkit-animation: rainbow 10s linear infinite;",
-	"     -z-animation: rainbow 10s linear infinite;",
-	"     -o-animation: rainbow 10s linear infinite;",
-	"     animation: rainbow 10s ease infinite;",
-	"}",
 	" @-webkit-keyframes rainbow {",
 	"     0% {",
 	"         background-position: 0% 82% ",
@@ -1310,10 +1344,10 @@
 	"}",
 	"/* Now playing font size */",
 	" .react-contextmenu-wrapper {",
-	"     font-size: 20px!important;",
+	"     font-size: 20px !important;",
 	"}",
 	"/* Now playing alignment buttons*/",
-	" .player-controls__buttons, .OCY4jHBICVZEyGvtSv0J, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd {",
+	" .player-controls__buttons, .OCY4jHBICVZEyGvtSv0J, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .TywOcKZEqNynWecCiATc {",
 	"     margin-bottom: 0px;",
 	"     cursor: default;",
 	"     display: -ms-flexbox;",
@@ -1323,27 +1357,32 @@
 	"     justify-content: space-between;",
 	"     -ms-flex-flow: row nowrap;",
 	"     flex-flow: row nowrap;",
+    //
 	"}",
 	"/* NOWPLAYING PLAY BUTTON */",
-	" .control-button, .KAZD28usA1vPz5GVpm63, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd {",
+	" .control-button, .KAZD28usA1vPz5GVpm63, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp {",
 	"     animation: rainbow-text 30s infinite;",
 	"     background-color: transparent;",
-	"     cursor: pointer;",
+	"     cursor: auto;",
 	"     width: 50px;",
 	"     min-width: 30px;",
 	"     height: 30px;",
 	"     position: relative;",
 	"}",
-	"/* Rainbow text - now playing */",
-	" .playback-bar__progress-time{",
+	"/* progress-bar - now playing */",
+	" .TywOcKZEqNynWecCiATc, .TywOcKZEqNynWecCiATc, .playback-bar, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .VpYFchIiPg3tPhBGyynT, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .t_yrXoUO3qGsJS4Y6iXX, a:hover, a:focus, .OCY4jHBlCVZEyGvtSv0J, .GD2gbRtcs5dOjMGAM_Y4, .KVKoQ3u4JpKTvSSFtd6J.OF_3F0SQCsBtL1jSTlTA, .Vz6yjzttS0YlLcwrkoUR.tP0mccyU1WAa7I9PevC1, .control-button--active, .fFv7yCuLuIO1dAGZHcVf, .jOKLc29vP0Bz1K0TsDtX, .kEuUqR, .Rpvqb, .uWvwXlS0Da1bWsRX6KOw,  .NoOAOv6U6vtqj_ybS1Cd, .w699O0LgQRghXyl3bs9u, .playback-bar, .RfidWIoz8FON2WhFoItU, .Xz3tlahv16UpqKBW5HdK {",
 	"     animation: rainbow-text 30s infinite;",
-	"     font-size: 15px!important;",
+	"     font-size: 15px !important;",
+	"     font-weight: bold;",
+	"}",
+    " .dZPmmYYhskhqHJCAruvI {",
+	"     font-size: 15px !important;",
 	"     font-weight: bold;",
 	"}",
 	"/* Rainbow text - everything else */",
 	" :before, :after {",
 	"     animation: rainbow-text 30s infinite;",
-	"     font-size: 32px!important;",
+	"     font-size: 32px !important;",
 	"     font-weight: bold;",
 	"}",
 	"/* The Rainbow text */",
@@ -1384,34 +1423,29 @@
 	"}",
 	"/* *****************Scroll bar************** */",
     "",
-" ::-webkit-scrollbar {",
+" ::-webkit-scrollbar, ::--os-scrollbar-track {",
 	    " width: 5px;",
 	    " height: 1px;",
 	"}",
-"",
-"::-webkit-scrollbar-button {",
-	   " width: 0px;",
-	   " height: 0px;",
-	"}",
-" ::-webkit-scrollbar-thumb {",
+" ::-webkit-scrollbar-thumb, ::--os-scrollbar-track {",
 	" background: linear-gradient(230deg, #ff000036, #ff800036, #ffff0036, #80ff0036, #00ff0036, #00ff8036, #00ffff36, #0080ff36, #0000ff36, #8000ff36, #ff008036);",
 "",
 	    " -webkit-animation: rainbow 10s linear infinite;",
 	    " -z-animation: rainbow 10s linear infinite;",
 	    " -o-animation: rainbow 10s linear infinite;",
 	    " animation: rainbow 10s ease infinite;,",
-	    " border-radius:50px;",
+	    " border-radius: 50px;",
 	"}",
 "",
-" ::-webkit-scrollbar-thumb:hover {",
+" ::-webkit-scrollbar-thumb:hover, ::--os-scrollbar-track {",
 	     " background: linear-gradient(230deg, #ff00007a, #ff80007a, #ffff007a, #80ff007a, #00ff007a, #00ff807a, #00ffff7a, #0080ff7a, #0000ff7a, #8000ff7a, #ff00807a);",
 	     " -webkit-animation: rainbow 10s linear infinite;",
 	     " -z-animation: rainbow 10s linear infinite;",
-	" -o-animation: rainbow 10s linear infinite;",
-	  "   animation: rainbow 1s ease infinite;",
+	     " -o-animation: rainbow 10s linear infinite;",
+	     " animation: rainbow 1s ease infinite;",
 	"}",
 "",
-" ::-webkit-scrollbar-thumb:active {",
+" ::-webkit-scrollbar-thumb:active, ::--os-scrollbar-track {",
 	    " background: linear-gradient(230deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff0080);",
 	    " -webkit-animation: rainbow 10s linear infinite;",
 	    " -z-animation: rainbow 10s linear infinite;",
@@ -1419,20 +1453,22 @@
 	    " animation: rainbow 1s ease infinite;",
    "}",
 "",
-" ::-webkit-scrollbar-track {",
+" ::-webkit-scrollbar-track, ::--os-scrollbar-track {",
 	     " background: #0f0f0f;",
 	     " border: 2px 1px #171717;",
 	     " border-radius: 50px;",
 	"}",
 "",
-" ::-webkit-scrollbar-track:hover {",
+" ::-webkit-scrollbar-track:hover, ::--os-scrollbar-track {",
 	      " background: #280B0F;",
 	"}",
 "",
-" ::-webkit-scrollbar-track:active {",
+" ::-webkit-scrollbar-track:active, ::--os-scrollbar-track {",
 	     " background: #000000;",
     "",
         "  /******     V 0.4 - Copy track info! This means the song name and artist!  *********/",
+
+
 (function () {
   const translations = {
     en: ['Copy track info', 'Copied: %s'],
@@ -1741,6 +1777,21 @@ if (typeof GM_addStyle != "undefined") {
 
 
 
+
+
+
+
+
+
+
+    " / * Genius Lyrics if Spotify doesnt have it / * "
+
+
+
+
+
+
+
     //V 0.4  Addition of Copying tracks, and addition of Genius Lyric if Spotify doesn't already have it
 
 'use strict'
@@ -1749,7 +1800,7 @@ const scriptName = 'No Spotify Lyrics? Then Lets Check Genius!'
 let genius
 let resizeLeftContainer
 let resizeContainer
-let optionCurrentSize = 30.0
+let optionCurrentSize = 20.0
 GM.getValue('optioncurrentsize', optionCurrentSize).then(function (value) {
   optionCurrentSize = value
 })
@@ -1763,7 +1814,7 @@ function alertUI (text, buttons = { OK: true }) {
     const bg = document.body.appendChild(document.createElement('div'))
     bg.style.display = 'block'
     bg.style.position = 'fixed'
-    bg.style.backgroundColor = 'rgba(0,0,0,0.5)'
+    bg.style.backgroundColor = 'rgba(0,0,0,1)'
     bg.style.top = '0'
     bg.style.left = '0'
     bg.style.width = '100%'
@@ -1785,7 +1836,7 @@ function alertUI (text, buttons = { OK: true }) {
     div.style.height = 'auto'
     div.style.textAlign = 'center'
     div.style.fontSize = '20px'
-    div.style.lineHeight = '1.5'
+    div.style.lineHeight = '1'
     div.style.fontFamily = 'sans-serif'
     div.style.color = 'black'
     div.style.wordBreak = 'break-word'
@@ -2400,8 +2451,8 @@ function skin(exe) {
 		let css = "";
 		css += `@charset "UTF-8";
 `;
- css += `/* ------Created by Kami--------
- */
+ css += `/* ------ Created by Kami -------- */
+
 :root {
     --overlay-heavy: rgba(0, 0, 0, 0.4);
     --standard-ease: 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -2410,7 +2461,11 @@ function skin(exe) {
     --blur: 20px; }
 .encore-dark-theme {
     --text-subdued: #ffffffe0!important; }
+
+  /*--You can change the blur amount by chaing the 'backdrop-filter: blur(amount px)--*/
+ /*--Deafault is 20px, higher you go the more blur, lower less blur!--*/
 /*------------------dynamic background-----------------------*/
+
 @supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
     :root,
     #main,
@@ -2447,11 +2502,13 @@ function skin(exe) {
     background-position: center;
     background-color: #282828;
     filter: blur(50px);
+    / * --- Blur - amount of blur  --- Normal value is 50px * /
     width: 100vw;
     height: 100vh;
     position: absolute; }
 .Root__top-container {
     backdrop-filter: blur(50px); }
+    / * --- Blur - amount of blur  --- need to change both values in order for it to take effect * /
 #main > div {
     box-shadow: inset 0px 2px 70px 4px #0000006e; }
 .Root__top-container,
@@ -2470,7 +2527,9 @@ function skin(exe) {
     padding-top: 10px;
     padding-left: 120px;
     padding-right: 30px; }
+
 /*-------Home button-----*/
+
 #main > div.Root.encore-dark-theme.nav-alt > div.Root__top-container > div.Root__fixed-top-bar > div:nth-child(2) > a:hover {
     filter: brightness(1.5);
     background: none;
@@ -2499,6 +2558,7 @@ function skin(exe) {
     z-index: -1;
 }
 /*---------------text-----------------*/
+
 .RootlistItem__link:link,
 .RootlistItem__link:visited,
 .link-subtle {
@@ -2532,6 +2592,8 @@ body,
 .OVe33QZtu7pqMRtApCfF,
 .wI16x3qtEZ6y9rsyL6f_,
 .mbvP8zroENoL_DNWYq4s,
+.VgSbatGBB9XwTH2_dsxg,
+.ql0zZd7giPXSnPg75NR0,
 .main-seeAll-link,
 .lm4ptx0mVHQ1OEgJR6R5 a,
 ._kd5kutoy5xRha0qD0Vz,
@@ -2562,13 +2624,14 @@ body,
 ._OpqIZJH2IqpNqAS9iJ7.SzCNXJJQz7BiDOO0B2Xv .ax_46rB4EOK3hF__KEMO,
 ._cx_B0JpuGl6cJE7YqU1.ggAaYdWWy1P_IcJbsMeZ .eyyspMJ_K_t8mHpLP_kP,
 ._cx_B0JpuGl6cJE7YqU1.ggAaYdWWy1P_IcJbsMeZ .zM1OMw7zDqUcaPz7XCa3 {
-    color: #33ff7b!important; }
-#main > div.Root.encore-dark-theme > div.Root__top-container > div.Root__main-view > main > div.os-host.os-host-foreign.os-theme-spotify.os-host-resize-disabled.os-host-scrollbar-horizontal-hidden.main-view-container__scroll-node.os-host-transition.os-host-overflow.os-host-overflow-y > div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div.ShMHCGsT93epRGdxJp2w.Ss6hr6HYpN4wjHJ9GHmi > div.JUa6JJNj7R_Y3i4P8YUX > div:nth-child(2) > div > div > div > div > div {
+    color: #33ff7b!important; } #main > div.Root.encore-dark-theme > div.Root__top-container > div.Root__main-view > main > div.os-host.os-host-foreign.os-theme-spotify.os-host-resize-disabled.os-host-scrollbar-horizontal-hidden.main-view-container__scroll-node.os-host-transition.os-host-overflow.os-host-overflow-y > div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div.ShMHCGsT93epRGdxJp2w.Ss6hr6HYpN4wjHJ9GHmi > div.JUa6JJNj7R_Y3i4P8YUX > div:nth-child(2) > div > div > div > div > div {
     filter: contrast(1.5); }
 .vQ8EkR_krbAi5mYmmpCn {
     cursor: pointer;
     color: #ffffffe0; }
+
 /*search*/
+
 .dIwMadpRrW1PwEwEeAbN,
 .G9iUss4eOSpJyn2VBzsS {
     color: #000!important;
@@ -2577,8 +2640,12 @@ body,
     background: rgba(0, 0, 0, 0.5)!important; }
 .Z1sHXP1EI_v36FCALBRd:hover {
     background: rgb(35 35 35 / 50%)!important; }
+
 /*-------------home page-----------------*/
-.B0VIs50K6LXh5MDmmmJs, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P, .e4ETsc5zxjzyF9nyb4LI, .cyXplMovoowBozEe4r2x, .EhyK_jJzB2PcWXd5lg24, .tsv7E_RBBw6v0XTQlcRo, .zi377dMLSwXnFiejYnRa, .aIWRvSjvEN4rTMCIi4vG, .wIyyGaSPOHR78wksX3Us, .G8UNZJv4HT1kOIolA_e7,
+/* ---- Main use for itemss --- */
+
+.B0VIs50K6LXh5MDmmmJs, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P, .e4ETsc5zxjzyF9nyb4LI, .cyXplMovoowBozEe4r2x, .EhyK_jJzB2PcWXd5lg24, .tsv7E_RBBw6v0XTQlcRo, .zi377dMLSwXnFiejYnRa, .aIWRvSjvEN4rTMCIi4vG, .wIyyGaSPOHR78wksX3Us, .G8UNZJv4HT1kOIolA_e7, .encore-light-theme, .encore-light-theme, .encore-base-set, .MQQEonum615k8mGkliT_, .R2w_sH83CJU9Yhnu0xyt, .CU0wnmWejIvyEsRRtSac, .R2w_sH83CJU9Yhnu0xyt, .PiyAiXdQULEnWAHP0tu1, .odcjv30UQnjaTv4sylco:focus, odcjv30UQnjaTv4sylcO:hover, [dir="ltr"] .JdlKTdpMquftpMwwegZo,
+.odciv30UOniaTv4svlc0_[data-context-menu-open=true], .zrvvPyoxE6wQNqnu0yWA, .bk509U3ZhZc9YBJAmoPB, .hwP4Oum2PB765sb8jigI, .MNgY3fBEKs4U6SbZD2lo, .tm3lCLoFzk25Q_df5g5K, .aCtCKL9BxAoHeVZS0uRs, .uWvwXlS0Da1bWsRX6KOw, .pUkuSEO5HGdvTiujyI6H, .tm3lCLoFzk25Q_df5g5K, .zFqMGX3h5z2CO3f2uEiL, .bk509U3ZhZc9YBJAmoPB, .uhDzVbFHyCQDH6WrWZaC .ejNsts52hRq0uZcc_NXi, .ejNsts52hRq0uZcc_NXi, .uhDzVbFHyCQDH6WrWZaC, .ejNsts52hRq0uZcc_NXi, .AJqEY1gblQDvIgjU0jAH, .react-contextmenu-wrapper, .XwNfIrI6_hCa_9_T2cQB, .I3EivnXTjYMpSbPUiYEg,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > section > div:nth-child(5) > section > div:nth-child(2) > div,
@@ -2679,7 +2746,9 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section:nth-child(1) > div > div > div > div:nth-child(2) {
     transition-duration: 0.2s!important;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)!important; }
+
 /*-------------profile page-----------------*/
+
 ._6f1bb16d690aec58cb10e82de1ac2410-scss,
 ._9764a8966c108117bdf6f47cb601747a-scss,
 ._59ed5f1313c7c4b211995d2b6463683f-scss,
@@ -2687,10 +2756,14 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 ._7f29d1db930e7882d0ee6099f36e3bc7-scss,
 ._2411182f42f92a221e29c993de036981-scss,
 ._59ed5f1313c7c4b211995d2b6463683f-scss,
+.VgSbatGBB9XwTH2_dsxg,
+.ql0zZd7giPXSnPg75NR0,
 .sbU_cIh6kQUanX3IUWD8,
 .ojLwFoBNBM6cW7_RpeAN,
 .iYoKwYJwszPZXYQCZQ4s,
 .DFOYAbsPwHbI_GsaV_ij,
+.QyANtc_r7ff_tqrf5Bvc,
+.jzhwZKbfx4vrC_MYd_7c:nth-of-type(n+2),
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div,
 #main > div.Root.encore-dark-theme > div.Root__top-container > div.Root__top-bar > header > div.T1xI1RTSFU7Wu94UuvE6,
 #main > div.Root.encore-dark-theme > div.Root__top-container > div.Root__top-bar > header > div.T1xI1RTSFU7Wu94UuvE6 > div,
@@ -2743,14 +2816,18 @@ div.under-main-view > div > div {
     height: 41vh; }
 .f39dd6caa689537bffdfc875c3f33d08-scss {
     padding: 10px 32px!important; }
-/*------------discografy page-------------*/
+
+/*------------discovery page-------------*/
+.AJqEY1gblQDvIgjU0jAH
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div:nth-child(1) {
     background-color: #0000! important;
     top: auto!important;
     box-shadow: none!important; }
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(1) {
     top: auto; }
+
 /*------------allbum page-------------*/
+
 ._11b29b5a5f3bcae347f832a4278b28b8-scss,
 ._5d10f53f6ab203d3259e148b9f1c2278-scss,
 .eae5aabff7beab294ee900c0a1928b4c-scss,
@@ -2794,7 +2871,9 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div.contentSpacing > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div > div > div > div > img,
 div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div.contentSpacing > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(1) > div > img {
     display: none!important; }
-/*-------podcasts--------------*/
+
+/*-------podcasts--hidden by def can be found in libary still-----------*/
+
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
     color: #fff!important;
     background-color: #1db954!important;
@@ -2807,7 +2886,9 @@ div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div > div {
     background: #00000000!important; }
+
 /*-------now playing bar--------------*/
+
 .Root__now-playing-bar {
     padding-top: 10px; }
 ._17de82b47b8c1954963d20ed56b2f730-scss,
@@ -2845,10 +2926,13 @@ a:focus,
 a:hover,
 a {
     transition-duration: 0.2s; }
+
 /*----------------Misc---------------------*/
+
 body > div:nth-child(10) {
     display: none; }
 ._7b6273541d969069bb18c4fcae4120e7-scss,
+.AJqEY1gblQDvIgjU0jAH,
 .e2JzVB2WkGm7GMT8rkEg,
 .kYBlAcRblnjQ6kKW4JCy,
 #main > div.Root.encore-dark-theme > div.Root__top-container > nav > div > div > div > div:nth-child(3) > div {
@@ -2860,10 +2944,13 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     color: #000!important;
     text-shadow: 0 0 black; }
 #searchPage > div > div > div > div > div {}
+
 /*lyrics*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > div > div {
     background: none; }
+
 /*now playing img*/
+
 .d6e5892a336f6ae43bf066f2245c81b1-scss,
 ._4fac214bccd807d7c6fed21d4e0ea6de-scss,
 .i0XB7255K_4QFLJsSGc_,
@@ -2878,7 +2965,9 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 .i_0L07qd2CAeOLFiK8dP {
     overflow-y: visible!important;
     backdrop-filter: blur(3px)!important; }
+
 /*albums previews*/
+
 ._2f859138f9d0ecc3c687296f572c5dca-scss,
 ._3802c04052af0bb5d03956299250789e-scss,
 ._28be3af50433a1164b3a62a898dce43e-scss,
@@ -2909,7 +2998,9 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
     transform: scale(1.05);
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
+
 /*play button*/
+
 ._13e5c5964387e0139bbe6e468e9aa649-scss > *,
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
     -webkit-transition: opacity .5s;
@@ -2917,10 +3008,14 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
 ._8e7d398e09c25b24232d92aac8a15a81-scss:hover {
     box-shadow: 2px -1px 20px 0px #000000c7;
     z-index: 1; }
+
 /*playing album*/
+
 ._233cba0ebe7615236e86592034108e77-scss {
     justify-content: center; }
+
 /*track scale*/
+
 ._OpqIZJH2IqpNqAS9iJ7,
 ._cx_B0JpuGl6cJE7YqU1,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div:nth-child(4) > div > div > div:nth-child(2) > div > div,
@@ -2960,7 +3055,9 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 ._5814e6eb4f933d11bfa18c01b92eff76-scss,
 .WBTm60_TPRG_oYwBuS7_ {
     display: none!important; }
+
 /*pointers*/
+
 .bd0f04911fe4adb022e666269a90a739-scss,
 ._38168f0d5f20e658506cd3e6204c1f9a-scss,
 .OBaPDV8g5lhQbNPmIEwf,
@@ -3070,7 +3167,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
         */
 	}
 }
-//document.querySelector("div._3773b711ac57b50550c9f80366888eab-scss.ellipsis-one-line>div>span>a").href.slice(-22,)  album id
 	var lastsong="";
 	var foundsong=0;
 	var replaced=0;
@@ -3141,15 +3237,14 @@ main.insertBefore(div,main.firstChild);
 },1000);
 
 setInterval(function() {
-//scrolltimeout=0;
 
 },5000);
 
 
  // // // // // // // // // // // //
 
-// @name         Spotify Controler
-// @description  Adds keyboard shortcuts to open.spotify.com
+// Spotify HotKeys
+// Adds keyboard shortcuts to open.spotify.com
 
 (function() {
     'use strict';
