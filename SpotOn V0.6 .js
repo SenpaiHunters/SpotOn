@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name          SpotOn - NHNPB
+// @name          SpotOn
 // @namespace     https://github.com/SenpaiHunters/SpotOn
 // @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
