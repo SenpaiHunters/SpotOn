@@ -11,7 +11,7 @@ SpotOn is a Userscript. Userscripts (a.k.a User Scripts, User scripts, or .user.
 To install the SpotOn script via Tampermonkey, follow these steps:
 
 1. Copy the following link:
-   `https://raw.githubusercontent.com/SenpaiHunters/SpotOn/Main/SpotOn%20-%20NHNPB%20V0.6%20.js`
+   `https://raw.githubusercontent.com/SenpaiHunters/SpotOn/Main/SpotOn%20V0.6%20.js`
 
 2. Open Tampermonkey in your browser and click on the "Utilities" tab.
 
