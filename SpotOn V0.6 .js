@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name          SpotOn
+// @name          SpotOn - NHNPB
 // @namespace     https://github.com/SenpaiHunters/SpotOn
 // @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
-// @version       0.6.1
+// @version       0.6.2
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
@@ -68,7 +68,18 @@
  *
  *
  * # Install
- * Follow install method on the README.md
+ * Install Tampermonkey, Violentmonkey or Greasemonkey
+ * Copy the Code V3 contents
+ * Load the settings of Tampermoneky
+ * First by clicking on the extention
+ * Click 'Dashboard'
+ * You'll first load into 'Installed-Scripts'
+ * You then want to click the little plus icon
+ * With the contents of Code V3
+ * You'll want to press Command+A to select everything, and then press Command+V to paste
+ * Hit Command+S to save
+ * You have now successfully installed SpotOn!
+ * (Note) For windows the keybind is Cntrl instead of Command
  *
  * # Feel like thanking me for my hard work?
  *
@@ -85,7 +96,7 @@
  */
 
 (function() {var css = [
-	"/* Version 0.6 */",
+	"/* Version 0.6.1 */",
 	"",
 	"}",
     // Font for the whole of spotify, change the woff link to what you wish
@@ -430,7 +441,7 @@
 	"",
     // contentspacing
     " .contentSpacing {",
-    " width: -webkit-fill-available:",
+    "     max-width: -webkit-fill-available;",
     " } ",
     "",
 	".navBar-item .download-icon {",
@@ -1491,7 +1502,7 @@
 
     copiedSongInfoOuter.css('display', 'inline-block')
     copiedSongInfoInner.css('opacity', 1)
-    copiedSongInfoInner.html(str.replace('\n', '<br>\n'))
+    copiedSongInfoInner.html(str.replace(/\n/g, '<br>\n'));
 
     showInfoID = window.setTimeout(function () {
       copiedSongInfoInner.css('opacity', 0)
