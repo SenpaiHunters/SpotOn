@@ -39,6 +39,8 @@ To install the SpotOn script via Tampermonkey, follow these steps:
 ***
 
 
+# ANNOUNCEMENT:
+As of today (4/3/2023), SpotOn (the one that conceals the now-player bar) has failed. It no longer conceals the bar and will be legacy! This implies there will be no more updates for it, and SpotOn NPBR (non hidden now playing bar) will be changed to SpotOn from now on. Please accept my apologies for any inconvenience.
 
 
 # Full feature list
