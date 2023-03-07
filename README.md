@@ -27,8 +27,6 @@ To install the SpotOn script via Tampermonkey, follow these steps:
 
 ***
 
-
-
 <img width="988" alt="SCR-20221205-sl9" src="https://user-images.githubusercontent.com/103985728/207042079-10757e2a-c1c7-4876-9e38-ee96996fa09d.png">
 
 - I'm not artist, please don't judge me too hard...
@@ -43,8 +41,24 @@ To install the SpotOn script via Tampermonkey, follow these steps:
 As of today (4/3/2023), SpotOn (the one that conceals the now-player bar) has failed. It no longer conceals the bar and will be legacy! This implies there will be no more updates for it, and SpotOn NPBR (non hidden now playing bar) will be changed to SpotOn from now on. Please accept my apologies for any inconvenience.
 
 
+# Arc Support
+Working on increasing support for Arc + Firefox! Stay tuned (previosuly, was only focused on Chrime, this has shifted to Arc)
+
+
+
+****
+
+
+
 # Full feature list
      - More information will be added to the drop down menu, as well as tagged photos, as you go farther.
+
+
+***
+
+
+What to see some more photos with an explation? Copy this link `https://arc.net/e/8C9E77D6-1494-4C99-8309-DD7EB56A8156` (Made with Arc, my main browser!)
+
 
 *** 
 
