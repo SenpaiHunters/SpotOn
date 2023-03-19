@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name          SpotOn - NHNPB
+// @name          SpotOn
 // @namespace     https://github.com/SenpaiHunters/SpotOn
 // @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
-// @version       0.6.2
+// @version       0.6.5
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
@@ -16,8 +16,8 @@
 // @match         https://genius.com/songs/new
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require       https://greasyfork.org/scripts/406698-geniuslyrics/code/GeniusLyrics.js
-// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20NHNPB%20V0.6%20.js
-// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20NHNPB%20V0.6%20.js
+// @updateURL     https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
+// @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
 // @grant         GM.setClipboard
 // @grant         GM_setClipboard
 // @supportURL      https://github.com/SenpaiHunters/SpotOn/issues
@@ -69,17 +69,7 @@
  *
  * # Install
  * Install Tampermonkey, Violentmonkey or Greasemonkey
- * Copy the Code V3 contents
- * Load the settings of Tampermoneky
- * First by clicking on the extention
- * Click 'Dashboard'
- * You'll first load into 'Installed-Scripts'
- * You then want to click the little plus icon
- * With the contents of Code V3
- * You'll want to press Command+A to select everything, and then press Command+V to paste
- * Hit Command+S to save
- * You have now successfully installed SpotOn!
- * (Note) For windows the keybind is Cntrl instead of Command
+ * Follow the guide on https://github.com/SenpaiHunters/SpotOn#Install-link
  *
  * # Feel like thanking me for my hard work?
  *
@@ -96,50 +86,53 @@
  */
 
 (function() {var css = [
-	"/* Version 0.6.1 */",
+	"/* Version 0.6.5 */",
 	"",
-	"}",
-    // Font for the whole of spotify, change the woff link to what you wish
+  	"/* Before we get started, I like to seprate my CSS code by //x2 & by adding this context menu! */",
+	"/* This Userscript is made by Kami, check out my socials~~ I also create AMVs, check it out here --> https://www.youtube.com/@Kami_YT */",
+	"/* This code gets updated on Github (github.com/senpaihunters/spoton); I'm still looking how to embed the actual install like people have ~~~ */",
 	"",
+  	"/* TO DO! */",
+  	"/* Redo full CSS, finish search, remove unneeded items, redo fonts, fix overscroll issue(?), update names, include more description */",
+    //
+    //
     "/* Change the URL and Name for any font you'd like */",
-    "",
-	"/* Font Face + New font - change to what you please */",
-	"@font-face {",
-	"    font-family: 'Akronim', cursive;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
-	"}",
+	"/* Font Face + New font */",
 	" @font-face {",
-	"    font-family: 'Akronim', cursive;;",
-	"    src: url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
-	"    font-weight:bold;}",
-	"",
-	".mo-info-name{",
-	" font-family: 'Akronim'; ",
-	"    font-weight: normal !important;}",
-	"",
-	"h1, h2, .link-subtle{",
-	" 	font-family: 'Akronim', cursive !important;  ",
-	"    font-weight: normal !important;",
-    "  font-size: 3rem;",
+    " font-family: 'Akronim';",
+    " src: url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
+    " import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
+    " } ",
+    " h1, h2, .link-subtle {",
+	" font-family: 'Akronim', cursive !important;",
+	" font-weight: normal !important;",
+    " font-size: 3rem;",
 	"}",
+	"",
+    " body {",
+    " font-family: 'Akronim', cursive !important!;",
+    " } ",
+	".mo-info-name {",
+	" font-family: 'Akronim'; ",
+	"    font-weight: normal !important;",
+    " } ",
+    //
+    //
+	"",
 	"",
 	"/* First letter captial */",
-	" :root {     ",
-	"    --firstLsize: 1.50em ;}    ",
+	" :root { ",
+	"    --firstLsize: 1.50em;",
+    " } ",
 	"",
-	"body, body.login, body.login *, .SearchInputBox__input, .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title  {",
+	" body, body.login, body.login *, .SearchInputBox__input, .jf2HafzDEI9jn7Yo05eM, .kohoVM,  .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title, .jdSGNV, .RP2rRchy4i8TIp1CTmb7, .MyW8tKEekj9lKQsviDdP, .gHImFiUWOg93pvTefeAD, .dXoLvE, .HcA9WjbLc4x02X8Ty0uO.lro6AjUrZFH6zxjmOGg0>* {",
 	"    font-family: Akronim;",
-	"    src: url(https://fonts.gstatic.com/s/akronim/v23/fdN-9sqWtWZZlHRpygl7kXQO6a5IYA.woff2) format('woff2');",
+	"    src: import url(https://fonts.gstatic.com/s/akronim/v23/fdN-9sqWtWZZlHRpygl7kXQO6a5IYA.woff2) format('woff2');",
 	"}",
 	"* {",
 	"    text-decoration: auto;",
 	"    border: none !important;",
 	"    word-wrap: break-word;}",
-    "",
-    ".navBar, .navBar-expand {",
-	"    -webkit-box-flex: 1;    ",
-	"    flex: 1;",
-	"    max-height: calc(100% - 100px) !important;}",
 	"",
     " .fhrvNw, .rEN7ncpaUeSGL9z0NGQR, Fb61sprjhh75aOITDnsJ {",
     "  font-size: 3rem;",
@@ -147,48 +140,83 @@
     "  text-align: -webkit-center;",
     " } ",
     "",
+    //
+    //
 	"/* Hides selected items */",
     "/* Items include, Spotify logo, Install app, content bar, resizer and more */",
-    " .fwTMCeAaUoWDj9WcQbgy, .NyIynkmMpZXSoaE3XGhA, .HImFiUWOg93pvTefeAD, .xYgjMpAjE5XT05aRIezb, .LayoutResizer__inline-end, .HsbczDqu9qjcYr7EIdHR, .LayoutResizer__resize-bar {",
+    " .fwTMCeAaUoWDj9WcQbgy, .eCtSle, .NyIynkmMpZXSoaE3XGhA, .HImFiUWOg93pvTefeAD, .xYgjMpAjE5XT05aRIezb, .LayoutResizer__inline-end, .HsbczDqu9qjcYr7EIdHR, .LayoutResizer__resize-bar {",
     " visibility: hidden;",
     " position: fixed;",
     " } ",
-    " .gQoa8JTSpjSmYyABcag2.T3hkVxXuSbCYOD2GIeQd, .gQoa8JTSpjSmYyABcag2, .GD2gbRtcs5dOjMGAM_Y4, .main-view-container__scroll-node-child-spacer,  {",
-    " display: none;",
+    " .fGuZQO {",
+    " display: hidden;",
     "}",
-    " .eCtSle, .main-view-container_mh-footer-container {",
-     "display: none:",
-    "}",
+    " .eCtSle, .main-view-container__mh-footer-container {",
+    " display: none !important;",
+    " } ",
+    " #main .Root .Root__top-container .main-view-container--has-ads .ads-container, .AdsContainer{",
+	" display: none !important;",
+    " } ",
     "/* Stop */",
+    //
+    //
+	"/* Site-wide text shadow */",
+    " #main { ",
+	"    text-shadow: 2px -1px 0px #333 !important;",
+    " } ",
+    //
+    //
     "",
-    " .main-view-container__scroll-node-child-spacer { ",
-    " height: -36px; ",
-    " margin-top: -40px;",
-    " position: absolute; } ",
     "",
     " .DG9CsoFIptJhAneKoo_F { ",
     " margin-top: -105px; ",
     " margin-bottom: 26px; }",
     "",
     "",
+    "",
+    // scrollbar
+    " .spotify__os--is-macos {",
+    " --scrollbar-vertical-size: 10px !important",
+    " --scrollbar-horizontal-size: 10px !important",
+    "}",
+    // Overscroll
+    " :root, #main, .root, .main-view-container__scroll-node-child {",
+    " -webkit-overscroll-behavior: none !important;",
+    " -ms-overscroll-behavior: none !important;",
+    " overscroll-behavior: none !important;",
+    " } ",
+    "",
+    " html.spotify__container--is-web body, .main-view-container__scroll-node-child, .fhrvNw, .qJOhHoRcFhHJpEQ2CwFT.koyeY6AgGRPmyPITi7yO, .uV8q95GGAb2VDtL3gpYa, .bk509U3ZhZc9YBJAmoPB, .aCtCKL9BxAoHeVZS0uRs, .pHrwZOFBdT8FNXnmcPPI, .RP2rRchy4i8TIp1CTmb7, .lXcKpCtaEeFf1HifX139, .main-view-container__scroll-node-child, .main-view-container__scroll-node-child-spacer, .lXcKpCtaEeFf1HifX139, .MyW8tKEekj9lKQsviDdP, .gHImFiUWOg93pvTefeAD {",
+    " -webkit-overscroll-behavior: none !important;",
+    " -ms-overscroll-behavior: none !important;",
+    " overscroll-behavior: none !important;",
+    " } ",
+    "",
     " .os-viewport, .os-theme-spotify .os-viewport, .os-host-overflow>.os-padding, .os-viewport {",
     " margin-bottom: 10px;",
     " } ",
     "",
-    " .fEBgUb {",
-    " margin-block: -66px;",
-    " font-size: 2rem;",
-    "}",
-    "",
+    // .Root__main-view
+    "/* Root_main-view - everything containing 'main view' - excluding below's album art background */",
     ".Root__main-view { ",
     " width: -webkit-fill-available; ",
     " top: auto;",
     "}",
     "",
+    " .Root__main-view .container-fluid{",
+	"    margin-left:30px !important;",
+	"    margin-right:30px !important;",
+    " } ",
+    //
+    //
+    "/* contentspacing -- Fixes display not using the maxium size -- No matter the size, it will always take up the max size! */",
+    " .contentSpacing {",
+    " max-width: -webkit-fill-available !important;",
+    " } ",
+    "",
 	"",
     " .tUwyjggD2n5KvEtP5z1B {",
     " cursor: auto; ",
-    " flex-direction: column-reverse;",
     // for flex direction chnage colum to colum-reverse to reverse the look (album art top, home, search & your libary at the bottom)
     " min-height: -webkit-fill-available; ",
     " height: -webkit-fill-available:",
@@ -196,98 +224,11 @@
     " padding-top: 20px;",
     "}",
     "",
-    " .fGuZQO {",
-    " display: hidden;",
-    "}",
+    " /* Album art/ everything about it*/",
+    // now playing widget -- .deomraqfhIAoSB3SgXpu
+    // dev note - .P4eSEARM2h24PZxMHz1T = middle player -- .jOKLc29vP0Bz1K0TsDtX = right player
     "",
-    " .RP2rRchy4i8TIp1CTmb7 {",
-    " justify-content: center;",
-    " counter-increment: inherit;",
-    " background-size: cover;",
-    " inline-size: fit-content;",
-    " } ",
-	"",
-    " .uhDzVbFHyCQDH6WrwZaC _ejNsts52hRqOuZcc_NXi {",
-    " max-width: 774px;",
-    " } ",
-    "",
-    " ejNsts52hRqOuZcc_ NXi {",
-    " padding: • 21px;",
-    " } ",
-    // Main text shadow
-	"#main { ",
-	"    text-shadow: 2px -1px 0px #333 !important;}",
-	"",
-    // Max size
-	"@media (min-width: 1600px) {",
-	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
-	"    text-align: center !important;",
-	"    margin-left: 0px !important;",
-	"    width: 200px !important;}",
-	".asideButton-container .asideButton{",
-	"    margin-left: 0 !important;}}",
-	"",
-    // Min size
-	"@media (max-width: 2160px) {",
-	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
-	"    text-align: center !important;",
-	"    margin-left: -30px !important;",
-	"    width: 180px !important;}",
-	".asideButton-container .asideButton{",
-	"    margin-left: 0 !important;}}",
-	"",
-	".asideButton-container ._11pfm-p6kRU6CrLDyLhi3a {",
-	"    margin-left: 13.25%;}",
-	"",
-	"._11pfm-p6kRU6CrLDyLhi3a {",
-	"    margin-left: -200px !important;}",
-	"",
-	".asideButton {",
-	"    top: 4px;}",
-	"",
-	"#main .Root .Root__top-container .main-view-container--has-ads .ads-container, .AdsContainer{",
-	"    display: none !important;}",
-	"",
-    " .beQQox;",
-    " color: #333 !important;}",
-    // main now playing menu bar sub
-	".Root__now-playing-bar {",
-    " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
-	"    position: relative;",
-    // change pos for menu bar layout
-	"    height: 1px;",
-	"    width: calc(100% - 50px);",
-	"    top: 3px; ",
-	"    left: -12px; ",
-	"    padding-right: 10px !important;",
-	"    margin-bottom: 50px;}",
-	"",
-    // Chnages the whole NPB Bar boxed outline left or right
-    // Chnage 'left' value higher to move right, lower that value to move left.
-	"@media (min-width: 1700px) { ",
-	"#main .Root .Root__now-playing-bar {   ",
-	"    position: relative;",
-    "    width: calc(100% - 30px);",
-	"    left: 14px;}}",
-	"",
-    // NPB start
-	".now-playing-bar{",
-	"    height: 30px;",
-	"    padding: 4px 4px;",
-	"    margin-top: 15px;}",
-	"",
-	".now-playing-bar-container {",
-	"    background-color: backdrop-filter: blur(5px);}",
-	"",
-	".now-playing-bar__center {",
-	"    margin-left: -20px;}",
-	"",
-	"@media (max-width: 2160px) { ",
-	".now-playing-bar__center {",
-	"    margin-left: 12%;}}",
-	"",
-    // now playing cover art
-	".now-playing__cover-art {",
+    ".now-playing__cover-art {",
 	"    transform: scale(1.18)!important;",
 	"    box-shadow: 3px 3px 8px rgba(0,0,0,1) !important;",
 	"    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) !important;}",
@@ -316,26 +257,104 @@
 	"",
 	".cover-art-image.cover-art-image-loaded {",
 	"    box-shadow:3px 3px 6px #000, 0px 0px 3px #000;}",
-    // cover art end
+    //
+      "",
+    " .RP2rRchy4i8TIp1CTmb7 {",
+    " justify-content: center;",
+    " counter-increment: inherit;",
+    " background-size: cover;",
+    " inline-size: fit-content;",
+    " } ",
 	"",
-	".control-button.spoticon-added-16.control-button--active {",
-	"    margin-left: 20px;",
-	"    color: var(--marker);}",
+    //
+    //
+    // Max size
+	"@media (min-width: 1600px) {",
+	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
+	"    text-align: center !important;",
+	"    margin-left: 0px !important;",
+	"    width: 200px !important;}",
+	".asideButton-container .asideButton{",
+	"    margin-left: 0 !important;}}",
 	"",
-    // No touchy
-	".btn.btn-green.cta-button, .btn.btn-black.btn-small, .btn.btn-green, .btn.btn-black, .btn.btn-black:hover, .btn.btn-fg-green, .btn.btn-transparent, .btn.btn-blue.btn-small, .btn-landing.btn-white, .btn-landing.btn-green, .btn.btn-sm.btn-block.btn-facebook.ng-binding, .btn.btn-sm.btn-block.btn-green.ng-binding, .btn.btn-white._3zghGNfKZCH7FVEyqNY3my, button.btn.btn--no-margin.btn--full-width.P7Qjj40AVoE8Igi7Ji05m._1xNlj_ScH8hEMWzrkRt1A, .ResponsiveViewMoreButton__button, .btn.btn-white {",
-	"    background: var(--barCol65) !important;  ",
-	"    border: -2px solid var(--line) !important;",
-	"    border-left: -6px solid rgba(48,48,48,.2) !important;",
-	"    border-radius: 3px 150px 6px 6px !important;",
-	"    border-right: -6px solid rgba(38,38,38,.2) !important;",
-	"    border-radius: -6px !important;  ",
-	"    box-shadow: 20px 10px 10px -7px rgba(0,0,0,1), -7px 10px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;}",
+    // Min size
+	"@media (max-width: 2160px) {",
+	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
+	"    text-align: center !important;",
+	"    margin-left: -30px !important;",
+	"    width: 180px !important;}",
+	".asideButton-container .asideButton{",
+	"    margin-left: 0 !important;}}",
+	"",
+    //
+    //
+	"",
+    " /* Artist page art/ everything about it*/",
+    " .MyW8tKEekj9lKQsviDdP.k2I8B0MzXkAJ6_s8okM7 {",
+    " opacity: 0.7 !important",
+    " border-top-left-radius: 25px !important",
+    " } ",
+
+
+
+
+
+    " .uhDzVbFHyCQDH6WrwZaC _ejNsts52hRqOuZcc_NXi {",
+    " max-width: 774px;",
+    " } ",
+    "",
+    " ejNsts52hRqOuZcc_ NXi {",
+    " padding: • 21px;",
+    " } ",
+
+   
+	".asideButton-container ._11pfm-p6kRU6CrLDyLhi3a {",
+	"    margin-left: 13.25%;}",
+	"",
+	"._11pfm-p6kRU6CrLDyLhi3a {",
+	"    margin-left: -200px !important;}",
+	"",
+	".asideButton {",
+	"    top: 4px;}",
+	"",
+	"",
+    " / * Text alignment / *",
+    " .wCkmVGEQh3je1hrbsFBY {",
+    " text-align: center !important;",
+    " } ",
+    "",
+    "",
+    " .beQQox;",
+    " color: #333 !important;}",
+    // main now playing menu bar sub
+	".Root__now-playing-bar {",
+    " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
+	"    position: relative;",
+    // change pos for menu bar layout
+	"    height: 1px;",
+	"    width: calc(100% - 50px);",
+	"    top: 3px; ",
+	"    left: -12px; ",
+	"    padding-right: 10px !important;",
+	"    margin-bottom: 50px;}",
+	"",
+    // Changes the whole NPB Bar boxed outline left or right
+    // Chnage 'left' value higher to move right, lower that value to move left.
+	"@media (min-width: 1700px) { ",
+	"#main .Root .Root__now-playing-bar {   ",
+	"    position: relative;",
+    "    width: calc(100% - 30px);",
+	"    left: 14px;}}",
+	"",
+	"@media (max-width: 2160px) { ",
+	".now-playing-bar__center {",
+	"    margin-left: 12%;}}",
 	"",
    // Now plaing menu bar - boxed size change
 	".Root__now-playing-bar {",
     // see below nav bar colour for infomation on how to change this! (Markdown - SLS)
 		"    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
+    // pink - background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
 	  "    border-left: 120px solid rgba(0,0,0,.01) !important;",
 	 "    border-radius: 50px !important;  ",
 	  "    box-shadow: 16px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
@@ -356,7 +375,7 @@
 	"    margin-top: 65px !important;",
 	"    height: calc(100% - 85px) !important;",
     // if you want it fully off to the left side, remove overflow-x
-	"    overflow-x: hidden;}",
+	"    overflow-x: none;}",
 	"",
 	".recently-played.navBar-group {",
 	"    margin-top: 10px !important;",
@@ -385,15 +404,7 @@
 	"    width: calc(100% - 60px) !important;",
 	"    margin-left: 30px !important;}}",
 	"",
-    // Spacing content
-	"section.content.artist div div.container-fluid.ArtistAbout__container .contentSpacing {",
-	"    max-width: 100%;}",
-	"",
-    // About adjustment
-	".ArtistAbout__insights {",
-	"    float: right !important;",
-	"    flex: 1 !important;}",
-	"",
+    "",
     // Max adjustment width
 	"@media (max-width: 2200px) {",
 	".ArtistAbout__insights {",
@@ -427,22 +438,16 @@
 	"    width: calc(100% - 55px) !important;",
 	"    padding-left: 75px !important;}}",
 	"",
-	".view-header {",
+	" .view-header {",
 	"    height: 340px !important;}",
 	"",
-	"@media (min-width: 1700px) {",
-	".UserWidget__user-avatar { ",
+	" @media (min-width: 1700px) {",
+	" .UserWidget__user-avatar { ",
 	"    float: right; ",
 	"    right: 8px;}}",
 	"",
      // Mics Nav bar
-	".navBar-item .collection-icon, .navBar-item .collection-active-icon, .navBar-item .home-icon, .navBar-item .home-active-icon, .navBar-item .search-icon, .navBar-item .search-active-icon {",
-	"    margin-left: 150px !important;}",
 	"",
-    // contentspacing
-    " .contentSpacing {",
-    "     max-width: -webkit-fill-available;",
-    " } ",
     "",
 	".navBar-item .download-icon {",
 	"    height: 36px !important;",
@@ -510,36 +515,6 @@
 	"@media(max-height: 2160px) {",
 	".recently-played {",
 	"    display: none !important;}}",
-	"",
-	".control-button.spoticon-shuffle-16.control-button--active.control-button--active-dot, .control-button.spoticon-repeat-16.control-button--active.control-button--active-dot, .control-button.spoticon-repeatonce-16.control-button--active.control-button--active-dot {",
-	"    color: var(--playCol) !important;}",
-	"",
-	".control-button:active, .spoticon-heart-active-16, .spoticon-heart-active-24{",
-	"    color: var(--playCol) !important;}",
-	"",
-	".track-info__artists a:link:active, .react-contextmenu-wrapper a:active  {",
-	"    color: var(--playCol);}",
-	"",
-	".mo-meta a:link:active, .footerLinks__item:active  {",
-	"    color: var(--marker);}",
-	"",
-	".Vg0L1vwJXv5JSYn-HUx0C.link-subtle._2rScaV3bBHoj7O47a_JnaH {",
-	"    color: var(--marker)!important;}",
-	"",
-	".control-button--active-dot:after {",
-	"    background-color: var(--playCol) !important;}",
-	"",
-	".navBar-link--active::after, .RecentlyPlayedWidget__link--active::after {",
-	"    width: 0 !important;}",
-	"",
-	".link-subtle.navBar-link.ellipsis-one-line.navBar-link--active, A[href=\"/settings/account\"]:active {",
-	"    color: var(--marker) !important;}",
-	"",
-	".artist-music.container-fluid, .artist-albums, ._2rScaV3bBHoj7O47a_JnaH:after, ._2rScaV3bBHoj7O47a_JnaH:hover:after {",
-	"    background: transparent !important;}",
-	"",
-	".control-button.spoticon-pause-16.control-button--circled {",
-	"    color: var(--playCol) !important;} ",
 	"",
 	"a.btn.btn-fg-green{",
 	"    padding-top: 2em !important;",
@@ -616,8 +591,6 @@
 	".btn.btn-green.cta-button, .btn.btn-black.btn-small, .btn.btn-green, .btn.btn-black, .btn.btn-black:hover, .btn.btn-fg-green, .btn.btn-transparent, .btn.btn-blue.btn-small, .btn-landing.btn-white, .btn-landing.btn-green, .btn.btn-sm.btn-block.btn-facebook.ng-binding, .btn.btn-sm.btn-block.btn-green.ng-binding, .btn.btn-white._3zghGNfKZCH7FVEyqNY3my, button.btn.btn--no-margin.btn--full-width.P7Qjj40AVoE8Igi7Ji05m._1xNlj_ScH8hEMWzrkRt1A, .ResponsiveViewMoreButton__button, .btn.btn-white {",
 	"    font-size: 21px !important;",
 	"    font-weight: 400 !important;",
-
-
 	"}",
 	"    text-transform: lowercase !important;",
 	"    letter-spacing: 1px;",
@@ -702,68 +675,11 @@
 	".tracklist-row .tracklist-play-pause:not(.disabled):active, .tracklist-row:not(.disabled):active .icon-play, .icon-pause {",
 	"    padding: 0}",
 	"",
-	".player-controls__buttons {",
-	"    margin-top: 15px;}",
-	"",
-
-
     ".OgkbKIVYE_mrNpYESylB {",
     " min-width: 180px;",
     " }",
-
-
-	".control-button {",
-	"    width: 26px;",
-	"    min-width: 26px;",
-	"    height: 26px;",
-	"    position: relative;",
-	"    transition: all 33ms cubic-bezier(.3,0,.7,1);}",
-	"",
     "",
     // markdown -- -- -- -- -- -- -- - - - - - --  -- - - - - -  --  -- - - - - - -- - - - --  -- - - -- - - - - - - - --  -- - - - - - - - - - -- - - - - - - - - - - -
-	".progress-bar { ",
-	"    position: relative;}",
-	"",
-	".progress-bar::after {",
-	"    content: \'\';",
-	"    position: absolute;",
-	"    top: -120%;",
-	"    bottom: -120%;",
-	"    width: 120%;",
-	"    height: 200%;}",
-	"",
-	".progress-bar__fg {",
-	"    background: linear-gradient(to right, backdrop-filter: blur(5px); 90%, var(--playCol)99%, #fff 100%), linear-gradient(to bottom left, backdrop-filter: blur(5px); 95%,var(--playCol)99.5%, var(--playCol) 100%) !important;",
-	"    border-radius: 4px;",
-	"    height: 4px;",
-	"    transition: background-color .1s cubic-bezier(.3,0,.7,1);}",
-	"",
-	".volume-bar .progress-bar__fg {",
-	"    background: linear-gradient(to right, backdrop-filter: blur(5px); 90%, var(--playCol)99%, #fff 100%), linear-gradient(to bottom left, backdrop-filter: blur(5px); 95%,var(--playCol)99.5%, var(--playCol) 100%) !important;}",
-	"",
-	".volume-bar .progress-bar__bg {",
-	"    background: rgba(0,0,0,.25) !important;",
-	"    border-radius: 4px;}",
-	"",
-	".volume-bar .progress-bar {",
-	"    margin-right: -23px;}",
-	"",
-    // progress bar
-	".now-playing-bar__center .progress-bar__bg {",
-	"    background: rgba(0,0,0,1) !important;",
-	"    border-radius: 12px;",
-	"    margin-top: -11px;}",
-	"",
-	".playback-bar__progress-time {",
-	"    font-size: 200px !important;",
-	"    margin-bottom: 2px !important;",
-	"    margin-top:-1px !important;",
-	"    min-width: 50px;}",
-    "",
-    "",
-	".playback-bar__progress-time::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-    "",
 	".content.ZI0UgbCT8bKeDxk-G9uhC, .hw-accelerate {",
 	"    background: none!important;",
 	"    content: \"\";}",
@@ -958,9 +874,6 @@
 	".sessionInfo .avatar {",
 	"    background-color: transparent;}",
 	"",
-	".now-playing__radio-icon, .now-playing__radio-icon svg{",
-	"    display:none;}",
-	"",
 	".mo-info::first-letter, *::first-letter, *:focus::first-letter, *:hover::first-letter {",
 	"    font-size: var(--firstLsize) !important;}",
 	"",
@@ -976,10 +889,6 @@
 	"",
 	".AoH1i4drqTCg9DJoGF3Sp .col-xs-12{",
 	"    margin-left: 50% !important;}",
-	"",
-	".Root__main-view .container-fluid{",
-	"    margin-left:30px !important;",
-	"    margin-right:30px !important;}",
 	"",
 	"._1V5hjg9Q-uySwVgMc32TQb, ._2SnF0IAy7I_tM-7M5iEcyT, ._1Fj-rlIZXTSNgYOCuLh7xo {",
 	"    text-align: center !important;}",
@@ -1046,8 +955,6 @@
 	"    margin-left: 27px !important;",
 	"    width: 175px !important;",
 	"    height: 175px !important;",
-	"    background: url(\"https://image.ibb.co/gmAKaf/256.png\") center center, radial-gradient(ellipse at center, rgba(255,255,255,.09) 10%, rgba(255,255,255,.08) 20%, rgba(255,255,255,.06) 40%,rgba(255,255,255,.05) 65%,rgba(255,255,255,0) 79%) !important;",
-	"    background-size: 175px 175px !important;",
 	"    border-radius: 100% !important;",
 	"    border-left: 5px solid rgba(0,0,0,.9)  !important;",
 	"    border-right: 5px solid rgba(0,0,0,.9) !important;",
@@ -1210,10 +1117,10 @@
 	"    padding-top: 80px !important;",
 	"    padding-bottom: 5px !important;",
 	"    background: none;",
-	"    padding: 0 0em;",
-	"    margin: 0 auto;",
+	"    padding: 0em;",
+	"    margin: auto;",
 	"    max-width: 1543px;",
-	"    max-height:85px;",
+	"    max-height: 85px;",
 	"    padding-left: 0px;",
 	"}",
 	"",
@@ -1246,12 +1153,27 @@
 	"    }",
 	"}",
 	"/* Round albums */",
-	" .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art-image, .Nd_DeCpszONzyaLe5Wd1, .IPVjkkhh06nan7aZK7Bx, .Ws8Ec3GREpT5PAUesr9b, .mMx2LUixlnN_Fu45JpFB, .CmkY1Ag0tJDfnFXbGgju, ._EShSNaBK1wUIaZQFJJQ, .Yn2Ei5QZn19gria6LjZj, .Z35BWOA10YGn5uc9YgAp, .jvWzgRWM_y_9FFTYRCcB, .rkw8BWQi3miXqtlJhKg0 {",
+	" .cover-art.shadow.actionable.cover-art--with-auto-height, .cover-art-image, .IPVjkkhh06nan7aZK7Bx, .Ws8Ec3GREpT5PAUesr9b, .mMx2LUixlnN_Fu45JpFB, .CmkY1Ag0tJDfnFXbGgju, ._EShSNaBK1wUIaZQFJJQ, .Yn2Ei5QZn19gria6LjZj, .Z35BWOA10YGn5uc9YgAp, .jvWzgRWM_y_9FFTYRCcB, .rkw8BWQi3miXqtlJhKg0 {",
 	"     border-radius: 10px;",
 	"}",
     " .cover-art.shadow {",
     " border-radius 15px;",
     "}",
+    "/* NOWPLAYING PLAY BUTTON */",
+	" .KAZD28usA1vPz5GVpm63, .No0A0v6U6vtqj_ybS1Cd, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
+	"     animation: rainbow-text 30s infinite;",
+	"     background-color: transparent;",
+	"     cursor: auto;",
+	"}",
+    " /* Liked songs album art */",
+    " .Nd_DeCpszONzyaLe5Wd1 {",
+    " } ",
+	"/* progress-bar - now playing */",
+	" .TywOcKZEqNynWecCiATc, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .VpYFchIiPg3tPhBGyynT, .Btg2qHSuepFGBG6X0yE, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .t_yrXoUO3qGsJS4Y6iXX, a:hover, a:focus, .OCY4jHBlCVZEyGvtSv0J, .GD2gbRtcs5dOjMGAM_Y4, .KVKoQ3u4JpKTvSSFtd6J.OF_3F0SQCsBtL1jSTlTA, .Vz6yjzttS0YlLcwrkoUR.tP0mccyU1WAa7I9PevC1, .control-button--active, .fFv7yCuLuIO1dAGZHcVf, .jOKLc29vP0Bz1K0TsDtX, .kEuUqR, .Rpvqb, .uWvwXlS0Da1bWsRX6KOw,  .NoOAOv6U6vtqj_ybS1Cd, .w699O0LgQRghXyl3bs9u, .playback-bar, .RfidWIoz8FON2WhFoItU, .Xz3tlahv16UpqKBW5HdK, .uV8q95GGAb2VDtL3gpYa, .XwNfIrI6_hCa_9_T2cQB, .EhyK_jJzB2PcWXd5lg24 {",
+	"     animation: rainbow-text 30s infinite;",
+	"     font-size: 15px !important;",
+	"     font-weight: bold;",
+	"}",
     "",
     " /* Rounded quick search */",
     " .zi377dMLSwXnFiejYnRa, .EhyK_jJzB2PcWXd5lg24 {",
@@ -1260,11 +1182,6 @@
     " padding: 16px;",
     "}",
     "",
-    " .KDlcc1SFTcA90eMUcn5P, .EhyK_jJzB2PcWXd5lg24 {",
-    " height: 100%;",
-    " overflow-y: auto;",
-    " padding: 21px;",
-    " border-radius: 50px;",
     "}",
     ".EhyK_jJzB2PcWXd5lg24 {",
     " border-radius: 45px",
@@ -1354,36 +1271,7 @@
 	" .react-contextmenu-wrapper {",
 	"     font-size: 20px !important;",
 	"}",
-	"/* Now playing alignment buttons*/",
-	" .player-controls__buttons, .OCY4jHBICVZEyGvtSv0J, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .TywOcKZEqNynWecCiATc {",
-	"     margin-bottom: 0px;",
-	"     cursor: default;",
-	"     display: -ms-flexbox;",
-	"     display: flex;",
-	"     width: 250px;",
-	"     -ms-flex-pack: justify;",
-	"     justify-content: space-between;",
-	"     -ms-flex-flow: row nowrap;",
-	"     flex-flow: row nowrap;",
-    //
-	"}",
-	"/* NOWPLAYING PLAY BUTTON */",
-	" .control-button, .KAZD28usA1vPz5GVpm63, .No0A0v6U6vtqj_ybS1Cd, .Nd_DeCpszONzyaLe5Wd1, .jOKLc29vP0Bz1K0TsDtX, .playback-bar, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active {",
-	"     animation: rainbow-text 30s infinite;",
-	"     background-color: transparent;",
-	"     cursor: auto;",
-	"     width: 50px;",
-	"     min-width: 30px;",
-	"     height: 30px;",
-	"     position: relative;",
-	"}",
-	"/* progress-bar - now playing */",
-	" .TywOcKZEqNynWecCiATc, .TywOcKZEqNynWecCiATc, .playback-bar, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .VpYFchIiPg3tPhBGyynT, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .t_yrXoUO3qGsJS4Y6iXX, a:hover, a:focus, .OCY4jHBlCVZEyGvtSv0J, .GD2gbRtcs5dOjMGAM_Y4, .KVKoQ3u4JpKTvSSFtd6J.OF_3F0SQCsBtL1jSTlTA, .Vz6yjzttS0YlLcwrkoUR.tP0mccyU1WAa7I9PevC1, .control-button--active, .fFv7yCuLuIO1dAGZHcVf, .jOKLc29vP0Bz1K0TsDtX, .kEuUqR, .Rpvqb, .uWvwXlS0Da1bWsRX6KOw,  .NoOAOv6U6vtqj_ybS1Cd, .w699O0LgQRghXyl3bs9u, .playback-bar, .RfidWIoz8FON2WhFoItU, .Xz3tlahv16UpqKBW5HdK, .uV8q95GGAb2VDtL3gpYa, .XwNfIrI6_hCa_9_T2cQB, .EhyK_jJzB2PcWXd5lg24 {",
-	"     animation: rainbow-text 30s infinite;",
-	"     font-size: 15px !important;",
-	"     font-weight: bold;",
-	"}",
-    " .dZPmmYYhskhqHJCAruvI {",
+	" .dZPmmYYhskhqHJCAruvI {",
 	"     font-size: 15px !important;",
 	"     font-weight: bold;",
 	"}",
@@ -1477,7 +1365,8 @@
         "  /******     V 0.4 - Copy track info! This means the song name and artist!  *********/",
 
 
-(function () {
+(function CopyTrackInfo() {
+  console.log("CopyTrackInfo function running");
   const translations = {
     en: ['Copy track info', 'Copied: %s'],
   }
@@ -1502,7 +1391,7 @@
 
     copiedSongInfoOuter.css('display', 'inline-block')
     copiedSongInfoInner.css('opacity', 1)
-    copiedSongInfoInner.html(str.replace(/\n/g, '<br>\n'));
+    copiedSongInfoInner.html(str.replace('\n', '<br>\n'))
 
     showInfoID = window.setTimeout(function () {
       copiedSongInfoInner.css('opacity', 0)
@@ -1763,6 +1652,7 @@ if (typeof GM_addStyle != "undefined") {
 
 // Hide Podcasts!
 (function HidePodcasts() {
+    console.log("HidePodcasts function running");
     setTimeout(() => {
         const mainView = document.getElementsByClassName("Root__main-view")[0];
 
@@ -1814,6 +1704,7 @@ GM.getValue('optioncurrentsize', optionCurrentSize).then(function (value) {
 })
 
 function closeModalUIs () {
+        console.log("Genius function running");
   document.querySelectorAll('.modal_ui_spotify_genius_lyrics').forEach(div => div.remove())
 }
 
@@ -2443,8 +2334,10 @@ function main () {
 // Hide the nav bar
 // I REAALLY LOVE THIS ONEE!!!
 
-(function () {
-  'use strict';
+
+(function MenubarToggle() {
+  console.log("MenubarToggle function running");
+  'use strict';
 
   const combinator = {
     on(passedCombination, callback) {
@@ -2498,25 +2391,20 @@ function main () {
   };
 
   GM_addStyle(`
-
 .${style.leftSidebarCollapsedClassName} ${style.topbarSelector} {
   max-width: 100vw;
 }
-
 ${style.containerSelector} {
   transition: .2s;
 }
-
 .${style.leftSidebarCollapsedClassName} ${style.navbarSelector} {
   width: 0;
   opacity: 0;
   transition: width .2s, opacity .2s;
 }
-
 ${style.mainviewSelector} {
   transition: width .2s;
 }
-
 ${style.mainviewSelector} > div.nav-bar-toggler {
   position: absolute;
   left: 0;
@@ -2536,12 +2424,10 @@ ${style.mainviewSelector} > div.nav-bar-toggler:hover {
 body {
   font-family: Microsoft Yahei;
 }
-
 @media screen and (max-width: 700px) {
   body {
     min-width: unset;
   }
-
   ${style.nowplayingbarSelector} {
     width: 100%;
     min-width: unset;
@@ -2553,40 +2439,36 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
   }
-
   ${style.nowplayingbarSelector} .now-playing-bar__left {
       width: auto;
       order: 1;
   }
-
   ${style.nowplayingbarSelector} .now-playing-bar__center {
       width: 100%;
       order: 3;
   }
-
   ${style.nowplayingbarSelector} .now-playing-bar__right {
       max-width: 25%;
       min-width: unset;
       order: 2;
   }
-
   ${style.nowplayingbarSelector} .now-playing-bar__right__inner {
       width: 100%;
   }
 }
+
   `)
 
-
   function toggleSideBar() {
-  const body = document.body;
-  const nowPlayingBar = document.querySelector(style.nowplayingbarSelector);
+    const body = document.body;
+    const nowPlayingBar = document.querySelector(style.nowplayingbarSelector);
   if (nowPlayingBar) {
     nowPlayingBar.classList.toggle(style.leftSidebarCollapsedClassName);
   }
   body.classList.toggle(style.leftSidebarCollapsedClassName);
 }
   onLoad(() => {
-    combinator.on(['Control', 'Alt', 'B'], () => {
+    combinator.on(['command', 'shift', 'a'], () => {
       toggleSideBar();
     });
 
@@ -2610,10 +2492,194 @@ body {
 
 
 
+document.addEventListener('DOMContentLoaded', function SortingAlbumsAndSearches() {
+    'use strict';
+
+    // Add sorting functionality
+    function sortTracks(orderBy, order) {
+        // Code for sorting tracks
+        let tracks = document.querySelectorAll("div[role='row']");
+    let tracksArr = [];
+    for (let i = 0; i < tracks.length; i++) {
+        tracksArr.push(tracks[i]);
+    }
+    switch (orderBy) {
+        case "date":
+            tracksArr.sort(function(a, b) {
+                let aDate = new Date(a.querySelector("span:nth-of-type(4)").getAttribute("title"));
+                let bDate = new Date(b.querySelector("span:nth-of-type(4)").getAttribute("title"));
+                return order === "asc" ? aDate - bDate : bDate - aDate;
+            });
+            break;
+        case "title":
+            tracksArr.sort(function(a, b) {
+                let aTitle = a.querySelector("div[role='gridcell']:nth-of-type(2)").textContent;
+                let bTitle = b.querySelector("div[role='gridcell']:nth-of-type(2)").textContent;
+                return order === "asc" ? aTitle.localeCompare(bTitle) : bTitle.localeCompare(aTitle);
+            });
+            break;
+        case "artist":
+            tracksArr.sort(function(a, b) {
+                let aArtist = a.querySelector("div[role='gridcell']:nth-of-type(3)").textContent;
+                    let bArtist = b.querySelector("div[role='gridcell']:nth-of-type(3)").textContent;
+                    return aArtist.localeCompare(bArtist);
+                });
+                break;
+            case "album":
+                tracksArr.sort(function(a, b) {
+                    let aAlbum = a.querySelector("div[role='gridcell']:nth-of-type(4)").textContent;
+                    let bAlbum = b.querySelector("div[role='gridcell']:nth-of-type(4)").textContent;
+                    return aAlbum.localeCompare(bAlbum);
+                });
+                break;
+        }
+        let parent = document.querySelector("div[role='rowgroup']");
+        for (let i = 0; i < tracksArr.length; i++) {
+            parent.appendChild(tracksArr[i]);
+        }
+    }
+
+    // Add search functionality
+    function searchTracks() {
+        // Code for searching tracks
+        let input = document.querySelector("input[placeholder='Search...']");
+        let filter = input.value.toUpperCase();
+        let tracks = document.querySelectorAll("div[role='row']");
+        for (let i = 0; i < tracks.length; i++) {
+            let title = tracks[i].querySelector("div[role='gridcell']:nth-of-type(2)").textContent.toUpperCase();
+            let artist = tracks[i].querySelector("div[role='gridcell']:nth-of-type(3)").textContent.toUpperCase();
+            let album = tracks[i].querySelector("div[role='gridcell']:nth-of-type(4)").textContent.toUpperCase();
+            if (title.indexOf(filter) > -1 || artist.indexOf(filter) > -1 || album.indexOf(filter) > -1) {
+                tracks[i].style.display = "";
+            } else {
+                tracks[i].style.display = "none";
+            }
+        }
+    }
+
+    // Add sort buttons
+    let sortButtons = document.createElement("div");
+    // Code for creating sort buttons
+    let searchBar = document.createElement("input");
+    // Code for creating search bar
+    let topBar = document.querySelector("nav['row']");
+    if (topBar) {
+        // Code for appending sort buttons and search bar
+    } else {
+        console.error("topBar not found");
+    }
+
+    // Add dropdown menus
+    let sortByTitleDropdown = document.createElement("div");
+    sortByTitleDropdown.innerHTML = `
+        <div class="dropdown">
+            <button class="dropbtn">Title Filters<span class="IconWrapper_Wrapper-sc-16usrgb-O eJHIti"></span></button>
+            <div class="dropdown-content">
+                <a href="#">Ascending</a>
+                <a href="#">Descending</a>
+            </div>
+        </div>
+    `;
+    // Code for creating dropdown menu for sorting by title
+    let sortByArtistDropdown = document.createElement("div");
+    sortByTitleDropdown.innerHTML = `
+        <div class="dropdown">
+            <button class="dropbtn">Title Filters<span class="IconWrapper_Wrapper-sc-16usrgb-O eJHIti"></span></button>
+            <div class="dropdown-content">
+                <a href="#">Ascending</a>
+                <a href="#">Descending</a>
+            </div>
+        </div>
+    `;
+
+    // Code for creating dropdown menu for sorting by artist
+    let sortByAlbumDropdown = document.createElement("div");
+    sortByArtistDropdown.innerHTML = `
+        <div class="dropdown">
+            <button class="dropbtn">Artist Filters<span class="IconWrapper_Wrapper-sc-16usrgb-O eJHIti"></span></button>
+            <div class="dropdown-content">
+                <a href="#">Ascending</a>
+                <a href="#">Descending</a>
+            </div>
+        </div>
+    `;
+    // Code for creating dropdown menu for sorting by album
+    let header = document.querySelector("header");
+    header.appendChild(sortByAlbumDropdown);
+    sortByAlbumDropdown.innerHTML = `
+    <div class="dropdown">
+        <button class="dropbtn">Sort By Album</button>
+        <div class="dropdown-content">
+            <a href="#" data-sort-by="album-name">Album Name</a>
+            <a href="#" data-sort-by="release-date">Release Date</a>
+        </div>
+    </div>
+`;
+
+    // Code for adding event listeners to buttons and dropdown menus
+    // Add event listeners to sort buttons
+    let titleSortButton = document.querySelector("[data-sort-by='title']");
+    let artistSortButton = document.querySelector("[data-sort-by='artist']");
+    let dateSortButton = document.querySelector("[data-sort-by='date']");
+    titleSortButton.addEventListener("click", function() {
+        sortTracks("title", "asc");
+    });
+    artistSortButton.addEventListener("click", function() {
+        sortTracks("artist", "asc");
+    });
+    dateSortButton.addEventListener("click", function() {
+        sortTracks("date", "desc");
+    });
+
+    // Add event listener to search input
+    let searchInput = document.querySelector("input[placeholder='Search...']");
+    searchInput.addEventListener("input", function() {
+        searchTracks();
+});
+    // Add event listeners
+    let sortByTitleDropdownButton = sortByTitleDropdown.querySelector(".dropbtn");
+    let sortByArtistDropdownButton = sortByArtistDropdown.querySelector(".dropbtn");
+    let sortByAlbumDropdownButton = sortByAlbumDropdown.querySelector(".dropbtn");
+
+    // Event listener for sorting by title
+    sortByTitleDropdownButton.addEventListener("click", function() {
+        let sortOrder = this.nextElementSibling.querySelector(":checked").value;
+        sortTracks("title", sortOrder);
+    });
+
+    // Event listener for sorting by artist
+    sortByArtistDropdownButton.addEventListener("click", function() {
+        let sortOrder = this.nextElementSibling.querySelector(":checked").value;
+        sortTracks("artist", sortOrder);
+    });
+
+    // Event listener for sorting by album
+    sortByAlbumDropdownButton.addEventListener("click", function() {
+        let sortBy = this.nextElementSibling.querySelector(":checked").value;
+        let sortOrder = this.nextElementSibling.querySelector(":checked").value;
+        if (sortBy === "album-name") {
+            sortTracks("album", sortOrder);
+        } else if (sortBy === "release-date") {
+            sortTracks("date", sortOrder);
+        }
+    });
+
+    // Event listener for searching tracks
+    let searchBarInput = searchBar.querySelector("input");
+    searchBarInput.addEventListener("keyup", searchTracks);
+
+});
+
+
+
+
+
+
+
 
 skin(true);
-chrome.runtime.onMessage.addListener(gotMessage);
 function gotMessage(message, sender, sendResponse) {
+    console.log("AlbumArtCover function running");
 	console.log(message.txt);
 	if (message.bool == "false"){
 	var el=document.getElementById("skin")
@@ -2824,8 +2890,14 @@ body,
 /*-------------home page-----------------*/
 /* ---- Main use for itemss --- */
 
-.B0VIs50K6LXh5MDmmmJs, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P, .e4ETsc5zxjzyF9nyb4LI, .cyXplMovoowBozEe4r2x, .EhyK_jJzB2PcWXd5lg24, .tsv7E_RBBw6v0XTQlcRo, .zi377dMLSwXnFiejYnRa, .aIWRvSjvEN4rTMCIi4vG, .wIyyGaSPOHR78wksX3Us, .G8UNZJv4HT1kOIolA_e7, .encore-light-theme, .encore-light-theme, .encore-base-set, .MQQEonum615k8mGkliT_, .R2w_sH83CJU9Yhnu0xyt, .CU0wnmWejIvyEsRRtSac, .R2w_sH83CJU9Yhnu0xyt, .PiyAiXdQULEnWAHP0tu1, .odcjv30UQnjaTv4sylco:focus, odcjv30UQnjaTv4sylcO:hover, [dir="ltr"] .JdlKTdpMquftpMwwegZo,
-.odciv30UOniaTv4svlc0_[data-context-menu-open=true], .zrvvPyoxE6wQNqnu0yWA, .bk509U3ZhZc9YBJAmoPB, .hwP4Oum2PB765sb8jigI, .MNgY3fBEKs4U6SbZD2lo, .tm3lCLoFzk25Q_df5g5K, .aCtCKL9BxAoHeVZS0uRs, .uWvwXlS0Da1bWsRX6KOw, .pUkuSEO5HGdvTiujyI6H, .tm3lCLoFzk25Q_df5g5K, .zFqMGX3h5z2CO3f2uEiL, .bk509U3ZhZc9YBJAmoPB, .uhDzVbFHyCQDH6WrWZaC .ejNsts52hRq0uZcc_NXi, .ejNsts52hRq0uZcc_NXi, .uhDzVbFHyCQDH6WrWZaC, .ejNsts52hRq0uZcc_NXi, .AJqEY1gblQDvIgjU0jAH, .react-contextmenu-wrapper, .XwNfIrI6_hCa_9_T2cQB, .I3EivnXTjYMpSbPUiYEg, .g6ZgzRfiHjsTLskeyI0J:focus, .g6ZgzRfiHjsTLskeyI0J:hover, .g6ZgzRfiHjsTLskeyI0J, [dir=ltr] .g6ZgzRfiHjsTLskeyI0J, .fLS8v3_EfBadEerbGVoR, .LunqxlFIupJw_Dkx6mNx, .tsv7E_RBBw6v0XTQlcRo, html.spotify__container--is-web body, .qJOhHoRcFhHJpEQ2CwFT.koyeY6AgGRPmyPITi7yO, .uV8q95GGAb2VDtL3gpYa, .bk509U3ZhZc9YBJAmoPB, .aCtCKL9BxAoHeVZS0uRs, .pHrwZOFBdT8FNXnmcPPI,
+.B0VIs50K6LXh5MDmmmJs, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P,
+.e4ETsc5zxjzyF9nyb4LI, .cyXplMovoowBozEe4r2x, .EhyK_jJzB2PcWXd5lg24, .tsv7E_RBBw6v0XTQlcRo, .zi377dMLSwXnFiejYnRa, .aIWRvSjvEN4rTMCIi4vG, .wIyyGaSPOHR78wksX3Us, .G8UNZJv4HT1kOIolA_e7, .encore-light-theme,
+.encore-light-theme, .encore-base-set, .MQQEonum615k8mGkliT_, .R2w_sH83CJU9Yhnu0xyt, .CU0wnmWejIvyEsRRtSac, .R2w_sH83CJU9Yhnu0xyt, .PiyAiXdQULEnWAHP0tu1, .odcjv30UQnjaTv4sylco:focus, odcjv30UQnjaTv4sylcO:hover, [dir="ltr"] .JdlKTdpMquftpMwwegZo,
+.odciv30UOniaTv4svlc0_[data-context-menu-open=true], .zrvvPyoxE6wQNqnu0yWA, .bk509U3ZhZc9YBJAmoPB, .hwP4Oum2PB765sb8jigI, .MNgY3fBEKs4U6SbZD2lo, .tm3lCLoFzk25Q_df5g5K,
+.aCtCKL9BxAoHeVZS0uRs, .uWvwXlS0Da1bWsRX6KOw, .pUkuSEO5HGdvTiujyI6H, .tm3lCLoFzk25Q_df5g5K, .zFqMGX3h5z2CO3f2uEiL, .bk509U3ZhZc9YBJAmoPB, .uhDzVbFHyCQDH6WrWZaC .ejNsts52hRq0uZcc_NXi, .ejNsts52hRq0uZcc_NXi,
+.uhDzVbFHyCQDH6WrWZaC, .ejNsts52hRq0uZcc_NXi, .AJqEY1gblQDvIgjU0jAH, .react-contextmenu-wrapper, .XwNfIrI6_hCa_9_T2cQB, .I3EivnXTjYMpSbPUiYEg, .g6ZgzRfiHjsTLskeyI0J:focus, .g6ZgzRfiHjsTLskeyI0J:hover, .g6ZgzRfiHjsTLskeyI0J,
+[dir=ltr] .g6ZgzRfiHjsTLskeyI0J, .fLS8v3_EfBadEerbGVoR, .LunqxlFIupJw_Dkx6mNx, .tsv7E_RBBw6v0XTQlcRo, html.spotify__container--is-web body, .qJOhHoRcFhHJpEQ2CwFT.koyeY6AgGRPmyPITi7yO,
+.uV8q95GGAb2VDtL3gpYa, .bk509U3ZhZc9YBJAmoPB, .aCtCKL9BxAoHeVZS0uRs, .pHrwZOFBdT8FNXnmcPPI,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > section > div:nth-child(5) > section > div:nth-child(2) > div,
@@ -3005,6 +3077,11 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     box-shadow: none!important; }
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div:nth-child(1) {
     top: auto; }
+    html.spotify__container--is-web body, .qJOhHoRcFhHJpEQ2CwFT.koyeY6AgGRPmyPITi7yO, .uV8q95GGAb2VDtL3gpYa, .bk509U3ZhZc9YBJAmoPB,
+.aCtCKL9BxAoHeVZS0uRs, .pHrwZOFBdT8FNXnmcPPI, .RP2rRchy4i8TIp1CTmb7, .lXcKpCtaEeFf1HifX139, .main-view-container__scroll-node-child, .main-view-container__scroll-node-child-spacer, .lXcKpCtaEeFf1HifX139, .MyW8tKEekj9lKQsviDdP, .gHImFiUWOg93pvTefeAD {
+background-color: #0000! important;
+    top: auto!important;
+    box-shadow: none!important; }
 
 /*------------allbum page-------------*/
 
@@ -3062,6 +3139,7 @@ div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div
 ._UFTK833WfTNGb4agRTd,
 .Ic3iDUCnC09k55peZBfC {
     background: #00000000!important; }
+
 /*-----Spotify Lists-----*/
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div > div {
@@ -3252,6 +3330,8 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 .pLwpjUDpZgzSXNOsGn_c,
 .Mx7aus4bRGbU9vPpnDHj {
     background: var(--overlay-heavy) }`;
+/*END*/
+
 //css = "";
 		if( document.getElementById("skin") == null){
 			if (typeof GM_addStyle != "undefined") {
@@ -3274,8 +3354,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 				}
 			}
 		}
-		/*.c5a28c705b992b76c45dbb776cf76047-scss ,._2326696e1244e762bd7e426619b02370-scss{   background-color: rgba(0, 0, 0, 0.5)!important;}*/
-
 
         observer = new MutationObserver((changes) => {
         changes.forEach(change => {
@@ -3294,8 +3372,8 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
         });
         function addObserverIfDesiredNodeAvailable() {
             if(!document.getElementsByClassName("cover-art-image")[0]) {
-                //The node we need does not exist yet.
-                //Wait 500ms and try again
+                // The node we need does not exist.... yet.
+                // Wait 500ms and try again
                 window.setTimeout(addObserverIfDesiredNodeAvailable,500);
                 return;
             }
@@ -3314,37 +3392,6 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
         setInterval(function obs() {
             observer.observe(document.getElementsByClassName("cover-art-image")[0], {attributes : true});
 		}, 5500);
-        /*
-		var temp = ""
-		setInterval(function back() {
-			'use strict';
-			if(document.getElementsByClassName("cover-art-image")[0] != undefined){
-				if (temp != document.getElementsByClassName("cover-art-image")[0].src) {
-					setTimeout(() => { console.log("Changing background!");
-					var sheet = document.createElement('style');
-					sheet.setAttribute("id", "background");
-					if( document.getElementById("background") != null){
-						document.getElementById("background").remove()
-						//document.getElementById("background").innerHTML = ":root{ --backimg:url(" + document.getElementsByClassName("_64acb0e26fe0d9dff68a0e9725b2a920-scss cover-art-image")[0].src + ");}";
-					}
-					sheet.innerHTML = ":root{ --backimg:url(" + document.getElementsByClassName("cover-art-image")[0].src + ");}";
-					document.body.appendChild(sheet);
-					temp = document.getElementsByClassName("cover-art-image")[0].src;
-					}, 1000);
-					//if(is_scrolling()){
-						//console.log("free to scroll");
-						if(document.getElementsByClassName("e8ea6a219247d88aa936a012f6227b0d-scss bddcb131e9b40fa874148a30368d83f8-scss _4b308d5c9250cfb0620ce3b40765ef4a-scss")[0] != null && scrolltimeout==0){
-							var el = document.getElementsByClassName("e8ea6a219247d88aa936a012f6227b0d-scss bddcb131e9b40fa874148a30368d83f8-scss _4b308d5c9250cfb0620ce3b40765ef4a-scss")[0];
-							el.scrollIntoView({
-								behavior: "smooth",
-								block: "nearest"
-							});
-						}
-					//}
-				}
-			}
-		}, 1500)
-        */
 	}
 }
 	var lastsong="";
@@ -3362,35 +3409,6 @@ setInterval(function() {
 		document.getElementsByClassName("IyZpbhJE52K9fkJmGbAj")[i].style.backgroundColor = document.getElementsByClassName("IyZpbhJE52K9fkJmGbAj")[i].style.backgroundColor.slice(0,-1).concat(", 0.3)")
 	}
 	};
-
-	// fix for removing the mouseout in homescreen
-	/*
-	if (document.getElementsByClassName("_560fb0a89f4ec24665eb945cfe2c97b0-scss")[0] != undefined){
-		if (replaced == 0){
-			var old_element = document.getElementsByClassName("_560fb0a89f4ec24665eb945cfe2c97b0-scss")[0];
-			var new_element = old_element.cloneNode(true);
-			old_element.parentNode.replaceChild(new_element, old_element);
-			replaced =1;
-		}
-	}
-	else{
-		replaced =0;
-	};
-	*/
-	/*
-	for(k=0;k< document.getElementsByClassName("tracklist-name ellipsis-one-line").length && foundsong==0 ;k++){
-		if(document.getElementsByClassName("tracklist-name ellipsis-one-line")[k].innerHTML == lastsong){
-			document.getElementsByClassName("tracklist-name ellipsis-one-line")[k].style.color= "#1ed760"
-			foundsong =0;
-		}
-	}
-	for(k=0;k< document.getElementsByClassName("tracklist-name ellipsis-one-line").length ;k++){
-		if(document.getElementsByClassName("tracklist-name ellipsis-one-line")[k].innerHTML == document.querySelector("div._3773b711ac57b50550c9f80366888eab-scss.ellipsis-one-line > div > span > a").innerHTML){
-			document.getElementsByClassName("tracklist-name ellipsis-one-line")[k].style.color= "#1ed760"
-			document.getElementsByClassName("tracklist-name ellipsis-one-line")[k-1].style.color= "#fff"
-			lastsong = document.getElementsByClassName("tracklist-name ellipsis-one-line")[k].innerHTML
-		}
-	}*/
 
 if (document.getElementsByClassName("os-viewport os-viewport-native-scrollbars-invisible")[1] != undefined){
 	document.getElementsByClassName("os-viewport os-viewport-native-scrollbars-invisible")[1].onscroll = function () {
