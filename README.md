@@ -4,7 +4,7 @@
 SpotOn is a Userscript. Userscripts (a.k.a User Scripts, User scripts, or .user.js) are open-source licensed add-ons for web browsers, written in [JavaScript](https://www.wikipedia.org/wiki/JavaScript), that change web pages as they are loaded. They give users the power to make websites do what they want them to, rather than what was originally intended. In our case, we made SpotOn, giving users a new and modern revamp of Spotify, without loss of performance. For the exact features, check out the [Features Tab](https://github.com/SenpaiHunters/SpotOn/wiki/Features)
 
 
-# Install link
+# Install Instructions
 
 
 
@@ -29,7 +29,7 @@ To install the SpotOn script via Tampermonkey, follow these steps:
 
 <img width="988" alt="SCR-20221205-sl9" src="https://user-images.githubusercontent.com/103985728/207042079-10757e2a-c1c7-4876-9e38-ee96996fa09d.png">
 
-- I'm not artist, please don't judge me too hard...
+- I'm not an artist, please don't judge me too hard...
 
 
 
@@ -42,7 +42,7 @@ As of today (4/3/2023), SpotOn (the one that conceals the now-player bar) has f
 
 
 # Arc Support
-Working on increasing support for Arc + Firefox! Stay tuned (previosuly, was only focused on Chrime, this has shifted to Arc)
+Working on increasing support for Arc + Firefox! Stay tuned (previosuly, was only focused on Chrome, this has shifted to Arc, as Arc is SO much better (Only for MacOS currently~~)
 
 
 
@@ -141,6 +141,11 @@ There are no formal update times, I hope every month or so, but I've run out of 
 - Redoing all the code .... just to make it faster and more pretty... and bug fixes...
 
 
+
+***
+
+# Before we go further
+If the rainbow text is too much for you, the code line can be removed, simply remove the end of the CSS -- Remove lines `1119` to `1326` -- This will remove all colour options, if you dislike the scroll bar, remove that line too!
 
 ***
 
@@ -357,6 +362,10 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 
 # Quick Search Bar
 - Command = `Command + K`
+
+
+
+
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/103985728/221406653-0620980c-6451-429c-81dc-f2f31e73a40e.png">
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/103985728/221406675-573f3f8c-bbfb-4947-83e1-8874c81b856a.png">
 
