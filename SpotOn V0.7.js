@@ -1,17 +1,13 @@
 // ==UserScript==
 // @name          SpotOn
 // @namespace     https://github.com/SenpaiHunters/SpotOn
-// @namespace     https://greasyfork.org/en/scripts/452921-spotify-onspot
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  SpotOn is a complete overhaul of Spotify Web Player's design that includes a customisable new font, a bolded/more prominent menu bar, a redesigned hidden Now Playing Bar (scroll down to see it, want to see how it looks, look above), a changeable time to the right of the progress bar (Refer to the GitHub), a blured backdrop, rainbow controls (These can be turned off simply by removing the command line) a hidden Spotify Logo (Can be turned back on), removal of the bottom content bar, that hosts the social links of Spotify. Captialsation of the first letter (can turn off by removing first-letter {", " text-transform: uppercase !important;}",. But try it before you remove it, you might like it!)
 // @author        Kami
-// @version       0.6.5
+// @version       0.7
 // @match         http://open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         http://*.open.spotify.com/*
-// @match         https://open.spotify.com/*
-// @match         https://genius.com/songs/new
-// @match         https://*.open.spotify.com/*
 // @match         https://open.spotify.com/*
 // @match         https://genius.com/songs/new
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js
@@ -20,17 +16,16 @@
 // @downloadURL   https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20-%20Non%20hidden%20menu%20bar.js
 // @grant         GM.setClipboard
 // @grant         GM_setClipboard
-// @supportURL      https://github.com/SenpaiHunters/SpotOn/issues
-// @grant           GM.xmlHttpRequest
-// @grant           GM.setValue
-// @grant           GM.getValue
-// @grant           GM.registerMenuCommand
-// @grant           GM_openInTab
-// @grant           GM_getValue
-// @grant           GM_addStyle
-// @grant           GM_deleteValue
-// @connect         genius.com
-// @sandbox         JavaScript
+// @supportURL    https://github.com/SenpaiHunters/SpotOn/issues
+// @grant         GM.xmlHttpRequest
+// @grant         GM.setValue
+// @grant         GM.getValue
+// @grant         GM.registerMenuCommand
+// @grant         GM_openInTab
+// @grant         GM_addStyle
+// @grant         GM_deleteValue
+// @connect       genius.com
+// @sandbox       JavaScript
 // @run-at        document-start
 // @license       MIT
 // @copyright     2022, Kami
@@ -59,9 +54,13 @@
  *
  * Chrome - ✅
  *
+ * Arc - ✅
+ *
  * Firefox - ✅
  *
  * Orion - ✅*
+ *
+ * Opera GX - ✅
  *
  * = Slower performance than chrome based web browsing.
  * ✅ = Supportation of Windows + Mac , there are no required system requirements as it’s simply a userscript/javascript, however, low-end hardware may face some performance drops or lower than expected speed
@@ -77,8 +76,8 @@
  * and inspires me to keep working. ;-)
  *
  * Check my socials out - https://linktr.ee/SenpaiHunter
- * Support via discord - https://discord.gg/pjNn2M22ct
- * YouTube - https://www.youtube.com/@Kami_YT
+ * Support (application support + any help) via discord - https://discord.gg/pjNn2M22ct
+ * YouTube - https://www.youtube.com/@Kami_YT (I also make AMVs if that interests you)
  * Help Support Me -  https://www.buymeacoffee.com/KamiAMVS
  *
  * # Latest release notes
@@ -86,19 +85,35 @@
  */
 
 (function() {var css = [
-	"/* Version 0.6.5 */",
+	"/* Version 0.7 */",
 	"",
   	"/* Before we get started, I like to seprate my CSS code by //x2 & by adding this context menu! */",
 	"/* This Userscript is made by Kami, check out my socials~~ I also create AMVs, check it out here --> https://www.youtube.com/@Kami_YT */",
 	"/* This code gets updated on Github (github.com/senpaihunters/spoton); I'm still looking how to embed the actual install like people have ~~~ */",
 	"",
   	"/* TO DO! */",
-  	"/* Redo full CSS, finish search, remove unneeded items, redo fonts, fix overscroll issue(?), update names, include more description */",
+  	"/* Redo full CSS, finish search and sort, remove unneeded items, redo fonts, update names, include more description */",
+  	"/* Restructure code, overhaul the code to inprove the function and provide extra support */",
+    //
+    //
+    "/* Release Notes 0.7 */",
+    "/* Added ability to click on the icon of an album and add it to the Queue, Go to playlist radio, Add to profile, Report ",
+    " Remove from Your Library, Exclude from your taste profile, About recommendatiations ",
+    " Fixed overscrolling Issue, redid the `connect to a device`, changed colour of the play icon for arc browsers (fallback for others) ",
+    " Redid Genius Intergration's `options` menu, added the icon to be constant now, ability to copy the lyrics shown ",
+    " Increased speed of Hoykey activation(s), fixed spacing issue for album names, added more context, removed outdated code ",
+    " Added back the device streaming to bar, just scroll down to see it- Fixed the pausing when changing decvies and or reloading the page, ",
+    " this means, when playing Spotify on say your Phone, if you reload the webpage your Phone will not automatically pause, it was an annoying bug ",
+    " Rounded the popup menu, faster speeds now! woo! Faster transition times when changing songs, 0.3 seconds faster to be exact! ",
+    " Fixed a bug where the menu bar wouldn't hide, this is now fixed, however, you need to select the bar (when collapsed) at the top or bottom ",
+    " No longer from the middle sadly. Rounded the now playing song in album view (looks much better now), made it pop-out a slight bit more then ",
+    " normal songs would, so you can see what's playing FAST! (it also looks better) When highlighting over a song it will pop-out, more little tweaks ",
+    "*/",
     //
     //
     "/* Change the URL and Name for any font you'd like */",
 	"/* Font Face + New font */",
-	" @font-face {",
+    " @font-face {",
     " font-family: 'Akronim';",
     " src: url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
     " import url('https://fonts.googleapis.com/css2?family=Akronim&display=swap');",
@@ -106,7 +121,6 @@
     " h1, h2, .link-subtle {",
 	" font-family: 'Akronim', cursive !important;",
 	" font-weight: normal !important;",
-    " font-size: 3rem;",
 	"}",
 	"",
     " body {",
@@ -116,47 +130,95 @@
 	" font-family: 'Akronim'; ",
 	"    font-weight: normal !important;",
     " } ",
-    //
-    //
 	"",
-	"",
-	"/* First letter captial */",
-	" :root { ",
-	"    --firstLsize: 1.50em;",
-    " } ",
-	"",
-	" body, body.login, body.login *, .SearchInputBox__input, .jf2HafzDEI9jn7Yo05eM, .kohoVM,  .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title, .jdSGNV, .RP2rRchy4i8TIp1CTmb7, .MyW8tKEekj9lKQsviDdP, .gHImFiUWOg93pvTefeAD, .dXoLvE, .HcA9WjbLc4x02X8Ty0uO.lro6AjUrZFH6zxjmOGg0>* {",
+    " body, body.login, body.login *, .SearchInputBox__input, .jf2HafzDEI9jn7Yo05eM, .kohoVM,  .inputBox-input, .PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title, .jdSGNV, .RP2rRchy4i8TIp1CTmb7, .MyW8tKEekj9lKQsviDdP, .gHImFiUWOg93pvTefeAD, .dXoLvE, .HcA9WjbLc4x02X8Ty0uO.lro6AjUrZFH6zxjmOGg0>* {",
 	"    font-family: Akronim;",
 	"    src: import url(https://fonts.gstatic.com/s/akronim/v23/fdN-9sqWtWZZlHRpygl7kXQO6a5IYA.woff2) format('woff2');",
 	"}",
 	"* {",
 	"    text-decoration: auto;",
 	"    border: none !important;",
-	"    word-wrap: break-word;}",
-	"",
-    " .fhrvNw, .rEN7ncpaUeSGL9z0NGQR, Fb61sprjhh75aOITDnsJ {",
-    "  font-size: 3rem;",
-    "  display: contents;",
-    "  text-align: -webkit-center;",
+	"    word-wrap: break-word;",
     " } ",
     "",
+	"/* First letter captial (first-letter) */",
+	" :root { ",
+	"    --firstLsize: 1.50em;",
+    " } ",
+    " .navBar-group-header::first-letter, .navBar-item .type::first-letter {",
+	"    text-transform: capitalize;}",
+	"",
+	" .navBar-group-header, .navBar-item .type {",
+	"    letter-spacing: 0.6px;",
+	"    text-transform: lowercase !important;",
+	"    font-size: 12px;}",
+	"",
+    ".playback-bar__progress-time::first-letter{",
+	"    color: var(--arc-palette-cutoutColor, #000) !important}",
+	"",
+    ".mo-info::first-letter, *::first-letter, *:focus::first-letter, *:hover::first-letter {",
+	"    font-size: var(--firstLsize) !important;}",
+	"",
+	".RecentlyPlayedWidget__type {",
+	"    color: #b3b3b3 !important;",
+	"    text-transform: lowercase !important;}",
+	"",
+	".RecentlyPlayedWidget__type::first-letter {",
+	"    text-transform: uppercase !important;}",
+	"",
+    ".btn.btn-green.cta-button::first-letter, .btn.btn-black.btn-small::first-letter, .btn.btn-green::first-letter, .btn.btn-black::first-letter, .btn.btn-black:hover::first-letter, .btn.btn-fg-green::first-letter, .btn.btn-transparent::first-letter, .btn.btn-blue.btn-small::first-letter, .btn-landing.btn-white::first-letter, .btn-landing.btn-green::first-letter, .btn.btn-sm.btn-block.btn-facebook.ng-binding::first-letter, .btn.btn-sm.btn-block.btn-green.ng-binding::first-letter, .ResponsiveViewMoreButton__button::first-letter, .btn.btn-white::first-letter {",
+	"    font-size: var(--firstLsize) !important;",
+	"    text-transform: capitalize;",
+	"    position: relative;}",
+    "",
+    "/* END */",
     //
     //
 	"/* Hides selected items */",
     "/* Items include, Spotify logo, Install app, content bar, resizer and more */",
-    " .fwTMCeAaUoWDj9WcQbgy, .eCtSle, .NyIynkmMpZXSoaE3XGhA, .HImFiUWOg93pvTefeAD, .xYgjMpAjE5XT05aRIezb, .LayoutResizer__inline-end, .HsbczDqu9qjcYr7EIdHR, .LayoutResizer__resize-bar {",
-    " visibility: hidden;",
-    " position: fixed;",
+    " .fwTMCeAaUoWDj9WcQbgy, .eCtSle, .NyIynkmMpZXSoaE3XGhA, .HImFiUWOg93pvTefeAD, .xYgjMpAjE5XT05aRIezb, .HsbczDqu9qjcYr7EIdHR, .LKFFk88SIRC9QKKUWR5u, .main-view-container__scroll-node-child-spacer {",
+    " visibility: hidden !important;",
+    " position: fixed !important;",
     " } ",
     " .fGuZQO {",
-    " display: hidden;",
+    " display: hidden !important;",
     "}",
-    " .eCtSle, .main-view-container__mh-footer-container {",
+    " .eCtSle, .main-view-container__mh-footer-container, .main-view-container__scroll-node-child-spacer {",
     " display: none !important;",
     " } ",
-    " #main .Root .Root__top-container .main-view-container--has-ads .ads-container, .AdsContainer{",
+    " #main .Root .Root__top-container .main-view-container--has-ads .ads-container, .AdsContainer, .iYuun6jjV82lsYbccJVS, .dz_h98rH9nZCwfPdnKgr {",
 	" display: none !important;",
     " } ",
+    "",
+    " .onetrust-pc-dark-filter.ot-hide, #onetrust-consent-sdk #onetrust-banner-sdk, #onetrust-banner-sdk.otFlat {",
+    " display: none !important;",
+    " } ",
+    " ._1pVwzxv-TDj4dEFi0N3B-_ .btn.btn-transparent  {",
+	" display: none; !important",
+    " } ",
+    " .EmptyState__title {",
+	"    font-size: 30px;",
+	"    display: none",
+    " } ",
+	"",
+	" .EmptyState__subtitle {",
+	"    margin-top: -10px;",
+	"    font-size: 20px;",
+	"    color: #fff;",
+    " } ",
+    " .spoticon-track-16, .spoticon-podcasts-16::before {",
+	"    display: none;}",
+    "",
+    "/* Hide spotify logo */",
+	".logo path {",
+	"	display: none;",
+	" } ",
+	"/* remove space */",
+	" .navBar-header {  ",
+	"  height:0px;",
+	"  padding:0px;",
+    " display: none !important;",
+	" } ",
     "/* Stop */",
     //
     //
@@ -164,17 +226,49 @@
     " #main { ",
 	"    text-shadow: 2px -1px 0px #333 !important;",
     " } ",
+    "",
+    " .kpGMQq1KFz620g_BD_dS {",
+    " text-shadow: 0px 0px 0px #333 !important;",
+    " } ",
+    "/* END */",
     //
     //
     "",
+    " /* Play/Pause Icon */ ",
+    "/* Arc page colour effects this state! Change slides to see the colour change too */",
+    " .encore-dark-theme .encore-bright-accent-set {",
+    " --background-highlight: var(--arc-palette-minContrastColor, rgba(120,123,133,0.1)) !important",
+    " } ",
+    "",
+    "/* END */",
+    //
+    //
+    "/* Content Menu(s) */",
+    " .SboKmDrCTZng7t4EgNoM {",
+    " border-radius: 32px !important",
+    " } ",
+    "",
+    " .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .zi377dMLSwXnFiejYnRa {",
+    " border-radius: 0px !important",
+    " margin: 0 0px #000 !important",
+    " padding: 0 0px #000 !important",
+    " } ",
     "",
     " .DG9CsoFIptJhAneKoo_F { ",
     " margin-top: -105px; ",
     " margin-bottom: 26px; }",
     "",
+    " .ShMHCGsT93epRGdxJp2w.Ss6hr6HYpN4wjHJ9GHmi[aria-colcount='5'] .wTUruPetkKdWAR1dd6w4 {",
+    " border-radius: 32px !important",
+    " } ",
+    // Dev note - .h4HgbO_Uu1JYg5UGANeQ -- .wTUruPetkKdWAR1dd6w4
+    // Song list thing, tracklist? idk something
+    "/* END */",
     "",
-    "",
-    // scrollbar
+    //
+    //
+	"/* Overscroll Issue Fix */",
+    // scrollbar-macos
     " .spotify__os--is-macos {",
     " --scrollbar-vertical-size: 10px !important",
     " --scrollbar-horizontal-size: 10px !important",
@@ -196,7 +290,9 @@
     " margin-bottom: 10px;",
     " } ",
     "",
-    // .Root__main-view
+    "/* END */",
+    //
+    //
     "/* Root_main-view - everything containing 'main view' - excluding below's album art background */",
     ".Root__main-view { ",
     " width: -webkit-fill-available; ",
@@ -215,15 +311,119 @@
     " } ",
     "",
 	"",
+    "/* Nav Bar */",
+    " .beQQox;",
+    " color: #333 !important;}",
+    // main now playing menu bar sub
+	".Root__now-playing-bar {",
+    " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
+	"    position: relative;",
+    // change pos for menu bar layout
+	"    height: 1px;",
+	"    width: calc(100% - 50px);",
+	"    top: 3px; ",
+	"    left: -12px; ",
+	"    padding-right: 10px !important;",
+	"    margin-bottom: 50px;}",
+	"",
+   // Now plaing menu bar - boxed size change
+	".Root__now-playing-bar {",
+    // see below nav bar colour for infomation on how to change this! (Markdown - SLS)
+		"    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
+    // pink - background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
+	  "    border-left: 120px solid rgba(0,0,0,.01) !important;",
+	 "    border-radius: 50px !important;  ",
+	  "    box-shadow: 16px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
+	    "    height: 98px;",
+    // height of the box ( downwards )
+	"    padding: 2px 4px;}",
+	"",
+    // Left side bar - boxed size change
+	".Root__nav-bar {",
+    // left nav bar colour - do background: transparent for no colour, but i like that little pink hue.
+	"    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
+	"    border-left: -1px solid rgba(0,0,0,.2) !important;",
+	"    border-radius: 99px 99px 99px 99px !important;",
+	"    border-right: -1px solid rgba(255,192,203,0.3) !important;",
+	"    border-radius: 22px !important;  ",
+	"    box-shadow: 10px 8px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
+    // moves the left bar up or down
+	"    margin-top: 65px !important;",
+	"    height: calc(100% - 85px) !important;",
+    // if you want it fully off to the left side, remove overflow-x
+	"    overflow-x: none;}",
+	"",
+	".recently-played.navBar-group {",
+	"    margin-top: 10px !important;",
+	"    margin-bottom: 20px !important;}",
+	"",
+
+     // Mics Nav bar
+	"",
+    "",
+	".navBar-item .download-icon {",
+	"    height: 36px !important;",
+	"    width: 36px !important;",
+	"    top: -3px !important;",
+	"    margin-left: 140px !important;}",
+	"",
+	".navBar-item .playing-icon {",
+	"    margin-right: -8px !important;}",
+	"",
+	".navBar-item--with-icon-left {",
+	"    padding-left: 0px !important;}",
+	"",
+	"[dir=\"ltr\"] .navBar-item--with-icon-left .navbar-link__text {",
+	"    margin-left: -155px !important;}",
+	"",
+	".sessionInfo  {",
+	"    margin-bottom: -90px !important;}",
+	"",
+	"a.btn.btn-fg-green{",
+	"    padding-top: 2em !important;",
+	"    padding-bottom: 2em !important;}",
+	"",
+	".btn.btn-fg-green {",
+	"    padding-top: 2em !important;",
+	"    padding-bottom: 2em !important;}",
+	"",
+	".middle-align.progress-bar__slider {",
+	"    transform: scale(.7) !important;",
+	"    border: 0px solid rgb(0,0,0,1) !important;",
+	"    background: radial-gradient(at left top, rgba(255,255,255,1), var(--playCol), rgba(0,0,0,1))!important;}",
+	"",
+	".volume-bar .middle-align.progress-bar__slider {",
+	"    border: 0px solid rgb(30,30,30) !important;}",
+	"",
+	".now-playing-bar__right__inner {",
+	"    padding-right: 6px !important;}",
+    // inner right padding for menu bar
+	"",
+	".accountPage .icon, .downloadPage-inner {",
+	"    margin-top: 50px;}",
+	"",
+    // Nav bar
     " .tUwyjggD2n5KvEtP5z1B {",
     " cursor: auto; ",
-    // for flex direction chnage colum to colum-reverse to reverse the look (album art top, home, search & your libary at the bottom)
-    " min-height: -webkit-fill-available; ",
-    " height: -webkit-fill-available:",
-    " width: -webkit-fill-available;",
-    " padding-top: 20px;",
+    // for flex direction change colum to colum-reverse to reverse the look (album art top, home, search & your libary at the bottom)
+    " min-height: -webkit-fill-available !important; ",
+    " height: -webkit-fill-available !important:",
+    " width: -webkit-fill-available !important;",
+    " padding-top: 20px !important;",
     "}",
+    // Top album words - Like 'Liked Songs' and other large words
+    " .fhrvNw, .rEN7ncpaUeSGL9z0NGQR, Fb61sprjhh75aOITDnsJ {",
+    "  font-size: 3rem !important;",
+    "  display: table-column !important;",
+    "  text-align: -webkit-match-parent !important;",
+    "  font-family: auto !important",
+    "  margin-top: auto !important",
+    "  width: -webkit-fill-available !important",
+    " } ",
     "",
+    "/* END */",
+    //
+    //
     " /* Album art/ everything about it*/",
     // now playing widget -- .deomraqfhIAoSB3SgXpu
     // dev note - .P4eSEARM2h24PZxMHz1T = middle player -- .jOKLc29vP0Bz1K0TsDtX = right player
@@ -268,8 +468,9 @@
 	"",
     //
     //
+    " /* Full @media controls -- don't mind these - For devide sizing etc */",
     // Max size
-	"@media (min-width: 1600px) {",
+	" @media (min-width: 1600px) {",
 	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
 	"    text-align: center !important;",
 	"    margin-left: 0px !important;",
@@ -278,7 +479,7 @@
 	"    margin-left: 0 !important;}}",
 	"",
     // Min size
-	"@media (max-width: 2160px) {",
+	" @media (max-width: 2160px) {",
 	"._11pfm-p6kRU6CrLDyLhi3a a, .asideButton-container a {",
 	"    text-align: center !important;",
 	"    margin-left: -30px !important;",
@@ -286,101 +487,96 @@
 	".asideButton-container .asideButton{",
 	"    margin-left: 0 !important;}}",
 	"",
-    //
-    //
+    // Changes the whole NPB Bar boxed outline left or right
+    // Change 'left' value higher to move right, lower that value to move left.
+	"@media (min-width: 1700px) { ",
+	"#main .Root .Root__now-playing-bar {",
+	"    position: relative;",
+    "    width: calc(100% - 30px);",
+	"    left: 14px;",
+    "  } ",
+    " } ",
 	"",
+	"@media (max-width: 2160px) { ",
+	".now-playing-bar__center {",
+	"    margin-left: 12%;",
+    "  } ",
+    " } ",
+	"",
+    // Max width
+	"@media (max-width: 2200px) { ",
+	".container-fluid.ArtistAbout__container {",
+	"    width: calc(100% - 60px) !important;",
+	"    margin-left: 30px !important",
+    "  } ",
+    " } ",
+	"",
+    // Min Width
+	"@media (min-width: 2200px) { ",
+	".container-fluid.ArtistAbout__container {   ",
+	"    width: calc(100% - 60px) !important;",
+	"    margin-left: 30px !important;",
+    "  } ",
+    " } ",
+	"",
+    // Max adjustment width
+	"@media (max-width: 2200px) {",
+	".ArtistAbout__insights {",
+	"    float: right !important;",
+	"    flex: 2 !important;",
+    "  } ",
+    " } ",
+	"",
+    "@media (min-width: 1700px) {",
+	"[dir=\"ltr\"] .navBar-item--with-icon-left .navbar-link__text {",
+	"    margin-left: -175px !important;}}",
+	"",
+	"@media (max-width: 2160px){",
+	"section.content.artist div div.container-fluid.ArtistAbout__container {",
+	"    margin-right: 15px !important;",
+	"    width: calc(100% - 30px);} ",
+	".navBar-item .collection-icon, .navBar-item .collection-active-icon, .navBar-item .home-icon, .navBar-item .home-active-icon, .navBar-item .search-icon, .navBar-item .search-active-icon {",
+	"    margin-left: 130px !important;}",
+	".navBar-item .download-icon {",
+	"    margin-left: 120px !important;}",
+	".navBar-item .playing-icon {",
+	"    margin-right: 8px !important;}}",
+	"",
+	"@media (min-width: 1700px) {",
+	"section.content.artist div div.container-fluid.ArtistAbout__container {",
+	"    margin-right: 60px !important;",
+	"    width: calc(100% - 150px);}}",
+	"",
+	"@media (max-width: 2160px) { ",
+	".Root__nav-bar {   ",
+	"    width:200px;",
+	"    margin-left: 20px !important;}}",
+	"",
+	"@media (min-width: 1700px) { ",
+	".Root__nav-bar {   ",
+	"    margin-left: 30px !important;}}",
+    "",
+    " */-- END - There still are @media(s) but they belong to the above elements these are stand alone --/* ",
+	"",
+    //
+    //
+    "/* Now Playing Bar (NPB) */",
+    " .playback-bar *, .w699O0LgQRghXyl3bs9u, .TywOcKZEqNynWecCiATc, .p1ULRzPc4bD8eQ4T_wyp {",
+    " --is-active-fg-color: #000 !important",
+    " color: var(--arc-palette-cutoutColor, #000) !important",
+    " --progress-bar-height: 6px !important",
+    " background-color: var(--arc-palette-cutoutColor, #000) !important",
+    " } ",
+    "",
+	"",
+    "/* END */",
+    //
+    //
     " /* Artist page art/ everything about it*/",
     " .MyW8tKEekj9lKQsviDdP.k2I8B0MzXkAJ6_s8okM7 {",
     " opacity: 0.7 !important",
     " border-top-left-radius: 25px !important",
     " } ",
-
-
-
-
-
-    " .uhDzVbFHyCQDH6WrwZaC _ejNsts52hRqOuZcc_NXi {",
-    " max-width: 774px;",
-    " } ",
-    "",
-    " ejNsts52hRqOuZcc_ NXi {",
-    " padding: • 21px;",
-    " } ",
-
-   
-	".asideButton-container ._11pfm-p6kRU6CrLDyLhi3a {",
-	"    margin-left: 13.25%;}",
-	"",
-	"._11pfm-p6kRU6CrLDyLhi3a {",
-	"    margin-left: -200px !important;}",
-	"",
-	".asideButton {",
-	"    top: 4px;}",
-	"",
-	"",
-    " / * Text alignment / *",
-    " .wCkmVGEQh3je1hrbsFBY {",
-    " text-align: center !important;",
-    " } ",
-    "",
-    "",
-    " .beQQox;",
-    " color: #333 !important;}",
-    // main now playing menu bar sub
-	".Root__now-playing-bar {",
-    " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
-	"    position: relative;",
-    // change pos for menu bar layout
-	"    height: 1px;",
-	"    width: calc(100% - 50px);",
-	"    top: 3px; ",
-	"    left: -12px; ",
-	"    padding-right: 10px !important;",
-	"    margin-bottom: 50px;}",
-	"",
-    // Changes the whole NPB Bar boxed outline left or right
-    // Chnage 'left' value higher to move right, lower that value to move left.
-	"@media (min-width: 1700px) { ",
-	"#main .Root .Root__now-playing-bar {   ",
-	"    position: relative;",
-    "    width: calc(100% - 30px);",
-	"    left: 14px;}}",
-	"",
-	"@media (max-width: 2160px) { ",
-	".now-playing-bar__center {",
-	"    margin-left: 12%;}}",
-	"",
-   // Now plaing menu bar - boxed size change
-	".Root__now-playing-bar {",
-    // see below nav bar colour for infomation on how to change this! (Markdown - SLS)
-		"    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
-    // pink - background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
-	  "    border-left: 120px solid rgba(0,0,0,.01) !important;",
-	 "    border-radius: 50px !important;  ",
-	  "    box-shadow: 16px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
-	    "    height: 98px;",
-    // height of the box ( downwards )
-	"    padding: 2px 4px;}",
-	"",
-    // Left side bar - boxed size change
-	".Root__nav-bar {",
-    // left nav bar colour - do background: transparent for no colour, but i like that little pink hue.
-	"    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
-	"    border-left: -1px solid rgba(0,0,0,.2) !important;",
-	"    border-radius: 99px 99px 99px 99px !important;",
-	"    border-right: -1px solid rgba(255,192,203,0.3) !important;",
-	"    border-radius: 22px !important;  ",
-	"    box-shadow: 10px 8px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
-    // moves the left bar up or down
-	"    margin-top: 65px !important;",
-	"    height: calc(100% - 85px) !important;",
-    // if you want it fully off to the left side, remove overflow-x
-	"    overflow-x: none;}",
-	"",
-	".recently-played.navBar-group {",
-	"    margin-top: 10px !important;",
-	"    margin-bottom: 20px !important;}",
-	"",
     // Artist' about
 	".container-fluid.ArtistAbout__container {",
 	"    background: backdrop-filter: blur(5px); !important;",
@@ -391,28 +587,6 @@
 	"    border-radius: 4px !important;",
 	"    margin-top: 20px;",
 	"    margin-bottom: 0px !important;}",
-	"    ",
-    // Max width
-	"@media (max-width: 2200px) { ",
-	".container-fluid.ArtistAbout__container {       ",
-	"    width: calc(100% - 60px) !important;",
-	"    margin-left: 30px !important}}",
-	"",
-    // Min Width
-	"@media (min-width: 2200px) { ",
-	".container-fluid.ArtistAbout__container {   ",
-	"    width: calc(100% - 60px) !important;",
-	"    margin-left: 30px !important;}}",
-	"",
-    "",
-    // Max adjustment width
-	"@media (max-width: 2200px) {",
-	".ArtistAbout__insights {",
-	"    float: right !important;",
-	"    flex: 2 !important;}}",
-	"",
-	".col-xs-12.col-lg-9.col-xl-8 .tracklist-container  {",
-	"    margin-top: 50px !important;}",
 	"",
     // View header
 	"header.artist-header, .view-header {",
@@ -446,105 +620,92 @@
 	"    float: right; ",
 	"    right: 8px;}}",
 	"",
-     // Mics Nav bar
-	"",
+    " .uhDzVbFHyCQDH6WrwZaC _ejNsts52hRqOuZcc_NXi {",
+    " max-width: 774px;",
+    " } ",
     "",
-	".navBar-item .download-icon {",
-	"    height: 36px !important;",
-	"    width: 36px !important;",
-	"    top: -3px !important;",
-	"    margin-left: 140px !important;}",
+    " ejNsts52hRqOuZcc_ NXi {",
+    " padding: • 21px;",
+    " } ",
+	".asideButton-container ._11pfm-p6kRU6CrLDyLhi3a {",
+	"    margin-left: 13.25%;}",
 	"",
-	".navBar-item .playing-icon {",
-	"    margin-right: -8px !important;}",
+	"._11pfm-p6kRU6CrLDyLhi3a {",
+	"    margin-left: -200px !important;}",
 	"",
-	".navBar-item--with-icon-left {",
-	"    padding-left: 0px !important;}",
+	".asideButton {",
+	"    top: 4px;}",
 	"",
-	"[dir=\"ltr\"] .navBar-item--with-icon-left .navbar-link__text {",
-	"    margin-left: -155px !important;}",
 	"",
-	"@media (min-width: 1700px) {",
-	"[dir=\"ltr\"] .navBar-item--with-icon-left .navbar-link__text {",
-	"    margin-left: -175px !important;}}",
+    " / * Text alignment / *",
+    " .wCkmVGEQh3je1hrbsFBY {",
+    " text-align: center !important;",
+    " } ",
+    "",
+    "",
+    //
+    //
+    "/* Logo */",
+	" .logo svg {",
+	"    border-radius: 100% !important;",
+	"    padding-top: 1px;",
+	"    padding-bottom: 1px;",
+	"    background: radial-gradient(ellipse at center, rgba(255,255,255,.26) 10%, rgba(255,255,255,.22) 30%, rgba(100,100,100,.15) 65%,rgba(0,0,0,0) 79%);",
+	"    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, .3), inset 0px 0px 25px 1px rgba(0,0,0, 0.3) ;",
+	"    border-left: 3px solid rgba(0,0,0,1) !important;",
+	"    border-right: 3px solid rgba(0,0,0,1) !important;",
+	"    -webkit-animation:  rotater 80s infinite linear, frameFlicker 60s infinite linear ;",
+	"    -webkit-backface-visibility: hidden;",
+	"    -webkit-perspective: 1000;",
+	"    image-rendering: optimizeQuality !important;}",
 	"",
-	"@media (max-width: 2160px){",
-	"section.content.artist div div.container-fluid.ArtistAbout__container {",
-	"    margin-right: 15px !important;",
-	"    width: calc(100% - 30px);} ",
-	".navBar-item .collection-icon, .navBar-item .collection-active-icon, .navBar-item .home-icon, .navBar-item .home-active-icon, .navBar-item .search-icon, .navBar-item .search-active-icon {",
-	"    margin-left: 130px !important;}",
-	".navBar-item .download-icon {",
-	"    margin-left: 120px !important;}",
-	".navBar-item .playing-icon {",
-	"    margin-right: 8px !important;}}",
+	" .logo svg:active {",
+	"    background: radial-gradient(ellipse at center, rgba(200,200,200,.15) 10%, rgba(200,200,200,.14) 20%, rgba(200,200,200,.20) 40%,rgba(255,255,255,.15) 65%,rgba(255,255,255,0) 79%);",
+	"    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, .75), 0px 0px 20px 1px rgba(255, 255, 255, .15), inset 0px 0px 10px 5px rgba(0, 0, 0, .35), inset 0px 0px 25px 1px rgba(0,0,0, 0.35)!important;",
+	"    border-left: 3px solid rgba(0,0,0,1)  !important;",
+	"    border-right: 3px solid rgba(0,0,0,1)  !important;",
+	"    border-color: var(--marker) !important;",
+	"    image-rendering: optimizeSpeed !important;}",
 	"",
-	"@media (min-width: 1700px) {",
-	"section.content.artist div div.container-fluid.ArtistAbout__container {",
-	"    margin-right: 60px !important;",
-	"    width: calc(100% - 150px);}}",
+    " .Root__nav-bar .logo {",
+	"    width: calc(100%) !important;",
+	"    transition: all 1000ms ease-in !important;",
+	"    transform: scale(1.6) !important; ",
+	"    text-align: center !important;",
+	"    opacity: 0.75 !important;}",
 	"",
-	"@media (max-width: 2160px) { ",
-	".Root__nav-bar {   ",
-	"    width:200px;",
-	"    margin-left: 20px !important;}}",
+	" section.content.album.contentSpacing .col-xl-8, section.content.playlist.contentSpacing .col-xl-8 {",
+	"    padding-top: 45px !important;} ",
 	"",
-	"@media (min-width: 1700px) { ",
-	".Root__nav-bar {   ",
-	"    margin-left: 30px !important;}}",
+	" .logo:hover {",
+	"    opacity: 1 !important;}",
 	"",
-	".sessionInfo  {",
-	"    margin-bottom: -90px !important;}",
+	" .navBar-header .logo {",
+	"    padding: 27px;",
+	"    margin-bottom:20px;}",
 	"",
-	"@media (max-height: 2160px) {",
-	".recently-played .recently-played__item-5 {",
-	"    display: none !important;}}",
+	" @media (max-width: 2160px) {",
+	" .navBar-header .logo {",
+	"    margin-left: -27px;}}",
 	"",
-	"@media(max-height: 2160px) {",
-	".recently-played .recently-played__item-4 {",
-	"    display: none !important;}}",
-	"",
-	"@media(max-height: 2160px) {",
-	".recently-played .recently-played__item-3 {",
-	"    display: none !important;}}",
-	"",
-	"@media(max-height: 2160px) {",
-	".recently-played .recently-played__item-2 {",
-	"    display: none !important;}}",
-	"",
-	"@media(max-height: 2160px) {",
-	".recently-played {",
-	"    display: none !important;}}",
-	"",
-	"a.btn.btn-fg-green{",
-	"    padding-top: 2em !important;",
-	"    padding-bottom: 2em !important;}",
-	"",
-	".btn.btn-fg-green {",
-	"    padding-top: 2em !important;",
-	"    padding-bottom: 2em !important;}",
-	"",
-	".middle-align.progress-bar__slider {",
-	"    transform: scale(.7) !important;",
-	"    border: 0px solid rgb(0,0,0,1) !important;",
-	"    background: radial-gradient(at left top, rgba(255,255,255,1), var(--playCol), rgba(0,0,0,1))!important;}",
-	"",
-	".volume-bar .middle-align.progress-bar__slider {",
-	"    border: 0px solid rgb(30,30,30) !important;}",
-	"",
-	".now-playing-bar__right__inner {",
-	"    padding-right: 6px !important;}",
-    // inner right padding for menu bar
-	"",
-	".accountPage .icon, .downloadPage-inner {",
-	"    margin-top: 50px;}",
-	"",
-	".tracklist-row {",
+    "/* END */",
+    //
+    //
+    "/* 'Something Went Wrong' -- At least make it pretty! */",
+    " .KIbfbFDao0SHpZsKoKZD {",
+    " border-radius: 32px !important",
+    " } ",
+    "",
+    "/* END */",
+    //
+    //
+    "/* Tracklist */",
+	" .tracklist-row {",
 	"    margin-bottom: 7px !important; ",
 	"    height: 40px !important;",
 	"    border: 1px solid transparent !important;}",
 	"",
-	".tracklist-name.ellipsis-one-line{ ",
+	" .tracklist-name.ellipsis-one-line{ ",
 	"    width: 49% !important;}",
 	"",
 	".track-name-wrapper .second-line   {",
@@ -556,12 +717,12 @@
 	"    right: 0px !important;",
 	"    bottom: 23px !important;}",
 	"",
-	".TrackListRow__explicit-label {",
+	" .TrackListRow__explicit-label {",
 	"    background: rgba(255,255,255,.2) !important;",
 	"    color: inherit !important;",
 	"    margin-right: 16px !important;}",
 	"",
-	".tracklist-row.tracklist-row:hover {",
+	" .tracklist-row.tracklist-row:hover {",
 	"    font-size: .9rem;",
 	"    color: var(--hoverCol) !important;",
 	"    border: 1px solid #00364d !important;",
@@ -570,7 +731,7 @@
 	"    box-shadow: 3px 3px 4px #000, 0px 0px 2px #000 !important;  ",
 	"    border-radius: 4px !important;}",
 	"",
-	".tracklist-row.tracklist-row--active {",
+	" .tracklist-row.tracklist-row--active {",
 	"    height: 40px !important;",
 	"    font-size: 1rem !important;",
 	"    color: var(--playCol) !important;",
@@ -580,31 +741,111 @@
 	"    box-shadow: 3px 3px 4px #000, 0px 0px 2px #000 !important;  ",
 	"    border-radius: 4px !important;}",
 	"",
-	".navBar-group-header::first-letter, .navBar-item .type::first-letter {",
-	"    text-transform: capitalize;}",
+    " .tracklist-row .tracklist-play-pause:not(.disabled):active, .tracklist-row:not(.disabled):active .icon-play, .icon-pause {",
+	"    padding: 0}",
+    ".track-name-wrapper.ellipsis-one-line.tracklist-top-align {",
+	"   background: backdrop-filter: blur(5px); !important;}",
 	"",
-	".navBar-group-header, .navBar-item .type {",
-	"    letter-spacing: 0.6px;",
-	"    text-transform: lowercase !important;",
-	"    font-size: 12px;}",
+	" .tracklist-container {",
+	"    font-size: .9rem;}",
 	"",
+	" LI[class=\"tracklist-row\"][role=\"button\"][tabindex=\"0\"] {",
+	"    background: transparent;}",
+	"",
+	" .tracklist-row.tracklist-row--active {",
+	"    line-height: 24px !important;}",
+	"",
+	" .tracklist-row.tracklist-row .position { ",
+	"    margin-bottom: 4px !important;}",
+	"",
+	" .tracklist-row .tracklist-col.name .track-name-wrapper .artists-album { ",
+	"    display: inline; ",
+	"    padding-left: 20px;}",
+	"",
+	" .track-name-wrapper .tracklist-row__album-name-link, .track-name-wrapper .tracklist-row__artist-name-link {",
+	"    font-size: 1rem !important;",
+	"    color: rgba(255,255,255,.7) ;",
+	"    opacity: 1 !important;}",
+	" ._2NmuSzp6vWIr47yUIVCgdY {",
+	"    width: 100%;",
+	"    padding: 0 30%;",
+	"    background-color: transparent;}",
+	"",
+	" .tracklist-row.tracklist-row--oneline, .tracklist-row.tracklist-row--oneline .tracklist-col { ",
+	"    height: 3rem;}",
+	"",
+    " .tracklist-col-recommended-add {",
+	"    padding-left: 1em !important;",
+	"    -webkit-box-align: baseline;",
+	"    align-items: baseline;}",
+	"",
+	" .tracklist-col-recommended-add .btn.btn-black.btn-small {",
+	"    font-size: 1em !important;",
+	"    width: 135px !important;",
+	"    margin-left: 0em !important;",
+	"    padding-top: .6em !important;",
+	"    padding-bottom: 1.4em !important;",
+	"    background: transparent !important;",
+	"    box-shadow: none !important;",
+	"    border: none !important;}",
+	"",
+	" .tracklist-col-recommended-add .btn.btn-black.btn-small:not(active):hover {",
+	"    font-size: 1.28em !important;",
+	"    color: #fff !important;}",
+	"",
+    " .user-info.col-md-12 figure.avatar.user-avatar {",
+	"    width: 130px !important;",
+	"    height: 130px !important;",
+	"    background: url(\"https://image.ibb.co/gmAKaf/256.png\") center !important;",
+	"    background-size: 127px 127px !important;",
+	"    image-rendering: optimizeQuality !important;",
+	"    -webkit-animation: rotater 30s infinite linear ;}",
+	" .tracklist-row--active .tracklist-col.position-outer,",
+	" .tracklist-row:hover .tracklist-col.position-outer {",
+	"    margin-top: -1px !important;}",
+	"",
+	" .tracklist-row.tracklist-row--oneline",
+	" .track-name-wrapper.ellipsis-one-line.tracklist-top-align {",
+	"    margin-top: 7px !important;}",
+	"",
+	" .tracklist-top-align {",
+	"    margin-top: 8px !important;}",
+	"",
+	" .tracklist-container .tracklist-col.position-outer,",
+	" .tracklist-container:hover .tracklist-col.position-outer {",
+	"    margin-top: 0px !important;}",
+	"",
+	" .tracklist-top-align .icon-pause{",
+	"    transform: translateY(2px) !important;}",
+	"",
+	" .tracklist-top-align .icon-play {",
+	"    transform: translateY(4px) !important;}",
+	"",
+	" .tracklist-row.tracklist-row .position {",
+	"    opacity: 1 !important;}",
+	"",
+	" .tracklist-row.tracklist-row--oneline {",
+	"    margin-top: -4px !important;}",
+	"",
+	" .tracklist-row.tracklist-row--oneline .tracklist-col {",
+	"    margin-top: 0px !important;}",
+	"",
+	" .react-contextmenu-wrapper .tracklist-middle-align {",
+	"    transform: translateY(-70%);}",
+	"",
+	" .tracklist-row.tracklist-row--oneline .btn.btn-transparent.btn--narrow.btn--no-margin.btn--no-padding {",
+	"    margin-top: 20px !important;}",
+	"",
+	" .tracklist-row.tracklist-row--active .second-line{",
+	"    margin-top: -2px !important;}",
+    "",
+    "/* END */",
+    //
+    //
 	".btn.btn-green.cta-button, .btn.btn-black.btn-small, .btn.btn-green, .btn.btn-black, .btn.btn-black:hover, .btn.btn-fg-green, .btn.btn-transparent, .btn.btn-blue.btn-small, .btn-landing.btn-white, .btn-landing.btn-green, .btn.btn-sm.btn-block.btn-facebook.ng-binding, .btn.btn-sm.btn-block.btn-green.ng-binding, .btn.btn-white._3zghGNfKZCH7FVEyqNY3my, button.btn.btn--no-margin.btn--full-width.P7Qjj40AVoE8Igi7Ji05m._1xNlj_ScH8hEMWzrkRt1A, .ResponsiveViewMoreButton__button, .btn.btn-white {",
 	"    font-size: 21px !important;",
 	"    font-weight: 400 !important;",
-	"}",
-	"    text-transform: lowercase !important;",
-	"    letter-spacing: 1px;",
-	"    transition-property: color;",
-	"    transition-duration: .2s;",
-	"    transition-timing-function: linear;",
-	"    color: hsla(0,0%,100%,.65);",
-	"    padding-top: 1em !important;",
-	"    padding-bottom: 1em !important;",
-	"    line-height: 18px;",
-	"    height: 50px !important;",
-	"    border-right: 1px solid rgba(38,38,38,.2) !important;",
-	"    border-radius: 4px !important;  ",
-	"    box-shadow: 9px 5px 10px -7px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;}",
+	" } ",
 	"",
 	".btn.btn-green.cta-button:hover, .btn.btn-black.btn-small:hover, .btn.btn-green:hover, .btn.btn-black:hover, .btn.btn-black:hover, .btn.btn-fg-green:hover, .btn.btn-transparent:hover, .btn.btn-blue.btn-small:hover, .btn-landing.btn-white:hover, .btn-landing.btn-green:hover, .btn.btn-sm.btn-block.btn-facebook.ng-binding:hover, .btn.btn-sm.btn-block.btn-green.ng-binding:hover, .ResponsiveViewMoreButton__button:hover, .btn.btn-white:hover {",
 	"    transition-property: color;",
@@ -631,6 +872,7 @@
 	"    padding-top: 0.6em !important;",
 	"    padding-bottom: 1.4em !important;}",
 	"",
+    "/* Search */",
 	".search-history .btn.btn-black{",
 	"    width: 300px !important;}",
 	"",
@@ -659,10 +901,6 @@
 	"    padding-top: 0.6em !important;",
 	"    padding-bottom: 1.4em !important;}",
 	"",
-	".btn.btn-green.cta-button::first-letter, .btn.btn-black.btn-small::first-letter, .btn.btn-green::first-letter, .btn.btn-black::first-letter, .btn.btn-black:hover::first-letter, .btn.btn-fg-green::first-letter, .btn.btn-transparent::first-letter, .btn.btn-blue.btn-small::first-letter, .btn-landing.btn-white::first-letter, .btn-landing.btn-green::first-letter, .btn.btn-sm.btn-block.btn-facebook.ng-binding::first-letter, .btn.btn-sm.btn-block.btn-green.ng-binding::first-letter, .ResponsiveViewMoreButton__button::first-letter, .btn.btn-white::first-letter {",
-	"    font-size: var(--firstLsize) !important;",
-	"    text-transform: capitalize;",
-	"    position: relative;}",
 	"",
 	".btn:not(.disabled):focus, .btn:not(.disabled):hover, .btn-landing:not(.disabled):focus, .btn-landing:not(.disabled):hover, .ResponsiveViewMoreButton__button:focus, .ResponsiveViewMoreButton__button:not(.disabled):hover {",
 	"    transition: all 100ms cubic-bezier(.3,0,0,1);",
@@ -672,20 +910,14 @@
 	"    transition: all 100ms cubic-bezier(.3,0,0,1) !important;",
 	"    transform: scale(.9);}",
 	"",
-	".tracklist-row .tracklist-play-pause:not(.disabled):active, .tracklist-row:not(.disabled):active .icon-play, .icon-pause {",
-	"    padding: 0}",
-	"",
     ".OgkbKIVYE_mrNpYESylB {",
     " min-width: 180px;",
     " }",
     "",
-    // markdown -- -- -- -- -- -- -- - - - - - --  -- - - - - -  --  -- - - - - - -- - - - --  -- - - -- - - - - - - - --  -- - - - - - - - - - -- - - - - - - - - - - -
 	".content.ZI0UgbCT8bKeDxk-G9uhC, .hw-accelerate {",
 	"    background: none!important;",
 	"    content: \"\";}",
 	"",
-	".track-name-wrapper.ellipsis-one-line.tracklist-top-align {",
-	"   background: backdrop-filter: blur(5px); !important;}",
 	"",
 	".link-subtle.navBar-link.ellipsis-one-line,.user-link, .inputBox-input, .Vg0L1vwJXv5JSYn-HUx0C.link-subtle { ",
 	"    font-weight: 400 !important;}",
@@ -700,43 +932,55 @@
 	".link-subtle.navBar-link.ellipsis-one-line, .user-link {",
 	"    font-size: .9rem !important;}}",
 	"",
-	".tracklist-container {",
-	"    font-size: .9rem;}",
-	"",
-	"LI[class=\"tracklist-row\"][role=\"button\"][tabindex=\"0\"] {",
-	"    background: transparent;}",
-	"",
-	".tracklist-row.tracklist-row--active {",
-	"    line-height: 24px !important;}",
-	"",
-	".tracklist-row.tracklist-row .position { ",
-	"    margin-bottom: 4px !important;}",
-	"",
-	".tracklist-row .tracklist-col.name .track-name-wrapper .artists-album { ",
-	"    display: inline; ",
-	"    padding-left: 20px;}",
-	"",
-	".track-name-wrapper .tracklist-row__album-name-link, .track-name-wrapper .tracklist-row__artist-name-link {",
-	"    font-size: 1rem !important;",
-	"    color: rgba(255,255,255,.7) ;",
-	"    opacity: 1 !important;}",
-	"._2NmuSzp6vWIr47yUIVCgdY {",
-	"    width: 100%;",
-	"    padding: 0 30%;",
-	"    background-color: transparent;}",
-	"",
-	"._1pVwzxv-TDj4dEFi0N3B-_ .btn.btn-transparent  {",
-	"    display: none;}",
-	"",
-	".tracklist-row.tracklist-row--oneline, .tracklist-row.tracklist-row--oneline .tracklist-col { ",
-	"    height: 3rem;}",
-	"",
-	".search-history li a h1, #main > DIV > DIV:nth-child(4) > DIV:last-child > DIV:first-child > SECTION > DIV > DIV > UL > LI > A > SPAN { ",
+    ".search-history li a h1, #main > DIV > DIV:nth-child(4) > DIV:last-child > DIV:first-child > SECTION > DIV > DIV > UL > LI > A > SPAN { ",
 	"    font-size: 20px; ",
 	"    font-weight: 100; ",
 	"    color: var(--marker)!important;}",
 	"",
-	".ConnectBar, ._3pZQC_msqsNA7nsxYWWeGJ, .ITVPJxOvtLt7upeE1TV9- {",
+    //
+    //
+    "/* Connect bar */",
+	" .ConnectBar::after{",
+	"    right: 113px !important;",
+    "    display: hidden !important",
+    "    overscroll: none",
+    " } ",
+	"",
+	" .spoticon-devices-16.control-button.control-button--active,",
+	" .connect-device-list-item--active, .connect-device-list-item--active .connect-device-list-item__device-subtitle, .connect-device-list-item--active .connect-device-list-item__icon {",
+	"    color: var(--playCol) !important;",
+    " } ",
+	"",
+	".connect-device-list-container {",
+	"    background: linear-gradient(to bottom, #141414 0%,#292929 100%); ",
+	"    border: 1px solid var(--line) !important;",
+	"    border-left: 1px hidden !important;",
+	"    border-right: 1px hidden !important;",
+	"    box-shadow:3px 3px 4px #000, 0px 0px 2px #000; ",
+	"    border-radius: 4px !important;",
+	"    position: absolute;",
+	"    width: 280px;",
+	"    bottom: -400px;",
+	"    right: -120px;",
+    " } ",
+	"",
+	".connect-device-list-container::before {",
+	"    content: none;",
+    " } ",
+	"",
+	".react-contextmenu.react-contextmenu--visible {",
+	"    background: linear-gradient(to bottom, #141414 0%,#292929 100%); ",
+	"    border: 1px solid var(--line) !important;",
+	"    border-left: 1px hidden !important;",
+	"    border-right: 1px hidden !important;",
+	"    box-shadow:3px 3px 4px #000, 0px 0px 2px #000; ",
+	"    border-radius: 4px !important;",
+    " } ",
+	"",
+	" .react-contextmenu-item:hover {",
+	"    background: transparent !important;",
+    " } ",
+    " .ConnectBar, ._3pZQC_msqsNA7nsxYWWeGJ, .ITVPJxOvtLt7upeE1TV9- {",
 	"    position: absolute;",
 	"    max-width: 500px;",
 	"    height: 50px;",
@@ -750,65 +994,18 @@
 	"    border: 1px solid rgba(29,185,84,1) !important;",
 	"    border-radius: 10px !important;",
 	"    background: rgba(0,0,0,.5) !important;",
-	"    box-shadow:3px 3px 4px #000, 0px 0px 2px #000,  inset 0px 0px 5px #000;}",
+	"    box-shadow:3px 3px 4px #000, 0px 0px 2px #000,  inset 0px 0px 5px #000;",
+    " } ",
 	"",
 	".ITVPJxOvtLt7upeE1TV9- {",
 	"    top: 80px;}",
 	"",
-	".ConnectBar::after{",
-	"    right: 113px !important;}",
-	"",
-	".spoticon-devices-16.control-button.control-button--active,",
-	".connect-device-list-item--active, .connect-device-list-item--active .connect-device-list-item__device-subtitle, .connect-device-list-item--active .connect-device-list-item__icon {",
-	"    color: var(--playCol) !important;}",
-	"",
-	".connect-device-list-container {",
-	"    background: linear-gradient(to bottom, #141414 0%,#292929 100%); ",
-	"    border: 1px solid var(--line) !important;",
-	"    border-left: 1px hidden !important;",
-	"    border-right: 1px hidden !important;",
-	"    box-shadow:3px 3px 4px #000, 0px 0px 2px #000; ",
-	"    border-radius: 4px !important;",
-	"    position: absolute;",
-	"    width: 280px;",
-	"    bottom: -400px;",
-	"    right: -120px;}",
-	"",
-	".connect-device-list-container::before {",
-	"    content: none;}",
-	"",
-	".react-contextmenu.react-contextmenu--visible {",
-	"    background: linear-gradient(to bottom, #141414 0%,#292929 100%); ",
-	"    border: 1px solid var(--line) !important;",
-	"    border-left: 1px hidden !important;",
-	"    border-right: 1px hidden !important;",
-	"    box-shadow:3px 3px 4px #000, 0px 0px 2px #000; ",
-	"    border-radius: 4px !important;}",
-	"",
-	".react-contextmenu-item:hover {",
-	"    background: transparent !important;}",
-	"",
-	".Root__nav-bar .logo {",
-	"    width: calc(100%) !important;",
-	"    transition: all 1000ms ease-in !important;",
-	"    transform: scale(1.6) !important; ",
-	"    text-align: center !important;",
-	"    opacity: 0.75 !important;}",
-	"",
-	"section.content.album.contentSpacing .col-xl-8, section.content.playlist.contentSpacing .col-xl-8 {",
-	"    padding-top: 45px !important;} ",
-	"",
-	".logo:hover {",
-	"    opacity: 1 !important;}",
-	"",
-	".navBar-header .logo {",
-	"    padding: 27px;",
-	"    margin-bottom:20px;}",
-	"",
-	"@media (max-width: 2160px) {",
-	".navBar-header .logo {",
-	"    margin-left: -27px;}}",
-	"",
+	"._1pVwzxv-TDj4dEFi0N3B-_ .btn.btn-transparent  {",
+	"    display: none;",
+    " } ",
+    "/* END */",
+    //
+    //
 	".inputBox {",
 	"    padding-top: 80px;",
 	"    padding-left: 25px;}",
@@ -874,19 +1071,6 @@
 	".sessionInfo .avatar {",
 	"    background-color: transparent;}",
 	"",
-	".mo-info::first-letter, *::first-letter, *:focus::first-letter, *:hover::first-letter {",
-	"    font-size: var(--firstLsize) !important;}",
-	"",
-	".playback-bar__progress-time::first-letter{",
-	"    color:white}",
-	"",
-	".RecentlyPlayedWidget__type {",
-	"    color: #b3b3b3 !important;",
-	"    text-transform: lowercase !important;}",
-	"",
-	".RecentlyPlayedWidget__type::first-letter {",
-	"    text-transform: uppercase !important;}",
-	"",
 	".AoH1i4drqTCg9DJoGF3Sp .col-xs-12{",
 	"    margin-left: 50% !important;}",
 	"",
@@ -900,14 +1084,6 @@
 	".AoH1i4drqTCg9DJoGF3Sp section.EmptyState.container-fluid .col-xs-12 {",
 	"    margin: 0 !important;}",
 	"",
-	".EmptyState__title {",
-	"    font-size: 30px;",
-	"    display: none}",
-	"",
-	".EmptyState__subtitle {",
-	"    margin-top: -10px;",
-	"    font-size: 20px;",
-	"    color: #fff;}",
 	"",
 	".HeaderedGrid__header {",
 	"    margin-top: -10px;}",
@@ -926,25 +1102,6 @@
 	"    font-size: 1.8em;",
 	"    color: #fff;",
 	"    text-align: center !important;}",
-	"",
-	".tracklist-col-recommended-add {",
-	"    padding-left: 1em !important;",
-	"    -webkit-box-align: baseline;",
-	"    align-items: baseline;}",
-	"",
-	".tracklist-col-recommended-add .btn.btn-black.btn-small {",
-	"    font-size: 1em !important;",
-	"    width: 135px !important;",
-	"    margin-left: 0em !important;",
-	"    padding-top: .6em !important;",
-	"    padding-bottom: 1.4em !important;",
-	"    background: transparent !important;",
-	"    box-shadow: none !important;",
-	"    border: none !important;}",
-	"",
-	".tracklist-col-recommended-add .btn.btn-black.btn-small:not(active):hover {",
-	"    font-size: 1.28em !important;",
-	"    color: #fff !important;}",
 	"",
 	"@media screen and (-webkit-min-device-pixel-ratio:0) {",
 	".navBar-header  svg path {",
@@ -985,27 +1142,9 @@
 	"    border-left: none !important ;",
 	"    border-right: none !important;} ",
 	"    ",
-	".logo svg {",
-	"    border-radius: 100% !important;",
-	"    padding-top: 1px;",
-	"    padding-bottom: 1px;",
-	"    background: radial-gradient(ellipse at center, rgba(255,255,255,.26) 10%, rgba(255,255,255,.22) 30%, rgba(100,100,100,.15) 65%,rgba(0,0,0,0) 79%);",
-	"    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, .3), inset 0px 0px 25px 1px rgba(0,0,0, 0.3) ;",
-	"    border-left: 3px solid rgba(0,0,0,1) !important;",
-	"    border-right: 3px solid rgba(0,0,0,1) !important;",
-	"    -webkit-animation:  rotater 80s infinite linear, frameFlicker 60s infinite linear ;",
-	"    -webkit-backface-visibility: hidden;",
-	"    -webkit-perspective: 1000;",
-	"    image-rendering: optimizeQuality !important;}",
-	"",
-	".logo svg:active {",
-	"    background: radial-gradient(ellipse at center, rgba(200,200,200,.15) 10%, rgba(200,200,200,.14) 20%, rgba(200,200,200,.20) 40%,rgba(255,255,255,.15) 65%,rgba(255,255,255,0) 79%);",
-	"    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, .75), 0px 0px 20px 1px rgba(255, 255, 255, .15), inset 0px 0px 10px 5px rgba(0, 0, 0, .35), inset 0px 0px 25px 1px rgba(0,0,0, 0.35)!important;",
-	"    border-left: 3px solid rgba(0,0,0,1)  !important;",
-	"    border-right: 3px solid rgba(0,0,0,1)  !important;",
-	"    border-color: var(--marker) !important;",
-	"    image-rendering: optimizeSpeed !important;}",
-	"",
+    //
+    //
+    	"",
 	".navBar-header  svg path {",
 	"    visibility: visible !important;",
 	"    fill: context-stroke; ",
@@ -1050,65 +1189,24 @@
 	".user-header .icon svg {",
 	"    display:none !important;}",
 	"",
-	".user-info.col-md-12 figure.avatar.user-avatar {",
-	"    width: 130px !important;",
-	"    height: 130px !important;",
-	"    background: url(\"https://image.ibb.co/gmAKaf/256.png\") center !important;",
-	"    background-size: 127px 127px !important;",
-	"    image-rendering: optimizeQuality !important;",
-	"    -webkit-animation: rotater 30s infinite linear ;}",
-	".tracklist-row--active .tracklist-col.position-outer,",
-	".tracklist-row:hover .tracklist-col.position-outer {",
-	"    margin-top: -1px !important;}",
 	"",
-	".tracklist-row.tracklist-row--oneline",
-	".track-name-wrapper.ellipsis-one-line.tracklist-top-align {",
-	"    margin-top: 7px !important;}",
-	"",
-	".tracklist-top-align {",
-	"    margin-top: 8px !important;}",
-	"",
-	".tracklist-container .tracklist-col.position-outer,",
-	".tracklist-container:hover .tracklist-col.position-outer {",
-	"    margin-top: 0px !important;}",
-	"",
-	".tracklist-top-align .icon-pause{",
-	"    transform: translateY(2px) !important;}",
-	"",
-	".tracklist-top-align .icon-play {",
-	"    transform: translateY(4px) !important;}",
-	"",
-	".tracklist-row.tracklist-row .position {",
-	"    opacity: 1 !important;}",
-	"",
-	".tracklist-row.tracklist-row--oneline {",
-	"    margin-top: -4px !important;}",
-	"",
-	".tracklist-row.tracklist-row--oneline .tracklist-col {",
-	"    margin-top: 0px !important;}",
-	"",
-	".react-contextmenu-wrapper .tracklist-middle-align {",
-	"    transform: translateY(-70%);}",
-	"",
-	".tracklist-row.tracklist-row--oneline .btn.btn-transparent.btn--narrow.btn--no-margin.btn--no-padding {",
-	"    margin-top: 20px !important;}",
-	"",
-	".tracklist-row.tracklist-row--active .second-line{",
-	"    margin-top: -2px !important;}",
-	"",
-	".spoticon-track-16, .spoticon-podcasts-16::before  {",
-	"    display: none;}",
-    "",
-    "/* On wards new in version 0.3 - commands below should hide the spotify logo! */",
-    "/* Hide spotify logo */",
-	".logo path {",
-	"	display: none;",
-	"}",
-	"/* remove space */",
-	" .navBar-header {  ",
-	"     height:0px;",
-	"     padding:0px;",
-	"}",
+    //
+    //
+    "/* Device Picker */",
+    " .ipSIrx, .IdxmFS96lyE7c5uiTnLM, .aCtCKL9BxAoHeVZS0uRs {",
+    " border-radius: 25px !important",
+    " padding: 0px !important",
+    " } ",
+    " .zFqMGX3h5z2CO3f2uEiL, device-picker-header device-picker-section-heading {",
+    " width: -webkit-fill-available !important",
+    " height: -webkit-fill-available !important",
+    " } ",
+    ".hwP4Oum2PB765sb8jigI {",
+    " --device-picker-max-height: -webkit-fill-available !important",
+    " max-height: -webkit-fill-available !important",
+    " min-height: -webkit-fill-available !important",
+    " } ",
+
    	"/***********************************Advanced Customization For Update V 0.3 **********************************************/",
 	"",
 	"",
@@ -1125,7 +1223,7 @@
 	"}",
 	"",
 	"._1Fj-rlIZXTSNgYOCuLh7xo {",
-	"    font-size:30px !important;",
+	"    font-size: 30px !important;",
 	"}",
 	"",
 	"",
@@ -1160,7 +1258,7 @@
     " border-radius 15px;",
     "}",
     "/* NOWPLAYING PLAY BUTTON */",
-	" .KAZD28usA1vPz5GVpm63, .No0A0v6U6vtqj_ybS1Cd, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
+	" .KAZD28usA1vPz5GVpm63, .No0A0v6U6vtqj_ybS1Cd, .Fyc_tPyPKyRIT_59VZ2B, .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .KIbfbFDao0SHpZsKoKZD, .PrhIVExjBkmjHt6Ea4XE, .bkFQH4uasL3pXqN9eDSi, .control-button--active, .jyHIqB, .TJ5Bjp6vgnWVbh6mGN0n, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
 	"     animation: rainbow-text 30s infinite;",
 	"     background-color: transparent;",
 	"     cursor: auto;",
@@ -1320,47 +1418,46 @@
 	"/* *****************Scroll bar************** */",
     "",
 " ::-webkit-scrollbar, ::--os-scrollbar-track {",
-	    " width: 5px;",
-	    " height: 1px;",
+	    " width: 5px !important;",
+	    " height: 1px !important;",
 	"}",
-" ::-webkit-scrollbar-thumb, ::--os-scrollbar-track {",
-	" background: linear-gradient(230deg, #ff000036, #ff800036, #ffff0036, #80ff0036, #00ff0036, #00ff8036, #00ffff36, #0080ff36, #0000ff36, #8000ff36, #ff008036);",
-"",
-	    " -webkit-animation: rainbow 10s linear infinite;",
-	    " -z-animation: rainbow 10s linear infinite;",
-	    " -o-animation: rainbow 10s linear infinite;",
-	    " animation: rainbow 10s ease infinite;,",
-	    " border-radius: 50px;",
+" ::-webkit-scrollbar-thumb, ::--os-scrollbar-track, .os-scrollbar-handle {",
+	" background: linear-gradient(230deg, #ff000036, #ff800036, #ffff0036, #80ff0036, #00ff0036, #00ff8036, #00ffff36, #0080ff36, #0000ff36, #8000ff36, #ff008036) !important;",
+	    " -webkit-animation: rainbow 10s linear infinite !important;",
+	    " -z-animation: rainbow 10s linear infinite !important;",
+	    " -o-animation: rainbow 10s linear infinite !important;",
+	    " animation: rainbow 10s ease infinite !important;,",
+	    " border-radius: 50px !important;",
 	"}",
 "",
 " ::-webkit-scrollbar-thumb:hover, ::--os-scrollbar-track {",
-	     " background: linear-gradient(230deg, #ff00007a, #ff80007a, #ffff007a, #80ff007a, #00ff007a, #00ff807a, #00ffff7a, #0080ff7a, #0000ff7a, #8000ff7a, #ff00807a);",
-	     " -webkit-animation: rainbow 10s linear infinite;",
-	     " -z-animation: rainbow 10s linear infinite;",
-	     " -o-animation: rainbow 10s linear infinite;",
-	     " animation: rainbow 1s ease infinite;",
+	     " background: linear-gradient(230deg, #ff00007a, #ff80007a, #ffff007a, #80ff007a, #00ff007a, #00ff807a, #00ffff7a, #0080ff7a, #0000ff7a, #8000ff7a, #ff00807a) !important;",
+	     " -webkit-animation: rainbow 10s linear infinite !important;",
+	     " -z-animation: rainbow 10s linear infinite !important;",
+	     " -o-animation: rainbow 10s linear infinite !important;",
+	     " animation: rainbow 1s ease infinite !important;",
 	"}",
 "",
 " ::-webkit-scrollbar-thumb:active, ::--os-scrollbar-track {",
-	    " background: linear-gradient(230deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff0080);",
-	    " -webkit-animation: rainbow 10s linear infinite;",
-	    " -z-animation: rainbow 10s linear infinite;",
-	    " -o-animation: rainbow 10s linear infinite;",
-	    " animation: rainbow 1s ease infinite;",
+	    " background: linear-gradient(230deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff0080) !important;",
+	    " -webkit-animation: rainbow 10s linear infinite !important;",
+	    " -z-animation: rainbow 10s linear infinite !important;",
+	    " -o-animation: rainbow 10s linear infinite !important;",
+	    " animation: rainbow 1s ease infinite !important;",
    "}",
 "",
 " ::-webkit-scrollbar-track, ::--os-scrollbar-track {",
-	     " background: #0f0f0f;",
-	     " border: 2px 1px #171717;",
-	     " border-radius: 50px;",
+	     " background: #0f0f0f !important;",
+	     " border: 2px 1px #171717 !important;",
+	     " border-radius: 50px !important;",
 	"}",
 "",
 " ::-webkit-scrollbar-track:hover, ::--os-scrollbar-track {",
-	      " background: #280B0F;",
+	      " background: #280B0F !important;",
 	"}",
 "",
 " ::-webkit-scrollbar-track:active, ::--os-scrollbar-track {",
-	     " background: #000000;",
+	     " background: #000000 !important;",
     "",
         "  /******     V 0.4 - Copy track info! This means the song name and artist!  *********/",
 
@@ -1674,23 +1771,12 @@ if (typeof GM_addStyle != "undefined") {
 
 
 
-
-
-
-
-
-
-
-
     " / * Genius Lyrics if Spotify doesnt have it / * "
 
 
 
 
 
-
-
-    //V 0.4  Addition of Copying tracks, and addition of Genius Lyric if Spotify doesn't already have it
 
 'use strict'
 
@@ -2331,10 +2417,7 @@ function main () {
 // GitHub (support, and new code) - https://github.com/SenpaiHunters/SpotOn
 
 
-// Hide the nav bar
-// I REAALLY LOVE THIS ONEE!!!
-
-
+// Menu bar toggle
 (function MenubarToggle() {
   console.log("MenubarToggle function running");
   'use strict';
@@ -2490,10 +2573,11 @@ body {
 })();
 
 
-
-
+// Find & Sort albums (not working?!?)
 document.addEventListener('DOMContentLoaded', function SortingAlbumsAndSearches() {
     'use strict';
+    console.log("Sorting function running");
+
 
     // Add sorting functionality
     function sortTracks(orderBy, order) {
@@ -2635,7 +2719,7 @@ document.addEventListener('DOMContentLoaded', function SortingAlbumsAndSearches(
     let searchInput = document.querySelector("input[placeholder='Search...']");
     searchInput.addEventListener("input", function() {
         searchTracks();
-});
+    });
     // Add event listeners
     let sortByTitleDropdownButton = sortByTitleDropdown.querySelector(".dropbtn");
     let sortByArtistDropdownButton = sortByArtistDropdown.querySelector(".dropbtn");
@@ -2672,11 +2756,6 @@ document.addEventListener('DOMContentLoaded', function SortingAlbumsAndSearches(
 
 
 
-
-
-
-
-
 skin(true);
 function gotMessage(message, sender, sendResponse) {
     console.log("AlbumArtCover function running");
@@ -2706,11 +2785,11 @@ function skin(exe) {
     --hoverback: hsla(0, 0%, 100%, .1);
     --blur: 20px; }
 .encore-dark-theme {
-    --text-subdued: #ffffffe0!important; }
+    --text-subdued: #ffffffe0 !important; }
 
   /*--You can change the blur amount by chaing the 'backdrop-filter: blur(amount px)--*/
  /*--Deafault is 20px, higher you go the more blur, lower less blur!--*/
-/*------------------dynamic background-----------------------*/
+/*------------------Dynamic Background-----------------------*/
 
 @supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
     :root,
@@ -2726,14 +2805,11 @@ function skin(exe) {
         background-color: #282828; }
     .backgroundDIV {
         display: none; }
-    ._7d5bb5bfd500c0c322fb865b69181717-scss,
-    ._34098cfd13d48e2910679f35aea2c377-scss,
-    ._26d9e31a05dd5fba3afe1b281ae2cf9e-scss,
-    .d59cf4c9f065f7dc76a93e2823013414-scss,
+    ._7d5bb5bfd500c0c322fb865b69181717-scss,  ._34098cfd13d48e2910679f35aea2c377-scss,
+    ._26d9e31a05dd5fba3afe1b281ae2cf9e-scss, .d59cf4c9f065f7dc76a93e2823013414-scss,
     ._48e360f8825a4f1e777dae4da035dc61-scss ._2ad467a52f00fff4e36adb25e591bf7c-scss,
     ._60cb742e518d084c3c959007b9463b51-scss,
-    .react-contextmenu,
-    .SearchInputBox,
+    .react-contextmenu, .SearchInputBox,
     .sessionInfo {
         -webkit-backdrop-filter: blur(var(--blur));
         backdrop-filter: blur(var(--blur)) }
@@ -2744,17 +2820,19 @@ function skin(exe) {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-size: cover;
-    transition-duration: 1s;
+    transition-duration: 0.7s;
+/* transition duration noraml 1s -- Change speed to make the cover appear faster, reduced for slower */
     background-position: center;
     background-color: #282828;
     filter: blur(50px);
-    / * --- Blur - amount of blur  --- Normal value is 50px * /
+/ * --- Blur - Total blur effect --- Normal value is 50px * /
     width: 100vw;
     height: 100vh;
     position: absolute; }
 .Root__top-container {
-    backdrop-filter: blur(50px); }
-    / * --- Blur - amount of blur  --- need to change both values in order for it to take effect * /
+    backdrop-filter: blur(20px); }
+/ * --- Blur - amount of blur  --- need to change both values in order for it to take effect * /
+/ * Both backdrop-filter: blur(50px) and filter: blur(50px) needs to be changed, do 10px on both to see this effect * /
 #main > div {
     box-shadow: inset 0px 2px 70px 4px #0000006e; }
 .Root__top-container,
@@ -2803,7 +2881,7 @@ function skin(exe) {
     left: 0;
     z-index: -1;
 }
-/*---------------text-----------------*/
+/*---------------Text-----------------*/
 
 .RootlistItem__link:link,
 .RootlistItem__link:visited,
@@ -2825,18 +2903,13 @@ main-trackList-rowSectionVariable a,
 ._6b1ff8eab07810e2b7845ffe28430e38-scss,
 main-trackList-rowSectionIndex a,
 body,
-._3957b7dd066dbbba6a311b40a427c59f-scss,
-.main-cardSubHeader-root,
+._3957b7dd066dbbba6a311b40a427c59f-scss, .main-cardSubHeader-root,
 ._9a78420cc4a863b2f413ce55e759a321-scss:link,
 ._9a78420cc4a863b2f413ce55e759a321-scss:visited,
-.main-rootlist-textWrapper:link,
-.main-rootlist-textWrapper:visited,
-.f3fc214b257ae2f1d43d4c594a94497f-scss,
-.main-rootlist-textWrapper,
-.b490086127ec0ecdc7b170c03de9c5b1-scss,
-.__whSyV64vHUPUxZSpRJ,
-.OVe33QZtu7pqMRtApCfF,
-.wI16x3qtEZ6y9rsyL6f_,
+.main-rootlist-textWrapper:link, .main-rootlist-textWrapper:visited,
+.f3fc214b257ae2f1d43d4c594a94497f-scss, .main-rootlist-textWrapper,
+.b490086127ec0ecdc7b170c03de9c5b1-scss, .__whSyV64vHUPUxZSpRJ,
+.OVe33QZtu7pqMRtApCfF, .wI16x3qtEZ6y9rsyL6f_,
 .mbvP8zroENoL_DNWYq4s,
 .VgSbatGBB9XwTH2_dsxg,
 .ql0zZd7giPXSnPg75NR0,
@@ -2849,17 +2922,9 @@ body,
 ._kd5kutoy5xRha0qD0Vz:hover,
 .os-content a:hover {
     color: #fff!important; }
-.da0bc4060bb1bdb4abb8e402916af32e-scss,
-.main-trackList-rowTitle,
-.f3fc214b257ae2f1d43d4c594a94497f-scss,
-.__whSyV64vHUPUxZSpRJ,
-.OVe33QZtu7pqMRtApCfF,
-.wI16x3qtEZ6y9rsyL6f_,
-.mbvP8zroENoL_DNWYq4s,
-._gvEBguxvbSruOQCkWrz,
-.main-type-mesto,
-.lkLwhOqn_uyfjwAxRbbC,
-.vQ8EkR_krbAi5mYmmpCn,
+.da0bc4060bb1bdb4abb8e402916af32e-scss, .main-trackList-rowTitle, .f3fc214b257ae2f1d43d4c594a94497f-scss,
+.__whSyV64vHUPUxZSpRJ, .OVe33QZtu7pqMRtApCfF, .wI16x3qtEZ6y9rsyL6f_, .mbvP8zroENoL_DNWYq4s,
+._gvEBguxvbSruOQCkWrz, .main-type-mesto, .lkLwhOqn_uyfjwAxRbbC, .vQ8EkR_krbAi5mYmmpCn,
 .FS85JWWz3ayMxrFzBjRD {
     text-shadow: 0 0 4px black; }
 .e8ea6a219247d88aa936a012f6227b0d-scss._4b308d5c9250cfb0620ce3b40765ef4a-scss ._6b1ff8eab07810e2b7845ffe28430e38-scss,
@@ -2876,7 +2941,7 @@ body,
     cursor: pointer;
     color: #ffffffe0; }
 
-/*search*/
+/*-----------------Search-----------------*/
 
 .dIwMadpRrW1PwEwEeAbN,
 .G9iUss4eOSpJyn2VBzsS {
@@ -2887,17 +2952,19 @@ body,
 .Z1sHXP1EI_v36FCALBRd:hover {
     background: rgb(35 35 35 / 50%)!important; }
 
-/*-------------home page-----------------*/
+/*-------------Home page-----------------*/
 /* ---- Main use for itemss --- */
 
-.B0VIs50K6LXh5MDmmmJs, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P,
+.B0VIs50K6LXh5MDmmmJs, .B0VIs50K6LXh5MDmmmJs:hover, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P,
 .e4ETsc5zxjzyF9nyb4LI, .cyXplMovoowBozEe4r2x, .EhyK_jJzB2PcWXd5lg24, .tsv7E_RBBw6v0XTQlcRo, .zi377dMLSwXnFiejYnRa, .aIWRvSjvEN4rTMCIi4vG, .wIyyGaSPOHR78wksX3Us, .G8UNZJv4HT1kOIolA_e7, .encore-light-theme,
-.encore-light-theme, .encore-base-set, .MQQEonum615k8mGkliT_, .R2w_sH83CJU9Yhnu0xyt, .CU0wnmWejIvyEsRRtSac, .R2w_sH83CJU9Yhnu0xyt, .PiyAiXdQULEnWAHP0tu1, .odcjv30UQnjaTv4sylco:focus, odcjv30UQnjaTv4sylcO:hover, [dir="ltr"] .JdlKTdpMquftpMwwegZo,
-.odciv30UOniaTv4svlc0_[data-context-menu-open=true], .zrvvPyoxE6wQNqnu0yWA, .bk509U3ZhZc9YBJAmoPB, .hwP4Oum2PB765sb8jigI, .MNgY3fBEKs4U6SbZD2lo, .tm3lCLoFzk25Q_df5g5K,
-.aCtCKL9BxAoHeVZS0uRs, .uWvwXlS0Da1bWsRX6KOw, .pUkuSEO5HGdvTiujyI6H, .tm3lCLoFzk25Q_df5g5K, .zFqMGX3h5z2CO3f2uEiL, .bk509U3ZhZc9YBJAmoPB, .uhDzVbFHyCQDH6WrWZaC .ejNsts52hRq0uZcc_NXi, .ejNsts52hRq0uZcc_NXi,
-.uhDzVbFHyCQDH6WrWZaC, .ejNsts52hRq0uZcc_NXi, .AJqEY1gblQDvIgjU0jAH, .react-contextmenu-wrapper, .XwNfIrI6_hCa_9_T2cQB, .I3EivnXTjYMpSbPUiYEg, .g6ZgzRfiHjsTLskeyI0J:focus, .g6ZgzRfiHjsTLskeyI0J:hover, .g6ZgzRfiHjsTLskeyI0J,
-[dir=ltr] .g6ZgzRfiHjsTLskeyI0J, .fLS8v3_EfBadEerbGVoR, .LunqxlFIupJw_Dkx6mNx, .tsv7E_RBBw6v0XTQlcRo, html.spotify__container--is-web body, .qJOhHoRcFhHJpEQ2CwFT.koyeY6AgGRPmyPITi7yO,
-.uV8q95GGAb2VDtL3gpYa, .bk509U3ZhZc9YBJAmoPB, .aCtCKL9BxAoHeVZS0uRs, .pHrwZOFBdT8FNXnmcPPI,
+.encore-light-theme, .encore-base-set, .MQQEonum615k8mGkliT_, .CU0wnmWejIvyEsRRtSac, .R2w_sH83CJU9Yhnu0xyt, .PiyAiXdQULEnWAHP0tu1, .odcjv30UQnjaTv4sylco:focus, odcjv30UQnjaTv4sylcO:hover, [dir="ltr"] .JdlKTdpMquftpMwwegZo,
+.odciv30UOniaTv4svlc0_[data-context-menu-open=true], .zrvvPyoxE6wQNqnu0yWA, .hwP4Oum2PB765sb8jigI,
+.ejNsts52hRq0uZcc_NXi,
+.uhDzVbFHyCQDH6WrWZaC, .AJqEY1gblQDvIgjU0jAH, .react-contextmenu-wrapper, .XwNfIrI6_hCa_9_T2cQB, .I3EivnXTjYMpSbPUiYEg, .g6ZgzRfiHjsTLskeyI0J:focus, .g6ZgzRfiHjsTLskeyI0J:hover, .g6ZgzRfiHjsTLskeyI0J,
+[dir=ltr] .g6ZgzRfiHjsTLskeyI0J, .fLS8v3_EfBadEerbGVoR, .LunqxlFIupJw_Dkx6mNx, html.spotify__container--is-web body, .qJOhHoRcFhHJpEQ2CwFT.koyeY6AgGRPmyPITi7yO,
+.uV8q95GGAb2VDtL3gpYa, .aCtCKL9BxAoHeVZS0uRs, .pHrwZOFBdT8FNXnmcPPI, .UmY163JiUcgJt2MKNyGW.SVnAziPF2z_cgAGrp6He,
+.hcuLp8V4uEEfWZ4k6aLV, .QavgDs_52SpJ2rw0LNYz:before,
+#myconfigwin39457845, #myconfigwin39457845 div, #myconfigwin39457845 div, #myconfigwin39457845 button,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div:nth-child(2) > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > section > div:nth-child(5) > section > div:nth-child(2) > div,
@@ -2910,7 +2977,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section:nth-child(2) > div:nth-child(3) > div,
 div.os-padding > div > div > div > main > section > div:nth-child(2) > div > div {
     background: rgba(0, 0, 0, 0.2)!important; }
-.B0VIs50K6LXh5MDmmmJs:hover,
+
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div:hover,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div:nth-child(3) > section > div:nth-child(2) > div:hover,
 #searchPage > div > div > section > div:nth-child(2) > div:hover,
@@ -2999,17 +3066,10 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     transition-duration: 0.2s!important;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)!important; }
 
-/*-------------profile page-----------------*/
+/*-------------Profile page-----------------*/
 
-._6f1bb16d690aec58cb10e82de1ac2410-scss,
-._9764a8966c108117bdf6f47cb601747a-scss,
-._59ed5f1313c7c4b211995d2b6463683f-scss,
-._1066d722d4c5fe45076daa358de0a969-scss,
-._7f29d1db930e7882d0ee6099f36e3bc7-scss,
-._2411182f42f92a221e29c993de036981-scss,
-._59ed5f1313c7c4b211995d2b6463683f-scss,
-.VgSbatGBB9XwTH2_dsxg,
-.ql0zZd7giPXSnPg75NR0,
+._6f1bb16d690aec58cb10e82de1ac2410-scss,._9764a8966c108117bdf6f47cb601747a-scss, ._59ed5f1313c7c4b211995d2b6463683f-scss, ._1066d722d4c5fe45076daa358de0a969-scss,
+._7f29d1db930e7882d0ee6099f36e3bc7-scss, ._2411182f42f92a221e29c993de036981-scss, ._59ed5f1313c7c4b211995d2b6463683f-scss, .VgSbatGBB9XwTH2_dsxg, .ql0zZd7giPXSnPg75NR0,
 .sbU_cIh6kQUanX3IUWD8,
 .ojLwFoBNBM6cW7_RpeAN,
 .iYoKwYJwszPZXYQCZQ4s,
@@ -3070,6 +3130,7 @@ div.under-main-view > div > div {
     padding: 10px 32px!important; }
 
 /*------------discovery page-------------*/
+
 .AJqEY1gblQDvIgjU0jAH
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div:nth-child(1) {
     background-color: #0000! important;
@@ -3083,7 +3144,7 @@ background-color: #0000! important;
     top: auto!important;
     box-shadow: none!important; }
 
-/*------------allbum page-------------*/
+/*------------Allbum page-------------*/
 
 ._11b29b5a5f3bcae347f832a4278b28b8-scss,
 ._5d10f53f6ab203d3259e148b9f1c2278-scss,
@@ -3129,7 +3190,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div.contentSpacing > div > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(1) > div > img {
     display: none!important; }
 
-/*-------podcasts--hidden by def can be found in libary still-----------*/
+/*------------Podcasts-------------*/
 
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
     color: #fff!important;
@@ -3140,12 +3201,13 @@ div.os-padding > div > div > div > main > div > section > div:nth-child(2) > div
 .Ic3iDUCnC09k55peZBfC {
     background: #00000000!important; }
 
-/*-----Spotify Lists-----*/
+/*-----------------Spotify Lists-----------------*/
+
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div > div {
     background: #00000000!important; }
 
-/*-------now playing bar--------------*/
+/*-----------------Now Playing Bar--------------*/
 
 .Root__now-playing-bar {
     padding-top: 10px; }
@@ -3185,6 +3247,23 @@ a:hover,
 a {
     transition-duration: 0.2s; }
 
+/*-----------------Now Playing Image-----------------*/
+
+.d6e5892a336f6ae43bf066f2245c81b1-scss,
+._4fac214bccd807d7c6fed21d4e0ea6de-scss,
+.i0XB7255K_4QFLJsSGc_,
+#main > div.Root.encore-dark-theme > div.Root__top-container > nav > div {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px; }
+._8b45c1ef6e792bfe1014b26c48673e5a-scss,
+.i0XB7255K_4QFLJsSGc_ {
+    background: none!important; }
+._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss,
+.i_0L07qd2CAeOLFiK8dP {
+    overflow-y: visible!important;
+    backdrop-filter: blur(3px)!important; }
+
 /*----------------Misc---------------------*/
 
 body > div:nth-child(10) {
@@ -3203,28 +3282,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
     text-shadow: 0 0 black; }
 #searchPage > div > div > div > div > div {}
 
-/*lyrics*/
+/*-----------------Lyrics-----------------*/
+
 div.os-padding > div > div > div.main-view-container__scroll-node-child > div > div {
     background: none; }
 
-/*now playing img*/
-
-.d6e5892a336f6ae43bf066f2245c81b1-scss,
-._4fac214bccd807d7c6fed21d4e0ea6de-scss,
-.i0XB7255K_4QFLJsSGc_,
-#main > div.Root.encore-dark-theme > div.Root__top-container > nav > div {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px; }
-._8b45c1ef6e792bfe1014b26c48673e5a-scss,
-.i0XB7255K_4QFLJsSGc_ {
-    background: none!important; }
-._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss,
-.i_0L07qd2CAeOLFiK8dP {
-    overflow-y: visible!important;
-    backdrop-filter: blur(3px)!important; }
-
-/*albums previews*/
+/*-----------------Albums previews-----------------*/
 
 ._2f859138f9d0ecc3c687296f572c5dca-scss,
 ._3802c04052af0bb5d03956299250789e-scss,
@@ -3257,7 +3320,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
 
-/*play button*/
+/*-----------------Play button-----------------*/
 
 ._13e5c5964387e0139bbe6e468e9aa649-scss > *,
 ._8e7d398e09c25b24232d92aac8a15a81-scss {
@@ -3267,12 +3330,12 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
     box-shadow: 2px -1px 20px 0px #000000c7;
     z-index: 1; }
 
-/*playing album*/
+/*-----------------Playing album-----------------*/
 
 ._233cba0ebe7615236e86592034108e77-scss {
     justify-content: center; }
 
-/*track scale*/
+/*-----------------Track scale-----------------*/
 
 ._OpqIZJH2IqpNqAS9iJ7,
 ._cx_B0JpuGl6cJE7YqU1,
@@ -3314,7 +3377,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 .WBTm60_TPRG_oYwBuS7_ {
     display: none!important; }
 
-/*pointers*/
+/*-----------------Pointers-----------------*/
 
 .bd0f04911fe4adb022e666269a90a739-scss,
 ._38168f0d5f20e658506cd3e6204c1f9a-scss,
@@ -3329,7 +3392,11 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 .i_0L07qd2CAeOLFiK8dP,
 .pLwpjUDpZgzSXNOsGn_c,
 .Mx7aus4bRGbU9vPpnDHj {
-    background: var(--overlay-heavy) }`;
+    background: var(--overlay-heavy)
+    }
+/*-----------------END-----------------*/
+    `;
+
 /*END*/
 
 //css = "";
@@ -3437,3 +3504,5 @@ main.insertBefore(div,main.firstChild);
 setInterval(function() {
 
 },5000);
+
+// END //
