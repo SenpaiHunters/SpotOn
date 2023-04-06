@@ -2830,7 +2830,7 @@ function skin(exe) {
     height: 100vh;
     position: absolute; }
 .Root__top-container {
-    backdrop-filter: blur(20px); }
+    backdrop-filter: blur(50px); }
 / * --- Blur - amount of blur  --- need to change both values in order for it to take effect * /
 / * Both backdrop-filter: blur(50px) and filter: blur(50px) needs to be changed, do 10px on both to see this effect * /
 #main > div {
