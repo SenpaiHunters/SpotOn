@@ -3432,7 +3432,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
                     document.getElementById("background").remove()
                     //document.getElementById("background").innerHTML = ":root{ --backimg:url(" + document.getElementsByClassName("_64acb0e26fe0d9dff68a0e9725b2a920-scss cover-art-image")[0].src + ");}";
                 }
-                sheet.innerHTML = `:root{ --backimg:url('${document.getElementsByClassName('cover-art-image')[0].src}');}`;
+                sheet.innerHTML = ':root{ --backimg:url(\'' + document.getElementsByClassName('cover-art-image')[0].src + '\');}';
                 document.body.appendChild(sheet);
                 }
             });
@@ -3450,7 +3450,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
                 document.getElementById("background").remove()
                 //document.getElementById("background").innerHTML = ":root{ --backimg:url(" + document.getElementsByClassName("_64acb0e26fe0d9dff68a0e9725b2a920-scss cover-art-image")[0].src + ");}";
             }
-            sheet.innerHTML = `:root{ --backimg:url('${document.getElementsByClassName('cover-art-image')[0].src}');}`;
+            sheet.innerHTML = ':root{ --backimg:url(\'' + document.getElementsByClassName('cover-art-image')[0].src + '\');}';
             document.body.appendChild(sheet);
             observer.observe(document.getElementsByClassName("cover-art-image")[0], {attributes : true});
         }
