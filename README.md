@@ -1,11 +1,61 @@
-# What is SpotOn?
+<h1 align="center">SpotOn</h1>
 
 
-SpotOn is a Userscript. Userscripts (a.k.a User Scripts, User scripts, or .user.js) are open-source licensed add-ons for web browsers, written in [JavaScript](https://www.wikipedia.org/wiki/JavaScript), that change web pages as they are loaded. They give users the power to make websites do what they want them to, rather than what was originally intended. In our case, we made SpotOn, giving users a new and modern revamp of Spotify, without loss of performance. For the exact features, check out the [Features Tab](https://github.com/SenpaiHunters/SpotOn/wiki/Features)
+
+![SpotOn](https://socialify.git.ci/SenpaiHunters/SpotOn/image?description=1&descriptionEditable=SpotOn%20is%20a%20full%20overhaul%20of%20Spotify%20Web%20Player%2C%20read%20the%20GitHub%20for%20full%20features.&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
+
+
+![GitHub watchers](https://img.shields.io/github/watchers/senpaihunters/spoton?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/senpaihunters/spoton?style=plastic)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/senpaihunters/spoton)
+![GitHub contributors](https://img.shields.io/github/contributors/senpaihunters/spoton)
+![GitHub all releases](https://img.shields.io/github/downloads/senpaihunters/spoton/total)
+
+[![Top Langs Used](https://github-readme-stats.vercel.app/api/top-langs/?username=senpaihunters&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+
+***
+
+
+<h2 align="center">Table of content</h2>
+
+* [SpotOn](https://github.com/SenpaiHunters/SpotOn#spoton)
+* [Installation](https://github.com/SenpaiHunters/SpotOn#install-instructions)
+* [Support](https://github.com/SenpaiHunters/SpotOn#browser-support)
+   * [Arc](https://github.com/SenpaiHunters/SpotOn#arc)
+   * [Firefox](https://github.com/SenpaiHunters/SpotOn#firefox)
+   * [Chrome](https://github.com/SenpaiHunters/SpotOn#chrome)
+   * [Safari](https://github.com/SenpaiHunters/SpotOn#safari)
+   * [Orion](https://github.com/SenpaiHunters/SpotOn#orion)
+   * [OperaGX](https://github.com/SenpaiHunters/SpotOn#oprea-gx)
+   * [Brave](https://github.com/SenpaiHunters/SpotOn#brave)
+* [Features](https://github.com/SenpaiHunters/SpotOn#full-feature-list)
+  * [What does it look like?](https://github.com/SenpaiHunters/SpotOn#before)
+    * [Before](https://github.com/SenpaiHunters/SpotOn#before)
+    * [After](https://github.com/SenpaiHunters/SpotOn#after)
+    * [Dark background](https://github.com/SenpaiHunters/SpotOn#dark-background)
+    * [Light background](https://github.com/SenpaiHunters/SpotOn#light-background)
+  * [Hidding the Nav Bar](https://github.com/SenpaiHunters/SpotOn#hiding-the-nav-bar)
+  * [Song duration](https://github.com/SenpaiHunters/SpotOn#song-duration)
+   * [Lyrics](https://github.com/SenpaiHunters/SpotOn#hpw-do-lyrics-look)
+   * [Profile menu](https://github.com/SenpaiHunters/SpotOn#profile)
+   * [Homescreen](https://github.com/SenpaiHunters/SpotOn#homescreen)
+   * [Expanded menu](https://github.com/SenpaiHunters/SpotOn#full-menu)
+   * [Keyboard shortcuts](https://github.com/SenpaiHunters/SpotOn#keyboard-shortcuts)
+    * [Basic shortcuts](https://github.com/SenpaiHunters/SpotOn#basic-shortcuts)
+    * [Playback shortcuts](https://github.com/SenpaiHunters/SpotOn#playback-shortcuts)
+    * [Navigation shortcuts](https://github.com/SenpaiHunters/SpotOn#navigation-shortcuts)
+    * [Layout shortcuts](https://github.com/SenpaiHunters/SpotOn#layout-shortcuts)
+    * [Quick search](https://github.com/SenpaiHunters/SpotOn#quick-search-bar)
+   * [Copy track info](https://github.com/SenpaiHunters/SpotOn#copy-song-name-and-artist)
+   * [Genius lyric search](https://github.com/SenpaiHunters/SpotOn#genius-intergration)
+   * [Release Notes](https://github.com/SenpaiHunters/SpotOn#releae-notes)
+    * [New features](https://github.com/SenpaiHunters/SpotOn#new-features)
+    * [Bug fixes](https://github.com/SenpaiHunters/SpotOn#bug-fixes)
+    * [Extra notes](https://github.com/SenpaiHunters/SpotOn#extra-notes)
+   
 
 
 # Install Instructions
-
 
 
 To install the SpotOn script via Tampermonkey, follow these steps:
@@ -24,34 +74,35 @@ To install the SpotOn script via Tampermonkey, follow these steps:
 
 
 
-
-***
-
-<img width="988" alt="SCR-20221205-sl9" src="https://user-images.githubusercontent.com/103985728/207042079-10757e2a-c1c7-4876-9e38-ee96996fa09d.png">
-
-- I'm not an artist, please don't judge me too hard...
+# Browser Support
 
 
+### Arc
+Arc is Chromium on crack, it's so nice, MacOS exclusive, this is my main browser will be providing images from this website!
 
+### Firefox
+Firefox will be invested into more, as some features broke on that side.
 
-***
+### Chrome
+Of course, Chrome will still be fully supported
 
+### Safari
+This is spotty, however, currently Safari is unsupported (sorry, will look into it)
 
-# ANNOUNCEMENT:
-As of today (4/3/2023), SpotOn (the one that conceals the now-player bar) has failed. It no longer conceals the bar and will be legacy! This implies there will be no more updates for it, and SpotOn NPBR (non hidden now playing bar) will be changed to SpotOn from now on. Please accept my apologies for any inconvenience.
+### Orion
+Same as Safari (as it's WebOS, but it can have exstnetions!). Currently, it is unsupported but, soon this will be ported! Stay on the lookout.
 
+### Oprea GX
+Supported, it's Chromium...
 
-# Arc Support
-Working on increasing support for Arc + Firefox! Stay tuned (previosuly, was only focused on Chrome, this has shifted to Arc, as Arc is SO much better (Only for MacOS currently~~)
+### Brave
+Supported...
 
-
-
-****
 
 
 
 # Full feature list
-     - More information will be added to the drop down menu, as well as tagged photos, as you go farther.
+     - More information will be added to the drop down menu, as well as tagged photos, as you go further.
 
 
 ***
@@ -60,7 +111,6 @@ Working on increasing support for Arc + Firefox! Stay tuned (previosuly, was onl
 What to see some more photos with an explation? Copy this link `https://arc.net/e/8C9E77D6-1494-4C99-8309-DD7EB56A8156` (Made with Arc, my main browser!)
 
 
-*** 
 
 
 ### This page has the full SpotOn features list + Images along.
@@ -68,7 +118,6 @@ More will be added as they become available, and this page will be updated accor
 There are no formal update times, I hope every month or so, but I've run out of things that work with Spotify, however I'm continuously experimenting with new stuff! Nonetheless, bug patches will be supplied when a bug is discovered; I am a lone developer, so please excuse the slow rates!
 
 
-*** 
 
 - Animations!
   - An animation when hovering over a song
@@ -98,7 +147,7 @@ There are no formal update times, I hope every month or so, but I've run out of 
   - All album art covers are now 10px rounded!
   - This covers ALL song cover artworks and album cover arts, in other words, EVERYTHING.
 - Auto lyric search on Genius 
-  - Currently buggy, but now works again!
+  - Press the G icon on the top right to function the script.
   - *Guide below*
 - Copy track info
   - Select "Copy" when you right-click on a song. 
@@ -135,19 +184,13 @@ There are no formal update times, I hope every month or so, but I've run out of 
   - Please see the photos below for a list of Hotkeys. (Alternatively, use the aforementioned Hotkey)
   - It's clever; it'll figure out what system you're using and display Hotkeys accordingly.
     - This means that on a Mac, 'command' will appear instead of 'windows,' and vice versa.
-
-
-- More to come soon! (hopefully...)
-- Redoing all the code .... just to make it faster and more pretty... and bug fixes...
-
-
+    
 
 ***
 
-# Before we go further
-If the rainbow text is too much for you, the code line can be removed, simply remove the end of the CSS -- Remove lines `1119` to `1326` -- This will remove all colour options, if you dislike the scroll bar, remove that line too!
+# Note
+Remember, if anything it too much you can always remove it, rainbow controls not your fancy? Remove them, dislike rounded albums? remove that too. It's all up to you, if you wish for help on removing something feel free to reach out!!
 
-***
 
 # What does SpotOn look like?
 
@@ -160,7 +203,6 @@ If the rainbow text is too much for you, the code line can be removed, simply re
 
 
 ### After
-- Note: The right-hand side is with the NavBar hidden!
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/103985728/221405571-a04c44b0-5411-472c-9c12-f4d1079bcff2.png">
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/103985728/221405634-87b0259b-70e2-42b9-abad-44bebd69db56.png">
 
@@ -168,11 +210,8 @@ If the rainbow text is too much for you, the code line can be removed, simply re
 
 ***
 
-# Before we go further:
-## Some of the photos are with the Nav Bar hidden, this is very simple to do, simply go to the edge of the nav bar and (mouse) click it. Clicking it again unhides the Nav Bar
-### Or, here is a video
 
-
+### Hiding the nav bar
 https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7-9e88-13faa5121f89.mp4
 
 
@@ -188,22 +227,14 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/103985728/221405580-01712b12-c8e6-4217-affc-b9e939275120.png">
 
 
-
-
-
-
-### Hidden menu bar with remaining time
+### Song duration
 
 
 ![Hidden menu bar with remaining time](https://user-images.githubusercontent.com/103985728/196182482-29b0d0f9-750a-4eca-bc9b-012b4537a534.png)
 
 
-
-### Hidden menu bar with total time
-
-
 ![Hidden menu bar with total time](https://user-images.githubusercontent.com/103985728/196182656-23e6d4e0-390e-4b9a-b4f6-4d631d4218b8.png)
-
+(Press the timing to change it, default is total time.)
 
 
 ### How do Lyrics look?
@@ -237,17 +268,65 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 - Rainbow
 <img width="407" alt="image" src="https://user-images.githubusercontent.com/103985728/221406223-42db8422-22bc-4a2f-8e77-cbdbf09d2b7f.png">
 
+# Spotify wide Hotkeys!
+### Added in V 0.5.2, this update now has hotkeys for all areas of Spotify.
+    - NOTE: The Hotkeys shown are for MAC! They should work for windows simply by pressing Control instead of Command, and Alt instead of Option.
+
+
+
+### Keys on Mac VS. Windows
+
+### `⌥ (Option) - (Windows Ctrl)`
+
+### `⌘ (Command) - ( Windows Alt)`
 
 
 
 
 
-
-# SpotOn featues?!
-
+<img width="261" alt="image" src="https://user-images.githubusercontent.com/103985728/207035236-080bd760-6e73-4d83-a7e8-b8950975b589.png">
 
 
-### Now copy track information, Imbedded into Spotify's Menu!
+
+### Basic Shortcuts
+
+
+<img width="404" alt="image" src="https://user-images.githubusercontent.com/103985728/207035592-2cb6a113-d0f3-4b40-a6da-457a6349b3d4.png">
+
+
+
+### Playback Shortcuts
+
+
+
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/103985728/207037875-df89d324-10f0-410f-b5b4-a346743629f9.png">
+
+
+
+### Navigation Shortcuts
+
+
+<img width="232" alt="image" src="https://user-images.githubusercontent.com/103985728/207038077-1232c6a0-d16a-4281-99a7-f3f79c12b233.png">
+
+
+
+### Layout Shortcuts
+
+
+<img width="348" alt="image" src="https://user-images.githubusercontent.com/103985728/207038225-03c84d28-2156-4fd4-9dd4-5ad559788e2f.png">
+
+
+# Quick Search Bar
+- Command = `Command + K`
+
+
+<img width="center" alt="image" src="https://user-images.githubusercontent.com/103985728/221406653-0620980c-6451-429c-81dc-f2f31e73a40e.png">
+<img width="center" alt="image" src="https://user-images.githubusercontent.com/103985728/221406675-573f3f8c-bbfb-4947-83e1-8874c81b856a.png">
+
+
+
+
+### Copy song name and artist
 
 
 ![Imbedded right into Spotify's Menu](https://user-images.githubusercontent.com/103985728/195324014-728d02a2-af67-4051-8582-ae701f3861c9.png)
@@ -311,65 +390,61 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 
 <img width="122" alt="image" src="https://user-images.githubusercontent.com/103985728/221405927-d81eba89-2b07-48aa-a393-cba34a0ab2a1.png">
 
-
-# Spotify wide Hotkeys!
-### Added in V 0.5.2, this update now has hotkeys for all areas of Spotify.
-    - NOTE: The Hotkeys shown are for MAC! They should work for windows simply by pressing Control instead of Command, and Alt instead of Option.
+# Release Notes
+## 0.7
 
 
+In this version there has been a lot of changes, for all browsers. I mean a lot, close to a week of solid work, mostly to get some features to work then spotify went down, so that was cool. Anyway, release notes are as follows.
 
-### Keys on Mac VS. Windows
+### New Features: 
 
-### `⌥ (Option) - (Windows Ctrl)`
-
-### `⌘ (Command) - ( Windows Alt)`
-
-
-
-
-
-<img width="261" alt="image" src="https://user-images.githubusercontent.com/103985728/207035236-080bd760-6e73-4d83-a7e8-b8950975b589.png">
-
-
-
-### Basic Shortcuts
-
-
-<img width="404" alt="image" src="https://user-images.githubusercontent.com/103985728/207035592-2cb6a113-d0f3-4b40-a6da-457a6349b3d4.png">
+- Added ability to click on the icon of an album and add it to the Queue, Go to playlist radio, Add to profile, Report,  Remove from Your Library, Exclude from your taste profile, and About recommendatiations.
+- Added lines for album sorting, however, this is not yet implimented. 
+- Redid Genius Intergration's `options` menu, added the icon to be constant now, ability to copy the lyrics shown
+- Hotkeys got a speed increase!
+- Redid the `connect to a device`, changed colour of the play icon for arc browsers (fallback for other browsers too)
+- Rounded the popup menu (`right-click` menu i mean). 
+- Faster transisions! Woo, 0.3 secoonds... Still faster..
+- Rounded the current playing song, and added another animation for it. Just to distinguish it faster than normal songs
+- When highlighting over a song it will pop-out further, this in align with the roundede current playing song makes it flow better
+- Reduced the size of code (now less than 700kb)
+- Added more Rainbow controls and menus, try and find them all!
+- Added a faster way of loading and ability to backtrack `⌘ + →` or `⌘ + ←`
 
 
+### Bug fixes
 
-### Playback Shortcuts
-
-
-
-<img width="350" alt="image" src="https://user-images.githubusercontent.com/103985728/207037875-df89d324-10f0-410f-b5b4-a346743629f9.png">
-
-
-
-### Navigation Shortcuts
-
-
-<img width="232" alt="image" src="https://user-images.githubusercontent.com/103985728/207038077-1232c6a0-d16a-4281-99a7-f3f79c12b233.png">
-
-
-
-### Layout Shortcuts
-
-
-<img width="348" alt="image" src="https://user-images.githubusercontent.com/103985728/207038225-03c84d28-2156-4fd4-9dd4-5ad559788e2f.png">
-
-
-# Quick Search Bar
-- Command = `Command + K`
+- Fixed the overscrolling Issue
+- Fixed random song stopping
+- Fixed an issue when loading Spotify in another tab or device the current song would pause or cause the page to freeze
+- Fixed text spacing on h1 contexts, like `Liked Songs`, now at the start and not to the end of nowhere
+- Fixed an issue causing the content menu to not be hidden.
+- Fixed an issue that caused lyrics to scroll further then needed.
+- Fixed an issue that prevented scrolling lyrics.
+- Removed outdated code lines, adding more context to the lines.
+- Adressed an issue that prevented the Nav bar to not hide when pressing the hidden bar. 
+- Fixed a bug causing constant crashing and spooling
+- Fixed an issue causing some users a need to relog in to their spotify account each time they reloaded the page
+- Fixed an issue causing hotkeys to not function when pressing the intended keys. 
+- Adressed the issue of poor readability on the explicit (that `e` at the bottom of the songs)
+- Fixed the horrid look of 'now streaming to', should be better now.
+- Fixed an issue preventing some users access to their library
+- Fixed an issue of not being able to fully scroll on larger displays
+- Added better support for larger displays
+- Adressed an issue causing high cache use in Genisu Lyric Searches (you can now remove the Cache by pressing `remove cache`)
+- Adressed an issue on non chromium browsers not being able to access anything on their screen. 
+- Fixed an issue that caused Firefox to not render the background
+- Adressed an issue of crashing on low end hardware due to a memeory leek (this was also partial to a program the user was running in the background, but now there should be no chances of crashes)
+- Fixed the slow loading times when reloading the page or moving to an album
 
 
 
+### Extra notes
+This is one of my biggest updates in a long time, thank you to those who reported a bug and provided information when requested, thank you to everyone who downloads SpotOn, I hope you enjoy it, I'm making 0 pennies off SpotOn so any support is much appericated. Feel free to reach out to me on my socials or launch an issue on GitHub. 
+- Kami
 
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/103985728/221406653-0620980c-6451-429c-81dc-f2f31e73a40e.png">
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/103985728/221406675-573f3f8c-bbfb-4947-83e1-8874c81b856a.png">
 
 
+## We are at the end, this means what. well here is a random joke that'll make you laugh! (Hopefully)
 
-### More to come at a later date!!!
-
+![Jokes Card](https://readme-jokes.vercel.app/api)
