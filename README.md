@@ -49,9 +49,9 @@
    * [Copy track info](https://github.com/SenpaiHunters/SpotOn#copy-song-name-and-artist)
    * [Genius lyric search](https://github.com/SenpaiHunters/SpotOn#genius-intergration)
    * [Release Notes](https://github.com/SenpaiHunters/SpotOn#releae-notes)
-    * [New features](https://github.com/SenpaiHunters/SpotOn#new-features)
-    * [Bug fixes](https://github.com/SenpaiHunters/SpotOn#bug-fixes)
-    * [Extra notes](https://github.com/SenpaiHunters/SpotOn#extra-notes)
+     * [New features](https://github.com/SenpaiHunters/SpotOn#new-features)
+     * [Bug fixes](https://github.com/SenpaiHunters/SpotOn#bug-fixes)
+     * [Extra notes](https://github.com/SenpaiHunters/SpotOn#extra-notes)
    
 
 
