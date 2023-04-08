@@ -41,11 +41,11 @@
    * [Homescreen](https://github.com/SenpaiHunters/SpotOn#homescreen)
    * [Expanded menu](https://github.com/SenpaiHunters/SpotOn#full-menu)
    * [Keyboard shortcuts](https://github.com/SenpaiHunters/SpotOn#keyboard-shortcuts)
-    * [Basic shortcuts](https://github.com/SenpaiHunters/SpotOn#basic-shortcuts)
-    * [Playback shortcuts](https://github.com/SenpaiHunters/SpotOn#playback-shortcuts)
-    * [Navigation shortcuts](https://github.com/SenpaiHunters/SpotOn#navigation-shortcuts)
-    * [Layout shortcuts](https://github.com/SenpaiHunters/SpotOn#layout-shortcuts)
-    * [Quick search](https://github.com/SenpaiHunters/SpotOn#quick-search-bar)
+     * [Basic shortcuts](https://github.com/SenpaiHunters/SpotOn#basic-shortcuts)
+     * [Playback shortcuts](https://github.com/SenpaiHunters/SpotOn#playback-shortcuts)
+     * [Navigation shortcuts](https://github.com/SenpaiHunters/SpotOn#navigation-shortcuts)
+     * [Layout shortcuts](https://github.com/SenpaiHunters/SpotOn#layout-shortcuts)
+     * [Quick search](https://github.com/SenpaiHunters/SpotOn#quick-search-bar)
    * [Copy track info](https://github.com/SenpaiHunters/SpotOn#copy-song-name-and-artist)
    * [Genius lyric search](https://github.com/SenpaiHunters/SpotOn#genius-intergration)
    * [Release Notes](https://github.com/SenpaiHunters/SpotOn#releae-notes)
@@ -78,7 +78,7 @@ To install the SpotOn script via Tampermonkey, follow these steps:
 
 
 ### Arc
-Arc is Chromium on crack, it's so nice, MacOS exclusive, this is my main browser will be providing images from this website!
+Arc is Chromium on crack, it's so nice, MacOS exclusive, and this is my main browser will be providing images from this website!
 
 ### Firefox
 Firefox will be invested into more, as some features broke on that side.
@@ -87,10 +87,10 @@ Firefox will be invested into more, as some features broke on that side.
 Of course, Chrome will still be fully supported
 
 ### Safari
-This is spotty, however, currently Safari is unsupported (sorry, will look into it)
+This is spotty, however, currently, Safari is unsupported (sorry, will look into it)
 
 ### Orion
-Same as Safari (as it's WebOS, but it can have exstnetions!). Currently, it is unsupported but, soon this will be ported! Stay on the lookout.
+Same as Safari (as it's WebOS, but it can have extensions!). Currently, it is unsupported but, soon this will be ported! Stay on the lookout.
 
 ### Oprea GX
 Supported, it's Chromium...
@@ -102,18 +102,18 @@ Supported...
 
 
 # Full feature list
-     - More information will be added to the drop down menu, as well as tagged photos, as you go further.
+     - More information will be added to the drop-down menu, as well as tagged photos, as you go further.
 
 
 ***
 
 
-What to see some more photos with an explation? Copy this link `https://arc.net/e/8C9E77D6-1494-4C99-8309-DD7EB56A8156` (Made with Arc, my main browser!)
+What to see some more photos with an explanation? Copy this link `https://arc.net/e/8C9E77D6-1494-4C99-8309-DD7EB56A8156` (Made with Arc, my main browser!)
 
 
 
 
-### This page has the full SpotOn features list + Images along.
+### This page has the full SpotOn features list + Images.
 More will be added as they become available, and this page will be updated accordingly.
 There are no formal update times, I hope every month or so, but I've run out of things that work with Spotify, however I'm continuously experimenting with new stuff! Nonetheless, bug patches will be supplied when a bug is discovered; I am a lone developer, so please excuse the slow rates!
 
@@ -123,34 +123,37 @@ There are no formal update times, I hope every month or so, but I've run out of 
   - An animation when hovering over a song
   - Added some fun spinning albums 
     - All TOP album covers spin when loading into a playlist(s). 
-  - Skipping animation
-  - Pause animation
+  - Skip/Reverse animations (Play/Previous as Spotify says)
+  - Play/Pause animations
   - Hover animation
   - Playlist (batch) hover animation
   - Album art (hover - library) animation
+  - Quick search popup animation
+  - And a few more for you to find!
 - A new font (Akronim)
-  - It may seem differently in other browsers (Photos from Chrome as that is the primary browser I use) - You may use anything you like! Just make it work on Spotify... It took me some time to find one.
-- An updated Nav Bar (previously written as Menu bar)
-  - This is now pulled out, rounded, and has the album image within (space is 7.5px across both sides), as well as a pink haze (rgba(255,192,203,0.1)) for enhanced readability (rather than solid black), rainbow controls, hover animations, and convenient hotkey access.
-- Updated Now Playing Bar (NPB)
-  - There are two versions of SpotOn available. 'SpotOn' generally conceals the bottom NPB, however there is another version of SpotOn that has the bar always visible.. 
-  - The modifications are as follows: size is variable depending on display size (bigger display = bigger bar), rounded corners, black haze, full rainbow controls, smaller album art, full black haze along the sides to blend the bar, and is made smaller, as there was no need for that MASSIVE size originally!
+  - It may seem different in other browsers (images taken from a Chromium browser) - You may use anything you like! Just make it work on Spotify... It took me some time to find one.
+- An updated Nav Bar (NB)
+  - This is now pushed out from the whole menu, rounded, and has the album image within (while retaining it inside of the Now Playing Bar (NPB)) (Dimensions are 7.5px across both sides), added a pink haze (rgba(255,192,203,0.1)) for enhanced readability and it to be more pretty, matches dark and white pretty well (rather than solid black thre previously was), rainbow controls (Home, Search, Your Library, Liked Songs Icons, and the drop-down-menu icon for folders), added hover animations, and convenient hotkey access, also added a `hide Nav Bar` bar.
+- Overhauled Now Playing Bar (NPB)
+  - The modifications are as follows: size is variable depending on display size (bigger display = bigger bar), rounded corners, added a black haze, full rainbow controls, smaller and rounded album art, reduced overall size of the NPB, removed the background on the `.playback-bar`, looks pretty now, `connect to a device` is now also updated.
 - Hide the Nav Bar!
-  - This is very simple, just move the cursor next to the edge of the nav bar and click your mouse, it hides! To unhide it, repress the line that shows up!
-- A variable time
+  - As said above in the `Nav Bar` section, hiding the nav bar, how? Well, it's very simple, just move your cursor to the edge of the Nav Bar and click the line that pops up, this will hide it, to unhide it follow the same process (Its recommended you go to the top or bottom of the Nav Bar, the middle support seems spotty (see what I did there?) on some browsers).
+- Song timings
   - To utilise it, simply click the song time; you'll then see the whole song time OR the remaining time. (Neither will be displayed at the same time.)
-- A blurred backdrop 
-  - This corresponds to the album art; whatever is presented will be blurred and mirrored!
-  - This includes the 'Profile' drop down, the Right-Click Menu, Hotkeys, and pretty much everything!
-  - Fades while skipping - 20px blur (can be increased or decreased)
+    - (I prefer to show the remaining time if you are wondering)
+- A dynamic theme, which responds to your cover art and then displays it as the background!
+  - This corresponds to the album art; whatever is presented will be blurred and mirrored everywhere!
+  - This includes the 'Profile' drop-down, the Right-Click Menu, Hotkeys, and pretty much everything!
+  - Fades while skipping - the default of 50px blur (can be increased or decreased, just follow the provided steps)
 - Rounded album art covers
-  - All album art covers are now 10px rounded!
-  - This covers ALL song cover artworks and album cover arts, in other words, EVERYTHING.
+  - All album art covers are now 15px rounded!
+  - This covers ALL song cover artworks and album cover art, in other words, EVERYTHING.
+- Rounded song hover & the now playing song.
 - Auto lyric search on Genius 
-  - Press the G icon on the top right to function the script.
+  - Press the `G` icon on the top right to function the script.
   - *Guide below*
 - Copy track info
-  - Select "Copy" when you right-click on a song. 
+  - Select `Copy` when you right-click on a song. 
 - Rainbow controls 
   - Affected buttons - Full screen, lyrics, like song, queue, devices, volume, PiP, repeat, and shuffle, if the song is liked or not, right side '...' menu, home, search, my library, dropdown menus, & audio icon on playlists. (Maybe more to come?)
    - 'Liked Songs' love heart now glows to match the bottom controls
@@ -162,6 +165,7 @@ There are no formal update times, I hope every month or so, but I've run out of 
   - Above album art cover -- In Nav Bar
 - Removed podcasts -- Can still be found in 'Your Library'
 - Removed 'Upgrade' button in top menu -- Can be found under profile still.
+  - This mostly affects non-premium users.
 - Removal of the bottom content bar 
   - Which hosts the social links of Spotify
   - And just random unneeded things
@@ -169,19 +173,20 @@ There are no formal update times, I hope every month or so, but I've run out of 
   - Only the bottom bar, as it was unneeded, and had bad visitability.
     - If requested I'll put it back in.  
 - The initial letter will be capitalised.
-- What I mean is that instead of "I wish [...] without," it will now be "I wish [...] Without" in the lyrics.
-- Site-wide excluding songs (those on a playlist or liked tracks, for example) - Try it before you hate it; once you're used to it, it's difficult to go back.
+- What I mean is that instead of "i wish [...] without," it will now be "I wish [...] Without" in the lyrics.
+- All songs/albums/lyrics first letter will be capitalised, once you get used to it, it's very nice.
 - Misc performance and bugs fixes
   - Skip speeds, shuffle, and repeat have less latency and hotkey access is quicker.
   - Quicker loading times and search times (with SpotOn accessed)
-- Increased site wide readability
+- Increased site-wide readability
   - Particularly on lyrics and larger content such as "Liked Songs" or "Lyrics."
 - Lyrics
+  - Simply by adding a nice black border around the elements.
   - Now, the lyrics will be the appropriate size and fit what is being displayed. Smaller words will take up less screen space, while larger lyrics will fill entire the page. Enjoy ❤️ 
   - Lyrics may now be copied (or highlight them — you could not copy lyrics before V 0.5 and below)
 - Addition of Hotkeys 
-  - (Press 'Shift + ?' to invoke) 
-  - Please see the photos below for a list of Hotkeys. (Alternatively, use the aforementioned Hotkey)
+  - (Press 'Shift + ?' or '⌘ + ?' to invoke) 
+  - Please see the photos below for a list of Hotkeys. (Alternatively, use the aforementioned Hotkey to get a list)
   - It's clever; it'll figure out what system you're using and display Hotkeys accordingly.
     - This means that on a Mac, 'command' will appear instead of 'windows,' and vice versa.
     
@@ -189,7 +194,7 @@ There are no formal update times, I hope every month or so, but I've run out of 
 ***
 
 # Note
-Remember, if anything it too much you can always remove it, rainbow controls not your fancy? Remove them, dislike rounded albums? remove that too. It's all up to you, if you wish for help on removing something feel free to reach out!!
+Remember, if anything it too much you can always remove it, rainbow controls are not your fancy? Remove them, dislike rounded albums? remove that too. It's all up to you, if you wish for help on removing something feel free to reach out!!
 
 
 # What does SpotOn look like?
@@ -372,7 +377,7 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 
 
 
-### Lyrics show to the right of the page
+### Lyrics shown to the right of the page
 <img width="1000" alt="image" src="https://user-images.githubusercontent.com/103985728/221405828-a6c6f3b9-7dce-42a2-884e-e2885fa100a0.png">
 
 
@@ -394,53 +399,54 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 ## 0.7
 
 
-In this version there has been a lot of changes, for all browsers. I mean a lot, close to a week of solid work, mostly to get some features to work then spotify went down, so that was cool. Anyway, release notes are as follows.
+In this version there has been a lot of changes, for all browsers. I mean a lot, close to a week of solid work, mostly to get some features to work then Spotify went down, so that was cool. Anyway, the release notes are as follows.
 
 ### New Features: 
 
-- Added ability to click on the icon of an album and add it to the Queue, Go to playlist radio, Add to profile, Report,  Remove from Your Library, Exclude from your taste profile, and About recommendatiations.
-- Added lines for album sorting, however, this is not yet implimented. 
-- Redid Genius Intergration's `options` menu, added the icon to be constant now, ability to copy the lyrics shown
+- Added ability to click on an album cover and either, add it to the Queue, Go to playlist radio, Add to profile, Report,  Remove from Your Library, Exclude from your taste profile, and About recommendations.
+- Added code for album sorting and searching, however, this is not yet implemented. 
+- Redid Genius Intergration's `options` menu, added the icon to be constant now and added the ability to copy the lyrics displayed.
 - Hotkeys got a speed increase!
-- Redid the `connect to a device`, changed colour of the play icon for arc browsers (fallback for other browsers too)
-- Rounded the popup menu (`right-click` menu i mean). 
-- Faster transisions! Woo, 0.3 secoonds... Still faster..
+- Redid the `connect to a device`
+- Changed the colour of the play icon for Arc browser users (fallback for other browsers too)
+- Rounded the popup menu (when you `right-click`, that menu I mean). 
+- Faster transitions! Woo, 0.3 seconds... Still faster..
 - Rounded the current playing song, and added another animation for it. Just to distinguish it faster than normal songs
-- When highlighting over a song it will pop-out further, this in align with the roundede current playing song makes it flow better
-- Reduced the size of code (now less than 700kb)
+- When highlighting over a song it will pop out further, in alignment with the rounded current playing song making it flow better
+- Reduced the size of code (now less than 600kb~)
 - Added more Rainbow controls and menus, try and find them all!
-- Added a faster way of loading and ability to backtrack `⌘ + →` or `⌘ + ←`
+- Added a faster way of loading and the ability to backtrack `⌘ + →` or `⌘ + ←`
 
 
 ### Bug fixes
 
-- Fixed the overscrolling Issue
+- Fixed the overscrolling issue
 - Fixed random song stopping
 - Fixed an issue when loading Spotify in another tab or device the current song would pause or cause the page to freeze
 - Fixed text spacing on h1 contexts, like `Liked Songs`, now at the start and not to the end of nowhere
-- Fixed an issue causing the content menu to not be hidden.
-- Fixed an issue that caused lyrics to scroll further then needed.
+- Fixed an issue causing the context menu to not be hidden.
+- Fixed an issue that caused lyrics to scroll further than needed.
 - Fixed an issue that prevented scrolling lyrics.
 - Removed outdated code lines, adding more context to the lines.
-- Adressed an issue that prevented the Nav bar to not hide when pressing the hidden bar. 
+- Addressed an issue that prevented the Nav bar from not hiding when pressing the hidden bar. 
 - Fixed a bug causing constant crashing and spooling
-- Fixed an issue causing some users a need to relog in to their spotify account each time they reloaded the page
+- Fixed an issue causing some users a need to relog into their Spotify account each time they reloaded the page
 - Fixed an issue causing hotkeys to not function when pressing the intended keys. 
-- Adressed the issue of poor readability on the explicit (that `e` at the bottom of the songs)
-- Fixed the horrid look of 'now streaming to', should be better now.
+- Addressed the issue of poor readability on the explicit (that `e` at the bottom of the songs)
+- Fixed the horrid look of 'now streaming to', should be better now
 - Fixed an issue preventing some users access to their library
 - Fixed an issue of not being able to fully scroll on larger displays
 - Added better support for larger displays
-- Adressed an issue causing high cache use in Genisu Lyric Searches (you can now remove the Cache by pressing `remove cache`)
-- Adressed an issue on non chromium browsers not being able to access anything on their screen. 
+- Addressed an issue causing high cache use in Genisu Lyric Searches (you can now remove the Cache by pressing `remove cache`)
+- Addressed an issue on non-chromium browsers not being able to access anything on their screen. 
 - Fixed an issue that caused Firefox to not render the background
-- Adressed an issue of crashing on low end hardware due to a memeory leek (this was also partial to a program the user was running in the background, but now there should be no chances of crashes)
+- Addressed an issue of crashing on low-end hardware due to a memory leak (this was also partial to a program the user was running in the background, but now there should be no chances of crashes)
 - Fixed the slow loading times when reloading the page or moving to an album
 
 
 
 ### Extra notes
-This is one of my biggest updates in a long time, thank you to those who reported a bug and provided information when requested, thank you to everyone who downloads SpotOn, I hope you enjoy it, I'm making 0 pennies off SpotOn so any support is much appericated. Feel free to reach out to me on my socials or launch an issue on GitHub. 
+This is one of my biggest updates in a long time, thank you to those who reported a bug and provided information when requested, and thank you to everyone who downloads SpotOn, I hope you enjoy it, I'm making 0 pennies off SpotOn so any support is much appreciated. Feel free to reach out to me on my socials or launch an issue on GitHub. 
 - Kami
 
 
