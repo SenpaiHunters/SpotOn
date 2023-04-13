@@ -13,3 +13,5 @@ Into your `manifest.json` with this you can also add:
       "128": "images/icon128.png"
 ```
 If you want more than 1 icon to use, I use all of them but in this /icons I'll just upload the `icon64.png`
+
+You'll need to add the file `/icons` into your extenstion, just like we did in `/fonts`
