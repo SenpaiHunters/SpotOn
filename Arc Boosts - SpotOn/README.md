@@ -1,9 +1,17 @@
+# Release notes
+## Release 0.8
+Wow, thanks Spotify. So, I made a lot of changes, I mean a lot... Everything has been reworked to work, as SpotOn broke like this morning which was stupid, anyway, working on releasing version 0.8 in the next few days, if you have issues make an issue form~!
+
+
 # Arc Boost Limitations:
 In this folder I will host both the `.css` and the `.js` to make SpotOn run!
 
 However, this will not all for any other functions, only a UI overhaul, you will not get the `genius lyric search`, the `copy track info` or anything else, only a UI change
 
-If you wish for the full functions, please copy and paste the `SpotOn V0.7.js` into a Userscript manager.
+If you wish for these functions, they require a userscript, everything that can be made into an extension will be listen in this folder!
+
+Looking at a way to allow for genius and lyrics to be transferred over, watch out!
+
 
 # If you require help feel free reach out
 I currently have SpotOn in arcboosts.com. when it gets published i will update this `README.md` to show that.
