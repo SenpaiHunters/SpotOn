@@ -2,7 +2,7 @@
 // @name          SpotOn MenubarToggler
 // @namespace     https://github.com/SenpaiHunters/SpotOn
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
-// @description	  This is apart of the SpotOn libiary, for more infomation check the SpotOn website!
+// @description	  This is apart of the SpotOn library, for more infomation check the SpotOn website!
 // @author        Kami
 // @version       1.0
 // @match         https://open.spotify.com/*
@@ -19,7 +19,7 @@
 
 
 /*
- * # SpotOn MenubarToggler is apart of the SpotOn libiary, this can be either a standalone extension or used in conjunction with SpotOn!
+ * # SpotOn MenubarToggler is apart of the SpotOn library, this can be either a standalone extension or used in conjunction with SpotOn!
  *
  * Made By Kami
  *
