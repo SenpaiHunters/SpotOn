@@ -9,7 +9,10 @@ NOTE: You are required to be logged into Genius/have an account, some features i
 
 
 # Install Instructions
-1. Open the `userscript.js` file in this repository.
-2. Copy the contents (press the 2nd icon for a faster way)
-3. Paste into a Userscript managner 
+1. Open the `content.js` file in this repository.
+2. Copy the contents (or press the 2nd icon for a faster way)
+3. Paste into a Userscript managner (like Tampermonkey) 
 4. You're off to the races!
+
+# To enable
+It should be enabled by default, but if it isn't go into your userscript manager and click `show lyrics`
