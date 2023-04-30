@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="index.css">
+  <script src="popup.js" defer></script>
+</head>
+
+<body>
+  <div class="header">
+    <h1>SpotOn Enhanced Search</h1>
+  </div>
+
+  <form class="searchForm" id="form">
+    <label>Song Name</label><br>
+    <input type="text" name="track" placeholder="Never With You Again" />
+    <br>
+    <label>Artist Name</label><br>
+    <input type="text" name="artist" placeholder="Chri$tian Gate$" />
+    <br>
+    <label>Album Name</label><br>
+    <input type="text" name="album" placeholder="Never With You Again" />
+    <br>
+    <label>Release Year</label><br>
+    <input type="number" name="year" placeholder="2023" min="1800" />
+    <br>
+    <label>Genre</label><br>
+    <input type="text" name="genre" placeholder="Rap" />
+
+    <div class="submit">
+      <input type="submit" id="webSearch" value="Web Player">
+      <input type="submit" id="appSearch" value="Open App">
+    </div>
+  </form>
+</body>
+
+</html>

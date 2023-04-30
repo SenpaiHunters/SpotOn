@@ -1,0 +1,82 @@
+:root {
+  --bg-light: linear-gradient(45deg, rgb(255, 227, 186) 23%, rgb(168, 214, 255) 60%, rgb(25, 68, 105) 100%);
+  --bg-dark: linear-gradient(45deg, rgb(59, 59, 122) 0%, rgb(145, 97, 126) 60%, rgb(226, 64, 161) 100%); 
+  --text-light: rgba(0, 0, 0, 0.7);
+  --text-dark: rgb(84, 166, 220);
+  --text-gray: rgb(233, 233, 233);
+}
+
+html {
+  width: 280px;
+  padding: 10px;
+  margin: 10px;
+  background: var(--bg-dark);
+  background-image: var(--bg-dark);
+  font-family: Arial, sans-serif;
+  color: var(--text-light);
+}
+
+h1 {
+  color: var(--text-dark);
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  color: var(--text-gray);
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"] {
+  border-radius: 100px;
+  padding: 8px;
+  font-size: 16px;
+  outline: none;
+  border: 0;
+  width: 250px;
+  margin: 0 auto;
+  display: block;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+  border: 2px solid var(--text-dark);
+  padding: 6px;
+}
+
+input[type="submit"] {
+  padding: 8px 20px;
+  font-size: 16px;
+  border-radius: 100px;
+  border: 0;
+  background-color: var(--text-dark);
+  color: white;
+  margin: 10px 0;
+  outline: 0;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--text-gray);
+}
+
+input[type="submit"]:focus {
+  border: 2px solid white;
+  padding: 6px 18px;
+}
+
+.submit {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
