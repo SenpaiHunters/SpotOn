@@ -1,3 +1,8 @@
+# Icons
+
+By default, we have an Icon/logo. But if you've installed this as an `Arc Boost` then here is how!
+
+
 # To add an Icon
 ```
 "default_icon": {
