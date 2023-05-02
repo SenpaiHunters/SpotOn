@@ -14,7 +14,8 @@ We have
 - SpotOn Queue Expander, expands the queue further!
 - SpotOn SongCopy, userscript, copy the artist and song name
 - SpotOn Speeder, change the speed of the playing song
-- and more to come!!!
+- SpotOn Genius Song Replacer, replace the Apple Music addon and replace it for Spotify!
+- and more to come!!! (That's already 10!)
 
 # Install Guide
 
