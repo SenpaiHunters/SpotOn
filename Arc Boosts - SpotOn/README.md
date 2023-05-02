@@ -1,29 +1,22 @@
-# Release notes
-## Release 0.8
-Wow, thanks Spotify. So, I made a lot of changes, I mean a lot... Everything has been reworked to work, as SpotOn broke like this morning which was stupid, anyway, working on releasing version 0.8 in the next few days, if you have issues make an issue form~!
+# SpotOn's Extensions
+I have moved away from Userscripts to an extend, this allows me to put out WAY more content for SpotOn, as you might see by all the SpotOn (extension name), I'm not rich, so these WILL NOT be uploaded to Chrome's Web Store, unless I somehow gain so much popularity someone wants it uploaded. Idk, not anytime soon!
 
+This allows me to make a nice `popup.html` and improve my skills, as I kinda dislike userscripts lol. Only issue is as i add more I have to edit that everytime!!!!
 
-# Arc Boost Limitations:
-In this folder I will host both the `.css` and the `.js` to make SpotOn run!
-
-However, this will not all for any other functions, only a UI overhaul, you will not get the `genius lyric search`, the `copy track info` or anything else, only a UI change
-
-If you wish for these functions, they require a userscript, everything that can be made into an extension will be listen in this folder!
-
-Looking at a way to allow for genius and lyrics to be transferred over, watch out!
-
-
-# If you require help feel free reach out
-I currently have SpotOn in arcboosts.com. when it gets published i will update this `README.md` to show that.
-However, the code isn't all there as that site limits you to 40000 characters, not at all enough for any of the `.js` barely enough for the `.css`. So, if you are coming from arcboosts.com, please copy the respected files and paste them into your spaces!
+# SpotOn's for days!
+We have
+- SpotOn, our original enchancement!
+- SpotOn Extended Search, allowing you to specifity your search and even search inside the Spotify app!
+- SpotOn Genius Lyric Searcher, sadly this is still a userscript, but I'll contiune to improve it. Allows you to search for Lyrics to a song on Genius.com
+- SpotOn Hotkeys, use media keys to skip/play/pause/reverse, to remap them!
+- SpotOn MenubarToggle, userscript, allows you to toggle the Nav Bar and hide it, allowing for more space
+- SpotOn MiniPlayer, open a miniplayer, skip/play/pause/reverse/loop/repeat, display album art and more, right click and open your Spotify tab anywhere!
+- SpotOn Queue Expander, expands the queue further!
+- SpotOn SongCopy, userscript, copy the artist and song name
+- SpotOn Speeder, change the speed of the playing song
+- and more to come!!!
 
 # Install Guide
-- From the Arc sidebar, click "New Boost" or visit arc://boost/new from your browser address bar.
-- Select a template. For style only, select "Style". For JS, select "Replace" or "Inject". You can still change or add more later.
-- In the next screen, select "A specific website" or "All websites" depending on the Arc Boost type. If you choose "A specific website", enter the URL.
-- In the editor screen, you can replace the contents with the contents of the boost.Arc Boost Editor
-1. If there are more file types than one, you can add new file types by clicking "+"
-2. You can see the selected file types as indicated above. e.g style.css
-3. You can update the settings for the boost by clicking the setting gear
 
-I will release a video on it soon.
+https://user-images.githubusercontent.com/103985728/235650070-ff10ae73-9efb-43c3-a639-a30096692256.mp4
+
