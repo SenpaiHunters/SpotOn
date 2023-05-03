@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="toggle.js"></script>
+    <link rel="stylesheet" href="popup.css">
+    <div class="popup-container">
+    <style>
+        :root {
+            --height: 300vh;
+            --width: 300vw;
+            --font: 'Helvetica', Arial, sans-serif;
+            --title-lh: 1.4rem;
+            --artist-lh: 1rem;
+            --bg-light: linear-gradient(45deg, rgb(255, 227, 186) 23%, rgb(168, 214, 255) 100%);
+            --bg-dark: linear-gradient(45deg, rgb(59, 59, 122) 0%, rgb(145, 97, 126) 100%);
+            --text-light: rgba(0, 0, 0, 0.7);
+            --text-dark: rgb(46, 159, 234);
+            --text-gray: rgb(233, 233, 233);
+        }
+
+        body {
+            font-family: var(--font);
+            margin: 0;
+            background: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .header a {
+            margin-right: 10px;
+        }
+
+        .logo {
+            height: 48px;
+        }
+
+        #title {
+            color: var(--text-light);
+            font-size: 24px;
+            line-height: var(--title-lh);
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 20px; /* Add margin-top to create space between options */
+        }
+
+        .option.checkbox {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        .option.checkbox input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .option.coming {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .popup-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-container h1 {
+            color: var(--text-dark);
+            font-size: 38px;
+            line-height: var(--title-lh);
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+
+        h1 {
+            color: var(--text-dark);
+            font-size: 38px;
+            line-height: var(--title-lh);
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .mini-derivatives {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .mini-derivatives li {
+            margin-bottom: 10px;
+        }
+
+        .mini-derivatives a {
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            background: var(--bg-dark);
+        }
+
+        .mini-derivatives a:hover {
+            background: var(--text-gray);
+        }
+
+
+        footer {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .report-issue {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="github.com/senpaihunters/spoton" target="_blank">
+            <img src="icons/icon48.png" class="logo">
+        </a>
+        <h1 id="title" style="color: var(--text-light); font-size: 24px; line-height: var(--title-lh); margin: 0;">SpotOn Options</h1>
+    </div>
+    <a class="option coming">----Coming Soon----</a>
+    <div class="container">
+        <div class="option checkbox">
+            <input type="checkbox" id="toggle_button">
+            <label for="toggle_button" class="">Enable</label>
+        </div>
+    </div>
+    <div class="popup-container">
+        <h1>SpotOn</h1>
+        <ul class="mini-derivatives">
+            <li><a href="https://spoton.framer.website/">SpotOn Website</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn">SpotOn</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20Hotkeys">SpotOn Hotkeys</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20MenubarToggle">SpotOn MenubarToggle</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20Genius%20Lyric%20Searcher">SpotOn GeniusLyricSearch</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20Enhanced%20Search">SpotOn Enhanced Search</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20Queue%20Expander">SpotOn Queue Expander</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20SongCopy">SpotOn SongCopy</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20Speeder">SpotOn Speeder</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20MiniPlayer">SpotOn MiniPlayer</a></li>
+            <li><a href="#">SpotOn FriendActivity</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20Enhanced%20Search">SpotOn Expanded Search</a></li>
+            <li><a href="https://github.com/SenpaiHunters/SpotOn/tree/Main/Arc%20Boosts%20-%20SpotOn/SpotOn%20Genius%20Song%20Replacer">SpotOn Genius Song Replacer</a></li>
+            <!-- Add more mini derivatives here -->
+        </ul>
+        <p>Click on any SpotOn links to open!</p>
+        <a class="report-issue" href="https://github.com/SenpaiHunters/SpotOn/issues?q=is:issue+is:open+sort:updated-desc" target="_blank">Report Issue</a>
+    </div>
+    <footer>
+        <p>&copy; 2023 SpotOn</p>
+    </footer>
+</div>
+<script src="toggle.js"></script>
+</body>
+</html>

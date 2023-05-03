@@ -1,0 +1,110 @@
+#sps {
+  user-select: none;
+  border: solid 1px #e5e7eb;
+}
+
+#sps-main {
+  position: absolute;
+  bottom: 90px;
+  right: 0;
+  border: 1px solid rgb(40, 40, 40);
+  border-right: none;
+}
+
+#sps-bottombaricon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+#sps-controls {
+  padding: 0.5rem 0.75rem;
+  width: 320px;
+  background-color: transparent;
+}
+
+#sps-settings {
+  padding: 0.5rem 0.75rem;
+  width: 240px;
+  background-color: transparent;
+}
+
+#sps button,
+#sps input {
+  border: solid 1px #e5e7eb8f;
+}
+
+#sps button:disabled {
+  cursor: not-allowed;
+}
+
+#sps input[type="number"]::-webkit-outer-spin-button,
+#sps input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#sps input[type="number"]:focus {
+  outline: none;
+}
+
+#sps input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgb(73, 73, 73);
+  border-radius: 0.375rem;
+  background-image: linear-gradient(45deg,#fff, #e11b1b);
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+}
+
+#sps input[type="range"]:hover {
+  background-image: linear-gradient(#2edb64, #2edb64);
+}
+
+#sps input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  display: none;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  margin-top: -7px;
+}
+
+#sps input[type="range"]::-webkit-slider-runnable-track {
+  width: calc(100% + 16px);
+  height: 6px;
+  padding: 8px 0;
+  background: transparent;
+}
+
+#sps input[type="range"]:hover::-webkit-slider-runnable-track {
+  cursor: ew-resize;
+}
+
+#sps input[type="range"]:hover::-webkit-slider-thumb {
+  display: block;
+  cursor: ew-resize;
+}
+
+.sps-icon-active,
+.sps-icon-active:hover {
+  color: rgb(46, 219, 100);
+}
+
+.sps-hover-white:hover {
+  color: #fff;
+}
+
+.sps-text-button {
+  background-color: rgb(83, 83, 83);
+}
+
+.sps-text-button:hover {
+  background-color: rgb(155, 155, 155);
+}
