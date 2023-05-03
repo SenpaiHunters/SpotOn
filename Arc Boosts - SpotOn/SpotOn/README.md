@@ -49,4 +49,7 @@ We want to open the extensions tab. `chrome://extensions` if you are using Arc, 
 6. You have successfully installed SpotOn! Congrats!
 
 # Install video
-https://youtu.be/4h7eNSXDM0g
+
+
+https://user-images.githubusercontent.com/103985728/235899845-5fa637e8-c3a3-4e66-81b4-269b54a86c34.mp4
+
