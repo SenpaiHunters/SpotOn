@@ -1,4 +1,3 @@
-
 skin(true);
 var stat=1;
 /*
@@ -104,7 +103,7 @@ function skin(exe,anim,das,tlyr) {
     --white: #fff;
     --hoverback: hsla(0, 0%, 100%, .1);
     --blur: 20px; 
-    --hovercolor:rgba(0, 0, 0, 0.3)}
+    --hovercolor:rgba(0, 0, 0, 0.2)}
 .encore-dark-theme {
     --text-subdued: #ffffffe0!important; }
 
@@ -323,6 +322,17 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 
 /*-------------profile page-----------------*/
 
+/* Hides 'profile' button *//*
+.odcjv30UQnjaTv4sylc0 {
+	display: none;
+}
+*/
+
+/* Hide 'profile' text */
+.EeWTFG_vxLI5QJc1TH4F, .RfdRTSGwulyQdDepLUTT .EeWTFG_vxLI5QJc1TH4F, .RfdRTSGwulyQdDepLUTT .eAXFT6yvz37fvS1lmt6k {
+	display: none;
+}
+
 ._6f1bb16d690aec58cb10e82de1ac2410-scss,
 ._9764a8966c108117bdf6f47cb601747a-scss,
 ._59ed5f1313c7c4b211995d2b6463683f-scss,
@@ -394,6 +404,7 @@ div.under-main-view > div > div {
     padding: 10px 32px!important; }
 
 /*------------discografy page-------------*/
+
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > div > div:nth-child(1) {
     background-color: #0000! important;
     top: auto!important;
@@ -408,6 +419,7 @@ background-color: #0000! important;
 
 
 /*------------allbum page-------------*/
+
 ._11b29b5a5f3bcae347f832a4278b28b8-scss,
 ._5d10f53f6ab203d3259e148b9f1c2278-scss,
 .eae5aabff7beab294ee900c0a1928b4c-scss,
@@ -475,11 +487,13 @@ _8e7d398e09c25b24232d92aac8a15a81-scss {
     background: #00000000!important; }
 
 /*-----Spotify Lists-----*/
+
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div,
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > div > section > div > div {
     background: #00000000!important; }
 
 /*-------Now Playing Bar--------------*/
+
 ..Root__now-playing-bar {
     padding-top: 10px; }
 ._17de82b47b8c1954963d20ed56b2f730-scss,
@@ -519,6 +533,7 @@ a {
     transition-duration: 0.2s; }
 
 /*----------------Misc---------------------*/
+
 body > div:nth-child(10) {
     display: none; }
 
@@ -598,7 +613,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > div > 
     padding-bottom: 10px; }
 ._8b45c1ef6e792bfe1014b26c48673e5a-scss,
 .i0XB7255K_4QFLJsSGc_ {
-    background: none!important; }
+    background: none !important; }
 
 
 ._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss,
@@ -723,7 +738,13 @@ div.os-padding > div > div > ul > div > div:nth-child(2) > div {
 .i_0L07qd2CAeOLFiK8dP,
 .pLwpjUDpZgzSXNOsGn_c,
 .Mx7aus4bRGbU9vPpnDHj {
-    background: var(--overlay-heavy) }`;
+    background: var(--overlay-heavy) }
+		
+
+/*-----------------SpotOn CSS-----------------*/
+
+
+		`;
  if(das==true){
     css +=`.Root__nav-bar, .nav-alt .Root__main-view, .nav-alt .Root__nav-bar, .Root__fixed-top-bar{
         background: var(--overlay-heavy)!important;
@@ -905,7 +926,7 @@ setInterval(function() {
 },5000);
 
 
-
+/*SpotOn CSS*/
 
 (function SpotOnMainSkin() {var css = [
 	"/* Version 0.7 */",
@@ -1042,6 +1063,10 @@ setInterval(function() {
 	"  padding:0px;",
     " display: none !important;",
 	" } ",
+	"/* Hide resizer */",
+	".LayoutResizer__inline-end {",
+	"display: none !important;",
+	"}",
     "/* Stop */",
     //
     " /* Hover */",
@@ -2105,7 +2130,7 @@ setInterval(function() {
     " border-radius 15px;",
     "}",
     "/* NOWPLAYING PLAY BUTTON */",
-	" .KAZD28usA1vPz5GVpm63, .jqMzOG:hover .ButtonInner-sc-14ud5tc-0, .fipMme, .kGFDdV, .SPC4uzYXJmknkCGKpxHw, .No0A0v6U6vtqj_ybS1Cd, .Fyc_tPyPKyRIT_59VZ2B, .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .KIbfbFDao0SHpZsKoKZD, .PrhIVExjBkmjHt6Ea4XE, .bkFQH4uasL3pXqN9eDSi, .control-button--active, .jyHIqB, .TJ5Bjp6vgnWVbh6mGN0n, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
+	" .KAZD28usA1vPz5GVpm63, .dlqYDF, .jqMzOG:hover .ButtonInner-sc-14ud5tc-0, .fipMme, .kGFDdV, .SPC4uzYXJmknkCGKpxHw, .No0A0v6U6vtqj_ybS1Cd, .Fyc_tPyPKyRIT_59VZ2B, .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .KIbfbFDao0SHpZsKoKZD, .PrhIVExjBkmjHt6Ea4XE, .bkFQH4uasL3pXqN9eDSi, .control-button--active, .jyHIqB, .TJ5Bjp6vgnWVbh6mGN0n, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
 	"     animation: rainbow-text 30s infinite;",
 	"     background-color: transparent;",
 	"     cursor: auto;",
@@ -2307,275 +2332,7 @@ setInterval(function() {
 	     " background: #000000 !important;",
     "",
         "  /******     V 0.4 - Copy track info! This means the song name and artist!  *********/",
-
-
-(function CopyTrackInfo() {
-  console.log("CopyTrackInfo function running");
-  const translations = {
-    en: ['Copy track info', 'Copied: %s'],
-  }
-  let [menuString, copiedString] = translations.en
-  for (const lang in translations) {
-    if (navigator.language.startsWith(lang)) {
-      [menuString, copiedString] = translations[lang]
-      // console.log(lang + ' <- ' + navigator.language) - Allow for lang other then Eng.
-      break
-    }
-  }
-
-  let showInfoID
-  const showInfo = function (str) {
-    window.clearTimeout(showInfoID)
-    if (!document.getElementById('copied_song_info_outer')) {
-      document.head.appendChild(document.createElement('style')).innerHTML = '#copied_song_info_outer {z-index: 20000;height:0;margin: -62px auto 0;padding-bottom: 62px;pointer-events: none;display: inline-block;}#copied_song_info_inner {max-width: none;display: inline-block;background: #2e77d0;border-radius: 8px;box-shadow: 0 4px 12px 4px rgba(0,0,0,.5);color: #fff;font-size: 16px;line-height: 20px;max-width: 450px;opacity: 1;padding: 12px 36px;text-align: center;transition: none .5s cubic-bezier(.3,0,.4,1);transition-property: opacity;}'
-      $('<div id="copied_song_info_outer"><div id="copied_song_info_inner"></div></div>').appendTo('.Root__main-view')
-    }
-    const copiedSongInfoOuter = $('#copied_song_info_outer')
-    const copiedSongInfoInner = $('#copied_song_info_inner')
-
-    copiedSongInfoOuter.css('display', 'inline-block')
-    copiedSongInfoInner.css('opacity', 1)
-    copiedSongInfoInner.html(str.replace('\n', '<br>\n'))
-
-    showInfoID = window.setTimeout(function () {
-      copiedSongInfoInner.css('opacity', 0)
-      showInfoID = window.setTimeout(function () {
-        copiedSongInfoOuter.css('display', 'none')
-      }, 700)
-    }, 4000)
-  }
-
-  const getSongTitle = function ($titlenodes) {
-    let titleText
-
-    if ($titlenodes && $titlenodes.length > 0) {
-      titleText = $titlenodes.text()
-      if (titleText && titleText.trim()) {
-        return titleText.trim()
-      }
-    }
-
-    if ($('.track-info__name').length > 0) {
-      titleText = $('.track-info__name')[0].innerText
-      if (titleText && titleText.trim()) {
-        return titleText.trim()
-      }
-    }
-
-    return ''
-  }
-
-  const getArtistName = function ($artistnodes) {
-    let artistText
-
-    if (typeof $artistnodes === 'string') {
-      return $artistnodes.trim()
-    }
-
-    if ($artistnodes) {
-      const artistTextNodes = $artistnodes.not((i, e) => e.className)
-      if (artistTextNodes.length === 1) {
-        artistText = artistTextNodes.text()
-        if (artistText && artistText.trim()) {
-          return artistText.trim()
-        }
-      } else if (artistTextNodes.length > 1) {
-        artistText = artistTextNodes.map((i, e) => e.textContent.trim()).get()
-        artistText = artistText.join(', ')
-        return artistText.trim()
-      }
-
-      // If in playlist:
-      if ($artistnodes.find('.ellipsis-one-line').length > 0) {
-        artistText = $artistnodes.find('.ellipsis-one-line')[0].innerText
-        if (artistText && artistText.trim()) {
-          return artistText.trim()
-        }
-      }
-      if ($artistnodes.find('.standalone-ellipsis-one-line').length > 0) {
-        artistText = $artistnodes.find('.standalone-ellipsis-one-line')[0].innerText
-        if (artistText && artistText.trim()) {
-          return artistText.trim()
-        }
-      }
-
-      if ($artistnodes.find('a[href^="/artist/"]').length > 0) {
-        return $.map($artistnodes.find('a[href^="/artist/"]'), (element) => $(element).text().trim()).join(', ')
-      }
-    }
-
-    if (document.location.pathname.startsWith('/artist/')) {
-      if ($('.content.artist>div h1').length > 0) {
-        artistText = $('.content.artist>div h1')[0].textContent
-        if (artistText && artistText.trim()) {
-          return artistText.trim()
-        }
-      } else {
-        if ($('.Root__main-view h1').length > 0) {
-          artistText = $('.Root__main-view h1')[0].textContent
-          if (artistText && artistText.trim()) {
-            return artistText.trim()
-          }
-        }
-      }
-    }
-
-    if (document.location.pathname.startsWith('/album/')) {
-      artistText = document.querySelector('.os-content h1').textContent
-      if (artistText && artistText.trim()) {
-        return artistText.trim()
-      }
-    }
-
-    if ($('.track-info__artists').length > 0) {
-      artistText = $('.track-info__artists')[0].innerText
-      if (artistText && artistText.trim()) {
-        return artistText.trim()
-      }
-    }
-
-    return ''
-  }
-
-  const populateContextMenu = function (ev) {
-    console.debug('populateContextMenu')
-    let $this = $(this)
-
-    let menu = $('.react-contextmenu--visible')
-    if (!menu[0]) {
-      menu = $('#context-menu-root')
-    }
-    if (!menu[0]) {
-      menu = $('#context-menu')
-    }
-
-    let title = $this.find('.tracklist-name')
-    if (title.length === 0) {
-      title = $this.find('div[data-testid="tracklist-row"] .standalone-ellipsis-one-line')
-    }
-    if (title.length === 0) {
-      title = $this.find('div[role="gridcell"] img').parent().find('.standalone-ellipsis-one-line')
-    }
-    if (title.length === 0 && $this.hasClass('now-playing')) {
-      title = $this.find('.ellipsis-one-line>.ellipsis-one-line').eq(0)
-    }
-    let artist = $this.find('.artists-album span')
-    if (artist.length === 0 && $this.hasClass('now-playing')) {
-      artist = $this.find('.ellipsis-one-line>.ellipsis-one-line').eq(1)
-    }
-    if (artist.length === 0 && title.length === 0 && $this.find('[data-testid="nowplaying-track-link"]')) {
-      title = $this.find('[data-testid="nowplaying-track-link"]')
-      artist = $this.find('[data-testid="nowplaying-artist"]')
-    }
-    if (artist.length === 0) {
-      if ($this.find('.second-line').length !== 0) {
-        artist = $this.find('.second-line') // If in playlist
-      }
-      if ($this.parents('.now-playing').length !== 0) {
-        // Copy fof NPB
-        $this = $($this.parents('.now-playing')[0])
-        if ($this.find('.ellipsis-one-line a[href^="/artist/"]').length !== 0) {
-          artist = $this.find('.ellipsis-one-line a[href^="/artist/"]')
-          title = $this.find('a[data-testid="nowplaying-track-link"]')
-        }
-      }
-      if ($this.parents('.Root__now-playing-bar').length !== 0) {
-        $this = $($this.parents('.Root__now-playing-bar')[0])
-        if ($this.find('.ellipsis-one-line a[href^="/artist/"],.standalone-ellipsis-one-line a[href^="/artist/"]').length !== 0) {
-          artist = $this.find('.ellipsis-one-line a[href^="/artist/"],.standalone-ellipsis-one-line a[href^="/artist/"]')
-          title = $this.find('.ellipsis-one-line a[href^="/album/"],.ellipsis-one-line a[href^="/track/"],.standalone-ellipsis-one-line a[href^="/album/"],.standalone-ellipsis-one-line a[href^="/track/"]')
-        } else if ($this.find('[data-testid="context-item-info-artist"]').length !== 0) {
-          artist = $this.find('a[data-testid="context-item-info-artist"][href^="/artist/"],[data-testid="context-item-info-artist"] a[href^="/artist/"]')
-          title = $this.find('[data-testid="context-item-info-title"] a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/track/"]')
-        } else if ($this.find('a[href^="/artist/"],a[href^="/album/"],a[href^="/track/"]').length > 1) {
-          artist = $this.find('a[href^="/artist/"]')
-          title = $this.find('a[href^="/album/"],a[href^="/track/"]')
-        }
-      }
-
-      const artistGridCell = $this.find('*[role="gridcell"] a[href^="/artist/"]')
-      if (artistGridCell.length > 0) {
-        artist = artistGridCell.parent()
-        title = $(artistGridCell.parent().parent().find('span')[0])
-        if (artist.has(title)) {
-          if (artist.parent().parent().find('div.standalone-ellipsis-one-line').length) {
-            title = $(artist.parent().parent().find('div.standalone-ellipsis-one-line')[0])
-          }
-        }
-      }
-
-      const artistContent = $('.content.artist>div h1')
-      if (artistContent.length > 0) {
-        // Artist page
-        artist = artistContent[0].textContent
-      }
-    }
-
-    if (title && artist && menu[0]) {
-      const titleText = getSongTitle(title)
-      const artistText = getArtistName(artist)
-      if (!titleText || !artistText) {
-        return
-      }
-
-      // Create context menu entry
-      if (menu.attr('id').startsWith('context-menu')) {
-        let entry = menu.find('.gmcopytrackinfo')
-        if (entry.length === 0 || !entry[0]) {
-          let li = menu.find('li')
-          if (li.length > 4) {
-            li = $(li[4])
-          } else {
-            li = $(li[0])
-          }
-          entry = $('<li role="presentation"><button role="menuitem" tabindex="-1"><span as="span" dir="auto">' + menuString + '</span></button></li>')
-            .appendTo(li)
-            .click(function (ev) {
-              // Copy strings to clipboard
-              const s = entry.data('gmcopy')
-              if (typeof GM_setClipboard !== 'undefined') {
-                GM_setClipboard(s)
-              } else if (GM.setClipboard) {
-                GM.setClipboard(s)
-              } else {
-                navigator.clipboard.writeText(s)
-              }
-              showInfo(copiedString.replace('%s', s))
-              menu.parent().remove()
-            })
-            // Allow copy classes from an existing entry
-          entry.addClass('gmcopytrackinfo')
-          entry.addClass(li.attr('class'))
-          entry.find('button').addClass(li.find('button').attr('class'))
-          entry.find('button span').addClass(li.find('button span').attr('class'))
-        }
-        entry.data('gmcopy', artistText + ' - ' + titleText)
-      }
-    }
-  }
-
-  const onContextMenu = function (ev) {
-    // Wait for the React context menu to open
-    const t = this
-    window.setTimeout(function () {
-      populateContextMenu.call(t, ev)
-    }, 200)
-  }
-
-  const bindEvents = function () {
-    // Remove all events and then reattach them
-    if ($('.react-contextmenu-wrapper').length > 0) {
-      $('.react-contextmenu-wrapper').unbind('.gmcopytrackinfo').bind('contextmenu.gmcopytrackinfo', onContextMenu)
-    } else {
-      $('*[data-testid="tracklist-row"],.now-playing,*[data-testid="now-playing-widget"]').unbind('.gmcopytrackinfo').bind('contextmenu.gmcopytrackinfo', onContextMenu)
-    }
-  }
-
-  window.setTimeout(bindEvents, 500)
-
-  window.setInterval(bindEvents, 1000)
-})()
-
+				
 ].join("\n");
 if (typeof GM_addStyle != "undefined") {
 	GM_addStyle(css);
