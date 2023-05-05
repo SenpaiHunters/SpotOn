@@ -13,3 +13,12 @@ I can't design logos, so I'll use multiple for my SpotOn library!
 # Orginal Logo
 
 <img width="280" alt="SCR-20230417-tlth" src="https://user-images.githubusercontent.com/103985728/235338403-d569ba01-a02c-4713-8bb4-748bc290fd8e.png">
+
+# SpotOn Righter
+<img width="280" alt="SpotOn Righter" src="https://user-images.githubusercontent.com/103985728/236423842-c44dc11d-7921-496d-bb9e-2bfa2d42597e.png">
+
+# SpotOn Enhanced Search
+<img width="280" alt="SpotOn Enhanced Search" src="https://user-images.githubusercontent.com/103985728/236423912-6722f35b-cb00-4329-9e5a-6339373e9e48.png">
+
+# SpotOn Speeder
+<img width="280" alt="SpotOn Speeder" src="https://user-images.githubusercontent.com/103985728/236423939-4a867efc-78aa-4261-aad4-2401e35411ba.png">
