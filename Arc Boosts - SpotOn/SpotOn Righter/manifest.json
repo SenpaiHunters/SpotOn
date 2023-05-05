@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "SpotOn Righter",
+  "version": "1.7",
+  "description": "A Chrome extension to toggle SpotOn styles.",
+  "icons": {
+    "16": "/images/icon16.png",
+    "32": "/images/icon32.png",
+    "48": "/images/icon48.png",
+    "128": "/images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "css": ["style.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
