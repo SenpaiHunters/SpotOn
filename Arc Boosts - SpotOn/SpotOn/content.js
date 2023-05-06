@@ -1,3 +1,4 @@
+
 skin(true);
 var stat=1;
 /*
@@ -175,9 +176,27 @@ function skin(exe,anim,das,tlyr) {
     padding-left: 120px;
     padding-right: 30px; }
 
+/*-------New UI Fix V1-----*/
+
+#main > div.Root.encore-dark-theme.nav-ylx > div > nav > div,
+#main > div.Root.encore-dark-theme.nav-ylx > div:nth-child(2),
+.Root__main-view {
+    background: none!important;
+}
+#main > div.Root.encore-dark-theme.nav-ylx > div:nth-child(2) {
+    padding: 0!important;
+}
+
+#main > div.Root.encore-dark-theme.nav-ylx > div > nav > div:nth-child(2) > div:nth-child(2) > div {
+    width: calc( var(--nav-bar-width) - 20px);
+}
+.ifVI2CEdOZGgMWIUN2Cw.kJ_Q4aphh_uCJCZdzPpD:not(.dNphEfQzPRaQufS04jUm) {
+    padding-bottom: calc( var(--nav-bar-width) - 20px);
+}
 
 /*-------------Home Page-----------------*/
 
+#context-menu > ul, #context-menu > div > ul, ._K79lE9KrIAkl_bUSSUM, .PpUTJL2NIYDUnmfzVIbE, .EZFyDnuQnx5hw78phLqP,
 
 .B0VIs50K6LXh5MDmmmJs, .B0VIs50K6LXh5MDmmmJs:hover, .odcjv30UQnjaTv4sylc0, .Ws8Ec3GREpT5PAUesr9b, .SboKmDrCTZng7t4EgNoM, .DuEPSADpSwCcO880xjUG, .wC9sIed7pfp47wZbmU6m, .KDlcc1SFTcA90eMUcn5P,
 .e4ETsc5zxjzyF9nyb4LI, .cyXplMovoowBozEe4r2x, .EhyK_jJzB2PcWXd5lg24, .tsv7E_RBBw6v0XTQlcRo, .zi377dMLSwXnFiejYnRa, .aIWRvSjvEN4rTMCIi4vG, .wIyyGaSPOHR78wksX3Us, .G8UNZJv4HT1kOIolA_e7, .encore-light-theme,
@@ -192,7 +211,7 @@ function skin(exe,anim,das,tlyr) {
 #myconfigwin39457845, #myconfigwin39457845 div, #myconfigwin39457845 div, #myconfigwin39457845 button,
 .B0VIs50K6LXh5MDmmmJs,
 .VgSbatGBB9XwTH2_dsxg .ql0zZd7giPXSnPg75NR0:disabled, .VgSbatGBB9XwTH2_dsxg .ql0zZd7giPXSnPg75NR0,
-.Root__buddy-feed,
+.Root__buddy-feed, 
 
 
 div.os-padding > div > div > div.main-view-container__scroll-node-child > main > section > div > div > section > div:nth-child(2) > div,
@@ -551,6 +570,32 @@ body > div:nth-child(10) {
 .tr8V5eHsUaIkOYVw7eSG{
     height: auto;
 }
+
+/*now playing*/
+.nav-ylx .OCY4jHBlCVZEyGvtSv0J {
+	height: 100px !important;
+}
+	.deomraqfhIAoSB3SgXpu {
+		transform: translateX(-20px) !important;
+	}
+		.jOKLc29vP0Bz1K0TsDtX {
+			min-width: 340px !important;
+		}
+
+/*nav*/
+.nav-ylx .Root__nav-bar {
+	gap: 5px !important;
+}
+	.Root__nav-bar {
+		margin-left: 5px !important;
+		margin-top: 2px !important;
+		height: calc(100% - -30px) !important;
+	}
+
+		.QuHe04rU4bj0Z5U9E2Tk {
+			padding: 2px 1px !important;
+		}
+
 
 .UCEIwrWMxnBFH4uoPybJ {
     padding-bottom: 10px;
@@ -2130,14 +2175,11 @@ setInterval(function() {
     " border-radius 15px;",
     "}",
     "/* NOWPLAYING PLAY BUTTON */",
-	" .KAZD28usA1vPz5GVpm63, .dlqYDF, .jqMzOG:hover .ButtonInner-sc-14ud5tc-0, .fipMme, .kGFDdV, .SPC4uzYXJmknkCGKpxHw, .No0A0v6U6vtqj_ybS1Cd, .Fyc_tPyPKyRIT_59VZ2B, .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .KIbfbFDao0SHpZsKoKZD, .PrhIVExjBkmjHt6Ea4XE, .bkFQH4uasL3pXqN9eDSi, .control-button--active, .jyHIqB, .TJ5Bjp6vgnWVbh6mGN0n, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
+	" .KAZD28usA1vPz5GVpm63, .doaMwz, .prGqQr33U0mG14TJ5V8a.BhKGkKPprp2wm9bvfRKG, .prGqQr33U0mG14TJ5V8a, .jqMzOG:hover .ButtonInner-sc-14ud5tc-0, .fipMme, .kGFDdV, .SPC4uzYXJmknkCGKpxHw, .No0A0v6U6vtqj_ybS1Cd, .Fyc_tPyPKyRIT_59VZ2B, .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .KIbfbFDao0SHpZsKoKZD, .PrhIVExjBkmjHt6Ea4XE, .bkFQH4uasL3pXqN9eDSi, .control-button--active, .jyHIqB, .TJ5Bjp6vgnWVbh6mGN0n, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
 	"     animation: rainbow-text 30s infinite;",
 	"     background-color: transparent;",
 	"     cursor: auto;",
 	"}",
-    " /* Liked songs album art */",
-    " .Nd_DeCpszONzyaLe5Wd1 {",
-    " } ",
 	"/* progress-bar - now playing */",
 	" .TywOcKZEqNynWecCiATc, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .VpYFchIiPg3tPhBGyynT, .Btg2qHSuepFGBG6X0yE, .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .t_yrXoUO3qGsJS4Y6iXX, a:hover, a:focus, .OCY4jHBlCVZEyGvtSv0J, .GD2gbRtcs5dOjMGAM_Y4, .KVKoQ3u4JpKTvSSFtd6J.OF_3F0SQCsBtL1jSTlTA, .Vz6yjzttS0YlLcwrkoUR.tP0mccyU1WAa7I9PevC1, .control-button--active, .fFv7yCuLuIO1dAGZHcVf, .jOKLc29vP0Bz1K0TsDtX, .kEuUqR, .Rpvqb, .uWvwXlS0Da1bWsRX6KOw,  .NoOAOv6U6vtqj_ybS1Cd, .w699O0LgQRghXyl3bs9u, .playback-bar, .RfidWIoz8FON2WhFoItU, .Xz3tlahv16UpqKBW5HdK, .uV8q95GGAb2VDtL3gpYa, .XwNfIrI6_hCa_9_T2cQB, .EhyK_jJzB2PcWXd5lg24 {",
 	"     animation: rainbow-text 30s infinite;",
@@ -2367,3 +2409,6 @@ function HideDownloads() {
     observer.observe(mainView, { attributes: true, childList: true, subtree: true });
   }, 7000);
 }
+
+
+
