@@ -1,7 +1,7 @@
 async function sendCommandToTab(command, tab) {
   // Developed by Kami, simple lightweight .js to have globle media keys!
   function findAndClick(command) {
-    // https://github.com/mantou132/Spotify-Lyrics/issues/94
+    // Might encounter issues with 3rd party lyric sync(ers).
     const DENY = '.extension-lyrics-button';
     const VALUE_SET = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
 
@@ -54,8 +54,6 @@ async function sendCommandToTab(command, tab) {
       clickAndAnimate(document.querySelector(selector));
     }
 
-    // A Very Cursed search for a specific iconography using CSS <path> d=
-    // attribute. Then go up the DOM tree to find the parent button and click.
     function usingSvg(command) {
       const paths = {
         'play-pause': [
@@ -117,7 +115,7 @@ async function sendCommandToTab(command, tab) {
       try {
         usingVolumeSlider(command);
       } catch (e) {
-        console.warn(`[Spotify Web Player Hotkeys] Could not change volume slider: ${e}`);
+        console.warn(`[SpotOn Hotkeys] Could not change volume slider: ${e}`);
       }
       return;
     }
@@ -131,17 +129,15 @@ async function sendCommandToTab(command, tab) {
         return;
       } catch (e) {
         if (command == 'seek-forward' || command == 'seek-backward') {
-          // Special case for seek: try first with selector/svg so that
-          // podcasts use the correct 15s seek, then fallback on seek slider for
-          // song 5s seek.
+          // Can GPT write this instead?
           try {
             usingSeekSlider(command);
             return;
           } catch (e) {
-            console.warn(`[Spotify Web Player Hotkeys] Could not change seek slider: ${e}`);
+            console.warn(`[SpotOn Hotkeys] Could not change seek slider: ${e}`);
           }
         }
-        console.warn(`[Spotify Web Player Hotkeys] Could not click '${command}': ${e}`);
+        console.warn(`[SpotOn Hotkeys] Could not click '${command}': ${e}`);
       }
     }
   }
