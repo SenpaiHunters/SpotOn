@@ -1,0 +1,87 @@
+{
+    "name": "SpotOn Hotkeys",
+    "description": "Simple Hotkey access for Spotify Web Player, a derivative of SpotOn!",
+    "version": "2.1.0",
+    "default_locale": "en",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icons/icon-16.png",
+        "32": "icons/icon-32.png",
+        "48": "icons/icon-48.png",
+        "128": "icons/icon-128.png"
+    },
+    "incognito": "split",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+          "16": "icons/icon-16.png",
+          "32": "icons/icon-32.png",
+          "48": "icons/icon-48.png",
+          "128": "icons/icon-128.png"
+        }
+      },      
+    "background": {
+        "service_worker": "background.js"
+    },
+    "commands": {
+        "play-pause": {
+            "description": "Playback: play / pause",
+            "suggested_key": {
+                "default": "MediaPlayPause"
+            },
+            "global": true
+        },
+        "previous": {
+            "description": "Playback: previous track",
+            "suggested_key": {
+                "default": "MediaPrevTrack"
+            },
+            "global": true
+        },
+        "next": {
+            "description": "Playback: next track",
+            "suggested_key": {
+                "default": "MediaNextTrack"
+            },
+            "global": true
+        },
+        "shuffle": {
+            "description": "Playback: toggle shuffle",
+            "global": true
+        },
+        "repeat": {
+            "description": "Playback: toggle repeat none / track / playlist",
+            "global": true
+        },
+        "like": {
+            "description": "Like: toggle song like",
+            "global": true
+        },
+        "seek-forward": {
+            "description": "Playback: seek forward",
+            "global": true
+        },
+        "seek-backward": {
+            "description": "Playback: seek backwards",
+            "global": true
+        },
+        "volume-up": {
+            "description": "Volume: increase by 10%",
+            "global": true
+        },
+        "volume-down": {
+            "description": "Volume: decrease by 10%",
+            "global": true
+        },
+        "volume-mute": {
+            "description": "Volume: toggle mute",
+            "global": true
+        }
+    },
+    "permissions": [
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://open.spotify.com/"
+    ]
+}
