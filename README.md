@@ -1,10 +1,14 @@
-<h1 align="center">SpotOn</h1>
+<h1 align="center">
+
+  
+<img width="279" alt="235338288-be1251b1-0074-4560-9c02-bff7bacef367" src="https://user-images.githubusercontent.com/103985728/236811543-fa90aa8e-34cf-44d6-a43f-b8fe5a74a819.png">
 
 
+</h1>
 
-![SpotOn](https://socialify.git.ci/SenpaiHunters/SpotOn/image?description=1&descriptionEditable=SpotOn%20is%20a%20full%20overhaul%20of%20Spotify%20Web%20Player%2C%20read%20the%20GitHub%20for%20full%20features.&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
-
-
+<h1 align="center">
+  
+  
 ![GitHub watchers](https://img.shields.io/github/watchers/senpaihunters/spoton?style=social)
 ![GitHub repo size](https://img.shields.io/github/repo-size/senpaihunters/spoton?style=plastic)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/senpaihunters/spoton)
@@ -12,8 +16,19 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/senpaihunters/spoton/total)
 
 [![Top Langs Used](https://github-readme-stats.vercel.app/api/top-langs/?username=senpaihunters&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+  
+  </h1>
+
+
+
+
+![SpotOn](https://socialify.git.ci/SenpaiHunters/SpotOn/image?description=1&descriptionEditable=SpotOn%20is%20a%20full%20overhaul%20of%20Spotify%20Web%20Player%2C%20read%20the%20GitHub%20for%20full%20features.&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
+
 
 ***
+
+
+<h1 align="center"> Updating this README.md to match the switch to a chrome extension!</h1>
 
 
 <h2 align="center">Table of content</h2>
@@ -57,19 +72,8 @@
 
 # Install Instructions
 
+https://user-images.githubusercontent.com/103985728/236811226-3070dfb3-85e9-4195-922e-40ab8a4bdf35.mp4
 
-To install the SpotOn script via Tampermonkey, follow these steps:
-
-1. Copy the following link:
-   `https://raw.githubusercontent.com/SenpaiHunters/SpotOn/Main/SpotOn%20V0.6%20.js`
-
-2. Open Tampermonkey in your browser and click on the "Utilities" tab.
-
-3. Paste the link into the "URL" field under the "Install from URL" section.
-
-4. Click the "Install" button.
-
-5. The SpotOn script should now be installed and ready to use!
 
 
 
@@ -78,10 +82,10 @@ To install the SpotOn script via Tampermonkey, follow these steps:
 
 
 ### Arc
-Arc is Chromium on crack, it's so nice, MacOS exclusive, and this is my main browser will be providing images from this website!
+Arc is Chromium on crack, it's so nice, MacOS exclusive (windows later this year), and this is my main browser will be providing images from this website!
 
 ### Firefox
-Firefox will be invested into more, as some features broke on that side.
+Supported, although I main chromium, I'll need to figure out a way to make a extension for Firefox.
 
 ### Chrome
 Of course, Chrome will still be fully supported
@@ -89,8 +93,10 @@ Of course, Chrome will still be fully supported
 ### Safari
 This is spotty, however, currently, Safari is unsupported (sorry, will look into it)
 
+(It's only supported via a userscript, sorry! you'll be behind features)
+
 ### Orion
-Same as Safari (as it's WebOS, but it can have extensions!). Currently, it is unsupported but, soon this will be ported! Stay on the lookout.
+Same as Safari (as it's WebOS, but it can have extensions!). WOO, supported, same method for install, just using (command + ,) for settings.
 
 ### Oprea GX
 Supported, it's Chromium...
@@ -107,8 +113,6 @@ Supported...
 
 ***
 
-
-What to see some more photos with an explanation? Copy this link `https://arc.net/e/8C9E77D6-1494-4C99-8309-DD7EB56A8156` (Made with Arc, my main browser!)
 
 
 
@@ -394,60 +398,6 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 
 
 <img width="122" alt="image" src="https://user-images.githubusercontent.com/103985728/221405927-d81eba89-2b07-48aa-a393-cba34a0ab2a1.png">
-
-# Release Notes
-## 0.7
-
-
-In this version there has been a lot of changes, for all browsers. I mean a lot, close to a week of solid work, mostly to get some features to work then Spotify went down, so that was cool. Anyway, the release notes are as follows.
-
-### New Features: 
-
-- Added ability to click on an album cover and either, add it to the Queue, Go to playlist radio, Add to profile, Report,  Remove from Your Library, Exclude from your taste profile, and About recommendations.
-- Added code for album sorting and searching, however, this is not yet implemented. 
-- Redid Genius Intergration's `options` menu, added the icon to be constant now and added the ability to copy the lyrics displayed.
-- Hotkeys got a speed increase!
-- Redid the `connect to a device`
-- Changed the colour of the play icon for Arc browser users (fallback for other browsers too)
-- Rounded the popup menu (when you `right-click`, that menu I mean). 
-- Faster transitions! Woo, 0.3 seconds... Still faster..
-- Rounded the current playing song, and added another animation for it. Just to distinguish it faster than normal songs
-- When highlighting over a song it will pop out further, in alignment with the rounded current playing song making it flow better
-- Reduced the size of code (now less than 600kb~)
-- Added more Rainbow controls and menus, try and find them all!
-- Added a faster way of loading and the ability to backtrack `⌘ + →` or `⌘ + ←`
-
-
-### Bug fixes
-
-- Fixed the overscrolling issue
-- Fixed random song stopping
-- Fixed an issue when loading Spotify in another tab or device the current song would pause or cause the page to freeze
-- Fixed text spacing on h1 contexts, like `Liked Songs`, now at the start and not to the end of nowhere
-- Fixed an issue causing the context menu to not be hidden.
-- Fixed an issue that caused lyrics to scroll further than needed.
-- Fixed an issue that prevented scrolling lyrics.
-- Removed outdated code lines, adding more context to the lines.
-- Addressed an issue that prevented the Nav bar from not hiding when pressing the hidden bar. 
-- Fixed a bug causing constant crashing and spooling
-- Fixed an issue causing some users a need to relog into their Spotify account each time they reloaded the page
-- Fixed an issue causing hotkeys to not function when pressing the intended keys. 
-- Addressed the issue of poor readability on the explicit (that `e` at the bottom of the songs)
-- Fixed the horrid look of 'now streaming to', should be better now
-- Fixed an issue preventing some users access to their library
-- Fixed an issue of not being able to fully scroll on larger displays
-- Added better support for larger displays
-- Addressed an issue causing high cache use in Genisu Lyric Searches (you can now remove the Cache by pressing `remove cache`)
-- Addressed an issue on non-chromium browsers not being able to access anything on their screen. 
-- Fixed an issue that caused Firefox to not render the background
-- Addressed an issue of crashing on low-end hardware due to a memory leak (this was also partial to a program the user was running in the background, but now there should be no chances of crashes)
-- Fixed the slow loading times when reloading the page or moving to an album
-
-
-
-### Extra notes
-This is one of my biggest updates in a long time, thank you to those who reported a bug and provided information when requested, and thank you to everyone who downloads SpotOn, I hope you enjoy it, I'm making 0 pennies off SpotOn so any support is much appreciated. Feel free to reach out to me on my socials or launch an issue on GitHub. 
-- Kami
 
 
 
