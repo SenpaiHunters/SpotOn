@@ -24,3 +24,6 @@ I can't design logos, so I'll use multiple for my SpotOn library!
 
 # SpotOn Hotkeys
 <img width="280" alt="SpotOn Hotkeys" src="https://user-images.githubusercontent.com/103985728/236669669-d414bf32-1972-44ab-9279-6d08f8f269a3.png">
+
+# SpotON GSR
+<img width="280" alt="SpotOn GSR" src="https://github.com/SenpaiHunters/SpotOn/assets/103985728/8257d5ec-a7be-404e-88a3-92a4647db97e">
