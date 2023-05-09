@@ -1,0 +1,42 @@
+{
+  "name": "SpotOn Genius Song Replacer",
+  "short_name": "SpotOn GSR",
+  "description": "Allow Genius.com to use open.spotify.com to host the music, instead of Apple Music.",
+  "version": "2.0",
+  "manifest_version": 2,
+  "default_locale": "en",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.genius.com/*"
+      ],
+      "js": [
+        "scripts/genius-inject.js"
+      ],
+      "exclude_matches": [
+        "https://*.genius.com/artists/*",
+        "https://*.genius.com/albums/*",
+        "https://*.genius.com/search",
+        "https://*.genius.com/"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "icons/icon-19.png",
+      "38": "icons/icon-38.png"
+    },
+    "default_title": "SpotOn Genius Song Replacer",
+    "default_popup": "pages/popup.html"
+  },
+  "permissions": ["storage"]
+}
