@@ -6,7 +6,24 @@
 
 </h1>
 
+SpotOn is a full overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
+
+
+
+<h1 align="center"> Introduction & Use-case</h1>
+
+SpotOn is a project that aims to improve the Spotify Web Player by adding new features and improving the user interface. With SpotOn, you can enjoy various animations, a new font, an enchanced Nav & Now Playing bars, a dynaminc theme, rainbrow controls, and many other improvements.
+
+SpotOn is an excellent option for Spotify Web Player users who want to enhance their music listening experience. With SpotOn, there are multiple ways of improving Spotify, we have SpotOn Righter, which moves the Nav Bar to the right hand side, SpotOn SonyCopy, SpotOn Speeder and many other improvements (+ additions). SpotOn can make your Spotify Web Player experience more engaging, visually appealing, and user-friendly, all in small packages aimed to please.
+
+
+***
+
+
+
 <h1 align="center">
+
+[![Top Langs Used](https://github-readme-stats.vercel.app/api/top-langs/?username=senpaihunters&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
   
   
 ![GitHub watchers](https://img.shields.io/github/watchers/senpaihunters/spoton?style=social)
@@ -14,8 +31,6 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/senpaihunters/spoton)
 ![GitHub contributors](https://img.shields.io/github/contributors/senpaihunters/spoton)
 ![GitHub all releases](https://img.shields.io/github/downloads/senpaihunters/spoton/total)
-
-[![Top Langs Used](https://github-readme-stats.vercel.app/api/top-langs/?username=senpaihunters&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
   
   </h1>
 
@@ -23,6 +38,19 @@
 
 
 ![SpotOn](https://socialify.git.ci/SenpaiHunters/SpotOn/image?description=1&descriptionEditable=SpotOn%20is%20a%20full%20overhaul%20of%20Spotify%20Web%20Player%2C%20read%20the%20GitHub%20for%20full%20features.&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
+
+
+<details>
+  <summary><strong>Table of Contents</strong></summary>
+
+-  [Introduction](#introduction)
+-  [Screenshots](#-what-does-spoton-look-like)
+-  [Installation](#installation)
+-  [Features](#features)
+-  [Browser Support](#browser-support)
+-  [Contributing](#contributing)
+
+</details>
 
 
 ***
@@ -35,7 +63,7 @@
 
 
 | After |
-| --- |
+| --- | 
 | ![After](https://github.com/SenpaiHunters/SpotOn/assets/103985728/16cae3be-90b3-4929-978f-6f509c194734)|
 
 
@@ -75,25 +103,48 @@
 ***
 
 
-<h2 align="center">Install Instructions</h2> 
+<h2 align="center">Installation</h2> 
 
 https://user-images.githubusercontent.com/103985728/236811226-3070dfb3-85e9-4195-922e-40ab8a4bdf35.mp4
 
+To install SpotOn, follow these steps:
+
+1. Clone the repository to your local machine (download as a zip or `git clone https://github.com/SenpaiHunters/SpotOn`).
+2. Open your preferred browser and navigate to `chrome://extensions`.
+3. Enable Developer mode by toggling the switch in the top-right corner.
+4. Click the "Load unpacked" button and select the `SpotOn` folder.
+5. SpotOn should now be installed and ready to use.
+
+
+To uninstall SpotOn, follow these steps:
+
+1. Open your preferred browser and navigate to `chrome://extensions`.
+2. Find SpotOn in the list of installed extensions.
+3. Click the "Remove" button next to SpotOn.
+4. Confirm that you want to remove the extension.
 
 
 
 
-# Browser Support
+
+<h2 align="center">Browser Support</h2>
 
 | Browser | Support |
 | --- | --- |
-| Arc | MacOS exclusive, fully supported |
-| Firefox | Supported, extension needs to be figured out |
-| Chrome | Fully supported |
-| Safari | Unsupported, only supported via userscript |
-| Orion | Supported, same method as Safari |
-| Opera GX | Fully supported |
-| Brave | Fully supported |
+| Arc | ✅ |
+| Firefox | ✅ |
+| Chrome | ✅ |
+| Orion | ✅ |
+| Opera GX | ✅ |
+| Brave | ✅ |
+| Vivaldi | ✅ |
+| Edge | ✅ |
+| NAVER Whale | ✅ |
+| Thorium  | ✅ |
+| Beam browser  | ??? |
+| Iceraven | ??? |
+| SigmaOS | ❌ - Not popular enough |
+| Safari | ❌ - Only supported via a Userscript |
 
 
 ***
@@ -130,3 +181,44 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 | 4. To hide the sidebar, either reload, or press 'hide'. - If you reloaded repeat steps 1 & 2 to reenable it. | ![SCR-20221016-lj](https://user-images.githubusercontent.com/103985728/195988974-03d14f4d-e4ad-4370-b6d4-c48c7df55089.png) |
 | 5. If you press 'Hide' you'll see a little Genius Button cleanly off to the right - If you reloaded repeat steps 1 & 2 for the button to come back. | <img width="122" alt="image" src="https://user-images.githubusercontent.com/103985728/221405927-d81eba89-2b07-48aa-a393-cba34a0ab2a1.png"> |
 
+
+<h2 align="center">Troubleshooting</h2>
+
+If you encounter any issues with SpotOn, please try the following troubleshooting steps:
+
+1. Check for Extension updates.
+2. Disable and then re-enable the extension.
+3. Clear your browser's cache and cookies.
+4. Restart your browser.
+5. Check to see the issue, that being loading times or a formatting issue.
+6. If the issue persists, please report it on the project's GitHub page or contact the developer for technical support.
+
+
+
+
+<h2 align="center">Contributing</h2>
+
+If you would like to contribute to SpotOn, please follow these guidelines:
+
+1. Fork the repository and create a new branch for your changes.
+2. Make your changes and test them thoroughly.
+3. Submit a pull request with a clear description of your changes and why they are necessary.
+4. Your pull request will be reviewed and merged if it meets the project's standards.
+
+- Furthermore, you can contribute by reporting bugs or suggest new features by opening an issue on the project’s GitHub page.
+
+
+<h2 align="center">Supporting the Project</h2>
+If you would like to support the development of SpotOn, there are several ways to do so:
+
+- Spread the word about the project on social media or other platforms.
+- Donate to the project’s developers to help cover development costs.
+   - [Buymeacoffee](https://www.buymeacoffee.com/KamiAMVS)
+- Contribute code or documentation to the project to help improve it.
+
+
+Thank you for your support!
+
+
+<h2 align="center">License</h2>
+SpotOn is licensed under the MIT License. See the LICENSE file for more information.
