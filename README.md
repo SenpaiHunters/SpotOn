@@ -77,13 +77,17 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 | Animations! | Various animations added, including hover animation, spinning albums, skip/reverse animations, and playlist hover animation and more! |
 | New font (Akronim) | A new font added, may appear different in other browsers. |
 | Overhauled Nav Bar (NB) | NB is now pushed out from whole menu, rounded, has album image within, and rainbow controls added. |
-| Overhauled Now Playing Bar (NPB) | NPB now has variable size, rounded corners, black haze, full rainbow controls, smaller and rounded album art, reduced overall size, and removed background on `.playback-bar`. |
+| Overhauled Now Playing Bar (NPB) | NPB now has variable size, rounded corners, black haze, full rainbow controls, smaller and rounded album art, reduced overall size, and removed background on `.playback-bar` as well as changed progress bars |
 | Hide the Nav Bar! | The Nav Bar can now be hidden by clicking on the line that pops up when cursor is moved to the edge of the Nav Bar. |
 | Song timings | Clicking on song time displays whole song time or remaining time. |
 | Dynamic theme | Theme responds to cover art and displays it as background. |
-| Rounded album art covers | All album art covers are now 15px rounded. |
-| Rounded song hover & now playing song | Song hover and now playing song are now rounded. |
+| Centered Lyrics | Lyrics remain in the middle of the screen unless it needs more space |
 | Auto lyric search on Genius | Pressing 'G' icon on top right initiates script. |
+| Lyrics | Lyrics now have a black border, appropriate size, and can be copied. |
+| Capitalized initial letter | First letter of each word is now capitalized. |
+| Rounded album art covers | All album art covers are now 15px(to 30px) rounded. |
+| Scrollbar | Someetimes you'll find a rainbow scrollbar! Where is it? You find it! |
+| Rounded song hover & now playing song | Song hover and now playing song are now rounded. |
 | Copy track info | Select 'Copy' when right-clicking on a song. |
 | Rainbow controls | Various buttons now have rainbow controls, including full screen, lyrics, like song, queue, devices, volume, PiP, repeat, and shuffle. |
 | Removed Spotify Logo | Spotify logo has been removed. |
@@ -92,10 +96,8 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 | Removed Podcasts from Homepage | Podcasts have been removed, but can still be found in 'Your Library'. |
 | Removal of bottom content bar | Bottom content bar hosting social links (etc) has been removed. |
 | Removed device streaming info | Device streaming info has been removed from bottom bar. |
-| Capitalized initial letter | First letter of each word is now capitalized. |
 | Misc performance and bug fixes | Various performance and bug fixes have been implemented, including quicker loading times and search times. |
 | Increased site-wide readability | Site-wide readability has been improved, particularly on lyrics and larger content. |
-| Lyrics | Lyrics now have a black border, appropriate size, and can be copied. |
 | Addition of Hotkeys | Hotkeys have been added and can be accessed by pressing 'Shift + ?' or '⌘ + ?'. |
 
 ***
@@ -105,6 +107,7 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 | SpotOn | Description |
 | --- | --- |
 | ***SpotOn*** | The main use of SpotOn, with the features boasted above (there is also a userscript of SpotOn if you use Safari) |
+| ***SpotOn Arc Version*** | The main use of SpotOn, however, instead of the dynamic cover arts it matches your Arc theme (for Arc Browser ONLY) can be customised, see documentation!) |
 | ***SpotOn Enhanced Search*** | You can search by Song, Artist, Album, Release Year, Genre, or any combination of those. |
 | ***SpotOn Genius Lyric Searcher*** | Search for the lyrics on Genius.com if Spotify doesn't have them |
 | ***SpotOn Genius Song Replacer*** | Allow Genius.com to use open.spotify.com to host the music, instead of Apple Music. |
