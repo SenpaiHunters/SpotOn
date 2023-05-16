@@ -74,9 +74,9 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 
 | Feature | Description |
 | --- | --- |
-| Animations! | Various animations added, including hover animation, spinning albums, skip/reverse animations, and playlist hover animation. |
+| Animations! | Various animations added, including hover animation, spinning albums, skip/reverse animations, and playlist hover animation and more! |
 | New font (Akronim) | A new font added, may appear different in other browsers. |
-| Updated Nav Bar (NB) | Nav Bar now pushed out from whole menu, rounded, has album image within, and rainbow controls added. |
+| Overhauled Nav Bar (NB) | NB is now pushed out from whole menu, rounded, has album image within, and rainbow controls added. |
 | Overhauled Now Playing Bar (NPB) | NPB now has variable size, rounded corners, black haze, full rainbow controls, smaller and rounded album art, reduced overall size, and removed background on `.playback-bar`. |
 | Hide the Nav Bar! | The Nav Bar can now be hidden by clicking on the line that pops up when cursor is moved to the edge of the Nav Bar. |
 | Song timings | Clicking on song time displays whole song time or remaining time. |
@@ -90,14 +90,31 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 | Removed 'Install' app | 'Install' app has been removed from above album art cover in Nav Bar. |
 | Removed 'Upgrade' button | 'Upgrade' app button been removed from the top bar. |
 | Removed Podcasts from Homepage | Podcasts have been removed, but can still be found in 'Your Library'. |
-| Removed 'Upgrade' button in top menu | 'Upgrade' button can still be found under profile. |
-| Removal of bottom content bar | Bottom content bar hosting social links has been removed. |
+| Removal of bottom content bar | Bottom content bar hosting social links (etc) has been removed. |
 | Removed device streaming info | Device streaming info has been removed from bottom bar. |
 | Capitalized initial letter | First letter of each word is now capitalized. |
 | Misc performance and bug fixes | Various performance and bug fixes have been implemented, including quicker loading times and search times. |
 | Increased site-wide readability | Site-wide readability has been improved, particularly on lyrics and larger content. |
 | Lyrics | Lyrics now have a black border, appropriate size, and can be copied. |
 | Addition of Hotkeys | Hotkeys have been added and can be accessed by pressing 'Shift + ?' or '⌘ + ?'. |
+
+***
+
+<h2 align="center">Other SpotOns</h2>
+
+| SpotOn | Description |
+| --- | --- |
+| ***SpotOn*** | The main use of SpotOn, with the features boasted above (there is also a userscript of SpotOn if you use Safari) |
+| ***SpotOn Enhanced Search*** | You can search by Song, Artist, Album, Release Year, Genre, or any combination of those. |
+| ***SpotOn Genius Lyric Searcher*** | Search for the lyrics on Genius.com if Spotify doesn't have them |
+| ***SpotOn Genius Song Replacer*** | Allow Genius.com to use open.spotify.com to host the music, instead of Apple Music. |
+| ***SpotOn Hotkeys*** | Customisable Hotkeys for Spotify |
+| ***SpotOn MenubarToggle*** | Toggle the NB to show or not |
+| ***SpotOn MiniPlayer*** | A MiniPlayer for Spotify |
+| ***SpotOn Queue Expander*** | Adds send to top of queue, shuffle queue, and send to bottom |
+| ***SpotOn Righter*** | Shift NB to the right |
+| ***SpotOn SongCopy*** | Copy song name and artist to your clipboard |
+| ***SpotOn Speeder*** | Adds a speeder to Spotify to change speed from 0.1 to 200% playing speed |
 
 
 ***
