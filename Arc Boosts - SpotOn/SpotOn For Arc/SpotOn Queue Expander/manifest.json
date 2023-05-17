@@ -1,0 +1,29 @@
+{
+  "name": "SpotOn Queue Extender",
+  "description": "Extends the functionality of the Spotify queue.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "version": "1.7.1",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": ["spq_functions.js", "spq_html_get.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "spq_background.js"
+  },
+  "host_permissions": [
+    "https://*.spotify.com/track-playback/v1/devices"
+  ],
+  "permissions": [
+    "webRequest"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
