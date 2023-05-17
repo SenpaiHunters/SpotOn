@@ -27,3 +27,6 @@ I can't design logos, so I'll use multiple for my SpotOn library!
 
 # SpotON GSR
 <img width="280" alt="SpotOn GSR" src="https://github.com/SenpaiHunters/SpotOn/assets/103985728/8257d5ec-a7be-404e-88a3-92a4647db97e">
+
+# SpotOn Queue Expander
+<img width="289" alt="SpotOn Queue Expander" src="https://github.com/SenpaiHunters/SpotOn/assets/103985728/9a83b700-abf9-4c46-a8a5-043cd92ddac2">
