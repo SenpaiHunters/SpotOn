@@ -1,7 +1,7 @@
 {
   "name": "SpotOn Speeder",
   "description": "Allows speed control on Spotify",
-  "version": "2.0",
+  "version": "2.4.2",
   "manifest_version": 3,
   "author": "Kami",
   "icons": {
