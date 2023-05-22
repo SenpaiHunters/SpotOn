@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "SpotOn Righter",
-  "version": "1.7",
-  "description": "A Chrome extension to toggle SpotOn styles.",
+  "version": "1.8.0",
+  "description": "SpotOn Righter moves the NB to the right, instead of left like it is originally",
   "icons": {
     "16": "/images/icon16.png",
     "32": "/images/icon32.png",
