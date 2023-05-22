@@ -9,11 +9,17 @@ It's more efficent to make a `style.css` boost and paste this code */
         "now-playing-bar now-playing-bar now-playing-bar" !important;
 }
 
-.ZQftYELq0aOsg6tPbVbV.WIPpgUp9J37Dwd0ZJnv0{ /* New version since 27/04/23, personally 3/05/2023 */
+/*
+.ZQftYELq0aOsg6tPbVbV.WIPpgUp9J37Dwd0ZJnv0{ New version since 27/04/23, personally 3/05/2023
   grid-template-areas:
         "top-bar top-bar top-bar"
         "right-sidebar main-view nav-bar"
         "now-playing-bar now-playing-bar now-playing-bar" !important;
 }
-
-/*SpotOn Update coming soon*/
+*/
+  
+ .ZQftYELq0aOsg6tPbVbV { /*latest*/
+  grid-template-areas:
+        "right-sidebar main-view left-sidebar"
+        "now-playing-bar now-playing-bar now-playing-bar" !important;
+ }
