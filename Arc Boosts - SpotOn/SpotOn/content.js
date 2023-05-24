@@ -84,14 +84,14 @@ function skin(exe,anim,das,tlyr) {
     transition-duration: 0.7s;
     background-position: center;
     background-color: #282828;
-    filter: blur(20px);
+    filter: blur(10px);
 		/*blur - 50px original*/
     width: 100vw;
     height: 100vh;
     position: absolute; }
 #main > div.Root.encore-dark-theme > div,
 #context-menu > ul ,#context-menu > div > ul {
-    backdrop-filter: blur(20px); }
+    backdrop-filter: blur(30px); }
 		/*same as above*/
 
 #context-menu > ul,#context-menu > div > ul{
@@ -198,7 +198,7 @@ button.RowButton-sc-xxkq4e-0.iQutdu:hover {
 /* Top nav bar when scrolling */
 	.nav-ylx .T1xI1RTSFU7Wu94UuvE6, .EvIR4O7jOSbNmxtMdIQ0 {
 		border-radius: var(--main-border-radius) !important;
-		background: transparent !important;
+		/*background: transparent !important;*/
 	}
 		/*
 		.PHgyArRLVFknlaOm31ID, .nav-ylx .facDIsOQo9q7kiWc4jSg, div.T1xI1RTSFU7Wu94UuvE6 {
@@ -412,23 +412,35 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 
 /*-------------profile page-----------------*/
 
-/* Hides 'profile' button *//*
+/* Hides 'profile' button */
 .odcjv30UQnjaTv4sylc0 {
 	display: none;
 }
-*/
 
-/* Hide 'profile' text *//*
+
+/* Hide 'profile' text */
 .EeWTFG_vxLI5QJc1TH4F, .RfdRTSGwulyQdDepLUTT .EeWTFG_vxLI5QJc1TH4F, .RfdRTSGwulyQdDepLUTT .eAXFT6yvz37fvS1lmt6k {
 	display: none;
 }
-*/
+
 
 /* Edit profile name and or pic */
 .XwNfIrI6_hCa_9_T2cQB {
 	border-radius: 35px !important;
 	background: rgba(0, 0, 0, 0.4) !important;
 }
+
+/* Profile button */ /*
+.Xz3tlahv16UpqKBW5HdK {
+    display: none !important;
+}
+*/
+
+/* full removal */ /*
+.pEG0W4wkbkrOYURhz82H {
+    display: none !important;
+}
+*/
 
  /* Name of profile */
 	.wCkmVGEQh3je1hrbsFBY {
@@ -608,7 +620,7 @@ div.os-padding > div > div > div.main-view-container__scroll-node-child > main >
 
 /*-------Now Playing Bar--------------*/
 
-.Root__now-playing-bar {
+.Root__now-playing-bar, .nav-ylx .GD2gbRtcs5dOjMGAM_Y4 {
     padding-top: 10px; }
 ._17de82b47b8c1954963d20ed56b2f730-scss,
 ._82a78ff58d3fcba0cb9b8083fe6dd05c-scss,
@@ -677,13 +689,10 @@ body > div:nth-child(10) {
 .SboKmDrCTZng7t4EgNoM {
 	border-radius: 32px !important;
 	background: rgba(0, 0, 0, 0.3) !important;
-	background-color: rgba(105, 88, 88, 0.3) !important;
 }
 
-		.SboKmDrCTZng7t4EgNoM, div#trippy-7 {
-			 background: rgba(105, 88, 88, 0.2) !important;
-			background-color: rgba(105, 88, 88, 0) !important;
-			/*background: var(--hovercolor) !important;*/
+		.SboKmDrCTZng7t4EgNoM, div#trippy-7, .SboKmDrCTZng7t4EgNoM, div#trippy-7, .SboKmDrCTZng7t4EgNoM {
+			background: var(--hovercolor) !important;
 			transition-duration: 0.2s !important;
     	transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)!important;
 		}
@@ -934,350 +943,6 @@ div.os-padding > div > div > ul > div > div:nth-child(2) > div {
 .Mx7aus4bRGbU9vPpnDHj {
     background: var(--overlay-heavy) }
 		
-
-/*---------------------SpotOn CSS---------------------*/
-/*--------------------Below that is---------------------*/
-
-/* Version 0.9 coming soon! */
-
-/* Some changes coming soon */
-
-/* Adjust the nav bar links *//*
-a.link-subtle {
-  color: #D7994A !important;
-  font-size: 17px !important;
-}
-.GlueDropTarget--tracks a span{
-  color: #D7994A  !important;
-  font-size: 17px !important;
-}
-*/
-/* Remove the default home icon and replace it with your own */ /*
-svg.home-icon path{
-  display: none !important;
-}
-svg.home-active-icon path {
-  display: none !important;
-}
-svg.home-active-icon + span {
-  font-size: 17px !important;
-}
-svg.home-icon {
-  background: url("https://www.filepicker.io/api/file/I6pr4FXQRcyLapq0HDQD") !important;
-  background-size: 24px !important;
-}
-svg.home-active-icon {
-  background: url("https://www.filepicker.io/api/file/I6pr4FXQRcyLapq0HDQD") !important;
-  background-size: 24px !important;
-}
-*/
-
-/* Remove the default search icon and replace it with your own */ /*
-svg.search-icon path {
-  display: none !important;
-}
-svg.search-active-icon path {
-  display: none !important;
-}
-svg.search-active-icon + span {
-  font-size: 17px !important;
-}
-svg.search-icon {
-  background: url("https://www.filepicker.io/api/file/s87RiLY3RHGE2FY2dIPT") !important;
-}
-svg.search-active-icon {
-  background: url("https://www.filepicker.io/api/file/s87RiLY3RHGE2FY2dIPT") !important;
-}
-*/
-
-/* Remove the default library icon and replace it with your own */ /*
-svg.collection-icon path{
-  display: none !important;
-}
-svg.collection-active-icon path {
-  display: none !important;
-}
-svg.collection-icon {
-  background: url("https://www.filepicker.io/api/file/DLrkzZSRZG0bcfWwX9xt") !important;
-  background-size: 24px !important;
-}
-svg.collection-active-icon {
-  background: url("https://www.filepicker.io/api/file/DLrkzZSRZG0bcfWwX9xt") !important;
-  background-size: 24px !important;
-}
-svg.collection-active-icon span {
-  color: white !important;
-}
-/* Remove the default create playlist icon and replace it with your own */
-.GlueDropTarget--albums button div div svg path {
-  display: none !important;
-}
-.GlueDropTarget--albums button div div {
-  background: url("https://www.filepicker.io/api/file/drQK3SlR6LvqleL1LCzw") !important;
-}
-button[data-testid="create-playlist-button"] span {
-  color: #D7994A !important;
-  font-size: 17px !important;
-}
-*/
-
-/* Remove the default liked icon and replace it with your own */ /*
-.GlueDropTarget--tracks a div div svg path{
-  display: none !important;
-}
-.GlueDropTarget--tracks a div div {
-  background: url("https://www.filepicker.io/api/file/v6IzpBTtSV2Ztns6KwxK") !important;
-}
-
-li[role="listitem"] a span {
-  color: #D7994A  !important;
-  font-size: 17px !important;
-}
-li[role="listitem"]:hover {
-  transform: scale(1.03) !important;
-  cursor: pointer;
-}
-*/
-
-/* Playlist Changes */
-/* Change the background of the header list items in your library */ /*
-.JdlKTdpMquftpMwwegZo.oaNVBli46GtVjaQKB15g {
-  background-color: #FDF6E3 !important; 
-}
-.JdlKTdpMquftpMwwegZo:hover {
-  background-color: #FDE6A9 !important; 
-}
-*/
-
-/* Make the playlist icon rounder */ /*
-div[data-testid="playlist-image"] {
-  background: transparent !important;
-}
-div[data-testid="playlist-image"] div img {
-  border-radius: 25% !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important; 
-}
-*/
-/* Change the color of the playbutton underneath the playlist image */ /*
-.fipMme {
-  background-color: #FDC635 !important;
-}
-.fipMme span {
-  color: white !important;
-}
-button[aria-label="Remove from Your Library"] {
-  color: #F4767A !important;
-}
-div[data-testid="action-bar-row"] button[aria-haspopup="menu"] {
-  color:#D7994A !important;
-}
-*/
-
-/* Change the color of the song titles in a playlist */ /*
-div[data-testid="tracklist-row"] div[role="gridcell"] div {
-  color: #D7994A !important;
-}
-*/
-/* Change the color of the playing animation */ /*
-div[data-testid="tracklist-row"] div[role="gridcell"] div img{
-  filter: invert(0.6) sepia(10) saturate(10) hue-rotate(170deg) !important;
-}
-*/
-
-/* Home Section */ 
-/* Change the spotify logo */ /*
-div[role="banner"] a svg path {
-  filter: invert(0.3) sepia(10) saturate(5) hue-rotate(300deg) !important;
-}
-*/
-
-/* Change the shortcut icon images */ /*
-.Z35BWOA10YGn5uc9YgAp {
-  border-radius: 35px !important
-}
-.zXwER4Lsqq_e7fVVaPkZ {
-  border-radius: 50% !important;
-  box-shadow: none !important;
-}
-img[data-testid="shortcut-image"] {
-  border-radius: 50% !important;
-}
-.g3f_cI5usQX7ZOQyDtA9 {
-  background-color: #FDF6E3 !important; 
-}
-*/
-
-/* Back and Forward Buttons */ /*
-button[data-testid="top-bar-back-button"] {
-  background-color: #FDE6A9 !important;
-  color: #D7994A !important;
-}
-button[data-testid="top-bar-forward-button"] {
-  background-color: #FDE6A9 !important;
-  color: #D7994A !important;
-}
-.Root__main-view {
-  background-color: #FFC9C9 !important; 
-}
-section[data-testid="home-page"] {
-  background-color: #FFC9C9 !important; 
-}
-header {
-  background-color: #FFC9C9 !important; 
-  border-color: #FFC9C9 !important;
-}
-header div {
-  background-color: #FFC9C9 !important; 
-}
-*/
-
-/* Change the background color of the playlist cover cards */ /*
-.LunqxlFIupJw_Dkx6mNx{
-  background-color: var(--hovercolor) !important;
-}
-*/
-
-/* Change the color of the play buttons on the cover cards */ /*
-button[data-testid="play-button"] span {
-  background-color: none !important;
-  color: var(--hovercolor) !important;
-}
-div[data-testid="grid-container"] div div div a div {
-  color: #D7994A !important;
-}
-div[data-testid="grid-container"] div div div  {
-  color: #D7994A !important;
-}
-*/
-
-/* Changes within a playlist */ /*
-.xYgjMpAjE5XT05aRIezb {
-  background: none !important; 
-}
-.koyeY6AgGRPmyPITi7yO.qJOhHoRcFhHJpEQ2CwFT {
-  background-color: #FFC9C9 !important; 
-}
-.gHImFiUWOg93pvTefeAD.xYgjMpAjE5XT05aRIezb {
-  background-color: #FFC9C9 !important; 
-}
-div.contentSpacing {
-  background-color: #FFC9C9 !important; 
-}
-.dZPmmYYhskhqHJCAruvI.wTUruPetkKdWAR1dd6w4 div {
-  color: #D6984A !important;
-}
-nav[data-testid="footer-div"] {
-  background-color: #FFC9C9 !important; 
-}
-*/
-
-/* Footer Changes */ 
-/* Change the background-color of the footer */ /*
-footer[data-testid="now-playing-bar"] {
-  background-color: #FDE6A9 !important;
-  border-color: #FDE6A9 !important;
-}
-*/
-
-/* Remove the expand button */
-button[aria-label="Expand"] {
-  display: none !important;
-}
-/* Make the song icon circular */
-div.cover-art.shadow {
-  border-radius: 50% !important;
-}
-.cover-art div img[data-testid="cover-art-image"] {
-  border-radius: 50% !important;
-}
-
-/* Change the color of the song title in the bottom left */ /*
-div[data-testid="context-item-info-title"] span a {
-  color: #FDC636 !important;
-}
-div[data-testid="context-item-info-subtitles"] span a {
-  color: #FDC636 !important;
-}
-button[data-testid="pip-toggle-button"] {
-  color: #D7994A !important;
-}
-*/
-
-/* Change the color of the elapsed playback time and song duration*/ /*
-.playback-bar__progress-time-elapsed {
-  color: #D7994A !important;
-}
-div[data-testid="playback-duration"] {
-  color: #D7994A !important;
-}
-*/
-
-/* Change color of the progress bar */ /*markdown*/
-div[data-testid="progress-bar-background"] div div {
-  background-color: var(--hoverback) !important;
-}
-
-/*
-.player-controls__left button {
-  color: #FDC636 !important;
-}
-.player-controls__right button {
-  color: #FDC636 !important;
-}
-button[data-testid="control-button-playpause"] {
-  background-color: #FDC636 !important;
-  color: white !important; 
-}
-*/
-/* Change the color of the controls on the right side of the footer */ /*
-button[data-testid="lyrics-button"] {
-  color: black !important;
-}
-button[data-testid="lyrics-button"]:after{
-  background-color: black !important;
-}
-button[data-testid="control-button-queue"] {
-  color: black !important;
-}
-button[data-testid="control-button-queue"]:after {
-  background-color: black !important;
-}
-button[id="device-picker-icon-button"] {
-  color: black !important;
-}
-button[id="device-picker-icon-button"]:after {
-  background-color: black !important;
-}
-button[data-testid="volume-bar-toggle-mute-button"] {
-  color: black !important;
-}
-button[data-testid="fullscreen-mode-button"] {
-  color: black !important; 
-}
-*/
-
-/* Change the speaker button next to the playlist *//*
-.CCeu9OfWSwIAJqA49n84.Frn4juLXf6zInWBEFFzr {
-  color: #21BBFF !important;
-}
-*/
-/* Top Bar Content Color when scrolling down */ /*
-.Type__TypeElement-sc-goli3j-0.hulXhb.G7zO58ORUHxcUw0sXktM {
-  color: #D7994A !important; 
-}
-*/
-
-/* Footer Bar when listening on other devices *//*
-.Type__TypeElement-sc-goli3j-0.bNyYSN.gQoa8JTSpjSmYyABcag2.encore-bright-accent-set.T3hkVxXuSbCYOD2GIeQd {
-  background-color: #D7994A !important;
-  color: white !important;
-}
-.WFRr38dFOxh75JyzSTj5.encore-bright-accent-set.IbmaxRtjqCjqTBpFwCgw {
-  border-color: #FDE6A9 !important;
-}
-*/
 
 		`;
  if(das==true){
@@ -1695,8 +1360,8 @@ setInterval(function() {
     " .beQQox;",
     " color: #333 !important;}",
     // main now playing menu bar sub
-    ".Root__now-playing-bar {",
-    " tUwyjggD2n5KvEtP5z1B background: blur(30px); !important;",
+    ".Root__now-playing-bar, .nav-ylx .GD2gbRtcs5dOjMGAM_Y4 {",
+    " tUwyjggD2n5KvEtP5z1B, .nav-ylx .GD2gbRtcs5dOjMGAM_Y4 background: blur(30px); !important;",
     "    position: relative;",
     // change pos for menu bar layout
     "    height: 1px;",
@@ -1706,10 +1371,11 @@ setInterval(function() {
     "    padding-right: 10px !important;",
     "    margin-bottom: 50px;}",
     "",
-    // Now plaing menu bar - boxed size change
-    ".Root__now-playing-bar {",
+    // Now playing bar - boxed size change
+    " .Root__now-playing-bar, .nav-ylx .GD2gbRtcs5dOjMGAM_Y4 {",
     // see below nav bar colour for infomation on how to change this! (Markdown - SLS)
-    "    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
+    "background: linear-gradient(to right, rgba(55,192,203,0.1) 0%  ,rgba(25,192,203,0.1) 45% ,rgba(35,192,203,0.1) 55%,rgba(45,192,203,0.1) 65%, rgba(55,192,203,0.1) 100%) !important;",
+    // aqua kinda background: linear-gradient(to right, rgba(55,192,203,0.1) 0%  ,rgba(25,192,203,0.1) 45% ,rgba(35,192,203,0.1) 55%,rgba(45,192,203,0.1) 65%, rgba(55,192,203,0.1) 100%) !important;",
     // pink - background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
     "    border-left: 120px solid rgba(0,0,0,.01) !important;",
     "    border-radius: 50px !important;  ",
@@ -1719,19 +1385,17 @@ setInterval(function() {
     "    padding: 2px 4px;}",
     "",
     // Left side bar - boxed size change
-    ".Root__nav-bar {",
+    " .Root__nav-bar, .Root__left-sidebar.hasYLXSidebar, .BdcvqBAid96FaHAmPYw_ {",
     // left nav bar colour - do background: transparent for no colour, but i like that little pink hue.
-    "    background: linear-gradient(to right, rgba(255,192,203,0.1) 0%  ,rgba(255,192,203,0.1) 45% ,rgba(255,192,203,0.1) 55%,rgba(255,192,203,0.1) 65%, rgba(255,192,203,0.1) 100%) !important;",
-    "    border-left: -1px solid rgba(0,0,0,.2) !important;",
-    "    border-radius: 99px 99px 99px 99px !important;",
-    "    border-right: -1px solid rgba(255,192,203,0.3) !important;",
-    "    border-radius: 22px !important;  ",
-    "    box-shadow: -1px 10px 2px 0px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
+    "background: linear-gradient(to right, rgba(55,192,203,0.1) 0%  ,rgba(25,192,203,0.1) 45% ,rgba(35,192,203,0.1) 55%,rgba(45,192,203,0.1) 65%, rgba(55,192,203,0.1) 100%) !important;",
+    "    border-radius: 15px !important;  ",
+    "    box-shadow: 0px 4px 2px 0px rgba(0,0,0,1), -7px 5px 10px -7px rgba(0,0,0,1), 3px 3px 4px #000, 0px 0px 2px #000;",
+    "    left: 5px !important;",
     // moves the left bar up or down
     "    margin-top: 20px !important;",
     "    height: calc(100% - 25px) !important;",
     // if you want it fully off to the left side, remove overflow-x
-    "    overflow-x: none;}",
+    " } ",
     "",
     ".recently-played.navBar-group {",
     "    margin-top: 10px !important;",
@@ -1941,7 +1605,7 @@ setInterval(function() {
     //
     //
     "/* Now Playing Bar (NPB) */",
-    " .playback-bar *, .w699O0LgQRghXyl3bs9u, .TywOcKZEqNynWecCiATc, .p1ULRzPc4bD8eQ4T_wyp {",
+    " .playback-bar *, .w699O0LgQRghXyl3bs9u, .TywOcKZEqNynWecCiATc, .p1ULRzPc4bD8eQ4T_wyp, .nav-ylx .GD2gbRtcs5dOjMGAM_Y4 {",
     " --is-active-fg-color: #000 !important",
     " color: var(--arc-palette-cutoutColor, #000) !important",
     " --progress-bar-height: 6px !important",
@@ -2644,7 +2308,7 @@ setInterval(function() {
     " margin-right: 8px !important;",
     "}",
     "/* NOWPLAYING PLAY BUTTON */",
-    " .KAZD28usA1vPz5GVpm63, .doaMwz, .hkmxYW, [dir=ltr] .eSg4ntPU2KQLfpLGXAww>:first-child, .dlqYDF, .prGqQr33U0mG14TJ5V8a.BhKGkKPprp2wm9bvfRKG, .prGqQr33U0mG14TJ5V8a, .jqMzOG:hover .ButtonInner-sc-14ud5tc-0, .fipMme, .kGFDdV, .SPC4uzYXJmknkCGKpxHw, .No0A0v6U6vtqj_ybS1Cd, .Fyc_tPyPKyRIT_59VZ2B, .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .KIbfbFDao0SHpZsKoKZD, .PrhIVExjBkmjHt6Ea4XE, .bkFQH4uasL3pXqN9eDSi, .control-button--active, .jyHIqB, .TJ5Bjp6vgnWVbh6mGN0n, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
+    " .KAZD28usA1vPz5GVpm63, .doaMwz, .hkmxYW, [dir=ltr] .eSg4ntPU2KQLfpLGXAww>:first-child, .dlqYDF,  .prGqQr33U0mG14TJ5V8a.BhKGkKPprp2wm9bvfRKG, .prGqQr33U0mG14TJ5V8a, .jqMzOG:hover .ButtonInner-sc-14ud5tc-0, .fipMme, .kGFDdV, .SPC4uzYXJmknkCGKpxHw, .No0A0v6U6vtqj_ybS1Cd, .Fyc_tPyPKyRIT_59VZ2B, .hwP4Oum2PB765sb8jigI, .HVCCFeUiHVwZVv74p34a, .KIbfbFDao0SHpZsKoKZD, .PrhIVExjBkmjHt6Ea4XE, .bkFQH4uasL3pXqN9eDSi, .control-button--active, .jyHIqB, .TJ5Bjp6vgnWVbh6mGN0n, .Btg2qHSuepFGBG6X0yE, .jOKLc29vP0Bz1K0TsDtX, .NoOAOv6U6vtqj_ybS1Cd, .NoOAOv6U6vtqj_ybS1Cd, .rRF_r7EyCHjZv058JACi, .collection-active-icon, .collection-icon, .home-active-icon, .home-icon, .make-music-active-icon, .make-music-icon, .premiumSpotifyIcon, .search-active-icon, .search-icon, .TywOcKZEqNynWecCiATc, .playback-bar, .control-button, .control-button--active, .INitzTSjokOMEJOc6P2H, .jOKLc29vP0Bz1K0TsDtX, .uWvwXlS0Da1bWsRX6KOw, .cWIysU, .NdVm10_yLWkkgq87jOMk, .CCeu9OfWSwIAJqA49n84, .Svg-sc-ytk21e-0 uPxdw, .ShMHCGsT93epRGdxJp2w Ss6hr6HYpN4wjHJ9GHmi, .T0anrkk_QA4IAQL29get, .connect-device-list-container, .control-button-heart, .encore-dark-theme .encore-bright-accent-set, .eSg4ntPU2KQLfpLGXAww, .dpREpp, .CmkY1Ag0tJDfnFXbGgju, .wC9sIed7pfp47wZbmU6m, .control-button--active, .eJHlti, .Nd_DeCpszONzyaLe5Wd1 {",
     "     animation: rainbow-text 30s infinite;",
     "     background-color: transparent;",
     "     cursor: auto;",
@@ -2867,3 +2531,4 @@ function HideDownloads() {
     observer.observe(mainView, { attributes: true, childList: true, subtree: true });
   }, 7000);
 }
+
