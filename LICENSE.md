@@ -16,4 +16,4 @@ THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Further Information
 
-For more information about the Unlicense, please refer to the [Unlicense website](https://unlicense.org). The complete source code for this Chrome extension can be found on [GitHub](https://github.com/your-username/your-repo).
+For more information about the Unlicense, please refer to the [Unlicense website](https://unlicense.org). The complete source code for this Chrome extension can be found on [GitHub](https://github.com/senpaihunters/spoton).
