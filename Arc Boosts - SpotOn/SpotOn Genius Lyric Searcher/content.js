@@ -4,7 +4,7 @@
 // @icon          https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20logo.png?raw=true
 // @description	  Apart of the SpotOn library, this one allows for you to connect to Genius.com and search lyrics if Spotify doesn't have it + more.
 // @author        Kami
-// @version       0.7
+// @version       1.3
 // @match         https://open.spotify.com/*
 // @match         https://genius.com/songs/new
 // @require       https://greasyfork.org/scripts/406698-geniuslyrics/code/GeniusLyrics.js
@@ -23,16 +23,15 @@
 // @copyright     2022, Kami
 // ==/UserScript==
 
-// Paste this into a userscript manager!!!
 
-(function GeniusLyricSearch() {
+
 'use strict'
 
 const scriptName = 'No Spotify Lyrics? Then Lets Check Genius!'
 let genius
 let resizeLeftContainer
 let resizeContainer
-let optionCurrentSize = 20.0
+let optionCurrentSize = 30.0
 GM.getValue('optioncurrentsize', optionCurrentSize).then(function (value) {
   optionCurrentSize = value
 })
@@ -47,7 +46,7 @@ function alertUI (text, buttons = { OK: true }) {
     const bg = document.body.appendChild(document.createElement('div'))
     bg.style.display = 'block'
     bg.style.position = 'fixed'
-    bg.style.backgroundColor = 'rgba(0,0,0,1)'
+    bg.style.backgroundColor = 'rgba(0,0,0,0.5)'
     bg.style.top = '0'
     bg.style.left = '0'
     bg.style.width = '100%'
@@ -69,7 +68,7 @@ function alertUI (text, buttons = { OK: true }) {
     div.style.height = 'auto'
     div.style.textAlign = 'center'
     div.style.fontSize = '20px'
-    div.style.lineHeight = '1'
+    div.style.lineHeight = '1.5'
     div.style.fontFamily = 'sans-serif'
     div.style.color = 'black'
     div.style.wordBreak = 'break-word'
@@ -110,25 +109,14 @@ function confirmUI (text) {
 
 function setFrameDimensions (container, iframe, bar) {
   iframe.style.width = container.clientWidth - 6 + 'px'
-  try {
-    iframe.style.height = (document.querySelector('.Root__nav-bar nav,nav.Root__nav-bar').clientHeight + document.querySelector('.Root__now-playing-bar').clientHeight - bar.clientHeight) + 'px'
-  } catch (e) {
-    console.error(e)
-    iframe.style.height = document.documentElement.clientHeight + 'px'
-  }
+  iframe.style.height = document.documentElement.clientHeight - bar.clientHeight - 15 + 'px'
 }
 
 function onResize () {
   const iframe = document.getElementById('lyricsiframe')
   if (iframe) {
-    iframe.style.width = document.getElementById('lyricscontainer').clientWidth - 1 + 'px'
-    try {
-      iframe.style.height = (document.querySelector('.Root__nav-bar nav,nav.Root__nav-bar').clientHeight + document.querySelector('.Root__now-playing-bar').clientHeight - document.querySelector('.lyricsnavbar').clientHeight) + 'px'
-    } catch (e) {
-      console.error(e)
-      iframe.style.height = document.documentElement.clientHeight + 'px'
-    }
-  }
+    setFrameDimensions(document.getElementById('lyricscontainer'), document.getElementById('lyricsiframe'), document.querySelector('.lyricsnavbar'))
+   }
 }
 function initResize () {
   window.addEventListener('mousemove', onMouseMoveResize)
@@ -150,13 +138,16 @@ function stopResize () {
 function getCleanLyricsContainer () {
   document.querySelectorAll('.loadingspinner').forEach((spinner) => spinner.remove())
 
-  const topContainer = document.querySelector('.Root__top-container')
+  const topContainer = document.querySelector('div.Root')
   if (!document.getElementById('lyricscontainer')) {
     topContainer.style.width = (100 - optionCurrentSize) + '%'
     topContainer.style.float = 'left'
+    if (topContainer.style.getPropertyValue('--panel-gap')) {
+      topContainer.style.marginRight = '-' + topContainer.style.getPropertyValue('--panel-gap')
+    }
     resizeContainer = document.createElement('div')
     resizeContainer.id = 'lyricscontainer'
-    resizeContainer.style = 'min-height: 100%; width: ' + optionCurrentSize + '%; position: relative; z-index: 1; float:left;background-color: rgb(80, 80, 80);background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgb(18, 18, 18))'
+    resizeContainer.style = 'min-height: 100%; width: ' + optionCurrentSize + '%; position: relative; z-index: 1; float:left;background:black'
     topContainer.parentNode.insertBefore(resizeContainer, topContainer.nextSibling)
   } else {
     resizeContainer = document.getElementById('lyricscontainer')
@@ -175,7 +166,6 @@ function onNewSongPlaying () {
 
 async function onNoResults (songTitle, songArtistsArr) {
   const showSpotifyLyricsEnabled = await GM.getValue('show_spotify_lyrics', true)
-  const submitSpotifyLyricsEnabled = await GM.getValue('submit_spotify_lyrics', true)
   const submitSpotifyLyricsIgnored = JSON.parse(await GM.getValue('submit_spotify_lyrics_ignore', '[]'))
 
   const key = songTitle + ' - ' + songArtistsArr.join(', ')
@@ -186,36 +176,55 @@ async function onNoResults (songTitle, songArtistsArr) {
   }
 
   if (showSpotifyLyricsEnabled && document.querySelector('[data-testid="lyrics-button"]')) {
-    // Open lyrics if they are not already open
-    if (!document.querySelector('[data-testid="fullscreen-lyric"]')) {
-      document.querySelector('[data-testid="lyrics-button"]').click()
-    }
-    // Wait one second for lyrics to open
-    window.setTimeout(async function () {
-      const lyrics = Array.from(document.querySelectorAll('[data-testid="fullscreen-lyric"]')).map(div => div.textContent).join('\n')
-      if (submitSpotifyLyricsEnabled && lyrics && lyrics.trim()) {
-        // Add this song to the ignored list so we don't ask again
-        GM.getValue('submit_spotify_lyrics_ignore', '[]').then(async function (s) {
-          const arr = JSON.parse(s)
-          arr.push(key)
-          await GM.setValue('submit_spotify_lyrics_ignore', JSON.stringify(arr))
-        })
-        // Ask user if they want to submit the lyrics
-        closeModalUIs()
-        if (await confirmUI(`Genius.com doesn't have the lyrics for this song but Spotify has the lyrics. Would you like to submit the lyrics from Spotify to Genius.com?\n(You need a Genius.com account to do this)\n${songTitle} by ${songArtistsArr.join(', ')}`)) {
-          submitLyricsToGenius(songTitle, songArtistsArr, lyrics)
-        } else {
-          // Once (globally) show the suggestion to disable this feature
-          GM.getValue('suggest_to_disable_submit_spotify_lyrics', true).then(async function (suggestToDisable) {
-            if (suggestToDisable) {
-              alertUI('You can disable this suggestion in the options of the script.')
-              GM.setValue('suggest_to_disable_submit_spotify_lyrics', false)
-            }
-          })
-        }
-      }
-    }, 1000)
+    openAndAskToSubmitSpotifyLyrics(songTitle, songArtistsArr, false)
   }
+}
+
+async function openAndAskToSubmitSpotifyLyrics (songTitle, songArtistsArr, forceSubmit = false) {
+  const submitSpotifyLyricsEnabled = forceSubmit || (await GM.getValue('submit_spotify_lyrics', true))
+  const key = songTitle + ' - ' + songArtistsArr.join(', ')
+
+  // Open lyrics if they are not already open
+  if (!document.querySelector('[data-testid="fullscreen-lyric"]')) {
+    document.querySelector('[data-testid="lyrics-button"]').click()
+  }
+  // Wait one second for lyrics to open
+  window.setTimeout(async function () {
+    const lyrics = Array.from(document.querySelectorAll('[data-testid="fullscreen-lyric"]')).map(div => div.textContent).join('\n')
+    if (submitSpotifyLyricsEnabled && lyrics && lyrics.trim()) {
+      // Add this song to the ignored list so we don't ask again
+      GM.getValue('submit_spotify_lyrics_ignore', '[]').then(async function (s) {
+        const arr = JSON.parse(s)
+        arr.push(key)
+        await GM.setValue('submit_spotify_lyrics_ignore', JSON.stringify(arr))
+      })
+      // Ask user if they want to submit the lyrics
+      closeModalUIs()
+      if (forceSubmit || (await confirmUI(`Genius.com doesn't have the lyrics for this song but Spotify has the lyrics. Would you like to submit the lyrics from Spotify to Genius.com?\n(You need a Genius.com account to do this)\n${songTitle} by ${songArtistsArr.join(', ')}`))) {
+        submitLyricsToGenius(songTitle, songArtistsArr, lyrics)
+      } else {
+        // Once (globally) show the suggestion to disable this feature
+        GM.getValue('suggest_to_disable_submit_spotify_lyrics', true).then(async function (suggestToDisable) {
+          if (suggestToDisable) {
+            alertUI('You can disable this suggestion in the options of the script.')
+            GM.setValue('suggest_to_disable_submit_spotify_lyrics', false)
+          }
+        })
+       }
+    }
+  }, 1000)
+}
+
+function submitLyricsFromMenu () {
+  closeModalUIs()
+
+  const [songTitle, songArtistsArr] = getSongTitleAndArtist()
+
+  if (songTitle && document.querySelector('[data-testid="lyrics-button"]')) {
+    openAndAskToSubmitSpotifyLyrics(songTitle, songArtistsArr, true)
+  } else {
+    alertUI('Spotify lyrics are not available for this song.')
+ }
 }
 
 function submitLyricsToGenius (songTitle, songArtistsArr, lyrics) {
@@ -224,7 +233,7 @@ function submitLyricsToGenius (songTitle, songArtistsArr, lyrics) {
     songTitle,
     songArtistsArr
   })).then(function () {
-    GM_openInTab('https://genius.com/songs/new')
+    GM_openInTab('https://genius.com/songs/new', { active: true })
   })
 }
 
@@ -248,7 +257,7 @@ function hideLyrics () {
   document.querySelectorAll('.loadingspinner').forEach((spinner) => spinner.remove())
   if (document.getElementById('lyricscontainer')) {
     document.getElementById('lyricscontainer').parentNode.removeChild(document.getElementById('lyricscontainer'))
-    const topContainer = document.querySelector('.Root__top-container')
+    const topContainer = document.querySelector('div.Root')
     topContainer.style.width = '100%'
     topContainer.style.removeProperty('float')
   }
@@ -268,8 +277,12 @@ function listSongs (hits, container, query) {
     ev.preventDefault()
     if (query) {
       showSearchField(query)
-    } else if (genius.current.artists) {
+    } else if (genius.current.compoundTitle) {
+      showSearchField(genius.current.compoundTitle.replace('\t', ' '))
+    } else if (genius.current.artists && genius.current.title) {
       showSearchField(genius.current.artists + ' ' + genius.current.title)
+    } else if (genius.current.artists) {
+      showSearchField(genius.current.artists)
     } else {
       showSearchField()
     }
@@ -277,7 +290,8 @@ function listSongs (hits, container, query) {
 
   const separator = document.createElement('span')
   separator.setAttribute('class', 'second-line-separator')
-  separator.setAttribute('style', 'padding:0px 3px')
+  separator.setAttribute('style', 'padding:0px 10px')
+
   separator.appendChild(document.createTextNode('•'))
 
   // Hide button
@@ -293,7 +307,7 @@ function listSongs (hits, container, query) {
   const trackhtml = `
 <div class="geniushiticon">
   <div class="geniushiticonout">
-    <span style="color:silver;font-size:1.0em">🅖</span>
+    <span style="color:silver;font-size:2.0em">🅖</span>
   </div>
   <div class="geniushiticonover">
     <span style="opacity:0.7;font-size:1.5em">📄</span>
@@ -319,10 +333,9 @@ function listSongs (hits, container, query) {
 
   const ol = container.querySelector('ol.tracklist')
   const searchresultsLengths = hits.length
-  const title = genius.current.title
-  const artists = genius.current.artists
+  const compoundTitle = genius.current.compoundTitle
   const onclick = function onclick () {
-    genius.f.rememberLyricsSelection(title, artists, this.dataset.hit)
+    genius.f.rememberLyricsSelection(compoundTitle, null, this.dataset.hit)
     genius.f.showLyrics(JSON.parse(this.dataset.hit), searchresultsLengths)
   }
   hits.forEach(function forEachHit (hit) {
@@ -340,32 +353,38 @@ function listSongs (hits, container, query) {
       geniushitname.classList.add('runningtext')
     }
   })
+  if (hits.length === 0) {
+    const li = ol.appendChild(document.createElement('li'))
+    li.style.fontSize = 'larger'
+    li.innerHTML = 'No results found'
+  }
 }
 
-const songTitleQuery = 'a[data-testid="nowplaying-track-link"],.Root__now-playing-bar .ellipsis-one-line a[href^="/track/"],.Root__now-playing-bar .ellipsis-one-line a[href^="/album/"],.Root__now-playing-bar .standalone-ellipsis-one-line a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/track/"]'
+const songTitleQuery = 'a[data-testid="nowplaying-track-link"],.Root footer .ellipsis-one-line a[href^="/track/"],.Root footer .ellipsis-one-line a[href^="/album/"],.Root footer .standalone-ellipsis-one-line a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/album/"],[data-testid="context-item-info-title"] a[href^="/track/"]'
 
-function addLyrics (force, beLessSpecific) {
+function getSongTitleAndArtist () {
   let songTitle = document.querySelector(songTitleQuery).innerText
   songTitle = genius.f.cleanUpSongTitle(songTitle)
+  const songArtistsArr = []
+  document.querySelectorAll('.Root footer .ellipsis-one-line a[href^="/artist/"],.Root footer .standalone-ellipsis-one-line a[href^="/artist/"],a[data-testid="context-item-info-artist"][href^="/artist/"],[data-testid="context-item-info-artist"] a[href^="/artist/"]').forEach((e) => songArtistsArr.push(e.innerText))
+  return [songTitle, songArtistsArr]
+}
 
+function addLyrics (force, beLessSpecific) {
   let musicIsPlaying = false
-  if (document.querySelector('.now-playing-bar .player-controls__buttons .control-button.control-button--circled')) {
-    musicIsPlaying = document.querySelector('.now-playing-bar .player-controls__buttons .control-button.control-button--circled').className.toLowerCase().indexOf('pause') !== -1
-  } else if (document.querySelector('.Root__now-playing-bar .player-controls__buttons button')) {
-    document.querySelectorAll('.Root__now-playing-bar .player-controls__buttons button').forEach(function (button) {
+  if (document.querySelector('.Root footer .player-controls__buttons button')) {
+    document.querySelectorAll('.Root footer .player-controls__buttons button').forEach(function (button) {
       if (button.getAttribute('aria-label') === 'Pause' ||
           button.innerHTML.indexOf('M3 2h3v12H3zM10 2h3v12h-3z') !== -1 ||
           button.innerHTML.indexOf('M3 2h3v12H3zm7 0h3v12h-3z') !== -1 ||
-          button.innerHTML.indexOf('M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0') !== -1
+          button.innerHTML.indexOf('M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0') !== -1 ||
+          button.innerHTML.indexOf('M2.7 1a.7.7 0 0 0-.7.7v12.6a') !== -1
       ) {
         musicIsPlaying = true
       }
     })
   }
-
-  const songArtistsArr = []
-  document.querySelectorAll('.Root__now-playing-bar .ellipsis-one-line a[href^="/artist/"],.Root__now-playing-bar .standalone-ellipsis-one-line a[href^="/artist/"],a[data-testid="context-item-info-artist"][href^="/artist/"],[data-testid="context-item-info-artist"] a[href^="/artist/"]').forEach((e) => songArtistsArr.push(e.innerText))
-
+  const [songTitle, songArtistsArr] = getSongTitleAndArtist()
   genius.f.loadLyrics(force, beLessSpecific, songTitle, songArtistsArr, musicIsPlaying)
 }
 
@@ -373,7 +392,7 @@ let lastPos = null
 function updateAutoScroll () {
   let pos = null
   try {
-    const els = document.querySelectorAll('.Root__now-playing-bar [data-testid="playback-position"],.Root__now-playing-bar [data-testid="playback-duration"]')
+    const els = document.querySelectorAll('.playback-bar [data-testid="playback-position"],.playback-bar [data-testid="playback-duration"]')
     if (els.length !== 2) {
       throw new Error(`Expected 2 playback elements, found ${els.length}`)
     }
@@ -382,12 +401,23 @@ function updateAutoScroll () {
   } catch (e) {
     // Could not parse current song position
     pos = null
-    console.debug(`Could not parse song position: ${e}`)
   }
   if (pos != null && !Number.isNaN(pos) && lastPos !== pos) {
     genius.f.scrollLyrics(pos)
     lastPos = pos
   }
+}
+
+function startSearch (query, container) {
+  genius.f.searchByQuery(query, container, (res) => {
+    if (res && res.status === 200) {
+      listSongs(res.hits, container, query)
+    } else {
+      const div = container.appendChild(document.createElement('div'))
+      div.classList.add('geniushit')
+      div.innerHTML = `Error:<pre>${JSON.stringify(res, null, 2)}</pre>`
+    }
+  })
 }
 
 function showSearchField (query) {
@@ -415,21 +445,28 @@ function showSearchField (query) {
   input.placeholder = 'Search genius.com...'
   if (query) {
     input.value = query
+  } else if (genius.current.compoundTitle) {
+    input.value = genius.current.compoundTitle.replace('\t', ' ')
+  } else if (genius.current.artists && genius.current.title) {
+    input.value = genius.current.artists + ' ' + genius.current.title
   } else if (genius.current.artists) {
     input.value = genius.current.artists
   }
+  input.addEventListener('focus', function onSearchLyricsButtonFocus () {
+    this.style.color = 'black'
+  })
   input.addEventListener('change', function onSearchLyricsButtonClick () {
     this.style.color = 'black'
     if (input.value) {
-      genius.f.searchByQuery(input.value, b)
+      startSearch(input.value, b)
     }
   })
   input.addEventListener('keyup', function onSearchLyricsKeyUp (ev) {
     this.style.color = 'black'
-    if (ev.keyCode === 13) {
+    if (ev.key === 'Enter') {
       ev.preventDefault()
       if (input.value) {
-        genius.f.searchByQuery(input.value, b)
+        startSearch(input.value, b)
       }
     }
   })
@@ -446,8 +483,7 @@ function addLyricsButton () {
   }
   const b = document.createElement('div')
   b.setAttribute('id', 'showlyricsbutton')
-    // change the size of the 🅖 icon off to the right hand side
-  b.setAttribute('style', 'position:absolute; top: 0px; right:0px; font-size:10px; color:rgb(255, 192, 203, 0.9); cursor:pointer; z-index:3000;')
+  b.setAttribute('style', 'position:absolute; top: 0px; right:0px; font-size:14px; color:#ffff64; cursor:pointer; z-index:3000;')
   b.setAttribute('title', 'Load lyrics from genius.com')
   b.appendChild(document.createTextNode('🅖'))
   b.addEventListener('click', function onShowLyricsButtonClick () {
@@ -459,7 +495,7 @@ function addLyricsButton () {
   })
   document.body.appendChild(b)
   if (b.clientWidth < 10) {
-    b.setAttribute('style', 'position:absolute; top: 0px; right:0px; font-size:14px; background-color:rgb(255, 192, 203, 0.9); color:rgb(255, 192, 203, 0.9); cursor:pointer; z-index:3000;border:1px solid #ffff64;border-radius: 100%;padding: 0px 5px;font-size: 10px;')
+    b.setAttribute('style', 'position:absolute; top: 0px; right:0px; font-size:14px; background-color:#0007; color:#ffff64; cursor:pointer; z-index:3000;border:1px solid #ffff64;border-radius: 100%;padding: 0px 5px;font-size: 10px;')
     b.innerHTML = 'G'
   }
 }
@@ -511,7 +547,7 @@ function configSubmitSpotifyLyrics (div) {
 function addCss () {
   document.head.appendChild(document.createElement('style')).innerHTML = `
   .lyricsiframe {
-    opacity:0.5;
+    opacity:0.1;
     transition:opacity 2s;
     margin:0px;
     padding:0px;
@@ -522,6 +558,14 @@ function addCss () {
     left:100px;
     cursor:progress
   }
+  .lyricsnavbar {
+    background-color: rgb(80, 80, 80);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgb(18, 18, 18));
+    border-radius: 8px 8px 0px 0px;
+    margin: 8px 0px 0px 0px;
+    padding:0px 10px;
+  }
+
   .lyricsnavbar span,.lyricsnavbar a:link,.lyricsnavbar a:visited {
     color: rgb(179, 179, 179);
     text-decoration:none;
@@ -531,15 +575,20 @@ function addCss () {
     color:white;
     text-decoration:none;
   }
-  .geniushits li {
+  .lyricsnavbar .second-line-separator,.lyricsnavbar .second-line-separator:hover {
+    padding:0px 10px !important;
+    color: transparent;
+    vertical-align: text-bottom;
+  }
+  .geniushits li.tracklist-row {
     cursor:pointer
   }
-  .geniushits li:hover {
+  .geniushits li.tracklist-row:hover {
     background-color: #fff5;
     border-radius: 5px;
   }
   .geniushits li .geniushiticonout {
-    display:inline-block
+    display:inline-block;
   }
   .geniushits li:hover .geniushiticonout {
     display:none
@@ -548,12 +597,14 @@ function addCss () {
     display:none
   }
   .geniushits li:hover .geniushiticonover {
-    display:inline-block
-  }
+    display:inline-block;
+    padding-top:5px;
+ }
   .geniushiticon {
     width:25px;
     height:2em;
     display:inline-block;
+    vertical-align: top;
   }
   .geniushitname {
     display:inline-block;
@@ -574,9 +625,9 @@ function addCss () {
     opacity: 0.7
   }
   .geniushitname .geniusbadge {
-    color: rgb(255, 192, 203);
-    background-color: rgb(255, 192, 203);
-    border-radius: 3px;
+    color: #121212;
+    background-color: hsla(0,0%,100%,.6);
+    border-radius: 2px;
     text-transform: uppercase;
     font-size: 9px;
     line-height: 10px;
@@ -598,8 +649,25 @@ function addCss () {
   `
 }
 
+function styleIframeContent () {
+  if (genius.option.themeKey === 'genius' || genius.option.themeKey === 'geniusReact') {
+    genius.style.enabled = true
+    genius.style.setup = () => {
+      genius.style.setup = null // run once; set variables to genius.styleProps
+      if (genius.option.themeKey !== 'genius' && genius.option.themeKey !== 'geniusReact') {
+        genius.style.enabled = false
+        return false
+      }
+      return true
+    }
+  } else {
+    genius.style.enabled = false
+    genius.style.setup = null
+  }
+}
+
 function main () {
-  if (document.querySelector('.Root__now-playing-bar .playback-bar') && document.querySelector(songTitleQuery)) {
+  if (document.querySelector('.Root footer .playback-bar') && document.querySelector(songTitleQuery)) {
     if (genius.option.autoShow) {
       addLyrics()
     } else {
@@ -607,11 +675,16 @@ function main () {
     }
   }
 }
-    window.setInterval(function removeAds () {
-  // Remove "premium" button
+
+if (document.location.hostname === 'genius.com') {
+  // https://genius.com/songs/new
+  fillGeniusForm()
+} else {
+  window.setInterval(function removeAds () {
+ // Remove "premium" button
     try {
-      const button = document.querySelector('.Root__top-bar header>button')
-      if (button && button.outerHTML.toLowerCase().indexOf('premium') !== -1) {
+      const button = document.querySelector('button[class^=Button][aria-label*=Premium]')
+      if (button) {
         button.style.display = 'none'
       }
     } catch (e) {
@@ -621,8 +694,21 @@ function main () {
     try {
       const button = document.querySelector('a[href*="/download"]')
       if (button) {
-        button.parentNode.style.display = 'none'
+        button.style.display = 'none'
       }
+    } catch (e) {
+      console.warn(e)
+    }
+    // Remove iframe "GET 3 MONTHS FREE"
+    try {
+      const iframe = document.querySelector('iframe[data-testid="inAppMessageIframe"]')
+      if (iframe && iframe.contentDocument && iframe.contentDocument.body) {
+        iframe.contentDocument.body.querySelectorAll('button').forEach(function (button) {
+          if (button.parentNode.innerHTML.indexOf('Dismiss_action') !== -1) {
+            button.click()
+          }
+        })
+     }
     } catch (e) {
       console.warn(e)
     }
@@ -656,10 +742,14 @@ function main () {
     onNewSongPlaying
   })
 
+  genius.option.enableStyleSubstitution = true
+  genius.option.cacheHTMLRequest = true // 1 lyrics page consume 2XX KB [OR 25 ~ 50KB under ]
+
+  genius.onThemeChanged.push(styleIframeContent)
+
   GM.registerMenuCommand(scriptName + ' - Show lyrics', () => addLyrics(true))
   GM.registerMenuCommand(scriptName + ' - Options', () => genius.f.config())
-  window.setInterval(updateAutoScroll, 7000)
+  GM.registerMenuCommand(scriptName + ' - Submit lyrics to Genius', () => submitLyricsFromMenu())
+  window.setInterval(updateAutoScroll, 1000)
 }
-)();
 
-/* END */
