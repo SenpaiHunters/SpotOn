@@ -19,11 +19,9 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 
 ***
 
-
-
 <h1 align="center">
 
-[![Top Langs Used](https://github-readme-stats.vercel.app/api/top-langs/?username=senpaihunters&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+
   
   
 ![GitHub watchers](https://img.shields.io/github/watchers/senpaihunters/spoton?style=social)
@@ -67,9 +65,16 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 | ![After](https://github.com/SenpaiHunters/SpotOn/assets/103985728/16cae3be-90b3-4929-978f-6f509c194734)|
 
 
-<h3 align="center"> SpotOn get's updated reguarly, so this may change or be updated to look more pleasing. </h3>
-
-
+<h3 align="center">
+  
+  
+> SpotOn get's updated reguarly, so this may change or be updated to look more pleasing.
+  
+  
+  </h3>
+  
+  
+  
 <h2 align="center">Features</h2>
 
 | Feature | Description |
@@ -215,8 +220,7 @@ If you encounter any issues with SpotOn, please try the following troubleshootin
 
 
 
-
-<h2 align="center">Contributing</h2>
+<h2 align="center">📝 Contributing</h2>
 
 If you would like to contribute to SpotOn, please follow these guidelines:
 
