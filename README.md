@@ -62,7 +62,7 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 
 | After |
 | --- | 
-| ![After](https://github.com/SenpaiHunters/SpotOn/assets/103985728/16cae3be-90b3-4929-978f-6f509c194734)|
+| ![SCR-20230612-bqva](https://github.com/SenpaiHunters/SpotOn/assets/103985728/9f279630-c4c9-4a09-87bf-2b7a9fb3d919) |
 
 
 <h3 align="center">
@@ -70,6 +70,8 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
   
 > SpotOn get's updated reguarly, so this may change or be updated to look more pleasing.
   
+  
+>> You can town done some features to suit your taste. 
   
   </h3>
   
