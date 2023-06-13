@@ -107,7 +107,8 @@ function skin(exe, anim, das, tlyr) {
      }
 
      /*- Now Playing Bar (NPB) -*/
-     .spotify__container--is-web #main .nav-ylx [data-testid="now-playing-bar"] {
+     .spotify__container--is-web #main .nav-ylx [data-testid="now-playing-bar"],
+     .JG5J9NWJkaUO9fiKECMA {
           background: var(--now-playing-color) !important;
           background-image: var(--bg-img) !important;
           background-size: cover !important;
@@ -234,6 +235,23 @@ function skin(exe, anim, das, tlyr) {
             display: none !important;
         }
     
+    /* UI fix */
+    .ZQftYELq0aOsg6tPbVbV {
+      background: none !important;
+    }
+    
+    .jEMA2gVoLgPQqAFrPhFw {
+      background: none !important;
+    }
+    
+    .PHgyArRLVFknlaOm31ID {
+      background: none !important;
+    }
+    
+    [data-testid="root"] [aria-label="Top\ bar\ and\ user\ menu"] span:has(.ellipsis-one-line) {
+      display: none !important;
+    }
+    
 
     /* Keyboard shortcuts */
     [aria-label="Keyboard\ Shortcuts"] > :first-child:has([aria-label="Close"] svg) {
@@ -264,7 +282,8 @@ function skin(exe, anim, das, tlyr) {
 
 
     /* Nav Bar (NB) */
-    .no-focus-outline #main .nav-ylx [aria-label="Main"] {
+    .no-focus-outline #main .nav-ylx [aria-label="Main"],
+    .BdcvqBAid96FaHAmPYw_, .sqKERfoKl4KwrtHqcKOd {
          background: var(--nav-bar-color) !important;
          background-image: var(--bg-img) !important;
          background-size: cover !important;
