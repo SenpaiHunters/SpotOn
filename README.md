@@ -1,9 +1,5 @@
 <h1 align="center">
-
-  
 <img width="279" alt="235338288-be1251b1-0074-4560-9c02-bff7bacef367" src="https://user-images.githubusercontent.com/103985728/236811543-fa90aa8e-34cf-44d6-a43f-b8fe5a74a819.png">
-
-
 </h1>
 
 SpotOn is a full overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
@@ -11,13 +7,10 @@ SpotOn is a full overhaul of the Spotify Web Player that adds various features a
 
 
 <h1 align="center"> Introduction & Use-case</h1>
-
-SpotOn is a project that aims to improve the Spotify Web Player by adding new features and improving the user interface. With SpotOn, you can enjoy various animations, a new font, an enchanced Nav & Now Playing bars, a dynaminc theme, rainbrow controls, and many other improvements.
-
-SpotOn is an excellent option for Spotify Web Player users who want to enhance their music listening experience. With SpotOn, there are multiple ways of improving Spotify, we have SpotOn Righter, which moves the Nav Bar to the right hand side, SpotOn SonyCopy, SpotOn Speeder and many other improvements (+ additions). SpotOn can make your Spotify Web Player experience more engaging, visually appealing, and user-friendly, all in small packages aimed to please.
+SpotOn is a project that enhances the Spotify Web Player by adding new features, improving the user interface, and offering various enhancements. It includes animations, a new font, enhanced Nav & Now Playing bars, a dynamic theme, rainbow controls, and more. With SpotOn, Spotify Web Player users can enhance their music listening experience through options like SpotOn Righter (moves Nav Bar to the right), SpotOn SonyCopy, SpotOn Speeder, and other improvements. It aims to make the Spotify Web Player more engaging, visually appealing, and user-friendly with small packages of enhancements.
 
 
-***
+---
 
 <h1 align="center">
 
@@ -30,28 +23,17 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 ![GitHub contributors](https://img.shields.io/github/contributors/senpaihunters/spoton)
 ![GitHub all releases](https://img.shields.io/github/downloads/senpaihunters/spoton/total)
   
-  </h1>
-
-
+</h1>
 
 
 ![SpotOn](https://socialify.git.ci/SenpaiHunters/SpotOn/image?description=1&descriptionEditable=SpotOn%20is%20a%20full%20overhaul%20of%20Spotify%20Web%20Player%2C%20read%20the%20GitHub%20for%20full%20features.&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
 
 
-<details>
-  <summary><strong>Table of Contents</strong></summary>
-
--  [Introduction](#introduction)
--  [Screenshots](#-what-does-spoton-look-like)
--  [Installation](#installation)
--  [Features](#features)
--  [Browser Support](#browser-support)
--  [Contributing](#contributing)
-
-</details>
 
 
-***
+---
+
+
 <h1 align="center"> What does SpotOn look like?</h1>
 
 
@@ -71,18 +53,41 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 > SpotOn get's updated reguarly, so this may change or be updated to look more pleasing.
   
   
->> You can town done some features to suit your taste. 
+> You can tone done some features to suit your taste. 
+  
   
   </h3>
+
+
+
+
+<h2 align="center"> More SpotOn Examples can be found below </h2>
+
+<h3 align="center">
+<details> 
+  
+![SCR-20230618-rpjn](https://github.com/SenpaiHunters/SpotOn/assets/103985728/bfc99f7a-073f-4a5d-9a21-76c0991a19c8)
+
+![SCR-20230612-qsot](https://github.com/SenpaiHunters/SpotOn/assets/103985728/4e831df1-dff3-45d2-ac0d-1236b03b9218)
+
+![SCR-20230607-rtla](https://github.com/SenpaiHunters/SpotOn/assets/103985728/718fac48-c2bf-483e-b846-9a809d049fdc)
+
+![SCR-20230530-sioy](https://github.com/SenpaiHunters/SpotOn/assets/103985728/a13b1035-3954-408d-a6ca-13f3ef63cf97)
+
+![SCR-20230609-nssy](https://github.com/SenpaiHunters/SpotOn/assets/103985728/b96953e0-7919-4eb8-898d-5722278e6ea2)  
+
+</details>
+</h3>
   
   
+  ***
   
 <h2 align="center">Features</h2>
 
 | Feature | Description |
 | --- | --- |
 | Animations! | Various animations added, including hover animation, spinning albums, skip/reverse animations, and playlist hover animation and more! |
-| New font (Akronim) | A new font added, may appear different in other browsers. |
+| New font (Akr) | A new font added, may appear different in other browsers. |
 | Overhauled Nav Bar (NB) | NB is now pushed out from whole menu, rounded, has album image within, and rainbow controls added. |
 | Overhauled Now Playing Bar (NPB) | NPB now has variable size, rounded corners, black haze, full rainbow controls, smaller and rounded album art, reduced overall size, and removed background on `.playback-bar` as well as changed progress bars |
 | Hide the Nav Bar! | The Nav Bar can now be hidden by clicking on the line that pops up when cursor is moved to the edge of the Nav Bar. |
@@ -94,9 +99,9 @@ SpotOn is an excellent option for Spotify Web Player users who want to enhance t
 | Capitalized initial letter | First letter of each word is now capitalized. |
 | Rounded album art covers | All album art covers are now 15px(to 30px) rounded. |
 | Scrollbar | Someetimes you'll find a rainbow scrollbar! Where is it? You find it! |
-| Rounded song hover & now playing song | Song hover and now playing song are now rounded. |
+| RoundeSometimeser & now playing song | Song hover and now playing song are now rounded. |
 | Copy track info | Select 'Copy' when right-clicking on a song. |
-| Rainbow controls | Various buttons now have rainbow controls, including full screen, lyrics, like song, queue, devices, volume, PiP, repeat, and shuffle. |
+Rainbow controls | Various buttons now have rainbow controls, including full screen, lyrics, like song, queue, devices, volume, PiP, repeat, and shuffle. |
 | Removed Spotify Logo | Spotify logo has been removed. |
 | Removed 'Install' app | 'Install' app has been removed from above album art cover in Nav Bar. |
 | Removed 'Upgrade' button | 'Upgrade' app button been removed from the top bar. |
@@ -248,3 +253,7 @@ Thank you for your support!
 
 <h2 align="center">License</h2>
 SpotOn is licensed under the MIT License. See the LICENSE file for more information.
+
+---
+
+Please note that SpotOn is not affiliated with Spotify. It is an open-source project developed and maintained by the SpotOn community.
