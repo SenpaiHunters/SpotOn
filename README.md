@@ -7,7 +7,7 @@ SpotOn is a full overhaul of the Spotify Web Player that adds various features a
 
 
 <h1 align="center"> Introduction & Use-case</h1>
-SpotOn is a project that enhances the Spotify Web Player by adding new features, improving the user interface, and offering various enhancements. It includes animations, a new font, enhanced Nav & Now Playing bars, a dynamic theme, rainbow controls, and more. With SpotOn, Spotify Web Player users can enhance their music listening experience through options like SpotOn Righter (moves Nav Bar to the right), SpotOn SonyCopy, SpotOn Speeder, and other improvements. It aims to make the Spotify Web Player more engaging, visually appealing, and user-friendly with small packages of enhancements.
+SpotOn is a project that enhances the Spotify Web Player by adding new features, improving the user interface, and offering various enhancements. It includes animations, a new font, enhanced Nav & Now Playing bars, a dynamic theme, rainbow controls, and more. With SpotOn, Spotify Web Player users can enhance their music listening experience through options like SpotOn Righter (moves the Nav Bar to the right), SpotOn SonyCopy, SpotOn Speeder, and other improvements. It aims to make the Spotify Web Player more engaging, visually appealing, and user-friendly with small packages of enhancements.
 
 
 ---
@@ -50,10 +50,10 @@ SpotOn is a project that enhances the Spotify Web Player by adding new features,
 <h3 align="center">
   
   
-> SpotOn get's updated reguarly, so this may change or be updated to look more pleasing.
+> SpotOn gets updated regularly, so this may change or be updated to look more pleasing.
   
   
-> You can tone done some features to suit your taste. 
+> You can tone some features to suit your taste. 
   
   
   </h3>
@@ -86,28 +86,32 @@ SpotOn is a project that enhances the Spotify Web Player by adding new features,
 
 | Feature | Description |
 | --- | --- |
-| Animations! | Various animations added, including hover animation, spinning albums, skip/reverse animations, and playlist hover animation and more! |
+| Animations! | Various animations added, including hover animation, spinning albums, skip/reverse animations, playlist hover animation and more! |
+| Full toggleable options (soon) | Toggle any option on SpotOn to tweak SpotOn for your liking! |
 | New font (Akr) | A new font added, may appear different in other browsers. |
-| Overhauled Nav Bar (NB) | NB is now pushed out from whole menu, rounded, has album image within, and rainbow controls added. |
+| Lightweight | Less than 1mb, approx. 400kb, super fast loading times, it won't really affect anything~ |
+| Overhauled Nav Bar (NB) | NB is now pushed out from the whole menu, rounded, has an album image within, and rainbow controls added. |
 | Overhauled Now Playing Bar (NPB) | NPB now has variable size, rounded corners, black haze, full rainbow controls, smaller and rounded album art, reduced overall size, and removed background on `.playback-bar` as well as changed progress bars |
-| Hide the Nav Bar! | The Nav Bar can now be hidden by clicking on the line that pops up when cursor is moved to the edge of the Nav Bar. |
-| Song timings | Clicking on song time displays whole song time or remaining time. |
+| Hide the Nav Bar! | The Nav Bar can now be hidden by clicking on the line that pops up when the cursor is moved to the edge of the Nav Bar. |
+| Hotkeys | Customisable (4- thanks `Manifest 3`) toggles |
+| Right-click functionality | Right-click on any page to do a range of things, like jump to your open Spotify tab or create one if there is no open tab. |
+| Song timings | Clicking on song time displays the whole song time or remaining time. |
 | Dynamic theme | Theme responds to cover art and displays it as background. |
 | Centered Lyrics | Lyrics remain in the middle of the screen unless it needs more space |
-| Auto lyric search on Genius | Pressing 'G' icon on top right initiates script. |
+| Auto lyric search on Genius | Pressing the 'G' icon on the top right initiates the script. |
 | Lyrics | Lyrics now have a black border, appropriate size, and can be copied. |
 | Capitalized initial letter | First letter of each word is now capitalized. |
-| Rounded album art covers | All album art covers are now 15px(to 30px) rounded. |
-| Scrollbar | Someetimes you'll find a rainbow scrollbar! Where is it? You find it! |
+| Rounded album art covers | All album art covers are now 15 to 30px rounded. |
+| Scrollbar | Sometimes you'll find a rainbow scrollbar! Where is it? You find it! |
 | RoundeSometimeser & now playing song | Song hover and now playing song are now rounded. |
 | Copy track info | Select 'Copy' when right-clicking on a song. |
-Rainbow controls | Various buttons now have rainbow controls, including full screen, lyrics, like song, queue, devices, volume, PiP, repeat, and shuffle. |
+Rainbow controls | Various buttons now have rainbow controls, including full screen, lyrics, like songs, queues, devices, volume, PiP, repeat, and shuffle. |
 | Removed Spotify Logo | Spotify logo has been removed. |
-| Removed 'Install' app | 'Install' app has been removed from above album art cover in Nav Bar. |
-| Removed 'Upgrade' button | 'Upgrade' app button been removed from the top bar. |
+| Removed 'Install' app | 'Install' app has been removed from the above album art cover in Nav Bar. |
+| Removed 'Upgrade' button | 'Upgrade' app button has been removed from the top bar. |
 | Removed Podcasts from Homepage | Podcasts have been removed, but can still be found in 'Your Library'. |
 | Removal of bottom content bar | Bottom content bar hosting social links (etc) has been removed. |
-| Removed device streaming info | Device streaming info has been removed from bottom bar. |
+| Removed device streaming info | Device streaming info has been removed from the bottom bar. |
 | Misc performance and bug fixes | Various performance and bug fixes have been implemented, including quicker loading times and search times. |
 | Increased site-wide readability | Site-wide readability has been improved, particularly on lyrics and larger content. |
 | Addition of Hotkeys | Hotkeys have been added and can be accessed by pressing 'Shift + ?' or '⌘ + ?'. |
@@ -119,7 +123,7 @@ Rainbow controls | Various buttons now have rainbow controls, including full scr
 | SpotOn | Description |
 | --- | --- |
 | ***SpotOn*** | The main use of SpotOn, with the features boasted above (there is also a userscript of SpotOn if you use Safari) |
-| ***SpotOn Arc Version*** | The main use of SpotOn, however, instead of the dynamic cover arts it matches your Arc theme (for Arc Browser ONLY) can be customised, see documentation!) |
+| ***SpotOn Arc Version*** | The main use of SpotOn, however, instead of the dynamic cover art it matches your Arc theme (for Arc Browser ONLY) and can be customised, see documentation!) |
 | ***SpotOn Enhanced Search*** | You can search by Song, Artist, Album, Release Year, Genre, or any combination of those. |
 | ***SpotOn Genius Lyric Searcher*** | Search for the lyrics on Genius.com if Spotify doesn't have them |
 | ***SpotOn Genius Song Replacer*** | Allow Genius.com to use open.spotify.com to host the music, instead of Apple Music. |
@@ -128,8 +132,8 @@ Rainbow controls | Various buttons now have rainbow controls, including full scr
 | ***SpotOn MiniPlayer*** | A MiniPlayer for Spotify |
 | ***SpotOn Queue Expander*** | Adds send to top of queue, shuffle queue, and send to bottom |
 | ***SpotOn Righter*** | Shift NB to the right |
-| ***SpotOn SongCopy*** | Copy song name and artist to your clipboard |
-| ***SpotOn Speeder*** | Adds a speeder to Spotify to change speed from 0.1 to 200% playing speed |
+| ***SpotOn SongCopy*** | Copy the song name and artist to your clipboard |
+| ***SpotOn Speeder*** | Adds a speeder to Spotify to change the speed from 0.1 to 200% playing speed |
 
 
 ***
@@ -195,7 +199,7 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 | --- | --- |
 | Copy song name and artist | Adds a button for copying the artist and song name when right-clicking. This will not be a Chrome extension, instead will require a Userscript. |
 | Right-click Imbedded right into Spotify's Menu |
-| ![Imbedded right into Spotify's Menu](https://user-images.githubusercontent.com/103985728/195324014-728d02a2-af67-4051-8582-ae701f3861c9.png) | When right-clicking you'll see `copy track info`, once you press that the script will copy the song name & artist into your clipboard for copying. |
+| ![Embedded right into Spotify's Menu](https://user-images.githubusercontent.com/103985728/195324014-728d02a2-af67-4051-8582-ae701f3861c9.png) | When right-clicking you'll see `copy track info`, once you press that the script will copy the song name & artist into your clipboard for copying. |
 | Clean copy box, a clean copy box shows up! | 
 | ![A Imbedded box](https://user-images.githubusercontent.com/103985728/195324024-6f64e4ce-c5ce-41e8-945e-614f5bee2145.png) | A box will show once copying is successful |
 
@@ -206,11 +210,11 @@ https://user-images.githubusercontent.com/103985728/221404396-20eecdd2-1221-42b7
 | Note for Genius to work, you might need to add/have an active Genius account. Again, this is a userscript and will not be transferred to a Chrome extension as the APIs it uses are not supported on Chrome extensions |   |
 | How do I enable 'No Spotify Lyrics? Then Let's Check Genius!' |   |
 | 1. Click on Tampermonkey (or any userscript) | ![Click on Tampermonkey](https://user-images.githubusercontent.com/103985728/195988967-4ed93961-7b84-4b0c-9938-a2aba8b075f8.png) |
-| 2. Click on "No Spotify Lyrics? Then Lets Check Genius! Show Lyrics" | ![SCR-20221016-l5](https://user-images.githubusercontent.com/103985728/195988969-c1b47c85-86b1-40ac-8253-f1bb183f2e5d.png) |
+| 2. Click on "No Spotify Lyrics? Then Let's Check Genius! Show Lyrics" | ![SCR-20221016-l5](https://user-images.githubusercontent.com/103985728/195988969-c1b47c85-86b1-40ac-8253-f1bb183f2e5d.png) |
 | 3. It'll automatically load in, with the current playing song with the lyrics if Genius has it. - __NOTE__ Having this open will reduce song loading speed if you have a lot going on in the background - To enable this, simply press the 'Hide Lyrics' then reopen the lyrics by pressing the 'G' on the top right. (Pic for ref) |   |
 | Picture for reference. | <img width="122" alt="image" src="https://user-images.githubusercontent.com/103985728/221405927-d81eba89-2b07-48aa-a393-cba34a0ab2a1.png"> |
 | Lyrics shown to the right of the page | <img width="1000" alt="image" src="https://user-images.githubusercontent.com/103985728/221405828-a6c6f3b9-7dce-42a2-884e-e2885fa100a0.png"> |
-| 4. To hide the sidebar, either reload, or press 'hide'. - If you reloaded repeat steps 1 & 2 to reenable it. | ![SCR-20221016-lj](https://user-images.githubusercontent.com/103985728/195988974-03d14f4d-e4ad-4370-b6d4-c48c7df55089.png) |
+| 4. To hide the sidebar, either reload or press 'hide'. - If you reloaded repeat steps 1 & 2 to reenable it. | ![SCR-20221016-lj](https://user-images.githubusercontent.com/103985728/195988974-03d14f4d-e4ad-4370-b6d4-c48c7df55089.png) |
 | 5. If you press 'Hide' you'll see a little Genius Button cleanly off to the right - If you reloaded repeat steps 1 & 2 for the button to come back. | <img width="122" alt="image" src="https://user-images.githubusercontent.com/103985728/221405927-d81eba89-2b07-48aa-a393-cba34a0ab2a1.png"> |
 
 
@@ -236,7 +240,7 @@ If you would like to contribute to SpotOn, please follow these guidelines:
 3. Submit a pull request with a clear description of your changes and why they are necessary.
 4. Your pull request will be reviewed and merged if it meets the project's standards.
 
-- Furthermore, you can contribute by reporting bugs or suggest new features by opening an issue on the project’s GitHub page.
+- Furthermore, you can contribute by reporting bugs or suggesting new features by opening an issue on the project’s GitHub page.
 
 
 <h2 align="center">Supporting the Project</h2>
