@@ -5,6 +5,19 @@
 SpotOn is a full overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
 
 
+---
+
+
+<h1 align="center"> V2 Sneak Peek </h1>
+
+
+https://github.com/SenpaiHunters/SpotOn/assets/103985728/0f04c0c3-1dfc-4e78-b690-f2d9737e5f7b
+
+
+> Sorry for the bad quality, only allowed `10mb` on GitHub `README.md` files.
+
+---
+
 
 <h1 align="center"> Introduction & Use-case</h1>
 SpotOn is a project that enhances the Spotify Web Player by adding new features, improving the user interface, and offering various enhancements. It includes animations, a new font, enhanced Nav & Now Playing bars, a dynamic theme, rainbow controls, and more. With SpotOn, Spotify Web Player users can enhance their music listening experience through options like SpotOn Righter (moves the Nav Bar to the right), SpotOn SonyCopy, SpotOn Speeder, and other improvements. It aims to make the Spotify Web Player more engaging, visually appealing, and user-friendly with small packages of enhancements.
@@ -32,6 +45,7 @@ SpotOn is a project that enhances the Spotify Web Player by adding new features,
 
 
 ---
+
 
 
 <h1 align="center"> What does SpotOn look like?</h1>
