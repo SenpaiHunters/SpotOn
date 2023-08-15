@@ -6,6 +6,7 @@ SpotOn is a full overhaul of the Spotify Web Player that adds various features a
 
 
 ---
+# V2 is right around the corner, trust me! All custom CSS is done, and all toggles are done I am now finalising everything works, as well as improving most of my old code so it's even more lightweight! I can't wait for you guys to give it a whirl!
 
 
 <h1 align="center"> V2 Sneak Peek </h1>
@@ -15,6 +16,7 @@ https://github.com/SenpaiHunters/SpotOn/assets/103985728/0f04c0c3-1dfc-4e78-b690
 
 
 > Sorry for the bad quality, only allowed `10mb` on GitHub `README.md` files.
+
 
 ---
 
