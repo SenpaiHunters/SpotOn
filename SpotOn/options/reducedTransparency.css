@@ -1,0 +1,15 @@
+.q8AZzDc_1BumBHZg0tZb {
+  text-shadow: #000 1px 1px 1px, #000 1px 1px 1px !important;
+}
+
+.LunqxlFIupJw_Dkx6mNx .tsv7E_RBBw6v0XTQlcRo {
+  background: var(--hovercolor) !important;
+  border-radius: 10px;
+  transition: border-radius 0.3s ease;
+}
+
+.LunqxlFIupJw_Dkx6mNx .tsv7E_RBBw6v0XTQlcRo:hover,
+.LunqxlFIupJw_Dkx6mNx:hover {
+  border-radius: 15px;
+  transition: border-radius 0.3s ease;
+}

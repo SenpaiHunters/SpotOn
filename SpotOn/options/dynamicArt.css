@@ -1,0 +1,12 @@
+/* Dynamic Album art */
+[aria-label="Main"] [data-testid="CoverSlotExpanded__container"] {
+  width: -webkit-fill-available !important;
+  /* Adjust the width as per your requirement */
+  top: -webkit-fill-available !important;
+  /* Adjust the height as per your requirement */
+  transition: width 0.3s, height 0.3s !important;
+  border-radius: 10px !important;
+  /*bottom: calc(2.2% - 20px) !important;
+	  right: calc(5.2% - 20px) !important;
+	  left: calc(5.2% - 20px) !important;*/
+}

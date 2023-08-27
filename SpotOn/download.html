@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SpotOn Help Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/shared/shared.css" />
+    <link rel="stylesheet" href="css/download/download.css" />
+    <link rel="icon" href="./icons/icon128.png" type="image/png" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="toggle-mode">
+      <button id="modeToggle">
+        <i id="modeIcon" class="fas fa-toggle-on"></i>Toggle mode
+      </button>
+    </div>
+
+    <button
+      class="theme-toggle"
+      id="theme-toggle"
+      title="Toggles light & dark"
+      aria-label="auto"
+      aria-live="polite"
+    >
+      <svg
+        class="sun-and-moon"
+        aria-hidden="true"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <mask class="moon" id="moon-mask">
+          <rect x="0" y="0" width="100%" height="100%" fill="white" />
+          <circle cx="24" cy="10" r="6" fill="black" />
+        </mask>
+        <circle
+          class="sun"
+          cx="12"
+          cy="12"
+          r="6"
+          mask="url(#moon-mask)"
+          fill="currentColor"
+        />
+        <g class="sun-beams" stroke="currentColor">
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </g>
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-danger btn-floating btn-lg"
+      id="btn-back-to-top"
+      title="Scroll to top"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="content">
+      <!-- Sidebar navigation -->
+      <nav class="sidebar">
+        <ul>
+          <li><a href="#general-options">General Options</a></li>
+          <li>
+            <a href="#navigating-page">Navigating to the Settings Page</a>
+          </li>
+          <li><a href="#advanced-options">Advanced/Custom Options</a></li>
+          <li><a href="#color-what">Color What</a></li>
+          <li><a href="#feature-requests">Feature Requests</a></li>
+          <li><a href="#issue-reports">Issue Reports</a></li>
+          <li><a href="#social-support">Socials & Support</a></li>
+          <li><a href="#documentation">Documentation</a></li>
+          <li><a href="#keyboard-shortcuts">Shortcuts</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <div class="main-content">
+        <h1>SpotOn Extension Help</h1>
+        <p>
+          Welcome to the help page for the SpotOn. Here, you can learn how
+          SpotOn works, test some customization, learn various settings and get
+          help with various settings and how they work and function!
+        </p>
+
+        <section id="general-options">
+          <h2>General Options</h2>
+          <div>
+            <div class="option checkbox">
+              <input type="checkbox" id="enableSpotOn" />
+              <label for="enableSpotOn">Enable SpotOn by Default</label>
+            </div>
+          </div>
+          <p>
+            There are two parts of SpotOn. Toggle options, like you see in the
+            button above, and Custom options, where you can define your OWN
+            values for certain settings! We will explore the associated options
+            in-depth below.
+          </p>
+        </section>
+
+        <section id="navigating-page">
+          <h2>Navigating to the Settings page?</h2>
+          <p>
+            To navigate to the settings page, open the extension and click on
+            "settings". Once the settings page is open, you'll find several
+            sections such as "Main Options", "Interface Options", "Theming
+            Options", "Removal Options", and "Custom Options". At the bottom of
+            the menu bar, there's a "Save Options" button. To save any option,
+            whether it's a custom or toggle option, simply press the "Save
+            Options" button and then reload Spotify.
+            <br />
+            <br />
+            If you cannot find something, try the above search button! Do note,
+            you'll need to go into each category separately to find the value,
+            for an example, try search "Rainbow".
+          </p>
+          <p>
+            Or, you can simply follow this step by step photos First open the
+            popup!
+            <img
+              width="412"
+              alt="Walkthrough"
+              src="https://github.com/SenpaiHunters/Pictures/assets/103985728/d6056301-6f5f-4f41-8eeb-e6b7768cdcee"
+            />
+            <br />
+            We then want to press settings, after pressing settings, you'll be
+            launched into the main tab. <br />
+            <img
+              width="900"
+              alt="Walkthrough"
+              src="https://github.com/SenpaiHunters/Pictures/assets/103985728/27781c3b-21e3-450b-a7ca-7e6790dd2d81"
+            />
+            <br />
+            You can then either find the option or use the search bar, for this
+            example, we'll use "rainbow controls", we can find this using the
+            search bar!
+            <br />
+            <br />
+            TIP: If you cannot find the option you are looking for, look in
+            every tab, if it's not there, submit it as feedback!
+            <br />
+            <img
+              width="900"
+              alt="Walkthrough"
+              src="https://github.com/SenpaiHunters/Pictures/assets/103985728/d5a18ea3-7d9b-4833-8537-70599ec3e7fc"
+            />
+            <br />
+            After you have got your options sorted, press "Save Options" and
+            you're done!
+          </p>
+        </section>
+
+        <section id="advanced-options">
+          <h2>Advanced/Custom Options</h2>
+          <p>
+            Customize the appearance of the Now Playing Bar (NPB), Nav Bar (NB),
+            Now Playing View (NPV), lyrics, and more. While this may sound
+            complex, it's actually quite straightforward! To guide you through
+            it, here's a simple walkthrough:
+          </p>
+          <label> Custom Color:</label>
+          <span id="questionIcon">?</span>
+          <div id="explanation">
+            With this option, you can define any color. This color will be
+            displayed on the Now Playing Bar, Nav bar, Now Playing View,
+            Hotkeys, and Media Streamer.
+            <br /><br />
+            To try it out, you can use simple color names like "pink" or pick an
+            RGBA/Hex/HSL color!
+            <br /><br />
+            Alternatively, you can use an image or GIF by providing the link in
+            the box. You can even use a gradient!
+            <br /><br />
+            Give this gradient a shot: linear-gradient(to bottom left, #FFB6C1,
+            #FFD700, #87CEEB, #98FB98, #DDA0DD, #FFA500)
+            <br /><br />
+            Want to try a GIF? Paste this link in!
+            <br /><br />
+            https://user-images.githubusercontent.com/103985728/258636474-4d775c93-9e64-4abc-ae9b-335205775016.gif
+          </div>
+          <br />
+          <textarea id="cssInput" rows="3" cols="45"></textarea>
+          <br />
+          <div id="stylePreviewBox"></div>
+          <p>
+            If you need more information about a specific box, simply hover over
+            the "?" icon!
+          </p>
+
+          <p>
+            Let's do a video for this one, this time!
+            <br />
+            <video controls width="900">
+              <source
+                src="https://user-images.githubusercontent.com/103985728/263200464-b76b2ca7-b443-45e6-879f-bb7314043452.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <br />
+            <br />
+            Now, heres a fun one! You can also use predefined values, i have a
+            list of values already made which is a kick starter on what to do,
+            and here they all are, give them a go!
+          </p>
+          <ul>
+            <li>Radial Gradients:</li>
+            <li><code>--radial-pink-transparent</code></li>
+            <li><code>--radial-black-transparent</code></li>
+            <li><code>--radial-blue-transparent</code></li>
+            <li><code>--radial-green-transparent</code></li>
+            <li><code>--radial-yellow-transparent</code></li>
+            <li><code>--radial-purple-transparent</code></li>
+            <li><code>--radial-red-transparent</code></li>
+            <li><code>--radial-teal-transparent</code></li>
+            <li><code>--radial-orange-transparent</code></li>
+          </ul>
+          <ul>
+            <li>Linear Gradients:</li>
+            <li><code>--linear-blue-gradient</code></li>
+            <li><code>--linear-green-gradient</code></li>
+            <li><code>--linear-gradient-cyan-pink</code></li>
+            <li><code>--linear-gradient-yellow-blue</code></li>
+            <li><code>--linear-gradient-pink-orange</code></li>
+            <li><code>--linear-gradient-blue-purple</code></li>
+            <li><code>--linear-gradient-green-yellow</code></li>
+            <li><code>--linear-gradient-red-cyan</code></li>
+          </ul>
+          <ul>
+            <li>Background Images:</li>
+            <li><code>--blur-bg</code></li>
+            <li><code>--two-blur-bg</code></li>
+            <li><code>--colored-blur-bg</code></li>
+            <li><code>--falling-gif</code></li>
+            <li><code>--glitch-gif</code></li>
+            <li><code>--tir-gif</code></li>
+            <li><code>--backimg</code></li>
+            <li><code>--hoverback</code></li>
+            <li><code>--hovercolor</code></li>
+          </ul>
+        </section>
+
+        <section id="color-what">
+          <h2>Color what?</h2>
+          <p>
+            Haha, i hear you, color what now? Well, let me explain!
+            <br />
+            Now, there are 3 colors pages, and i will explain how to get to them
+            and what they do.
+            <br />
+            <br />
+          </p>
+
+          <h3>Color picker</h3>
+          The first is simple, a color picker, to get to this popup, we first
+          open SpotOn, then we click "picker" and done, that simple!
+          <img
+            width="600"
+            alt="CleanShot Arc at 23 46 07 on 2023@2x"
+            src="https://github.com/SenpaiHunters/Pictures/assets/103985728/6fe0f820-4338-4dad-ad3d-6fc3c3c21729"
+          />
+          <br />
+          <br />
+          First we have the easiest, Color. This is a simple color picker, you
+          get a visualisation of the color, ability to copy that color, and you
+          can also change the format to RGBA/RGB/HSL (default is HEX).
+          <br />
+          <img
+            width="492"
+            alt="CleanShot Arc at 23 46 07 on 2023@2x"
+            src="https://github.com/SenpaiHunters/Pictures/assets/103985728/1ac4b651-20c5-4a72-8d32-ba9ffd3e5ad0"
+          />
+          <br />
+          <br />
+          You also have 2 more buttons, i wonder what they do?
+          <br />
+          <h3>Color Histoty</h3>
+          Well, one of them is the color history! The only way of going to this
+          is via the color popup and pressing the "color history" button in the
+          color popout!. (see above image), when pressing that, you'll find
+          something that looks like this (see below):
+          <br />
+          <img
+            width="600"
+            alt="CleanShot Arc at 23 46 07 on 2023@2x"
+            src="https://github.com/SenpaiHunters/Pictures/assets/103985728/c2c77f03-e1ae-47a3-a944-f194202cfa3e"
+          />
+          <br />
+          To navigate it to, you can either go from the main popup (see attached
+          image below), or from the color picker, press the element (see above).
+          <br />
+          <img
+            width="600"
+            alt="CleanShot Arc at 23 46 07 on 2023@2x"
+            src="https://github.com/SenpaiHunters/Pictures/assets/103985728/81876b4f-fc05-429b-80a3-e8120cae179e"
+          />
+          <br />
+          <h3>Color Options</h3>
+          The last one is Color Options, which in this you can create your own
+          gradients, or chose from some presets! You can also convert your HEX
+          values from Color History here, if you wish to, or use those raw
+          values and create a gradient. You don't need to know coding, just use
+          the colors, make whatever you want, then pick your direction, copy the
+          CSS and paste it wherever you want!
+        </section>
+
+        <section id="feature-requests">
+          <h2>Feature Requests</h2>
+          <p>
+            We welcome your input! If you have ideas for new features that you'd
+            like to see in SpotOn, please share your thoughts with us at
+            <a href="https://github.com/SenpaiHunters/SpotOn/discussions"
+              >GitHub!</a
+            >
+          </p>
+        </section>
+
+        <section id="issue-reports">
+          <h2>Issue Report(s)</h2>
+          <p>
+            Encountered a problem or a bug? Please let us know so we can address
+            it promptly. You can report issues via the extension popup "Report
+            Issue."
+          </p>
+        </section>
+
+        <section id="social-support">
+          <h2>Spread the Word and Get Help</h2>
+          <p>Share the extension and connect with us for support:</p>
+          <p>
+            You can help fund SpotOn on
+            <a href="https://www.buymeacoffee.com/KamiAMVs" target="_blank"
+              >BuyMeACoffee</a
+            >
+            or, you can support me on
+            <a href="https://www.patreon.com/Kami_YT" target="_blank">Patreon</a
+            >.
+          </p>
+
+          <!-- Add more social icons as needed -->
+
+          <p>
+            For direct support, visit our
+            <a href="https://discord.gg/v62PQqnJug" target="_blank"
+              >Discord Server</a
+            >. Inside the server you can submit bug reports, features, or
+            anything you'd please, actually.
+          </p>
+          <p>
+            Alternatively, you can report an issue here:
+
+            <a
+              id="reportIssueButton"
+              href="https://github.com/senpaihunters/spoton/issues"
+              target="_blank"
+              class="button is-danger"
+            >
+              <i class="fas fa-bug"></i> Report Issue
+            </a>
+          </p>
+        </section>
+
+        <section id="documentation">
+          <h2>Learn More with Documentation</h2>
+          <p>For more technical details and in-depth information:</p>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/SenpaiHunters/SpotOn/blob/Main/LICENSE.md"
+                >License</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section id="keyboard-shortcuts">
+          <h2>Keyboard Shortcuts</h2>
+          <p>Use these keyboard shortcuts to navigate the extension:</p>
+          <p>
+            You can edit the keyboard shortcuts (hotkeys will also be used, both
+            are interchangeable) at: chrome://extensions/shortcuts (replace
+            <code>chrome</code> with your platform, so Arc for Arc browser,
+            Edge, etc.)
+          </p>
+          <ul>
+            <li><kbd>Media Next Track</kbd>: Next song (Skip)</li>
+            <li><kbd>Media Previous Track</kbd>: Previous song (Reverse)</li>
+            <li><kbd>Media Play/Pause</kbd>: Play/Pause song</li>
+          </ul>
+
+          <h3>Unset shortcuts</h3>
+          <ul>
+            <li><kbd>Unset</kbd>: Toggle SpotOn</li>
+            <li><kbd>Unset</kbd>: Toggle Extension (popup)</li>
+            <li><kbd>Unset</kbd>: Toggle song like</li>
+            <li><kbd>Unset</kbd>: Open current Spotify tab</li>
+            <li><kbd>Unset</kbd>: Toggle repeat</li>
+            <li><kbd>Unset</kbd>: Toggle shuffle</li>
+            <li>
+              <kbd>Unset</kbd>: Search Spotify for text (needs to be highlighted
+              to search text)
+            </li>
+            <li><kbd>Unset</kbd>: Seek backwards (15s)</li>
+            <li><kbd>Unset</kbd>: Seek forwards (15s)</li>
+            <li><kbd>Unset</kbd>: Volume increase by 10%</li>
+            <li><kbd>Unset</kbd>: Volume decrease by 10%</li>
+            <li><kbd>Unset</kbd>: Toggle Volume Mute</li>
+          </ul>
+
+          <h3>Unbound-able</h3>
+          <p>
+            What do I mean? Well, thanks to Chromiums limit of x amount of
+            Hotkeys, I cannot set these to be inside variables like I have with
+            the ones above, sorry!
+          </p>
+          <ul>
+            <li><kbd>Control + Shift + A</kbd>: Toggle NB</li>
+            <li><kbd>Control + Shift + S</kbd>: Toggle NPB</li>
+          </ul>
+        </section>
+
+        <section id="glossary" class="accordion-section">
+          <h2 class="accordion-header">Glossary</h2>
+          <div class="accordion-content">
+            <dl>
+              <dt>Toggle Options</dt>
+              <dd>Options that enable or disable specific features.</dd>
+
+              <dt>RGBA</dt>
+              <dd>
+                A color model that includes red, green, blue, and alpha
+                (transparency) values.
+              </dd>
+
+              <dt>RGB</dt>
+              <dd>A color model that includes red, green, and blue values.</dd>
+
+              <dt>Hsl</dt>
+              <dd>
+                The HSL model (which HSL stands for Hue, Saturation, and
+                Lightness) is widely considered to be more intuitive than the
+                RGB model. This is because, the HSL model allows you to select a
+                base hue, and then adjust its saturation and lightness as
+                desired.
+              </dd>
+
+              <dt>Hex</dt>
+              <dd>
+                A color model that allowing designers and developers to easily
+                communicate about color schemes. With 16 × 16 (256) values for
+                each color component, there are then 256 × 256 × 256 possible
+                combinations. In hex, they range from #000000 (pure black) to
+                #FFFFFF (pure white).
+              </dd>
+
+              <dt>NPB</dt>
+              <dd>
+                Spotifys Now Playing Bar (where you're controls are, play pause,
+                skip etc)
+              </dd>
+
+              <dt>NB</dt>
+              <dd>Spotifys Nav (or navigation) bar (right hand side bar)</dd>
+
+              <dt>NPV</dt>
+              <dd>
+                Spotifys new Now Playing View which shows the song, and info
+                about it on the left side, button can be found on the NPB
+              </dd>
+
+              <!-- Add more terms and definitions -->
+            </dl>
+          </div>
+        </section>
+
+        <section id="faqs">
+          <h2>Frequently Asked Questions</h2>
+          <details>
+            <summary>How do I disable SpotOn?</summary>
+            <p>
+              Go to General Options and check the "Enable SpotOn" checkbox, then
+              save.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              How do I change themes and not use SpotOn's default theme?
+            </summary>
+            <p>
+              Go to the main popup under "SpotOn Theme" press the dropdown,
+              select your theme, then press "save" at the bottom
+            </p>
+          </details>
+
+          <details>
+            <summary>How can I report an issue?</summary>
+            <p>
+              You can report issues via the extension popup by clicking "Report
+              Issue" or on our discord.
+            </p>
+          </details>
+
+          <!-- Add more FAQs -->
+        </section>
+        <br />
+
+        <footer>
+          <!-- Watermark -->
+          <div class="watermark">Made by Kami</div>
+
+          <div class="breadcrumbs">
+            <h2>Pathbar</h2>
+            <a href="options.html">Main popup</a> &gt;
+            <a href="settings.html">Settings Page</a> &gt; SpotOn Extension Help
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="js/download/download.js"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/shared/shared.js"></script>
+  </body>
+</html>

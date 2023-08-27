@@ -1,0 +1,25 @@
+/* Hide elements with aria-label="Duration" inside track-list rows */
+.contentSpacing
+  [data-testid="track-list"]
+  [role="row"]
+  [aria-label="Duration"] {
+  display: none !important;
+}
+
+/* Remove spacing by hiding presentation elements with column headers */
+.contentSpacing
+  [data-testid="track-list"]
+  [role="presentation"]
+  [role="columnheader"] {
+  display: none !important;
+}
+
+.koyeY6AgGRPmyPITi7yO {
+  display: none !important;
+}
+
+.contentSpacing
+  [data-testid="track-list"]
+  [role="presentation"]:has([role="columnheader"]) {
+  display: none !important;
+}

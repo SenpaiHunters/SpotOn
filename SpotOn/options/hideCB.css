@@ -1,0 +1,13 @@
+/*
+* Hide content bar, which has #, Title, Album, Date added, and time.
+*/
+.contentSpacing
+  [data-testid="track-list"]
+  [role="presentation"]
+  [role="columnheader"],
+.contentSpacing
+  [data-testid="track-list"]
+  [role="presentation"]
+  ~ [role="columnheader"] {
+  display: none !important;
+}

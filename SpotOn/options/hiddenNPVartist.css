@@ -1,0 +1,9 @@
+[data-testid="npv-artist-bio-button"] > div {
+  display: none !important;
+}
+
+[data-testid="NPV_Panel_OpenDiv"]
+  [data-testid="npv-artist-bio-button"]
+  :last-child:has([data-testid="npv-artist-link"]) {
+  display: none !important;
+}

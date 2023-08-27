@@ -1,0 +1,5 @@
+.os-content
+  [data-testid="NPV_Panel_OpenDiv"]
+  > :last-child:has([data-testid="play-next-button"]) {
+  display: none !important;
+}

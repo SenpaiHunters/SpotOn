@@ -1,0 +1,22 @@
+/* remove volume bar and all elements asso. */
+[data-testid="volume-bar"]
+  .volume-bar__slider-container
+  [data-testid="progress-bar"]
+  .w699O0LgQRghXyl3bs9u,
+[data-testid="volume-bar"]
+  .volume-bar__slider-container
+  [data-testid="progress-bar"]
+  [data-testid],
+[data-testid="volume-bar"]
+  .volume-bar__slider-container
+  [data-testid="progress-bar"],
+[data-testid="volume-bar"]
+  .volume-bar__slider-container
+  :first-child:has([data-testid="progress-bar"]) {
+  display: none !important;
+}
+
+/* fix padding */
+.ExuDUBJ7bk8vT6INnm9F {
+  margin-right: -93px !important;
+}

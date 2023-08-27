@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A color converter and gradient generator tool"
+    />
+    <meta
+      property="og:title"
+      content="Color Converter and Gradient Generator"
+    />
+    <meta
+      property="og:description"
+      content="Convert colors and generate gradients with this tool"
+    />
+    <meta property="og:image" content="/icons/icon128.png" />
+    <link rel="icon" href="./icons/icon128.png" type="image/png" />
+
+    <link rel="stylesheet" href="css/shared/shared.css" />
+    <link rel="stylesheet" href="css/color/colorOptions.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Color Converter and Gradient Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <button id="backToMainPageButton">Back to Main Page</button>
+
+      <div class="toggle-mode">
+        <button id="modeToggle">
+          <i id="modeIcon" class="fas fa-toggle-on"></i>Toggle mode
+        </button>
+      </div>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        title="Toggles light & dark"
+        aria-label="auto"
+        aria-live="polite"
+      >
+        <svg
+          class="sun-and-moon"
+          aria-hidden="true"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <mask class="moon" id="moon-mask">
+            <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+            <circle cx="24" cy="10" r="6" fill="black"></circle>
+          </mask>
+          <circle
+            class="sun"
+            cx="12"
+            cy="12"
+            r="6"
+            mask="url(#moon-mask)"
+            fill="currentColor"
+          ></circle>
+          <g class="sun-beams" stroke="currentColor">
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </g>
+        </svg>
+      </button>
+
+      <!-- Color Converter -->
+      <h1>Color Converter</h1>
+      <div>
+        <label for="hexColor">Enter HEX Color:</label>
+        <input type="text" id="hexColor" />
+        <select id="conversionType">
+          <option value="rgb">RGB</option>
+          <option value="rgba">RGBA</option>
+          <option value="hsl">HSL</option>
+          <!--- i am not doing these lol
+          <option value="cmyk">CMYK</option>
+          <option value="hsv">HSV</option>
+          <option value="named">Named Color</option>
+          <option value="lcc">LCC</option>
+          <option value="oklch">OKLCH</option>
+		  -------->
+        </select>
+      </div>
+      <div class="color-box" id="colorBox"></div>
+      <p id="colorConversionResult"></p>
+      <!-- Additional options for the hex color converter -->
+      <button id="copyColorResult">Copy Color to Clipboard</button>
+
+      <!-- Gradient Generator -->
+      <h1>Gradient Generator</h1>
+      <div>
+        <label for="gradientColors"
+          >Enter Gradient Colors (comma-separated):</label
+        >
+        <input type="text" id="gradientColors" />
+        <br />
+        <label for="gradientDirection">Gradient Direction:</label>
+        <select id="gradientDirection">
+          <option value="to right">To Right</option>
+          <option value="to left">To Left</option>
+          <option value="to top">To Top</option>
+          <option value="to bottom">To Bottom</option>
+          <option value="to top right">To Top Right</option>
+          <option value="to top left">To Top Left</option>
+          <option value="to bottom right">To Bottom Right</option>
+          <option value="to bottom left">To Bottom Left</option>
+        </select>
+      </div>
+      <div class="color-box" id="gradientBox"></div>
+      <p id="gradientGenerationResult"></p>
+      <button id="copyGradientResult">Copy Gradient to Clipboard</button>
+      <br />
+      <!-- Additional gradient options for the gradient generator -->
+      <h2>Gradient Options</h2>
+      <div>
+        <label for="gradientPresets">Choose Gradient Preset:</label>
+        <select id="gradientPresets">
+          <option value="none">None</option>
+          <option value="warm">Warm Colors</option>
+          <option value="cool">Cool Colors</option>
+          <option value="earth">Earth Colors</option>
+          <option value="rainbow">Rainbow Colors</option>
+          <option value="pastel">Pastel Colors</option>
+          <option value="vibrant">Vibrant Colors</option>
+          <option value="ocean">Ocean Colors</option>
+          <option value="candy">Candy Colors</option>
+          <option value="retro">Retro Colors</option>
+          <option value="neon">Neon Colors</option>
+          <option value="oceanBreeze">Ocean Breeze Colors</option>
+          <option value="purpleDream">Purple Dream Colors</option>
+          <option value="roseGold">Rose Gold Colors</option>
+          <option value="azureSky">Azure Sky Colors</option>
+        </select>
+      </div>
+      <button id="clearColorsButton">Clear Colors</button>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark">Made by Kami</div>
+    <!-- Scripts -->
+    <script src="js/shared/shared.js"></script>
+    <script src="js/coloring/colorOptions.js"></script>
+  </body>
+</html>

@@ -1,0 +1,386 @@
+@import url("https://github.com/SenpaiHunters/Pictures/raw/main/SpotOn%20Pics/fonts/JetBrainsMonoNL-Thin.ttf");
+
+:root {
+  --color-scheme: dark;
+  --background: #9e9696;
+  --header-color: #212121;
+  --dialog-border: white;
+  --text: #c4c4c4;
+  --title: #dad8d8;
+  --disabled: #520000;
+  --black: black;
+  --white: white;
+  --watermark-color: black;
+}
+
+[data-theme="light"] {
+  --color-scheme: light;
+  --background: #f9f9f9;
+  --header-color: white;
+  --dialog-border: #282828;
+  --text: #262626;
+  --title: #707070;
+  --disabled: #ffcaca;
+  --black: white;
+  --white: black;
+  --watermark-color: black;
+  --background-image: url("https://github.com/SenpaiHunters/Pictures/blob/main/SpotOn%20Pics/Resources/BugReporterBackgroundGradient.png?raw=true");
+  --dark-primary-color: pink;
+  --color-input: black;
+}
+
+[data-theme="dark"] {
+  --background: #9e9696;
+  --header-color: #212121;
+  --dialog-border: rgba(151, 104, 177, 0.433);
+  --text: #c4c4c4;
+  --title: #dad8d8;
+  --disabled: #520000;
+  --black: black;
+  --white: white;
+  --watermark-color: white;
+  --background-image: url("https://github.com/SenpaiHunters/Pictures/blob/main/SpotOn%20Pics/Resources/BugReporterBackgroundGradient.png?raw=true");
+  --dark-primary-color: rgb(118, 63, 214);
+  --color-input: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-scheme: light;
+  }
+}
+
+html {
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+  background-image: linear-gradient(
+    30deg,
+    hsl(240deg 100% 20%) 0%,
+    hsl(38deg 13% 41%) 1%,
+    hsl(51deg 36% 48%) 3%,
+    hsl(53deg 57% 52%) 5%,
+    hsl(54deg 82% 54%) 7%,
+    hsl(52deg 100% 61%) 10%,
+    hsl(34deg 100% 76%) 14%,
+    hsl(356deg 100% 83%) 18%,
+    hsl(321deg 100% 76%) 22%,
+    hsl(305deg 100% 65%) 28%,
+    hsl(297deg 100% 50%) 34%,
+    hsl(290deg 100% 50%) 42%,
+    hsl(281deg 100% 50%) 50%,
+    hsl(271deg 100% 50%) 59%,
+    hsl(254deg 100% 50%) 69%,
+    hsl(266deg 100% 46%) 79%,
+    hsl(286deg 100% 40%) 87%,
+    hsl(309deg 100% 38%) 94%,
+    hsl(329deg 100% 44%) 98%,
+    hsl(0deg 100% 50%) 100%
+  );
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  background-image: linear-gradient(
+    30deg,
+    hsl(240deg 100% 20%) 0%,
+    hsl(38deg 13% 41%) 1%,
+    hsl(51deg 36% 48%) 3%,
+    hsl(53deg 57% 52%) 5%,
+    hsl(54deg 82% 54%) 7%,
+    hsl(52deg 100% 61%) 10%,
+    hsl(34deg 100% 76%) 14%,
+    hsl(356deg 100% 83%) 18%,
+    hsl(321deg 100% 76%) 22%,
+    hsl(305deg 100% 65%) 28%,
+    hsl(297deg 100% 50%) 34%,
+    hsl(290deg 100% 50%) 42%,
+    hsl(281deg 100% 50%) 50%,
+    hsl(271deg 100% 50%) 59%,
+    hsl(254deg 100% 50%) 69%,
+    hsl(266deg 100% 46%) 79%,
+    hsl(286deg 100% 40%) 87%,
+    hsl(309deg 100% 38%) 94%,
+    hsl(329deg 100% 44%) 98%,
+    hsl(0deg 100% 50%) 100%
+  );
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  background: var(--dialog-background);
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+  width: 500px;
+  height: 800px;
+}
+
+/* Back button */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  border: none;
+  background-color: transparent;
+  color: var(--title);
+  cursor: pointer;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--text);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Apply background-color only to buttons other than #theme-toggle */
+button:not(#theme-toggle):hover {
+  background-color: var(--dark-primary-color);
+  border-radius: 15px;
+}
+
+#colorInput,
+#gradientBox.color-box {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 70px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#colorInput:hover {
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#colorValue {
+  font-size: 14px;
+  padding-right: 10px;
+}
+
+#copyButton {
+  margin-top: 10px;
+}
+
+#copyButton:hover {
+  background-color: var(--dark-primary-color);
+}
+
+/*- Animations -*/
+/* Animation for icon buttons */
+.icon-button {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  background-color: #333333;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.icon-button i {
+  margin-right: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-button:hover i {
+  transform: translateX(-8px);
+}
+
+/* Animation for watermark */
+.watermark {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 12px;
+  color: var(--watermark-color);
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.watermark:hover {
+  opacity: 0.8;
+}
+
+/* even more animations hehe */
+
+/* Animation for header, colorBox, colorValue, buttons, colorInput, select dropdown, saveColorButton, viewHistoryButton, modeToggle, theme-toggle, color-picker and color-format labels */
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpAnimation 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUpAnimation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for colorBox */
+.fadeInAndScaleUp {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeInAndScaleUpAnimation 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInAndScaleUpAnimation {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation for header */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--title);
+  text-decoration: underline;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for colorBox */
+
+#colorBox,
+#gradientBox.color-box {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 2px solid #000;
+  border-radius: 5px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeInAndScaleUp 0.5s ease-in-out forwards;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+#colorBox:hover,
+#gradientBox.color-box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#colorBox:focus,
+#gradientBox.color-box:focus {
+  outline: none;
+}
+
+#colorBox.selected,
+#gradientBox.color-box.selected {
+  animation: fadeInAndScaleUp 0.5s ease-in-out forwards,
+    colorBoxSelected 0.2s ease-in-out;
+}
+
+@keyframes colorBoxSelected {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation for colorValue and buttons */
+#colorValue,
+.button-container {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInAndScaleUp {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation for select dropdown */
+#colorFormat,
+div.colorFormat {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+/* Animation for select dropdown */
+#colorFormat:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Animation for saveColorButton and viewHistoryButton */
+#saveColorButton,
+#viewHistoryButton {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+/* Animation for modeToggle */
+#modeToggle {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+/* Animation for theme-toggle */
+#theme-toggle {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeInAndScaleUp 0.5s ease-in-out forwards;
+}

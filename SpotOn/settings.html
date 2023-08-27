@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./icons/icon128.png" type="image/png" />
+    <title>Settings - SpotOn</title>
+    <link rel="stylesheet" href="css/settings/settings.css" />
+    <link rel="stylesheet" href="css/shared/shared.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="options-container">
+      <div id="menubar" class="center">
+        <div id="title" class="titleBar">
+          <img
+            src="./icons/icon128.png"
+            <img
+            class="profilepic"
+            alt="SpotOn logo"
+            loading="lazy"
+          />
+          SpotOn
+          <div id="version">v. 2.1.0</div>
+        </div>
+
+        <div class="toggle-mode">
+          <button id="modeToggle">
+            <i id="modeIcon" class="fas fa-toggle-on">Toggle mode</i>
+          </button>
+        </div>
+        <div id="backToSpotifyButton">
+          <a href="https://www.spotify.com" target="_blank" rel="noopener">
+            <i class="fas fa-arrow-left"></i> Back to Spotify
+          </a>
+        </div>
+
+        <div class="search-bar-container">
+          <input type="text" id="searchBar" placeholder="Search options..." />
+        </div>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          title="Toggles light & dark"
+          aria-label="auto"
+          aria-live="polite"
+        >
+          <svg
+            class="sun-and-moon"
+            aria-hidden="true"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <mask class="moon" id="moon-mask">
+              <rect x="0" y="0" width="100%" height="100%" fill="white" />
+              <circle cx="24" cy="10" r="6" fill="black" />
+            </mask>
+            <circle
+              class="sun"
+              cx="12"
+              cy="12"
+              r="6"
+              mask="url(#moon-mask)"
+              fill="currentColor"
+            />
+            <g class="sun-beams" stroke="currentColor">
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+          </svg>
+        </button>
+
+        <div id="navigation">
+          <div class="tab-heading selected" data-for="behavior">
+            Main Options
+          </div>
+          <div class="tab-heading" data-for="interface">Interface Options</div>
+          <div class="tab-heading" data-for="theme">Theming Options</div>
+          <div class="tab-heading" data-for="removal">Removal Options</div>
+          <div class="tab-heading" data-for="custom-options">
+            Custom Options
+          </div>
+        </div>
+        <div id="createdBy" class="titleBar">
+          <div>
+            <img
+              src="./icons/icon128.png"
+              height="30"
+              class="profilepiccircle"
+              alt="profile picture of creator"
+            />
+            Created By
+            <a href="https://github.com/senpaihunters/spoton">Kami</a>
+          </div>
+          <a
+            href="https://www.buymeacoffee.com/KamiAMVs"
+            target="_blank"
+            rel="noopener"
+            id="donate"
+            >(Donate)</a
+          >
+        </div>
+        <div id="saveButtonContainer">
+          <div id="status"></div>
+          <button id="save" class="button is-success">Save options</button>
+        </div>
+      </div>
+      <div id="behavior" class="option-group">
+        <h1>SpotOn Options</h1>
+        <div class="options">
+          <!-- Add main options here -->
+          <div class="option checkbox">
+            <input type="checkbox" id="addLyricsButton" />
+            <label for="addLyricsButton">Enable SpotOn</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="righter" />
+            <label for="righter">Enable SpotOn Righter</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="dynamicArt" />
+            <label for="dynamicArt">Enable Dynamic Album arts</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="navToggle" />
+            <label for="navToggle">Enable the Nav Toggle</label>
+          </div>
+          <br />
+          <h1>Misc help and info</h1>
+          <div class="social-icons">
+            <p class="icon icon--help">
+              <a href="download.html" target="_blank">
+                <span class="icon__name"> Help page</span>
+              </a>
+            </p>
+            <p class="icon icon--colorPicker">
+              <a href="color.html" target="_blank">
+                <span class="icon__name">Color Picker</span>
+              </a>
+            </p>
+            <p class="icon icon--colorOptions">
+              <a href="colorOptions.html">
+                <span class="icon__name">Color Generators</span>
+              </a>
+            </p>
+            <p class="icon icon--colorHistory">
+              <a href="" target="_blank">
+                <span class="icon__name">Color History</span>
+              </a>
+            </p>
+            <!---
+            <p class="icon icon--github">
+              <a href="https://github.com/senpaihunters/spoton" target="_blank">
+                <span class="icon__name">GitHub</span>
+              </a>
+            </p>
+            --->
+          </div>
+        </div>
+      </div>
+
+      <div id="interface" class="option-group hidden">
+        <h1>Interface Options</h1>
+        <div class="options">
+          <!-- Interface options here -->
+
+          <div class="option checkbox">
+            <input type="checkbox" id="addColortoNPB" />
+            <label for="addColortoNPB"
+              >Add the color picker to the Now Playing Bar</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="addDownloadButton" />
+            <label for="addDownloadButton"
+              >Add the Download Album Art button to the Now Playing Bar</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="fontLsize" />
+            <label for="fontLsize"
+              >Enable/disable capitalisation of first letter</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="scrollNPB" />
+            <label for="scrollNPB">Make the NPB hide below the player </label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeNPB" />
+            <label for="removeNPB">Remove the Now Playing bar entirely </label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="thickerPB" />
+            <label for="thickerPB">Make the playing bar thicker by 8px </label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="spinAlbum" />
+            <label for="spinAlbum">Enable spinning album art</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="lyricsColor" />
+            <label for="lyricsColor"
+              >Enable auto color shifting for lyrics</label
+            >
+          </div>
+
+          <h1>Development Options</h1>
+          <!-- Add your development options here -->
+          <div class="option checkbox">
+            <input type="checkbox" id="enableDebugMode" />
+            <label for="enableDebugMode">Enable Debug Mode</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="enableLogging" />
+            <label for="enableLogging">Enable Logging</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="featInDev" />
+            <label for="featInDev">Enable features in development</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="featinDev" />
+            <label for="featinDev">Enable features in development (CSS)</label>
+          </div>
+          <h1>Validator</h1>
+          <header>Enter values below, color, image, gradient etc:</header>
+          <textarea id="cssInput" rows="3" cols="50"></textarea>
+          <br />
+          <div id="stylePreviewBox"></div>
+        </div>
+      </div>
+      <div id="theme" class="option-group hidden">
+        <h1>Theming Options</h1>
+        <div class="options">
+          <!-- Channel allowlist options here -->
+
+          <div class="option checkbox">
+            <input type="checkbox" id="roundAlbumArt" />
+            <label for="roundAlbumArt">Round Album Art</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="rainbowControls" />
+            <label for="rainbowControls">Rainbow Controls</label>
+          </div>
+          <div class="option checkbox">
+            <input type="checkbox" id="rainbowProgressbar" />
+            <label for="rainbowProgressbar">Rainbow Progress bar</label>
+          </div>
+          <div class="option checkbox">
+            <input type="checkbox" id="shadow" />
+            <label for="shadow">Add a shadow to the NPB & NB</label>
+          </div>
+          <div class="option checkbox">
+            <span id="questionIcon">?</span>
+            <div id="explanation">
+              This will look like this
+              <br />
+              <br />
+              Before:
+              <br />
+              <br />
+              <img
+                width="684"
+                alt="CleanShot Arc at 13 30 48 on 2023@2x"
+                src="https://github.com/SenpaiHunters/Pictures/assets/103985728/2ef4d1ae-f710-4454-a771-bcfc0362ca0a"
+              />
+              <br />
+              <br />
+              After
+              <br />
+              <br />
+              <img
+                width="684"
+                alt="CleanShot Arc at 13 30 28 on 2023@2x"
+                src="https://github.com/SenpaiHunters/Pictures/assets/103985728/512511e2-ee27-4290-b338-a13374988489"
+              />
+            </div>
+            <input type="checkbox" id="reducedTransparency" />
+            <label for="reducedTransparency"
+              >Reduced Transparency for Home</label
+            >
+          </div>
+        </div>
+      </div>
+      <div id="removal" class="option-group hidden">
+        <h1>Removal Options</h1>
+        <div class="options">
+          <!-- Removal and or hidden options here -->
+          <div class="option checkbox">
+            <input type="checkbox" id="removePodcasts" />
+            <label for="removePodcasts">Bye Podcasts! </label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hideCB" />
+            <label for="hideCB">Hide content bar </label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenPIcon" />
+            <label for="hiddenPIcon">Hides Profile button</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeprembutton" />
+            <label for="removeprembutton"> Remove premium button</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenLyricsButton" />
+            <label for="hiddenLyricsButton"> Remove lyrics button</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenDevicePicker" />
+            <label for="hiddenDevicePicker"> Remove device picker button</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeAlbumArt" />
+            <label for="removeAlbumArt"> Remove ALL album art</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenPAlbum" />
+            <label for="hiddenPAlbum"
+              >Hides the album song can be found at</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenPDate" />
+            <label for="hiddenPDate">Hides the date added</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenMerch" />
+            <label for="hiddenMerch"
+              >Hides the Merch box on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeMerch" />
+            <label for="removeMerch"
+              >Removes the Merch box on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeDiscovergraphy" />
+            <label for="removeDiscovergraphy"
+              >Removes the discography on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeFansLiked" />
+            <label for="removeFansLiked"
+              >Removes the Fans Also Liked on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeAppearsOn" />
+            <label for="removeAppearsOn"
+              >Removes the Appears On on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeOnTour" />
+            <label for="removeOnTour"
+              >Removes the On Tour on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeFeatArtist" />
+            <label for="removeFeatArtist"
+              >Removes the featuring X artist on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeDiscoveron" />
+            <label for="removeDiscoveron"
+              >Removes the Discover On box on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenAbout" />
+            <label for="hiddenAbout"
+              >Hides the About box on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenArtistPick" />
+            <label for="hiddenArtistPick"
+              >Hides the Artist Pick box on the Artist(s) page</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenPDura" />
+            <label for="hiddenPDura">Hides the duration of a song</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenPHeart" />
+            <label for="hiddenPHeart">Hides the heart icon on a song</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenPInfo" />
+            <label for="hiddenPInfo">Hides playlist info</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenSPL" />
+            <label for="hiddenSPL">Hides songs album/playlist</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="footernomore" />
+            <label for="footernomore"
+              >Send the footer to another dimension</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="byeappthing" />
+            <label for="byeappthing"
+              >Send the Install our app to another dimension</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenSTime" />
+            <label for="hiddenSTime">Hides date added</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeVolBar" />
+            <label for="removeVolBar">Remove the volume bar (keeps icon)</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="removeNPV" />
+            <label for="removeNPV">Remove the Now Playing View</label>
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenNPVqueue" />
+            <label for="hiddenNPVqueue"
+              >Remove the queue in the Now Playing View</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenNPVtour" />
+            <label for="hiddenNPVtour"
+              >Remove the on tour in the Now Playing View</label
+            >
+          </div>
+
+          <div class="option checkbox">
+            <input type="checkbox" id="hiddenNPVartist" />
+            <label for="hiddenNPVartist"
+              >Remove the about this artist in the Now Playing View</label
+            >
+          </div>
+        </div>
+      </div>
+      <div id="custom-options" class="option-group hidden">
+        <h1>Custom Options</h1>
+        <div class="options">
+          <!-- Miscellaneous options here -->
+
+          <div class="option checkbox">
+            <input type="checkbox" id="scrollbar" />
+            <label for="scrollbar">Scrollbar Customisation thing</label>
+          </div>
+
+          <br />
+
+          <br />
+
+          <header>Navigation Customisation</header>
+
+          <!-- Custom color for NPB & NB -->
+          <header>Custom color for NPB & NB</header>
+          <label for="colorInput">Custom Color:</label>
+          <span id="questionIcon">?</span>
+          <div id="explanation">
+            With this you can define any color, this will then be displayed on
+            the Now Playing Bar, Nav bar, Now Playing View, Hotkeys, and Media
+            Streamer
+            <br />
+            <br />
+            To try it out, you can use some simple colors like "pink" or, pick
+            an Rgba/Hex/Hsl color!
+            <br />
+            <br />
+            Alternatively, you can use an Image OR GIF simply put the link in
+            the box, you can also use a gradient!
+            <br />
+            <br />
+            Try this gradient~ linear-gradient(to bottom left, #FFB6C1, #FFD700,
+            #87CEEB, #98FB98, #DDA0DD, #FFA500)
+            <br />
+            <br />
+            Once you have a color, press "Save Options" and reload Spotify!
+          </div>
+          <br />
+          <input type="text" id="colorInput" />
+          <div id="colorPreview"></div>
+          <br />
+
+          <header>customisation for the NB</header>
+          <br />
+          <label for="borderRadiusInput">Border Radius:</label>
+          <input type="text" id="borderRadiusInput" />
+          <br />
+          <label for="paddingInput">Padding:</label>
+          <input type="text" id="paddingInput" />
+          <br />
+          <label for="heightInput">Height:</label>
+          <input type="text" id="heightInput" />
+          <br />
+          <label for="widthInput">Width:</label>
+          <input type="text" id="widthInput" />
+
+          <br />
+
+          <!-- Lyrics Customisation -->
+          <header>Lyrics Customisation</header>
+          <label for="lpaddingInput">Padding:</label>
+          <input type="text" id="lpaddingInput" />
+          <br />
+          <label for="lheightInput">Height:</label>
+          <input type="text" id="lheightInput" />
+          <br />
+          <label for="lwidthInput">Width:</label>
+          <input type="text" id="lwidthInput" />
+          <br />
+          <label for="lcolorInput">Color:</label>
+          <input type="text" id="lcolorInput" />
+          <span id="questionIcon">?</span>
+          <div id="explanation">
+            With this you can define any color, this will then be displayed on
+            the Now Playing Bar, Nav bar, Now Playing View, Hotkeys, and Media
+            Streamer
+            <br />
+            <br />
+            To try it out, you can use some simple colors like "pink" or, pick
+            an Rgba/Hex/Hsl color!
+            <br />
+            <br />
+            Alternatively, you can use an Image OR GIF simply put the link in
+            the box, you can also use a gradient!
+            <br />
+            <br />
+            Try this gradient~ linear-gradient(to bottom left, #FFB6C1, #FFD700,
+            #87CEEB, #98FB98, #DDA0DD, #FFA500)
+            <br />
+            <br />
+            Once you have a color, press "Save Options" and reload Spotify!
+          </div>
+          <br />
+          <div id="lcolorPreview"></div>
+          <br />
+          <label for="lfontInput">Font Size:</label>
+          <input type="text" id="lfontInput" />
+          <br />
+
+          <!-- I am never touching custom shit again -->
+        </div>
+      </div>
+      <footer>
+        <!-- Watermark -->
+        <div class="watermark">Made by Kami</div>
+      </footer>
+    </div>
+    <script src="js/settings/settings.js"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/shared/shared.js"></script>
+    <script src="js/settings/settingsExtra.js"></script>
+    <script src="js/settings/settingsOptions.js"></script>
+  </body>
+</html>
