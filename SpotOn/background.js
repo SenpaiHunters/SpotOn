@@ -1339,6 +1339,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
         //console.log("Custom Now Playing Bar:", customNPB);
         // console.log("Custom Progess bar:", progressBarSettings);
 
+        /*
         // Check if customOptions is empty, and if so, set default values
         if (!customOptions) {
           // Default customOptions values
@@ -1357,7 +1358,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
         // Check if customColor is empty, and if so, set default value
         if (!customColor) {
           // Default customColor value (light red)
-          const defaultColor = "radial-gradient(pink, transparent, lightpink)";
+          // const defaultColor = "radial-gradient(pink, transparent, lightpink)";
           // https://user-images.githubusercontent.com/103985728/258636474-4d775c93-9e64-4abc-ae9b-335205775016.gif
           // Save default value to storage
           chrome.storage.sync.set({ customColor: defaultColor });
@@ -1380,6 +1381,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
           // Assign defaultLyrics to customLyrics to apply default CSS
           customLyrics = defaultLyrics;
         }
+        */
 
         // Apply custom options to the desired element
         if (customOptions) {
