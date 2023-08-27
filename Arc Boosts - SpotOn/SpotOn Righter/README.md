@@ -1,1 +1,0 @@
-So, was messing around with Spotify while trying to fix SpotOn. And found you can move the nav bar! I kinda like it, it might be implimented into SpotOn soon with a toggle, but as for now, I'll place it inside the `style.css`.
