@@ -1,0 +1,427 @@
+body,
+.Root__top-container,
+.main {
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  color: var(--arc-palette-foregroundSecondary) !important;
+  background: var(--arc-palette-maxContrastColor) !important;
+}
+
+.nav-ylx,
+.ZQftYELq0aOsg6tPbVbV,
+.BdcvqBAid96FaHAmPYw_ {
+  background-color: var(--arc-palette-title);
+}
+
+.gQoa8JTSpjSmYyABcag2.T3hkVxXuSbCYOD2GIeQd /* cast text */ {
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  color: var(--arc-palette-foregroundSecondary) !important;
+  background: var(--arc-palette-maxContrastColor) !important;
+}
+
+.WFRr38dFOxh75JyzSTj5.IbmaxRtjqCjqTBpFwCgw /* cast button/arrow */ {
+  border-bottom: 10px solid var(--arc-palette-maxContrastColor) !important;
+}
+
+.T3hkVxXuSbCYOD2GIeQd /* now playing text */ {
+  color: var(--arc-palette-minContrastColor) !important;
+}
+
+.MfVrtIzQJ7iZXfRWg6eM /* good m/a/e text */ {
+  color: var(--arc-palette-title) !important;
+}
+
+.gQoa8JTSpjSmYyABcag2 /* now playing background */ {
+  background-color: var(--arc-palette-title) !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.control-button--active /* cast icon */ {
+  color: var(--arc-palette-title) !important;
+  fill: var(--arc-palette-title) !important;
+}
+
+.OCY4jHBlCVZEyGvtSv0J, .mwpJrmCgLlVkJVtWjlI1, .jVhTjB /* controls */ {
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  color: var(--arc-palette-minContrastColor) !important;
+  border: #000;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 0px;
+}
+
+.TywOcKZEqNynWecCiATc /* progress bar */ {
+  --fg-color: var(--arc-palette-maxContrastColor) !important;
+}
+
+.ffSjcn /* time text */ {
+  color: var(--arc-palette-maxContrastColor) !important;
+}
+
+.vnCew8qzJq3cVGlYFXRI /* play pause icon */ {
+  color: var(--arc-palette-foregroundPrimary) !important;
+  background-color: var(--arc-palette-minContrastColor) !important;
+}
+
+.fn72ari9aEmKo4JcwteT /* previous song */ {
+  color: var(--arc-palette-minContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.mnipjT4SLDMgwiDCEnRC /* next song */ {
+  color: var(--arc-palette-minContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.fn72ari9aEmKo4JcwteT:hover /* previous song */ {
+  color: var(--arc-palette-maxContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.mnipjT4SLDMgwiDCEnRC:hover /* next song */ {
+  color: var(--arc-palette-maxContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.KVKoQ3u4JpKTvSSFtd6J.OF_3F0SQCsBtL1jSTlTA /* shuffle */ {
+  color: var(--arc-palette-minContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.Vz6yjzttS0YlLcwrkoUR.tP0mccyU1WAa7I9PevC1 /* repeat */ {
+  color: var(--arc-palette-minContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.KVKoQ3u4JpKTvSSFtd6J.OF_3F0SQCsBtL1jSTlTA:hover /* shuffle */ {
+  transition-duration: 66ms !important;
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.Vz6yjzttS0YlLcwrkoUR.tP0mccyU1WAa7I9PevC1:hover /* repeat */ {
+  transition-duration: 66ms !important;
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.control-button-heart[aria-checked=false] /* heart unchecked */ {
+  color: var(--arc-background-simple-color) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.control-button-heart[aria-checked=true] /* heart checked */ {
+  color: var(--arc-background-simple-color) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.dgwCXe /* heart checked */ {
+  color: var(--arc-palette-minContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+a /* song names and artist names */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.ifIQrX, .LunqxlFIupJw_Dkx6mNx a, .LunqxlFIupJw_Dkx6mNx button, .Z35BWOA10YGn5uc9YgAp .Tzzq1pG_inwo_oSOdyjb /* song names and artist names */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.Root__nav-bar, .NXiYChVp4Oydfxd7rT5r RMDSGDMFrx8eXHpFphqG /* nav bar */ {
+  color: var(--arc-palette-maxContrastColor) !important;
+  background-color: var(--arc-palette-maxContrastColor) !important;
+  border-color: var(--arc-palette-maxContrastColor) !important;
+  background: var(--arc-palette-maxContrastColor) !important;
+}
+
+.GD2gbRtcs5dOjMGAM_Y4 /* border on now playing */ {
+  color: #000 !important;
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
+.utSR0FVkHnII_aL8TOcu:link /* playlist navbar text */ {
+  color: var(--arc-palette-background) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.ATUzFKub89lzvkmvhpyE, .QuHe04rU4bj0Z5U9E2Tk, .EZFyDnuQnx5hw78phLqP /* navbar (home, s active, yl active) icons */ {
+  background-color: var(--arc-palette-background) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+  border-radius: 8px;
+}
+
+.eNs6P3JYpf2LScgTDHc6 .search-icon, .Type__TypeElement-sc-goli3j-0 cfrXIO, .Type__TypeElement-sc-goli3j-0 cfrXIO, .Svg-sc-ytk21e-0 gQUQL home-active-icon /* search & home icon */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.eNs6P3JYpf2LScgTDHc6 .collection-icon, .Button-sc-1dqy6lx-0.eFuWge.RAWO6AczuDMOTI0qAc0a.OMCDc2F7g_AufJAtaKfL.ufICQKJq0XJE5iiIsZfj.caTDfb6Oj7a5_8jBLUSo.vOp2HlcPkxOHebo3If32.VNdHKKznHkpJ0VHoDmai.eZnAGhYcXE4Bt0a7958z.ratGUXdpLCkyXZNaJryg.ETclQEbcAcQdGdSioHaJ /* your library icon */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.liKqY2CEkAKTwX2SfNCu /* spotify logo */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.IPVjkkhh06nan7aZK7Bx /* Create playlist text */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.r9YzlaAPnM2LGK97GSfa /* Liked songs text (aswell the heart icon wtf) */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.Nd_DeCpszONzyaLe5Wd1 /* Liked songs icon */ {
+  color: var(--arc-palette-title) !important;
+  background: var(--arc-palette-hover) !important;
+}
+
+.q3ABXYJT9JZIzXOOtVuO /* create playlist icon */ {
+  color: var(--arc-palette-title) !important;
+  background: var(--arc-palette-title) !important;
+}
+
+.vCaNVEuqazhZFQNcVHZj /* your episodes icon */ {
+  color: var(--arc-palette-focus) !important;
+  background: var(--arc-palette-title) !important;
+}
+
+.Y8edH1Yjo4xrW_58czQj /* removes an ugly shadow */ {
+  background: transparent !important;
+}
+
+.FBPrcmuqo3yv5UfWSRl5 /* line between playlists and nav menu items */ {
+  background-color: var(--arc-palette-title) !important;
+  /*background: var(--arc-palette-title) !important; */
+}
+.nav-ylx, .jEMA2gVoLgPQqAFrPhFw /* ugly background on home screen */ {
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  /*background: var(--arc-palette-title) !important; */
+}
+
+.CCeu9OfWSwIAJqA49n84 /* Liked songs text (aswell the heart icon wtf) */ {
+  color: var(--arc-palette-foregroundPrimary) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.LunqxlFIupJw_Dkx6mNx, .I3EivnXTjYMpSbPUiYEg contentSpacing, .HsbczDqu9qjcYr7EIdHR /* playlist boxes on home page */ {
+  background-color: var(--arc-palette-minContrastColor) !important;
+  background: var(--arc-palette-maxContrastColor) !important;
+  margin-bottom: 10cm !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.dvSMET /* playlist boxes on home page */ {
+  color: var(--arc-palette-maxContrastColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.kWONUS /* play playlist on playlist boxes on home page */ {
+  color: var(--arc-palette-minContrastColor) !important;
+  background-color: var(--arc-palette-title) !important;
+}
+
+.iPtRzt:hover .ButtonInner-sc-14ud5tc-0 /* play playlist on playlist boxes on home page */ {
+  transition-duration: 66ms;
+  color: var(--arc-background-simple-color) !important;
+  background-color: var(--arc-palette-cutoutColor) !important;
+}
+
+.HsbczDqu9qjcYr7EIdHR /* top color */ {
+  color: var(--arc-palette-minContrastColor) !important;
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  background-image: var(--arc-palette-focus) !important;
+  height: 335px !important;
+}
+
+.Root__top-bar /* top nav bar (back and profile settings) */ {
+  color: var(--arc-palette-focus) !important;
+  background-color: var(--arc-palette-focus) !important;
+}
+
+.T1xI1RTSFU7Wu94UuvE6 /* top nav bar (back and profile settings) scrolling */ {
+  color: var(--arc-palette-hover) !important;
+  background-color: var(--arc-palette-hover) !important;
+}
+
+/* playlists */
+
+.gHImFiUWOg93pvTefeAD /* top nav bar (back and profile settings) scrolling */ {
+  /* color: var(--arc-palette-hover) !important;*/
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  background: var(--arc-palette-foregroundSecondary) !important;
+}
+
+.CoLO4pdSl8LGWyVZA00t /* top nav bar (back and profile settings) scrolling */ {
+  /* color: var(--arc-palette-hover) !important; */
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  background: var(--arc-palette-foregroundSecondary) !important;
+}
+
+.rezqw3Q4OEPB1m4rmwfw /* top nav bar (back and profile settings) scrolling */ {
+  /* color: var(--arc-palette-hover) !important; */
+  background-color: var(--arc-palette-foregroundSecondary) !important;
+  background: var(--arc-palette-foregroundSecondary) !important;
+}
+
+._EShSNaBK1wUIaZQFJJQ /* playlist icon */ {
+  color: var(--arc-palette-hover) !important;
+  box-shadow: var(--arc-palette-hover) !important;
+}
+
+.xgmjVLxjqfcXK5BV_XyN /* p subtitle */ {
+  color: var(--arc-palette-focus) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.fhrvNw/* p title */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.NXiYChVp4Oydfxd7rT5r /* main text playlist */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.hGXzYa /* main text playlist */ {
+  color: var(--arc-palette-focus) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.poz9gZKE7xqFwgk231J4 /* main text playlist */ {
+  color: var(--arc-palette-focus) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.HcMOFLaukKJdK5LfdHh0>:not(:last-child) /* time */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.Fm7C3gdh5Lsc9qSXrQwO.tGKwoPuvNBNK3TzCS5OH, .xgmjVLxjqfcXK5BV_XyN, .Fb61sprjhh75aOITDnsJ, .Type__TypeElement-sc-goli3j-0 hGXzYa RANLXG3qKB61Bh33I0r2/* hearts and text in playlists */ {
+  color: var(--arc-palette-cutoutColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.rRF_r7EyCHjZv058JACi, .T0anrkk_QA4IAQL29get /* heart and ... */ {
+  color: var(--arc-palette-cutoutColor) !important;
+}
+
+.dpREpp /* play button */ {
+  color: var(--arc-palette-title) !important;
+  background-color: var(--arc-palette-minContrastColor) !important;
+}
+
+.dIXVLA /* title text */ {
+  color: var(--arc-palette-cutoutColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.dZPmmYYhskhqHJCAruvI /* # */ {
+  color: var(--arc-palette-cutoutColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.VpYFchIiPg3tPhBGyynT /* track numbers */ {
+  color: var(--arc-palette-cutoutColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.kHHFyx /* track title */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.kpGMQq1KFz620g_BD_dS /* explicit E */ {
+  color: var(--arc-palette-maxContrastColor) !important;
+  background-color: var(--arc-palette-cutoutColor) !important;
+}
+
+.dZPmmYYhskhqHJCAruvI /* -- */ {
+  color: var(--arc-palette-cutoutColor) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.qJOhHoRcFhHJpEQ2CwFT.koyeY6AgGRPmyPITi7yO /* -- */ {
+  color: var(--arc-palette-cutoutColor) !important;
+  background-color: var(--arc-palette-hover) !important;
+}
+
+.ioDnN5QkrvTdd8oOrl2h /* your episodes */ {
+  color: var(--arc-palette-focus) !important;
+  /*background-color: var(--arc-palette-hover) !important;*/
+}
+
+.oezNMICqWdJHdR3QV9La /* your episodes  */ {
+  color: var(--arc-palette-focus) !important;
+  background-color: var(--arc-palette-title) !important;
+}
+
+.eCtSle /* bottom legal and other stuff. */ {
+  color: var(--arc-palette-focus) !important;
+  background-color: var(--arc-palette-title) !important;
+}
+
+.fkMbeL, .iKzQvb  /* social icons */ {
+  color: var(--arc-palette-focus) !important;
+  background-color: var(--arc-palette-title) !important;
+  fill: var(--arc-palette-focus) !important;
+}
+
+/* artist pages */
+
+.BL__GuO2JsHMR6RgNfwY /* bottom legal and other stuff. */ {
+  color: var(--arc-palette-focus) !important;
+  background-color: var(--arc-palette-foregroundTertiary) !important;
+}
+
+.kcjDTG /* bottom legal and other stuff. */ {
+  fill: var(--arc-palette-minContrastColor) !important;
+  /*background-color: var(--arc-palette-title) !important;*/
+}
+
+Type__TypeElement-sc-goli3j-0.fhrvNw /* bottom legal and other stuff. */ {
+  color: var(--arc-palette-title) !important;
+  /*background-color: var(--arc-palette-title) !important;*/
+}
+
+.TywOcKZEqNynWecCiATc /* bottom legal and other stuff. */ {
+  --is-active-fg-color: var(--arc-palette-focus) !important;
+  /*background-color: var(--arc-palette-title) !important;*/
+}
+
+.tr8V5eHsUaIkOYVw7eSG /* lyrics */ {
+  --lyrics-color-active: var(--arc-palette-minContrastColor) !important;
+  --lyrics-color-inactive: var(--arc-palette-hover) !important;
+  --lyrics-color-passed: var(--arc-palette-focus) !important;
+  --lyrics-color-background: var(--arc-background-simple-color) !important;
+  --lyrics-color-messaging: rgb(71, 35, 35);
+  color: var(--arc-palette-hover) !important;
+}
+
+.HkbHLcqgUfXruL5xVi28/* bottom legal and other stuff. */ {
+  background: var(--arc-palette-minContrastColor) !important;
+  /*background-color: var(--arc-palette-title) !important;*/
+}
+
+.fVB_YDdnaDlztX7CcWTA, .XTk61Y8OkBdUT6Wj4F6i.VfDGbMWaJe9rcefizTNk /* bottom legal and other stuff. */ {
+  background: var(--arc-palette-focus) !important;
+  /*background-color: var(--arc-palette-title) !important;*/
+}
+
+.poz9gZKE7xqFwgk231J4 , .RANLXG3qKB61Bh33I0r2, .dZPmmYYhskhqHJCAruvI, .wTUruPetkKdWAR1dd6w4, .gvLrgQXBFVW6m9MscfFA, .ASYv4mEu1lXEHVa04HqY /* more texts in playlist */ {
+  color: var(--arc-palette-maxContrastColor) !important;
+}
+
+.sprite {
+  filter: invert();
+}

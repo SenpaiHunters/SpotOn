@@ -1,0 +1,51 @@
+/* Invert the lyrics color for the background */
+:root {
+  --lyrics-color-passed: rgb(255 255 255 / 7%) !important;
+}
+
+/* Apply styles to the lyrics container */
+/*
+div.os-padding
+  > div
+  > div
+  > div.main-view-container__scroll-node-child
+  > main
+  > div
+  > div:nth-child(2)
+  > div
+  > div {
+  text-shadow: #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px,
+    #000 0px 0px 2px, #000 0px 0px 1px, #000 0px 0px 2px;
+  filter: saturate(4);
+  --lyrics-color-inactive: var(--lyrics-color-background) !important;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Apply styles to the hovered lyrics container
+div.os-padding
+  > div
+  > div
+  > div.main-view-container__scroll-node-child
+  > main
+  > div
+  > div:nth-child(2)
+  > div
+  > div:hover {
+  transform: scale(1.03);
+}
+
+/* Invert the color for specific elements
+.gIkgYW,
+.Za_uNH8nTZ0qCuIqbPLZ {
+  color: var(
+    --pulled-background-color,
+    #000000,
+    white
+  ) !important; /* Use the opposite color
+  mix-blend-mode: difference; /* Blend mode to achieve the opposite color effect
+
+  text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
+    #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
+}
+*/

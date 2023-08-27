@@ -1,0 +1,262 @@
+@import url("https://github.com/SenpaiHunters/Pictures/raw/main/SpotOn%20Pics/fonts/JetBrainsMonoNL-Thin.ttf");
+
+/* Light Theme */
+[data-theme="light"] {
+  --color-scheme: light;
+  --background: #f5f5f5;
+  --header-color: #ffffff;
+  --dialog-background: #ffffff;
+  --dialog-border: #dddddd;
+  --text: #333333;
+  --title: #666666;
+  --disabled: #ff7f7f;
+  --black: #000000;
+  --white: #ffffff;
+  --button-bg: #ffffff;
+  --button-hover: #f0f0f0;
+  --button-color: #333333;
+  --watermark-color: black;
+
+  /* Transitions */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --background: #111111;
+  --header-color: #212121;
+  --dialog-background: #181818;
+  --dialog-border: #ffffff;
+  --text: #c4c4c4;
+  --title: #dad8d8;
+  --disabled: #520000;
+  --black: #000000;
+  --white: #ffffff;
+  --button-bg: #222222;
+  --button-hover: #333333;
+  --button-color: #c4c4c4;
+  --watermark-color: white;
+
+  /* Transitions */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-scheme: light;
+  }
+}
+
+/*- Main styles -*/
+html,
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  background: var(--dialog-background);
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--title);
+  text-decoration: underline;
+}
+
+/*- Watermark -*/
+.watermark {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: var(--watermark-color);
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.watermark:hover {
+  opacity: 0.8;
+  cursor: none;
+}
+
+/*- Color box prwview -*/
+div#colorViewerContainer {
+  padding: 6px 33px 2px 75px;
+}
+
+#colorBox {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.color-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
+  text-align: center;
+}
+
+#colorInput {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+#colorValue {
+  font-size: 14px;
+  padding-right: 10px;
+}
+
+/* You dont know how long the padding took me lmaooo */
+div#colorViewerContainer {
+  padding: 2px 33px 2px 33px;
+}
+#colorBox {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 2px solid #000; /* #ccc */
+  border-radius: 5px;
+}
+
+.color-viewer {
+  display: inline-block;
+  padding: 3px;
+  text-align: center;
+}
+
+#colorInput {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+#colorValue {
+  font-size: 14px;
+  padding-right: 10px;
+}
+/*
+* END
+*/
+/*- Styles for buttons -*/
+button {
+  padding: 9px 12px;
+  font-size: 16px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 24px;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out, color 0.3s ease;
+}
+
+/* Apply background-color only to buttons other than #theme-toggle */
+button:not(#theme-toggle):hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out;
+  border-radius: 28px; /* Adjust the border radius for hover state */
+  color: var(--white); /* Change text color on hover for better visibility */
+}
+
+/* Improved color viewer */
+.color-viewer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+/*
+* END
+*/
+/*
+
+/* Improved button styling
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 24px;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Improved color viewer
+.color-viewer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+
+*/
+
+/*
+old
+
+/*- Styles for buttons -
+button {
+  padding: 9px 11px;
+  font-size: 16px;
+  display: block;
+  width: 150px;
+  margin: 10px auto;
+  border: 1px solid black;
+  border-radius: 24px;
+  background-color: var(--button-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Apply background-color only to buttons other than #theme-toggle
+button:not(#theme-toggle):hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out;
+}
+
+*/

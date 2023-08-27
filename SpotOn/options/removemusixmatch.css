@@ -1,0 +1,8 @@
+/* Lyrics provided by Musixmatch - bye! */
+/* REDO as it messes up text for playlists */
+.main-view-container__scroll-node-child
+  [aria-label="Spotify"]
+  .esRByMgBY3TiENAsbDHA
+  :first-child {
+  display: none !important;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Picker</title>
+    <link rel="icon" href="./icons/icon128.png" type="image/png" />
+    <link rel="stylesheet" href="css/color/color.css" />
+    <link rel="stylesheet" href="css/shared/shared.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <button class="back-button" id="backButton">
+        <i class="bx bx-chevron-left"></i>
+      </button>
+      <div class="toggle-mode">
+        <button id="modeToggle">
+          <i id="modeIcon" class="fas fa-toggle-on"></i>Toggle mode
+        </button>
+      </div>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        title="Toggles light & dark"
+        aria-label="auto"
+        aria-live="polite"
+      >
+        <svg
+          class="sun-and-moon"
+          aria-hidden="true"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <mask class="moon" id="moon-mask">
+            <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+            <circle cx="24" cy="10" r="6" fill="black"></circle>
+          </mask>
+          <circle
+            class="sun"
+            cx="12"
+            cy="12"
+            r="6"
+            mask="url(#moon-mask)"
+            fill="currentColor"
+          ></circle>
+          <g class="sun-beams" stroke="currentColor">
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </g>
+        </svg>
+      </button>
+
+      <h1>Color Picker</h1>
+      <div id="colorBox"></div>
+
+      <div class="color-picker">
+        <label for="colorInput">Pick a Color:</label>
+        <input type="color" id="colorInput" />
+      </div>
+      <div class="color-format">
+        <label for="colorFormat">Copy Color As:</label>
+        <select id="colorFormat">
+          <option value="hex">Hex</option>
+          <option value="rgb">RGB</option>
+          <option value="rgba">RGBA</option>
+          <option value="hsl">HSL</option>
+        </select>
+      </div>
+      <button id="copyButton" class="icon-button">
+        <i class="bx bx-copy"></i> Copy Color
+      </button>
+      <span id="colorValue">#FFFFFF</span>
+      <br />
+      <button id="colorOptionsButton" class="icon-button">
+        <i class="bx bx-save"></i> Go to Color Options
+      </button>
+
+      <button id="viewHistoryButton" class="icon-button">
+        <i class="bx bx-history"></i> View Color History
+      </button>
+
+      <!-- Watermark -->
+      <div class="watermark">Made by Kami</div>
+    </div>
+    <script src="js/coloring/color.js"></script>
+    <script src="js/shared/shared.js"></script>
+  </body>
+</html>

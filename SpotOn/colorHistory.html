@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./icons/icon128.png" type="image/png" />
+    <title>Color History</title>
+    <link rel="stylesheet" href="css/color/colorHistory.css" />
+    <link rel="stylesheet" href="css/shared/shared.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button id="backToMainPageButton">Back to Main Page</button>
+      <div class="toggle-mode">
+        <button id="modeToggle">
+          <i id="modeIcon" class="fas fa-toggle-on"></i>Toggle mode
+        </button>
+      </div>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        title="Toggles light & dark"
+        aria-label="auto"
+        aria-live="polite"
+      >
+        <svg
+          class="sun-and-moon"
+          aria-hidden="true"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <mask class="moon" id="moon-mask">
+            <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+            <circle cx="24" cy="10" r="6" fill="black"></circle>
+          </mask>
+          <circle
+            class="sun"
+            cx="12"
+            cy="12"
+            r="6"
+            mask="url(#moon-mask)"
+            fill="currentColor"
+          ></circle>
+          <g class="sun-beams" stroke="currentColor">
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </g>
+        </svg>
+      </button>
+      <h1>Color History</h1>
+      <div class="color-history">
+        <!-- Total Colors Saved Counter -->
+        <p id="totalColorsSavedMessage">Total Colors Saved: 0</p>
+
+        <!-- Color viewer for each saved color -->
+        <div class="color-viewer-container" id="colorViewerContainer">
+          <!-- Add a message for empty color history -->
+          <div class="empty-message">No saved colors</div>
+        </div>
+      </div>
+      <button id="removeAllButton">Remove All Colors</button>
+      <button id="backButton">Back</button>
+      <!-- Watermark -->
+
+      <div class="watermark">Made by Kami</div>
+    </div>
+    <script src="js/coloring/colorHistory.js"></script>
+    <script src="js/shared/shared.js"></script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+{
+  "manifest_version": 3,
+  "name": "SpotOn",
+  "version": "2.1.0",
+  "description": "Extension to customize Spotify web client.",
+  "author": "SenpaiHunters",
+  "homepage_url": "https://github.com/senpaihunters/",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "notifications",
+    "declarativeNetRequest",
+    "contextMenus",
+    "declarativeContent",
+    "activeTab",
+    "clipboardWrite",
+    "webRequest"
+  ],
+  "host_permissions": ["https://open.spotify.com/*"],
+  "action": {
+    "default_popup": "options.html"
+  },
+  "commands": {
+    "toggle_spoton": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+T",
+        "mac": "MacCtrl+Shift+T"
+      },
+      "description": "Toggle SpotOn"
+    },
+    "search_spotify": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Search Spotify for current tab title"
+    },
+    "open_spotify": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+O",
+        "mac": "Command+Shift+O"
+      },
+      "description": "Open Spotify in a new tab"
+    },
+    "play-pause": {
+      "description": "Playback: play / pause",
+      "suggested_key": {
+        "default": "MediaPlayPause"
+      },
+      "global": true
+    },
+    "previous": {
+      "description": "Playback: previous track",
+      "suggested_key": {
+        "default": "MediaPrevTrack"
+      },
+      "global": true
+    },
+    "next": {
+      "description": "Playback: next track",
+      "suggested_key": {
+        "default": "MediaNextTrack"
+      },
+      "global": true
+    },
+    "shuffle": {
+      "description": "Playback: toggle shuffle",
+      "global": true
+    },
+    "repeat": {
+      "description": "Playback: toggle repeat none / track / playlist",
+      "global": true
+    },
+    "like": {
+      "description": "Like: toggle song like",
+      "global": true
+    },
+    "seek-forward": {
+      "description": "Playback: seek forward",
+      "global": true
+    },
+    "seek-backward": {
+      "description": "Playback: seek backwards",
+      "global": true
+    },
+    "volume-up": {
+      "description": "Volume: increase by 10%",
+      "global": true
+    },
+    "volume-down": {
+      "description": "Volume: decrease by 10%",
+      "global": true
+    },
+    "volume-mute": {
+      "description": "Volume: toggle mute",
+      "global": true
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": ["js/settings/settings.js", "js/options/options.js"],
+      "css": ["css/functions.css", "css/presets.css"]
+    }
+  ]
+}
