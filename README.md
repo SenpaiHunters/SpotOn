@@ -8,6 +8,12 @@ SpotOn is a full overhaul of the Spotify Web Player that adds various features a
 ---
 # V2 IS OUT!!! Read the release notes in Releases!
 
+*With SpotOn V2, there are roughly 55 toggles, 15 custom settings, 9 themes, and a whole lot more!*
+
+## Something you can help with in this process is creating themes!!! 
+Now, this will be easy and I'll create a guide in the coming weeks stepping you through it and the process of submitting your theme(s), but if you know CSS, feel free to make a theme and come share it on our discord for now! I'll credit all theme makers, as well as add it to SpotOn's main theme selector!
+
+
 ---
 
 
