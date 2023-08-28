@@ -205,6 +205,6 @@ You should now see, `simpilify`!
 
 Press `simpilify`, then below it, press "Save Options". The tab will auto-reload and show you your new theme!
 
-Congrats! You've now added a new theme to SpotOn! Come and share your themes on our [discrd](https://discord.gg/9hqVqYDpj3)!
+Congrats! You've now added a new theme to SpotOn! Come and share your themes on our [discord](https://discord.gg/9hqVqYDpj3)!
 
-* NOTE: Themes sometimes require SpotOn's toggle to be turned off! Find this on the settings page, and it'll be the first toggle. Go ahead and turn that off if your theme looks off or bad! *
+*NOTE: Themes sometimes require SpotOn's toggle to be turned off! Find this on the settings page, and it'll be the first toggle. Go ahead and turn that off if your theme looks off or bad!*
