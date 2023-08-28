@@ -2,7 +2,7 @@
 <img width="279" alt="235338288-be1251b1-0074-4560-9c02-bff7bacef367" src="https://user-images.githubusercontent.com/103985728/236811543-fa90aa8e-34cf-44d6-a43f-b8fe5a74a819.png">
 </h1>
 
-SpotOn is a full overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
+SpotOn is an overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
 
 
 ---
@@ -13,6 +13,9 @@ SpotOn is a full overhaul of the Spotify Web Player that adds various features a
 ## Something you can help with in this process is creating themes!!! 
 Now, this will be easy and I'll create a guide in the coming weeks stepping you through it and the process of submitting your theme(s), but if you know CSS, feel free to make a theme and come share it on our discord for now! I'll credit all theme makers, as well as add it to SpotOn's main theme selector!
 
+*Come join our discord to share your themes!*
+
+To add custom themes, please check out the guide on [Resources](https://github.com/SenpaiHunters/SpotOn/blob/Main/Resources/CustomThemes.md)
 
 ---
 
