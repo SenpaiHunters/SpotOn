@@ -1,5 +1,7 @@
 <h1 align="center">
-<img width="279" alt="235338288-be1251b1-0074-4560-9c02-bff7bacef367" src="https://user-images.githubusercontent.com/103985728/236811543-fa90aa8e-34cf-44d6-a43f-b8fe5a74a819.png">
+  SpotOn
+  <br/>
+<img width="230" alt="SpotOn Logo" src="https://github.com/SenpaiHunters/SpotOn/assets/103985728/a3285cef-ca9e-4707-b11d-5db07e5703bb">
 </h1>
 
 SpotOn is an overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
