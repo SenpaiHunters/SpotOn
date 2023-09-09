@@ -6,6 +6,11 @@
 
 SpotOn is an overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
 
+---
+# SpotOn is now on the Chrome Web Store!!!
+Check it out [here](https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0), with the extension you don't need to worry about unpacking the extension, looking for updates, everything is done by itself! Do note: IF you use the Chrome Extension via the web store updates MAY be 1/3 days later than on this Repo! This is because it needs to be confirmed and all that fun stuff!
+
+
 
 ---
 # V2 IS OUT!!! Read the release notes in Releases!
