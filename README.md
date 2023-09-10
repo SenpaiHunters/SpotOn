@@ -1,8 +1,8 @@
 <div align="right"> 
 
-<a href="https://github.com/senpaihunters/spoton/issues/new">Report a bug</a> ·
+<a href="https://github.com/SenpaiHunters/SpotOn/issues/new/choose">Report a bug</a> ·
 <a href="https://discord.gg/9hqVqYDpj3">Wish a feature</a> ·
-<a href="https://github.com/senpaihunters/spoton/Contributing">Contribute</a> ·
+<a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/CONTRIBUTING.md">Contribute</a> ·
 <a href="https://github.com/SenpaiHunters/SpotOn/wiki/Donate-&-Support">Donate</a> <br></div>
 
  <h3><img src="https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn/icons/icon32.png?raw=true" style="vertical-align:middle"> SpotOn</h3>
@@ -24,7 +24,7 @@
     <a href="https://github.com/SenpaiHunters/SpotOn/releases">
         <img src="https://img.shields.io/github/v/release/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Release" />
     </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/contributors">
+    <a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/CONTRIBUTING.md">
         <img src="https://img.shields.io/github/contributors/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Contributors" />
     </a>
     <a href="https://github.com/SenpaiHunters/SpotOn/watchers">
@@ -52,7 +52,7 @@ Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors"
 <br><div align="center">[<a href="https://github.com/senpaihunters/spoton/#">Help us Translate</a>]</div>
 </td></tr></table>  
 
-<h2>Announcemnets</h2>
+<h2>Announcements</h2>
 SpotOn is now on the Chrome Web Store!!!
 Check it out <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">here</a>, with the extension you don't need to worry about unpacking the extension, looking for updates, everything is done by itself! Do note: IF you use the Chrome Extension via the web store updates MAY be 1/3 days later than on this Repo! This is because it needs to be confirmed and all that fun stuff!
 </a>
@@ -88,7 +88,7 @@ Check it out [here](https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpj
 *With SpotOn V2, there are roughly 55 toggles, 15 custom settings, 9 themes, and a whole lot more!*
 
 ## Something you can help with in this process is creating themes!!! 
-Now, this will be easy and I'll create a guide in the coming weeks stepping you through it and the process of submitting your theme(s), but if you know CSS, feel free to make a theme and come share it on our discord for now! I'll credit all theme makers, as well as add it to SpotOn's main theme selector!
+Now, this will be easy and I'll create a guide in the coming weeks stepping you through it and the process of submitting your theme(s), but if you know CSS, feel free to make a theme and share it on our discord for now! I'll credit all theme makers, as well as add it to SpotOn's main theme selector!
 
 *Come join our discord to share your themes!*
 
