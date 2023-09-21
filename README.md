@@ -12,9 +12,6 @@
     <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">
         <img src="https://img.shields.io/chrome-web-store/v/hnbcgkmojpjmncmplcnefjnmcbckadff?style=for-the-badge" alt="Chrome Web Store" />
     </a>
-    <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">
-        <img src="https://img.shields.io/chrome-web-store/users/hnbcgkmojpjmncmplcnefjnmcbckadff?style=for-the-badge" alt="Chrome Web Store Users" />
-    </a>
     <a href="https://github.com/SenpaiHunters/SpotOn">
         <img src="https://img.shields.io/github/stars/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Stars" />
     </a>
@@ -61,6 +58,9 @@ Check it out <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmoj
 SpotOn V2 is out!
 <br>
 <bold>With SpotOn V2, there are roughly 55 toggles, 15 custom settings, 9 themes, and a whole lot more!</bold>
+<be>
+<be>
+SpotOn V2.5 will be released soon, every single file has been optimised, speed increased by a factor of 5, 200 + kbs of file reduction and a few more added options, just mainly focused on a few new features but mostly optimisation.
 
 <br><br><br>
 
