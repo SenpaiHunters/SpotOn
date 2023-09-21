@@ -58,8 +58,8 @@ Check it out <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmoj
 SpotOn V2 is out!
 <br>
 <bold>With SpotOn V2, there are roughly 55 toggles, 15 custom settings, 9 themes, and a whole lot more!</bold>
-<be>
-<be>
+<br>
+<br>
 SpotOn V2.5 will be released soon, every single file has been optimised, speed increased by a factor of 5, 200 + kbs of file reduction and a few more added options, just mainly focused on a few new features but mostly optimisation.
 
 <br><br><br>
