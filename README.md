@@ -61,6 +61,10 @@ SpotOn V2 is out!
 <br>
 <br>
 SpotOn V2.5 will be released soon, every single file has been optimised, speed increased by a factor of 5, 200 + kbs of file reduction and a few more added options, just mainly focused on a few new features but mostly optimisation.
+<br>
+<br>
+I uhhh decided to add more to SpotOn... Well, in version 2.5 you'll now get the option to translate the lyrics of your songs, as well as having access to stats about your listening, graphs etc etc. This is still in heavy development so the improvements have been pushed back a little... sorry...! I might release them on the chrome extension side, actually, i will! Most likely today or tomorrow..
+
 
 <br><br><br>
 
