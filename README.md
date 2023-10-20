@@ -64,7 +64,9 @@ SpotOn V2.5 will be released soon, every single file has been optimised, speed i
 <br>
 <br>
 I uhhh decided to add more to SpotOn... Well, in version 2.5 you'll now get the option to translate the lyrics of your songs, as well as having access to stats about your listening, graphs etc etc. This is still in heavy development so the improvements have been pushed back a little... sorry...! I might release them on the chrome extension side, actually, i will! Most likely today or tomorrow..
-
+<br>
+<br>
+Pushed all of my settings changes into options to address annoying bugs i don't want you guys to face, should be on Chrome web store soon, thanks Spotify lol.
 
 <br><br><br>
 
