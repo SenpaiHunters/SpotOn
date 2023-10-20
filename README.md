@@ -1,3 +1,77 @@
+<div align="right"> 
+
+<a href="https://github.com/SenpaiHunters/SpotOn/issues/new/choose">Report a bug</a> ·
+<a href="https://discord.gg/9hqVqYDpj3">Wish a feature</a> ·
+<a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/CONTRIBUTING.md">Contribute</a> ·
+<a href="https://github.com/SenpaiHunters/SpotOn/wiki/Donate-&-Support">Donate</a> <br></div>
+
+ <h3><img src="https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn/icons/icon32.png?raw=true" style="vertical-align:middle"> SpotOn</h3>
+<p>Powerful but lightweight extension to overhaul Spotify Web Player.</p>
+
+<p align="center">
+    <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">
+        <img src="https://img.shields.io/chrome-web-store/v/hnbcgkmojpjmncmplcnefjnmcbckadff?style=for-the-badge" alt="Chrome Web Store" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn">
+        <img src="https://img.shields.io/github/stars/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Stars" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/issues">
+        <img src="https://img.shields.io/github/issues/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Issues" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/releases">
+        <img src="https://img.shields.io/github/v/release/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Release" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/CONTRIBUTING.md">
+        <img src="https://img.shields.io/github/contributors/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Contributors" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/watchers">
+        <img src="https://img.shields.io/github/watchers/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Watchers" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/forks">
+        <img src="https://img.shields.io/github/forks/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Forks" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/commits">
+        <img src="https://img.shields.io/github/last-commit/SenpaiHunters/SpotOn?style=for-the-badge" alt="Last Commit" />
+    </a>
+</p>
+
+
+<table align="right"><tr><td><h2>Roadmap</h2> <!-- The list below only stays formatted when there is a line break above --> 
+
+ - Optimisation
+ - Addition of requested feats (0)
+ - Updated documentation
+ - BETA feats
+ - More custom options
+ - More toggles
+	
+Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors">contributors ♡</a>
+<br><div align="center">[<a href="https://github.com/senpaihunters/spoton/#">Help us Translate</a>]</div>
+</td></tr></table>  
+
+<h2>Announcements</h2>
+SpotOn is now on the Chrome Web Store!!!
+Check it out <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">here</a>, with the extension you don't need to worry about unpacking the extension, looking for updates, everything is done by itself! Do note: IF you use the Chrome Extension via the web store updates MAY be 1/3 days later than on this Repo! This is because it needs to be confirmed and all that fun stuff!
+</a>
+<br>
+<br>
+SpotOn V2 is out!
+<br>
+<bold>With SpotOn V2, there are roughly 55 toggles, 15 custom settings, 9 themes, and a whole lot more!</bold>
+<br>
+<br>
+SpotOn V2.5 will be released soon, every single file has been optimised, speed increased by a factor of 5, 200 + kbs of file reduction and a few more added options, just mainly focused on a few new features but mostly optimisation.
+<br>
+<br>
+I uhhh decided to add more to SpotOn... Well, in version 2.5 you'll now get the option to translate the lyrics of your songs, as well as having access to stats about your listening, graphs etc etc. This is still in heavy development so the improvements have been pushed back a little... sorry...! I might release them on the chrome extension side, actually, i will! Most likely today or tomorrow..
+
+
+<br><br><br>
+
+<details><summary>
+Original introduction</summary>
+
+
 <h1 align="center">
   SpotOn
   <br/>
@@ -6,6 +80,11 @@
 
 SpotOn is an overhaul of the Spotify Web Player that adds various features and improvements to enhance the user experience.
 
+---
+# SpotOn is now on the Chrome Web Store!!!
+Check it out [here](https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0), with the extension you don't need to worry about unpacking the extension, looking for updates, everything is done by itself! Do note: IF you use the Chrome Extension via the web store updates MAY be 1/3 days later than on this Repo! This is because it needs to be confirmed and all that fun stuff!
+
+
 
 ---
 # V2 IS OUT!!! Read the release notes in Releases!
@@ -13,7 +92,7 @@ SpotOn is an overhaul of the Spotify Web Player that adds various features and i
 *With SpotOn V2, there are roughly 55 toggles, 15 custom settings, 9 themes, and a whole lot more!*
 
 ## Something you can help with in this process is creating themes!!! 
-Now, this will be easy and I'll create a guide in the coming weeks stepping you through it and the process of submitting your theme(s), but if you know CSS, feel free to make a theme and come share it on our discord for now! I'll credit all theme makers, as well as add it to SpotOn's main theme selector!
+Now, this will be easy and I'll create a guide in the coming weeks stepping you through it and the process of submitting your theme(s), but if you know CSS, feel free to make a theme and share it on our discord for now! I'll credit all theme makers, as well as add it to SpotOn's main theme selector!
 
 *Come join our discord to share your themes!*
 
@@ -278,3 +357,112 @@ SpotOn is licensed under the MIT License. See the LICENSE file for more informat
 ---
 
 Please note that SpotOn is not affiliated with Spotify. It is an open-source project developed and maintained by the SpotOn community.
+
+
+</details> <hr>
+
+
+
+<h2>🎁 Custom Themes</h2>
+
+Creating custom themes for SpotOn is a breeze! In the upcoming weeks, I'll be providing a comprehensive guide to walk you through the process of crafting your own themes and how to submit them. If you're already well-versed in CSS, don't hesitate to start creating your themes and share them with our SpotOn community on Discord. All theme creators will receive credit, and their themes will be featured in SpotOn's main theme selector.
+
+Join our Discord community to showcase your creative themes!
+
+To get started with custom themes, please refer to our guide in the <a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/Resources/CustomThemes.md">Resources</a> section.
+
+<details><summary><h2>👀 SpotOn Looks</h2></summary>
+<img width="1552" alt="Preview 1" src="https://github.com/SenpaiHunters/SpotOn/assets/103985728/9f216ebe-3214-41da-9a47-b68f293575d8">
+<img width="1552" alt="Preview 2" src="https://github.com/SenpaiHunters/SpotOn/assets/103985728/e15dfd12-e082-4803-b5dc-bfc4e10ba826">
+<img width="1552" alt="Preview 3" src="https://github.com/SenpaiHunters/SpotOn/assets/103985728/85568370-ac9a-45e9-bd94-bc4c57e92f30">
+
+![Preview 4](https://github.com/SenpaiHunters/SpotOn/assets/103985728/2a4b0e5b-9199-4f0b-a43b-e7c2d7293950)
+![Preview 5](https://github.com/SenpaiHunters/SpotOn/assets/103985728/0e265089-6ed8-4b94-a0dc-4185c5d4db74)
+![Preview 6](https://github.com/SenpaiHunters/SpotOn/assets/103985728/96cee3cb-064d-4a6a-b497-747d22b0b3ba)
+  
+</details>
+
+<details><summary><h2>📜 Historic Introduction</h2></summary>
+
+[SpotOn](https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0) is an extension I developed to elevate your Spotify experience. It's a versatile one-stop shop equipped with numerous features to enhance Spotify while remaining lightweight. From customizable toggles to remove specific elements or buttons, to full-fledged custom CSS for personalizing your Spotify's appearance, SpotOn offers it all and is entirely user-expandable.
+
+<p align="center">
+<a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">
+        <img src="https://img.shields.io/chrome-web-store/v/hnbcgkmojpjmncmplcnefjnmcbckadff?style=for-the-badge" alt="chrome-web-store-link" /><img src="https://img.shields.io/chrome-web-store/users/hnbcgkmojpjmncmplcnefjnmcbckadff?style=for-the-badge" alt="Chrome-users" /></a> </p>
+
+**Key Features of SpotOn**:
+- Custom toggles
+- Theme customization
+- Album art downloader
+- Color picker
+- Color history
+- Color settings
+
+Explore the [full list of features](https://github.com/SenpaiHunters/SpotOn/wiki/Features).
+
+🔧 **Installing SpotOn from Source**
+1. **Download & extract the [latest version](https://github.com/senpaihunters/spoton/archive/refs/heads/master.zip) or [release](https://github.com/senpaihunters/spoton/releases)**.
+   
+   - **Safari**:
+     - 2. Currently unsupported as an extension.
+     - 3. Supported as a userscript.
+     - 4. Copy the code from [here](https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20Userscript/userscript.js).
+     - 5. Paste it into your userscript and save.
+   
+   - **Chrome / Chromium / Brave / Edge / Vivaldi**:
+     - 2. Go to your browser's Extensions page (*chrome://extensions/*).
+     - 3. Activate "Developer mode."
+     - 4. Click the "Load unpacked" button and select the extracted folder.
+
+#### Web Browser Support 
+|[Brave](https://brave.com) | [Chromium](https://github.com/chromium/chromium) | [Chrome](https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0) | [Edge](https://www.microsoft.com/edge) | [Firefox](https://foundation.mozilla.org) | [Opera](https://addons.opera.com) | [Safari](https://www.apple.com/safari/) | [Vivaldi](https://github.com/ric2b/Vivaldi-browser) |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ | 
+</details>
+
+<details><summary><h2>🧰 Features</h2></summary>
+
+SpotOn offers a range of features to enhance your Spotify experience:
+- Custom toggles
+- Theme customization
+- Custom CSS
+- Album art downloader
+- Color picker
+- Color history
+- Color settings
+
+Explore the [full list of features](https://github.com/SenpaiHunters/SpotOn/wiki/Features).
+</details>
+
+<details><summary><h2>🔧 Installing from Source</h2></summary>
+
+To install SpotOn from source, follow these steps:
+1. **Download & extract the latest version from the [release](https://github.com/senpaihunters/spoton/releases)**.
+
+   - **Safari**:
+     - 2. Currently unsupported as an extension.
+     - 3. Supported as a userscript.
+     - 4. Copy the code from [here](https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn%20Userscript/userscript.js).
+     - 5. Paste it into your userscript and save.
+
+   - **Arc / Chrome / Chromium / Brave / Edge / Vivaldi**:
+     - 2. Go to your browser's Extensions page (*chrome://extensions/*).
+     - 3. Activate "Developer mode."
+     - 4. Click the "Load unpacked" button and select the extracted folder.
+
+   - **Web Store**:
+     - 2. Visit the [Web Store](https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0).
+     - 3. Click "Add to Chrome."
+     - 4. Review and confirm the permissions.
+     - 5. Explore customization options on the settings page.
+</details>
+
+<details><summary><h2>📈 Support</h2></summary>
+<p align="center">
+    Very easy to get support, either reach out on our discord which I am on 24/7 and check it daily!
+</p>
+</details>
+
+## License
+
+SpotOn is released under the [MIT License](/LICENSE) by [@senpaihunters](https://github.com/senpaihunters).
