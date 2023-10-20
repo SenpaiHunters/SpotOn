@@ -1,9 +1,6 @@
-[data-testid="npv-artist-bio-button"] > div {
-  display: none !important;
-}
-
-[data-testid="NPV_Panel_OpenDiv"]
-  [data-testid="npv-artist-bio-button"]
-  :last-child:has([data-testid="npv-artist-link"]) {
+.QkOkUShDYWFx5Cz40Bcn,
+.GTmlByXpJj7V6AwVq0Vk.ouorHKa6NI5cm666H3tp #Desktop_PanelContainer_Id,
+button.hd6a3g_3QyF8MFL0wWs1,
+.Ai_McRq9wJEYK21w8nX_.vbsB4OQJkFHLU8SbSGzS {
   display: none !important;
 }

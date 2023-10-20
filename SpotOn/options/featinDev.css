@@ -8,10 +8,6 @@
   /* the color of the timings (left/right) */
 }
 
-div#tippy-2,
-.tippy-box[data-theme~="activation"] > .tippy-content {
-  display: none !important;
-}
 /**/
 /* Now Playing Bar (NPB)
 .playback-bar *,
@@ -30,9 +26,9 @@ div#tippy-2,
   background-color: pink !important;
 }
 
-/* Progess bar, (inner progress bar) how long has the song gone on for?
+/* Progess bar, (inner progress bar) how long has the song gone on for? */
 div[data-testid="progress-bar-background"] div div {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     rgba(73, 0, 255, 1),
     rgba(96, 0, 255, 1) 20%,
@@ -40,11 +36,12 @@ div[data-testid="progress-bar-background"] div div {
     rgba(141, 23, 232, 1) 60%,
     rgba(141, 23, 232, 0.8) 80%,
     rgba(141, 23, 232, 0.6)
-  ) !important;
-  /* ↑ nice little linear gradient - linear-gradient(to right, rgba(73, 0, 255, 1), rgba(96, 0, 255, 1) 20%, rgba(119, 0, 255, 1) 40%, rgba(141, 23, 232, 1) 60%, rgba(141, 23, 232, 0.8) 80%, rgba(141, 23, 232, 0.6)) !important;
+  ) !important; */
+  background-color: #181a1b;
+  /* ↑ nice little linear gradient - linear-gradient(to right, rgba(73, 0, 255, 1), rgba(96, 0, 255, 1) 20%, rgba(119, 0, 255, 1) 40%, rgba(141, 23, 232, 1) 60%, rgba(141, 23, 232, 0.8) 80%, rgba(141, 23, 232, 0.6)) !important; *.
   border-radius: 20px !important;
   margin: 1px !important;
-  /* Increase/decrease margin to make the bar smaller or larger
+  /* Increase/decrease margin to make the bar smaller or larger */
 }
 /* ↑ Backup - [data-testid="player-controls"] [data-testid="playback-progressbar"] [data-testid="progress-bar"] .epWhU7hHGktzlO_dop6z
 /* ↓ Backup - [data-testid="now-playing-bar"] [data-testid="player-controls"] [data-testid="playback-progressbar"] .w699O0LgQRghXyl3bs9u
@@ -153,4 +150,28 @@ body
 /*- Hide artist pick on artist page -*/
 .uVh80THccLWIzZYwgUaQ {
   display: none !important;
+}
+
+/**/
+.os-theme-spotify > .os-scrollbar-horizontal > .os-scrollbar-track,
+.os-theme-spotify > .os-scrollbar-horizontal > .os-scrollbar-track.active,
+.os-theme-spotify > .os-scrollbar-horizontal > .os-scrollbar-track:hover,
+.os-theme-spotify > .os-scrollbar-vertical > .os-scrollbar-track,
+.os-theme-spotify > .os-scrollbar-vertical > .os-scrollbar-track.active,
+.os-theme-spotify > .os-scrollbar-vertical > .os-scrollbar-track:hover {
+  background: #09090980;
+}
+
+/**/
+.kpGMQq1KFz620g_BD_dS,
+.GJYW6BbHn3q28_5kkshJ,
+.kpGMQq1KFz620g_BD_dS,
+.cSfdnZ {
+  background-color: rgba(24, 26, 27, 0.6) !important;
+  background: rgba(24, 26, 27, 0.6) !important;
+  color: white !important;
+}
+
+.vnCew8qzJq3cVGlYFXRI {
+  filter: invert();
 }

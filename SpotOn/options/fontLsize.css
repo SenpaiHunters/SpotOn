@@ -1,18 +1,9 @@
 @import url("https://github.com/SenpaiHunters/Pictures/raw/main/SpotOn%20Pics/fonts/JetBrainsMonoNL-Thin.ttf");
 
-/* Capitalize first letter */
 :root {
-  --firstLsize: 1.5em;
+  --first-letter-size: 1.5em;
 }
 
-body {
-  font-family: "JetBrains Mono", monospace;
-}
-
-h1,
-h2,
-.link-subtle,
-.mo-info-name,
 body,
 body.login,
 body.login *,
@@ -32,11 +23,7 @@ h1.Type__TypeElement-sc-goli3j-0.dYGhLW {
   font-family: "JetBrains Mono", monospace;
   font-weight: normal !important;
 }
-/*
-* Add a * to target all fonts
-*/
 
-/* Nav bar */
 .navBar-group-header::first-letter,
 .navBar-item .type::first-letter {
   text-transform: capitalize;
@@ -49,23 +36,10 @@ h1.Type__TypeElement-sc-goli3j-0.dYGhLW {
   font-size: 12px;
 }
 
-/* Songs, numbering, and headings */
 .mo-info::first-letter,
 *::first-letter,
 *:focus::first-letter,
-*:hover::first-letter {
-  font-size: var(--firstLsize) !important;
-}
-
-.RecentlyPlayedWidget__type {
-  color: #b3b3b3 !important;
-  text-transform: lowercase !important;
-}
-
-.RecentlyPlayedWidget__type::first-letter {
-  text-transform: uppercase !important;
-}
-
+*:hover::first-letter,
 .btn.btn-green.cta-button::first-letter,
 .btn.btn-black.btn-small::first-letter,
 .btn.btn-green::first-letter,
@@ -80,17 +54,24 @@ h1.Type__TypeElement-sc-goli3j-0.dYGhLW {
 .btn.btn-sm.btn-block.btn-green.ng-binding::first-letter,
 .ResponsiveViewMoreButton__button::first-letter,
 .btn.btn-white::first-letter {
-  font-size: var(--firstLsize) !important;
+  font-size: var(--first-letter-size) !important;
   text-transform: capitalize;
   position: relative;
 }
 
-/* Font weighing */
+.RecentlyPlayedWidget__type {
+  color: #b3b3b3 !important;
+  text-transform: lowercase !important;
+}
+
+.RecentlyPlayedWidget__type::first-letter {
+  text-transform: uppercase !important;
+}
+
 .TywOcKZEqNynWecCiATc,
 .h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .VpYFchIiPg3tPhBGyynT,
 .Btg2qHSuepFGBG6X0yE,
-.h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .t_yrXoUO3qGsJS4Y6iXX,
-a:hover,
+.a:hover,
 a:focus,
 .OCY4jHBlCVZEyGvtSv0J,
 .GD2gbRtcs5dOjMGAM_Y4,

@@ -2,39 +2,4 @@
   grid-template-areas:
     "right-sidebar main-view left-sidebar"
     "now-playing-bar now-playing-bar now-playing-bar" !important;
-  z-index: 5 !important;
-  /* was --left-sidebar-grid-area-z-index before */
 }
-
-.gWUxbU2cIHAajHxsVLMZ {
-  grid-template-areas:
-    "left-sidebar main-view right-sidebar"
-    "now-playing-bar now-playing-bar now-playing-bar" !important;
-  z-index: 5 !important;
-}
-
-/* Separate rule for now-playing-bar area */ /*
-root.now-playing-bar {
-  grid-area: now-playing-bar !important;
-}
-
-.jtqtOeRP46XAlHWx4C0D {
-  grid-area: left-sidebar !important;
-}
-
-.AzO2ondhaHJntbGy_3_S {
-  left: -10px !important;
-}
-
-.OTfMDdomT5S7B5dbYTT8 {
-  display: none !important;
-}
-
-
-.OTfMDdomT5S7B5dbYTT8 {
-  grid-area: left-sidebar !important;
-}
-
-Currently broken.... sad
-
-*/

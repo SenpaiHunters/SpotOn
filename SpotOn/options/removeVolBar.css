@@ -1,18 +1,15 @@
-/* remove volume bar and all elements asso. */
-[data-testid="volume-bar"]
-  .volume-bar__slider-container
-  [data-testid="progress-bar"]
-  .w699O0LgQRghXyl3bs9u,
-[data-testid="volume-bar"]
-  .volume-bar__slider-container
-  [data-testid="progress-bar"]
-  [data-testid],
-[data-testid="volume-bar"]
-  .volume-bar__slider-container
-  [data-testid="progress-bar"],
-[data-testid="volume-bar"]
-  .volume-bar__slider-container
-  :first-child:has([data-testid="progress-bar"]) {
+#main
+  > div.Root.encore-dark-theme
+  > div.ZQftYELq0aOsg6tPbVbV
+  > div.JG5J9NWJkaUO9fiKECMA
+  > footer
+  > div
+  > div.jOKLc29vP0Bz1K0TsDtX
+  > div
+  > div.eEZSnYlv7__34b2yulfm.ExuDUBJ7bk8vT6INnm9F
+  > div
+  > div
+  > div {
   display: none !important;
 }
 

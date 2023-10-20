@@ -1,8 +1,18 @@
-/* Lyrics provided by Musixmatch - bye! */
-/* REDO as it messes up text for playlists */
-.main-view-container__scroll-node-child
-  [aria-label="Spotify"]
-  .esRByMgBY3TiENAsbDHA
-  :first-child {
+#main
+  > div.Root.encore-dark-theme
+  > div.ZQftYELq0aOsg6tPbVbV
+  > div.jEMA2gVoLgPQqAFrPhFw
+  > div.main-view-container
+  > div.os-host.os-host-foreign.os-theme-spotify.os-host-resize-disabled.os-host-scrollbar-horizontal-hidden.main-view-container__scroll-node.os-host-transition.os-host-overflow.os-host-overflow-y
+  > div.os-padding
+  > div
+  > div
+  > div.main-view-container__scroll-node-child
+  > main
+  > div
+  > div.Q2RPoHcoxygOoPLXLMww
+  > div
+  > div.kGR_hu4tdj9PnUlSPaRL,
+.ieTwfQ {
   display: none !important;
 }

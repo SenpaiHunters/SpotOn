@@ -1,4 +1,3 @@
-/* removed liked icon on songs */
 [role="row"] [data-testid="tracklist-row"] [data-testid="add-button"] [d] {
   display: none !important;
 }

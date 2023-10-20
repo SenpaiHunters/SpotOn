@@ -1,10 +1,3 @@
-/* Invert the lyrics color for the background */
-:root {
-  --lyrics-color-passed: rgb(255 255 255 / 7%) !important;
-}
-
-/* Apply styles to the lyrics container */
-/*
 div.os-padding
   > div
   > div
@@ -22,7 +15,6 @@ div.os-padding
   transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* Apply styles to the hovered lyrics container
 div.os-padding
   > div
   > div
@@ -35,17 +27,11 @@ div.os-padding
   transform: scale(1.03);
 }
 
-/* Invert the color for specific elements
 .gIkgYW,
 .Za_uNH8nTZ0qCuIqbPLZ {
-  color: var(
-    --pulled-background-color,
-    #000000,
-    white
-  ) !important; /* Use the opposite color
-  mix-blend-mode: difference; /* Blend mode to achieve the opposite color effect
+  color: #000000 !important;
+  mix-blend-mode: difference;
 
   text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px,
     #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
 }
-*/

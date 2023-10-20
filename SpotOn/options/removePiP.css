@@ -1,0 +1,3 @@
+[data-testid="now-playing-bar"] [data-testid="pip-toggle-button"] {
+  display: none !important;
+}
