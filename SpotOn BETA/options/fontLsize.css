@@ -1,0 +1,95 @@
+@import url("https://github.com/SenpaiHunters/Pictures/raw/main/SpotOn%20Pics/fonts/JetBrainsMonoNL-Thin.ttf");
+
+:root {
+  --first-letter-size: 1.5em;
+}
+
+body,
+body.login,
+body.login *,
+.SearchInputBox__input,
+.jf2HafzDEI9jn7Yo05eM,
+.kohoVM,
+.inputBox-input,
+.PlaylistRecommendedTracks__top .PlaylistRecommendedTracks__title,
+.jdSGNV,
+.RP2rRchy4i8TIp1CTmb7,
+.MyW8tKEekj9lKQsviDdP,
+.gHImFiUWOg93pvTefeAD,
+.dXoLvE,
+.HcA9WjbLc4x02X8Ty0uO.lro6AjUrZFH6zxjmOGg0 > *,
+.dYGhLW,
+h1.Type__TypeElement-sc-goli3j-0.dYGhLW {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: normal !important;
+}
+
+.navBar-group-header::first-letter,
+.navBar-item .type::first-letter {
+  text-transform: capitalize;
+}
+
+.navBar-group-header,
+.navBar-item .type {
+  letter-spacing: 0.6px;
+  text-transform: lowercase !important;
+  font-size: 12px;
+}
+
+.mo-info::first-letter,
+*::first-letter,
+*:focus::first-letter,
+*:hover::first-letter,
+.btn.btn-green.cta-button::first-letter,
+.btn.btn-black.btn-small::first-letter,
+.btn.btn-green::first-letter,
+.btn.btn-black::first-letter,
+.btn.btn-black:hover::first-letter,
+.btn.btn-fg-green::first-letter,
+.btn.btn-transparent::first-letter,
+.btn.btn-blue.btn-small::first-letter,
+.btn-landing.btn-white::first-letter,
+.btn-landing.btn-green::first-letter,
+.btn.btn-sm.btn-block.btn-facebook.ng-binding::first-letter,
+.btn.btn-sm.btn-block.btn-green.ng-binding::first-letter,
+.ResponsiveViewMoreButton__button::first-letter,
+.btn.btn-white::first-letter {
+  font-size: var(--first-letter-size) !important;
+  text-transform: capitalize;
+  position: relative;
+}
+
+.RecentlyPlayedWidget__type {
+  color: #b3b3b3 !important;
+  text-transform: lowercase !important;
+}
+
+.RecentlyPlayedWidget__type::first-letter {
+  text-transform: uppercase !important;
+}
+
+.TywOcKZEqNynWecCiATc,
+.h4HgbO_Uu1JYg5UGANeQ.iSbqnFdjb1SuyJ3uWydl:hover .VpYFchIiPg3tPhBGyynT,
+.Btg2qHSuepFGBG6X0yE,
+.a:hover,
+a:focus,
+.OCY4jHBlCVZEyGvtSv0J,
+.GD2gbRtcs5dOjMGAM_Y4,
+.KVKoQ3u4JpKTvSSFtd6J.OF_3F0SQCsBtL1jSTlTA,
+.Vz6yjzttS0YlLcwrkoUR.tP0mccyU1WAa7I9PevC1,
+.control-button--active,
+.fFv7yCuLuIO1dAGZHcVf,
+.jOKLc29vP0Bz1K0TsDtX,
+.kEuUqR,
+.Rpvqb,
+.uWvwXlS0Da1bWsRX6KOw,
+.NoOAOv6U6vtqj_ybS1Cd,
+.w699O0LgQRghXyl3bs9u,
+.RfidWIoz8FON2WhFoItU,
+.Xz3tlahv16UpqKBW5HdK,
+.uV8q95GGAb2VDtL3gpYa,
+.XwNfIrI6_hCa_9_T2cQB,
+.EhyK_jJzB2PcWXd5lg24 {
+  font-size: 15px !important;
+  font-weight: bold;
+}

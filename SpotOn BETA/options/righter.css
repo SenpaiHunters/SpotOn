@@ -1,0 +1,5 @@
+.ZQftYELq0aOsg6tPbVbV {
+  grid-template-areas:
+    "right-sidebar main-view left-sidebar"
+    "now-playing-bar now-playing-bar now-playing-bar" !important;
+}

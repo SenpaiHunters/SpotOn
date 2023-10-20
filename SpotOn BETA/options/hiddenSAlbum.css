@@ -1,0 +1,3 @@
+[role="row"] [data-testid="tracklist-row"] [aria-colindex="3"] {
+  display: none !important;
+}

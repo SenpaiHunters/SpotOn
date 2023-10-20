@@ -1,0 +1,28 @@
+/* Subtle Loading Animation for Album/Cover Art */
+.cover-art-image.cover-art-image-loading,
+.cover-art.shadow.actionable.cover-art--with-auto-height.loading,
+.cover-art-image.cover-art-image-loading,
+.cover-art-image:before,
+.cover-art-image-loading,
+.cover-art.shadow.loading,
+.actionable.cover-art--with-auto-height.loading,
+.Ws8Ec3GREpT5PAUesr9b {
+  animation: rotateOpacity 1s ease-in-out;
+  opacity: 1;
+  border-radius: 25px;
+}
+
+/* Define loading animation */
+@keyframes rotateOpacity {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
