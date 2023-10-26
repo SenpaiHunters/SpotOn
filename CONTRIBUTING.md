@@ -1,4 +1,15 @@
-# Contributors
+# Contribution Guidelines
+
+By contributing to this project, you agree to the terms of the MIT License with Contribution Terms:
+
+- You grant the copyright holder, Kami, the right to use your contributions in this project.
+- You agree not to distribute, sublicense, sell, or otherwise transfer any rights to the Software for commercial or non-commercial purposes.
+- If you wish to use, distribute, or sell the Software in a manner not allowed by this license, please contact Kami for a separate agreement.
+
+For any inquiries or permissions related to contributions, please contact Kami at kamibusinessinquirers@gmail.com or via Discord at @senpaihunters.
+
+
+# Current contributors
 
 Here is a list of individuals who have significantly contributed to the development, testing, theme creation, and support of SpotOn! Each name on this list represents a pillar of support that has helped shape the SpotOn experience.
 
