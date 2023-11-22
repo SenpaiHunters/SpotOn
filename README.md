@@ -49,24 +49,28 @@ Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors"
 <br><div align="center">[<a href="https://github.com/senpaihunters/spoton/#">Help us Translate</a>]</div>
 </td></tr></table>  
 
+
 <h2>Announcements</h2>
-SpotOn is now on the Chrome Web Store!!!
-Check it out <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">here</a>, with the extension you don't need to worry about unpacking the extension, looking for updates, everything is done by itself! Do note: IF you use the Chrome Extension via the web store updates MAY be 1/3 days later than on this Repo! This is because it needs to be confirmed and all that fun stuff!
-</a>
+
+SpotOn is now available on the Chrome Web Store! Check it out [here](https://chromewebstore.google.com/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff). With the web store version, you don't need to worry about unpacking the extension or looking for updates. Everything is done automatically. Please note that if you use the Chrome Extension via the web store, updates may be delayed by 1-3 days compared to this repository. This delay is due to the confirmation process and other necessary steps.
 <br>
+
+SpotOn V2 is out! With SpotOn V2, there are approximately 55 toggles, 15 custom settings, 9 themes, and much more.
 <br>
-SpotOn V2 is out!
+
+SpotOn V2.5 will be released soon. Every single file has been optimized, resulting in a 5x speed increase and a file size reduction of over 200 KB. Additionally, a few more options have been added, with a focus on new features and optimization.
+
 <br>
-<bold>With SpotOn V2, there are roughly 55 toggles, 15 custom settings, 9 themes, and a whole lot more!</bold>
+
+I have decided to add more to SpotOn. In version 2.5, you will now have the option to translate the lyrics of your songs and access statistics about your listening habits, including graphs and more. This feature is still under heavy development, so the improvements have been slightly delayed. However, I plan to release them on the chrome extension side, most likely today or tomorrow.
+
 <br>
+
+I have consolidated all of my settings changes into options to address annoying bugs that I don't want you guys to encounter. The updated version should be available on the Chrome Web Store soon. Thanks, Spotify!
+
+
 <br>
-SpotOn V2.5 will be released soon, every single file has been optimised, speed increased by a factor of 5, 200 + kbs of file reduction and a few more added options, just mainly focused on a few new features but mostly optimisation.
-<br>
-<br>
-I uhhh decided to add more to SpotOn... Well, in version 2.5 you'll now get the option to translate the lyrics of your songs, as well as having access to stats about your listening, graphs etc etc. This is still in heavy development so the improvements have been pushed back a little... sorry...! I might release them on the chrome extension side, actually, i will! Most likely today or tomorrow..
-<br>
-<br>
-Pushed all of my settings changes into options to address annoying bugs i don't want you guys to face, should be on Chrome web store soon, thanks Spotify lol.
+It has been a month since my last update, so here it is! I am remaking the entire extension again, but don't worry. I have added 5 (or maybe more I forgot what's new and what's not) new options (that actually work) which I think you'll like. This will be shared soon. For those who are fine with a BETA version, please send me a message on [Discord](https://discord.com/users/325178652033679362), and I will provide it to you. Currently, BETA testing is closed source, and I will not make it available to the web store, as there are about 20+ changes per day, and that would take too long.
 
 <br><br><br>
 
