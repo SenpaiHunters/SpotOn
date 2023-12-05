@@ -52,22 +52,9 @@ Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors"
 
 <h2>Announcements</h2>
 
-SpotOn is now available on the Chrome Web Store! Check it out [here](https://chromewebstore.google.com/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff). With the web store version, you don't need to worry about unpacking the extension or looking for updates. Everything is done automatically. Please note that if you use the Chrome Extension via the web store, updates may be delayed by 1-3 days compared to this repository. This delay is due to the confirmation process and other necessary steps.
-<br>
 
-SpotOn V2 is out! With SpotOn V2, there are approximately 55 toggles, 15 custom settings, 9 themes, and much more.
-<br>
-
-SpotOn V2.5 will be released soon. Every single file has been optimized, resulting in a 5x speed increase and a file size reduction of over 200 KB. Additionally, a few more options have been added, with a focus on new features and optimization.
-
-<br>
-
-I have decided to add more to SpotOn. In version 2.5, you will now have the option to translate the lyrics of your songs and access statistics about your listening habits, including graphs and more. This feature is still under heavy development, so the improvements have been slightly delayed. However, I plan to release them on the chrome extension side, most likely today or tomorrow.
-
-<br>
-
-I have consolidated all of my settings changes into options to address annoying bugs that I don't want you guys to encounter. The updated version should be available on the Chrome Web Store soon. Thanks, Spotify!
-
+I have some good, maybe bad news for some. I am going away over this holiday period, which means I will not have version 2.5 out before Christmas. I will also be slow to respond to queries. If it's a small bug, let me know and I can apply a quick patch. But apart from that, don't expect a formal version release anytime soon. I have to redesign the whole method of applying settings because it broke, which put me behind schedule. Sorry for any inconveniences. 
+- Kami
 
 <br>
 It has been a month since my last update, so here it is! I am remaking the entire extension again, but don't worry. I have added 5 (or maybe more I forgot what's new and what's not) new options (that actually work) which I think you'll like. This will be shared soon. For those who are fine with a BETA version, please send me a message on [Discord](https://discord.com/users/325178652033679362), and I will provide it to you. Currently, BETA testing is closed source, and I will not make it available to the web store, as there are about 20+ changes per day, and that would take too long.
