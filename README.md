@@ -53,11 +53,7 @@ Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors"
 <h2>Announcements</h2>
 
 
-I have some good, maybe bad news for some. I am going away over this holiday period, which means I will not have version 2.5 out before Christmas. I will also be slow to respond to queries. If it's a small bug, let me know and I can apply a quick patch. But apart from that, don't expect a formal version release anytime soon. I have to redesign the whole method of applying settings because it broke, which put me behind schedule. Sorry for any inconveniences. 
-- Kami
-
-<br>
-It has been a month since my last update, so here it is! I am remaking the entire extension again, but don't worry. I have added 5 (or maybe more I forgot what's new and what's not) new options (that actually work) which I think you'll like. This will be shared soon. For those who are fine with a BETA version, please send me a message on [Discord](https://discord.com/users/325178652033679362), and I will provide it to you. Currently, BETA testing is closed source, and I will not make it available to the web store, as there are about 20+ changes per day, and that would take too long.
+SpotOn V3, as I will now call it, is coming very soon. Expect it in the next week or two. It will be a significant update with a lot of fun stats. Alongside it, there will be a functioning website that will host some FAQs, information on stats, how it works, and guides - all that fun stuff. For those who are fine with a BETA version, please send me a message on [Discord](https://discord.com/users/325178652033679362), and I will provide it to you. Currently, BETA testing is closed source, and I will not make it available on the web store, as there are about 20+ changes per day, and that would take too long.
 
 <br><br><br>
 
