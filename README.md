@@ -53,7 +53,9 @@ Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors"
 <h2>Announcements</h2>
 
 
-SpotOn V3, as I will now call it, is coming very soon. Expect it in the next week or two. It will be a significant update with a lot of fun stats. Alongside it, there will be a functioning website that will host some FAQs, information on stats, how it works, and guides - all that fun stuff. For those who are fine with a BETA version, please send me a message on [Discord](https://discord.com/users/325178652033679362), and I will provide it to you. Currently, BETA testing is closed source, and I will not make it available on the web store, as there are about 20+ changes per day, and that would take too long.
+
+So, I lied. Four of my BETA testers pointed out a few bugs I thought would be easy to fix... oh naive! It will be a few more weeks away. I only have three hours to work on it per day, but I'll hope to get it out as soon as I can. Sorry for those who expected it from me. I can give you the beta version, as always, on [Discord](https://discord.com/users/325178652033679362). A few of you have reached out, so thank you. But the stable version will take a bit more time than I expected. But I hope it's worth the wait... Sorry again, everyone!
+
 
 <br><br><br>
 
