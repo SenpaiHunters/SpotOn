@@ -1,0 +1,14 @@
+:root {
+    --font-family: 'Open Runde', sans-serif;
+}
+
+@font-face {
+    font-family: 'OpenRunde';
+    src: url('https://github.com/lauridskern/open-runde/blob/main/src/web/OpenRunde-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: var(--font-family) !important;
+}

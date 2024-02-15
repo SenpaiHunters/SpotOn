@@ -1,73 +1,43 @@
-window.onload = function () {
-  const onoff = document.getElementById("toggle_button");
-  let isEnabled = true;
+document.addEventListener('DOMContentLoaded', async () => {
+  const powerButton = document.getElementById('material-power-button');
+  const stateIndicator = document.getElementById('state-indicator');
 
-  // Function to update button state
-  function updateButtonState() {
-    onoff.innerHTML = `<i class="fas ${
-      isEnabled ? "fa-toggle-on" : "fa-toggle-off"
-    }"></i> ${isEnabled ? "Enable" : "Disable"}`;
+  if (!powerButton || !stateIndicator) {
+    console.error('Required elements not found');
+    return;
   }
 
-  // Line to pull and update the stats
-  function updateExtensionStatus(boolValue) {
-    isEnabled = boolValue;
-    updateButtonState();
-  }
+  // Consolidate UI update logic
+  const updateUI = async () => {
+    const { extensionEnabled: isEnabled } = await chrome.storage.sync.get('extensionEnabled');
+    const powerButtonIcon = powerButton.querySelector('span');
+    powerButtonIcon.style.color = isEnabled ? 'green' : 'red';
+    stateIndicator.textContent = isEnabled ? 'Extension is Enabled' : 'Extension is Disabled';
+  };
 
-  // Bool and error logging
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    chrome.tabs.sendMessage(
-      tabs[0].id,
-      { txt: "check", bool: "" },
-      function (response) {
-        if (chrome.runtime.lastError) {
-          console.error(
-            "Error sending message to content script:",
-            chrome.runtime.lastError
-          );
-        } else {
-          if (response === undefined || response.status === undefined) {
-            console.log("Content script response undefined");
-          } else {
-            isEnabled = response.status === 1;
-            updateButtonState();
-            console.log(isEnabled ? "Enabled" : "Disabled");
-          }
-        }
-      }
-    );
+  // Simplify message sending and UI update
+  const toggleExtension = async () => {
+    const { extensionEnabled: currentStatus } = await chrome.storage.sync.get('extensionEnabled');
+    const newStatus = !currentStatus;
+    await chrome.storage.sync.set({ extensionEnabled: newStatus });
+
+    const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (activeTab?.id) {
+      await chrome.tabs.sendMessage(activeTab.id, { txt: newStatus ? "enable" : "disable", bool: newStatus.toString() });
+    }
+
+    updateUI();
+  };
+
+  powerButton.addEventListener('click', toggleExtension);
+
+  // Handle external messages to update UI
+  chrome.runtime.onMessage.addListener((request) => {
+    if (request.message === 'extension_state_changed') {
+      updateUI();
+    }
   });
 
-  // Allows for the click button
-  // Enabled or disable
-  function toggleExtension() {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const boolValue = !isEnabled;
-      const toggleText = boolValue ? "enable" : "disable";
-
-      chrome.tabs.sendMessage(
-        tabs[0].id,
-        { txt: toggleText, bool: boolValue.toString() },
-        function (response) {
-          if (chrome.runtime.lastError) {
-            console.error(
-              "Error sending message to content script:",
-              chrome.runtime.lastError
-            );
-          } else {
-            console.log("Response from content script:", response);
-            if (response !== undefined && response.status !== undefined) {
-              console.log("Content script response:", response.status);
-            }
-          }
-        }
-      );
-
-      updateExtensionStatus(boolValue);
-    });
-  }
-
-  // Click event listener to toggle the extension
-  onoff.addEventListener("click", toggleExtension);
-};
+  // Initial UI update
+  updateUI();
+});

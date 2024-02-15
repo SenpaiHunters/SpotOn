@@ -1,6 +1,1 @@
-.main-view-container__scroll-node-child
-  [data-testid="home-page"]
-  .contentSpacing
-  [aria-label="Episodes\ for\ you"] {
-  display: none !important;
-}
+.main-view-container__scroll-node-child [data-testid="home-page"] .contentSpacing [aria-label="Episodes\ for\ you"] { display: none !important; }

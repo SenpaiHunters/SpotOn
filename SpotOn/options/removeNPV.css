@@ -1,3 +1,1 @@
-[data-testid="now-playing-bar"] [data-testid="control-button-npv"] {
-  display: none !important;
-}
+[data-testid="now-playing-bar"] [data-testid="control-button-npv"] { display: none !important; }

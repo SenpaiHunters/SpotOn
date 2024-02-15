@@ -1,0 +1,434 @@
+@import "/css/colors.css";
+@import "/css/toggle.css";
+
+@font-face {
+  font-family: 'Open Runde';
+  src: url('https://github.com/lauridskern/open-runde/blob/main/src/web/OpenRunde-Regular.woff2') format('woff2'),
+    url('https://github.com/lauridskern/open-runde/blob/main/src/web/OpenRunde-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: 'Open Runde', sans-serif;
+  outline: none;
+}
+
+body {
+  min-width: 372px;
+  min-height: 600px;
+  background-color: var(--background);
+  padding: 10px;
+  margin: 0;
+}
+
+.ideas-bugs-button,
+.extra-button,
+.settings-back-button,
+.back-button,
+.settings-button,
+.settings-power-button {
+  background: var(--second-background);
+  color: var(--text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.button,
+#translateButton,
+#button_group button {
+  background: var(--bg-2);
+  color: var(--text-color);
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.button:hover,
+#translateButton:hover,
+#button_group button:hover {
+  background: var(--bg-1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+label,
+h1,
+#custom-css h3,
+.truncate,
+span,
+div,
+text {
+  color: var(--text);
+}
+
+input {
+  background: none;
+  color: var(--text);
+  border: 1px solid var(--border-color);
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  max-width: 190px;
+  display: inline-block;
+}
+
+.collapsed,
+#importOptionsInput,
+.file-input {
+  display: none;
+}
+
+.chevron,
+.collapsed .chevron {
+  transition: transform 0.3s ease;
+  float: right;
+}
+
+.chevron.rotated,
+.collapsed .chevron {
+  transform: rotate(180deg);
+}
+
+#match-count {
+  margin-left: 10px;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: calc(100% - 20px);
+  margin: 10px;
+}
+
+#section-select,
+#languageSelect {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: transparent;
+  border-right: 10px solid transparent;
+  padding: 3px 10px;
+  font-size: 16px;
+  background: var(--dropdown);
+  color: var(--text-color);
+}
+
+.menubar {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  color: var(--icons);
+  box-sizing: border-box;
+}
+
+.material-icons {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--icons);
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.option-group {
+  margin-top: 20px;
+  background-color: var(--second-background);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.option-group h1 {
+  margin-top: 0;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+.option label {
+  margin-left: 10px;
+}
+
+.top-button-color {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--second-background);
+  border-radius: 0.4rem;
+  gap: 2px;
+}
+
+.top-button-color>* {
+  flex: 1;
+  margin: 2px;
+}
+
+.top-button-color button {
+  padding: 8px;
+  max-width: 60px;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#search-form {
+  display: flex;
+  flex-grow: 1;
+}
+
+#search-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  width: auto;
+  background: var(--second-background);
+}
+
+.search-form i {
+  margin-right: 5px;
+}
+
+.search-form input {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  border-bottom: 1px solid var(--border-color);
+  width: calc(100% - 10px);
+}
+
+.underline,
+.mode-underline {
+  display: block;
+  height: 2px;
+  background-color: var(--shadow);
+  width: 100%;
+}
+
+#default-content {
+  display: block;
+}
+
+.text-content {
+  color: var(--feat-text);
+  padding-left: 25px;
+}
+
+.theme-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-left: 9px;
+}
+
+.theme-text {
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#mode-select {
+  margin-left: auto;
+  padding: 5px;
+  margin-right: 30px;
+  appearance: none;
+  background-color: transparent;
+  color: var(--text);
+  border: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+#top_content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#image_wrapper {
+  margin-right: 10px;
+}
+
+#cover_art {
+  max-width: 70px;
+  max-height: 70px;
+  border-radius: 0.4rem;
+}
+
+#title_artist_container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.truncate {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: clip;
+  padding: 2px;
+}
+
+#button_group {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+#custom-css .input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#custom-css .theme-actions,
+#custom-css .theme-selection,
+#custom-css .css-import-export,
+#custom-css .github-integration {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#custom-css .input-field {
+  padding: 10px;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+#cssEditor {
+  width: 100%;
+  border-radius: 4px;
+  font-family: monospace;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+
+.file-input-label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.input-container>.input-field,
+.input-container>.button,
+.input-container>.file-input-label {
+  grid-column: span 2;
+}
+
+.import-export-popup {
+  padding: 10px;
+  display: none;
+  position: absolute;
+  margin-top: 310px;
+  margin-left: -12px;
+  background-color: var(--background);
+  z-index: 1100;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 81%;
+  padding: 0 55px;
+  margin-top: 12px;
+  gap: 4px;
+}
+
+.top-buttons>* {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.top-buttons h1 {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.ideas-bugs-button {
+  margin-left: 110px;
+}
+
+.settings-button span,
+.settings-back-button span,
+.back-button span,
+.top-button-color button .material-icons,
+.title {
+  font-size: 24px;
+}
+
+.settings-panel {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mode-dropdown {
+  display: flex;
+  background-color: var(--second-background);
+  align-items: center;
+  padding: 5px;
+  border-radius: 0.4rem;
+}
+
+.back-button,
+.settings-back-button {
+  position: absolute;
+  left: 5px;
+  margin: 5px;
+}
+
+.burger-background {
+  padding: 11px;
+  border-radius: 0.4rem;
+}
