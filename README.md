@@ -5,7 +5,7 @@
 <a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/CONTRIBUTING.md">Contribute</a> ·
 <a href="https://github.com/SenpaiHunters/SpotOn/wiki/Donate-&-Support">Donate</a> <br></div>
 
- <h3><img src="https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn/icons/icon32.png?raw=true" style="vertical-align:middle"> SpotOn</h3>
+ <h3><img src="https://github.com/SenpaiHunters/SpotOn/blob/Main/SpotOn/icons/icon48.png?raw=true" style="vertical-align:middle"> SpotOn</h3>
 <p>Powerful but lightweight extension to overhaul Spotify Web Player.</p>
 
 <p align="center">
@@ -38,12 +38,7 @@
 
 <table align="right"><tr><td><h2>Roadmap</h2> <!-- The list below only stays formatted when there is a line break above --> 
 
- - Optimisation
- - Addition of requested feats (0)
- - Updated documentation
- - BETA feats
- - More custom options
- - More toggles
+ - Finished in V3
 	
 Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors">contributors ♡</a>
 <br><div align="center">[<a href="https://github.com/senpaihunters/spoton/#">Help us Translate</a>]</div>
@@ -53,8 +48,14 @@ Big thanks to our <a href="https://github.com/senpaihunters/spoton/contributors"
 <h2>Announcements</h2>
 
 
+### SpotOn V3 is out!
 
-So, I lied. Four of my BETA testers pointed out a few bugs I thought would be easy to fix... oh naive! It will be a few more weeks away. I only have three hours to work on it per day, but I'll hope to get it out as soon as I can. Sorry for those who expected it from me. I can give you the beta version, as always, on [Discord](https://discord.com/users/325178652033679362). A few of you have reached out, so thank you. But the stable version will take a bit more time than I expected. But I hope it's worth the wait... Sorry again, everyone!
+
+### [Release notes](https://github.com/SenpaiHunters/SpotOn/releases/tag/V_3)
+
+
+### [Commit files](https://github.com/SenpaiHunters/SpotOn/pull/34/files)
+
 
 
 <br><br><br>
