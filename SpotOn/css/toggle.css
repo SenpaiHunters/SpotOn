@@ -1,0 +1,72 @@
+@import "/css/colors.css";
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  margin: 10px 0;
+  padding: 5px;
+}
+
+
+.option:not(:last-child) {
+  border-bottom: 1.5px solid #000;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.option input,
+.option select {
+  position: absolute;
+  right: 0;
+}
+
+.option.checkbox input {
+  width: 55px;
+  height: 25px;
+  margin: auto;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 25px;
+}
+
+.option.checkbox label::before,
+.option.checkbox label::after {
+  content: "";
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: all 0.5s ease-in-out;
+}
+
+.option.checkbox label::before {
+  height: 20px;
+  width: 40px;
+  right: 0;
+  background: var(--switch-bg-2);
+  box-shadow: 2px 2px 8px var(--shadow);
+}
+
+.option.checkbox label::after {
+  height: 18px;
+  width: 18px;
+  right: 21px;
+  border-radius: 50%;
+  background: var(--switch-bg-3);
+}
+
+.option.checkbox input:checked + label::before {
+  background: var(--switch-bg-1);
+  box-shadow: none;
+}
+
+.option.checkbox input:checked + label::after {
+  right: 2px;
+  box-shadow: none;
+}

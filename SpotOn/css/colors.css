@@ -1,0 +1,54 @@
+:root {
+
+  --switch-bg-1: #7665f6;  /* On state */
+  --switch-bg-2: #cbcbcb;  /* Off state */
+  --switch-bg-3: #ffffff;  /* Knob part */
+
+  --bg-1: #dca2ba; 
+  --bg-2: #b48bb9;
+
+  --underline: 0px 4px 0px 0px #6f6f6f;
+  --hover: #DED7FF;
+}
+
+[data-theme="dark"] {
+  --background: #1c1c1e;
+  --second-background: #2a2a2d;
+  --text: #e0e0e2;
+  --icons: #f2f2f7;
+  --text-color: #ffffff;
+  --highlight: #ff79c6;
+  --border-color: #bebed1;
+  --shadow: #141414;
+}
+
+[data-theme="grey"] {
+  --background: #2c2c2e;
+  --second-background: #3c3d41;
+  --text: #e0e0e2;
+  --icons: #ebebf0;
+  --text-color: #ffffff;
+  --highlight: #ff66cc;
+  --shadow: #232323;
+
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --second-background: #e5e5ea;
+  --text: #1c1c1e;
+  --icons: #3a3a3c;
+  --text-color: #000000;
+  --highlight: #007aff;
+  --border-color: #1c1c1e;
+  --shadow: #d1d1d6;
+
+}
+
+[data-theme="dark"],
+[data-theme="grey"],
+[data-theme="light"] {
+  --feat-text: #9e9ea4;
+  --box-text: #d1d1d6;
+  --dropdown: var(--bg-2);
+}

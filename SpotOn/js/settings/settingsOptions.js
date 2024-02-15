@@ -1,197 +1,106 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const customOptionInputs = [
-    "borderRadiusInput",
-    "paddingInput",
-    "heightInput",
-    "widthInput",
-  ];
+  const colorInput = document.getElementById("colorInput");
+  const lyricsColorInput = document.getElementById("lyricsColorInput");
+  const lyricsFontSizeInput = document.getElementById("lyricsFontSizeInput");
 
-  const customLyricsInputs = [
-    "lpaddingInput",
-    "lheightInput",
-    "lwidthInput",
-    "lcolorInput",
-    "lfontInput",
-  ];
-
-  const nowPlayingViewInputs = [
-    "nowPlayingViewColorInput",
-    "nowPlayingViewImageInput",
-    "nowPlayingViewBorderRadiusInput",
-    "nowPlayingViewHeightInput",
-  ];
-
-  const progressBarSettingsInputs = [
-    "pColorInput",
-    "pBGColorInput",
-    "pAFGColorInput",
-    "pFGColorInput",
-  ];
-
-  // Retrieve saved options from Chrome storage
-  chrome.storage.sync.get(
-    [
-      "customOptions",
-      "customColor",
-      "customLyrics",
-      "nowPlayingView",
-      "progressBarSettings",
-    ],
-    function (obj) {
-      let customOptions = obj.customOptions;
-      let customColor = obj.customColor;
-      let customLyrics = obj.customLyrics;
-      let nowPlayingView = obj.nowPlayingView;
-      let progressBarSettings = obj.progressBarSettings;
-
-      // Set the option input values if they exist
-      customOptionInputs.forEach((inputId) => {
-        const input = document.getElementById(inputId);
-        if (customOptions && customOptions[inputId]) {
-          input.value = customOptions[inputId];
-        }
-        input.addEventListener("input", function () {
-          saveCustomOptions(inputId, input.value);
-        });
-      });
-
-      // Set the color input value if it exists
-      const colorInput = document.getElementById("colorInput");
-      if (customColor) {
-        colorInput.value = customColor;
-        updateColorPreview("colorPreview", customColor);
-      }
-      colorInput.addEventListener("input", function () {
-        const colorValue = colorInput.value;
-        updateColorPreview("colorPreview", colorValue);
-        saveCustomColor(colorValue);
-      });
-
-      // Set the lyrics input values if they exist
-      customLyricsInputs.forEach((inputId) => {
-        const input = document.getElementById(inputId);
-        if (customLyrics && customLyrics[inputId]) {
-          input.value = customLyrics[inputId];
-        }
-        input.addEventListener("input", function () {
-          saveCustomLyricsOption(inputId, input.value);
-          updateColorPreview("lcolorPreview", input.value);
-        });
-      });
-
-      // Set Now Playing View options if they exist
-      nowPlayingViewInputs.forEach((inputId) => {
-        const input = document.getElementById(inputId);
-        if (nowPlayingView && nowPlayingView[inputId]) {
-          input.value = nowPlayingView[inputId];
-        }
-        input.addEventListener("input", function () {
-          saveNowPlayingViewOption(inputId, input.value);
-          updateColorPreview("nowPlayingViewColorPreview", input.value);
-        });
-      });
-
-      // Set progress bar settings if they exist
-      progressBarSettingsInputs.forEach((inputId) => {
-        const input = document.getElementById(inputId);
-        if (progressBarSettings && progressBarSettings[inputId]) {
-          input.value = progressBarSettings[inputId];
-        }
-        input.addEventListener("input", function () {
-          saveProgressBarSetting(inputId, input.value);
-          // Update any previews or UI elements related to progress bar settings
-        });
-      });
-
-      // Update the color previews for lyrics and now playing view
-      updateColorPreview("lcolorPreview", customLyrics.lcolorInput);
-      updateColorPreview(
-        "nowPlayingViewColorPreview",
-        nowPlayingView.nowPlayingViewColorInput
-      );
+  chrome.storage.sync.get(["customColor", "customLyrics"], function ({ customColor, customLyrics }) {
+    if (customColor) {
+      colorInput.value = customColor;
+      updateColorPreview(customColor);
     }
-  );
+
+    if (customLyrics) {
+      lyricsColorInput.value = customLyrics.color || '';
+      lyricsFontSizeInput.value = customLyrics.fontSize || '';
+      updateLyricsPreview(customLyrics);
+    }
+  });
+
+  colorInput.addEventListener("input", () => handleColorInput(colorInput.value));
+  lyricsColorInput.addEventListener("input", () => handleLyricsInput({ color: lyricsColorInput.value }));
+  lyricsFontSizeInput.addEventListener("input", () => handleLyricsInput({ fontSize: lyricsFontSizeInput.value }));
 });
 
-function saveCustomOptions(inputId, value) {
-  chrome.storage.sync.get("customOptions", function (obj) {
-    let customOptions = obj.customOptions || {};
-    customOptions[inputId] = value;
-    chrome.storage.sync.set({ customOptions });
-  });
+function createLyricsPreview() {
+  const lyricsPreview = document.createElement('div');
+  lyricsPreview.id = 'lyricsPreview';
+  document.body.appendChild(lyricsPreview);
+  return lyricsPreview;
 }
 
-function saveCustomColor(colorValue) {
-  chrome.storage.sync.set({ customColor: colorValue }, function () {
-    console.log("Custom color saved:", colorValue);
-  });
+function handleColorInput(value) {
+  updateColorPreview(value);
+  saveToStorage('customColor', value);
 }
 
-function saveCustomLyricsOption(inputId, value) {
-  chrome.storage.sync.get("customLyrics", function (obj) {
-    let customLyrics = obj.customLyrics || {};
-    customLyrics[inputId] = value;
-    chrome.storage.sync.set({ customLyrics });
-  });
+function handleLyricsInput(options) {
+  updateLyricsPreview(options);
+  saveToStorage('customLyrics', options, true);
 }
 
-// Function to save progress bar settings
-function saveProgressBarSetting(inputId, value) {
-  chrome.storage.sync.get("progressBarSettings", function (obj) {
-    let progressBarSettings = obj.progressBarSettings || {};
-    progressBarSettings[inputId] = value;
-    chrome.storage.sync.set({ progressBarSettings });
-  });
-}
-
-function saveNowPlayingViewOption(inputId, value) {
-  chrome.storage.sync.get("nowPlayingView", function (obj) {
-    let nowPlayingView = obj.nowPlayingView || {};
-    nowPlayingView[inputId] = value;
-    chrome.storage.sync.set({ nowPlayingView });
-  });
-}
-
-function updateColorPreview(previewId, value) {
-  const preview = document.getElementById(previewId);
-
-  // Clear previous styles
-  preview.style.background = "";
-  preview.style.backgroundImage = "";
-  preview.style.backgroundRepeat = "";
-  preview.style.backgroundSize = "";
-  preview.style.backgroundAttachment = "";
-  preview.style.backgroundBlendMode = "";
-  preview.style.width = "";
-  preview.style.height = "";
-
-  // Check if the value is a gradient or image URL
-  if (
-    value.startsWith("linear-gradient") ||
-    value.startsWith("radial-gradient")
-  ) {
-    preview.style.background = value;
-    preview.style.width = "calc(30vw)"; // Adjust the width as needed
-    preview.style.height = "calc(30vh)"; // Adjust the height as needed
-  } else if (value.match(/\.(jpeg|jpg|png|gif)$/i)) {
-    preview.style.backgroundImage = `url("${value}")`;
-    preview.style.backgroundRepeat = "no-repeat";
-    preview.style.backgroundSize = "contain";
-    preview.style.backgroundAttachment = "inherit";
-    preview.style.backgroundBlendMode = "soft-light";
-    preview.style.width = "calc(30vw)"; // Adjust the width as needed
-    preview.style.height = "calc(30vh)"; // Adjust the height as needed
-    preview.style.marginTop = "10px";
-    preview.style.border = "border: 1px solid #000";
+function saveToStorage(key, value, merge = false) {
+  if (merge) {
+    chrome.storage.sync.get({ [key]: {} }, (obj) => {
+      const newValue = { ...obj[key], ...value };
+      chrome.storage.sync.set({ [key]: newValue }, () => {
+        console.log(`Saved ${key}:`, newValue);
+      });
+    });
   } else {
-    preview.style.backgroundColor = value;
-    preview.style.width = "100px";
-    preview.style.height = "100px"; // Adjust the height as needed
-    preview.style.marginLeft = "40px";
-    preview.style.marginTop = "10px";
-    preview.style.border = "border: 1px solid #000";
+    chrome.storage.sync.set({ [key]: value }, () => {
+      console.log(`Saved ${key}:`, value);
+    });
   }
+}
 
-  // Save the preview value to Chrome storage
-  chrome.storage.sync.set({ [previewId]: value });
+function updateColorPreview(value) {
+  const preview = document.getElementById('colorPreview') || createPreview('colorPreview');
+  resetStyles(preview);
+  applyStyles(preview, value, 'color');
+}
+
+function updateLyricsPreview({ color, fontSize }) {
+  const preview = document.getElementById('lyricsPreview');
+  resetStyles(preview);
+  applyStyles(preview, color, 'color');
+  if (fontSize) {
+    preview.style.fontSize = fontSize;
+  }
+}
+
+function createPreview(id) {
+  const preview = document.createElement('div');
+  preview.id = id;
+  document.body.appendChild(preview);
+  return preview;
+}
+
+function resetStyles(element) {
+  element.style = '';
+  element.style.width = "calc(30vw)";
+  element.style.height = "calc(30vh)";
+  element.style.marginTop = "10px";
+  element.style.border = "1px solid #000";
+  element.style.padding = "5px";
+}
+
+function applyStyles(element, value, type) {
+  if (type === 'color' && (isGradient(value) || isImageUrl(value))) {
+    element.style.background = value;
+  } else if (type === 'color') {
+    element.style.backgroundColor = value;
+  }
+  if (type === 'color') {
+    element.style.width = "100px";
+    element.style.height = "100px";
+    element.style.marginLeft = "40px";
+  }
+}
+
+function isGradient(value) {
+  return value.startsWith("linear-gradient") || value.startsWith("radial-gradient");
+}
+
+function isImageUrl(value) {
+  return /\.(jpeg|jpg|png|gif)$/i.test(value);
 }

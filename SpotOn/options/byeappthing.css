@@ -1,9 +1,1 @@
-#main
-  > div.Root.encore-dark-theme
-  > div.ZQftYELq0aOsg6tPbVbV
-  > div.jEMA2gVoLgPQqAFrPhFw
-  > header
-  > a
-  > span {
-  display: none !important;
-}
+#main>div>div.ZQftYELq0aOsg6tPbVbV>div.jEMA2gVoLgPQqAFrPhFw>header>div.rwdnt1SmeRC_lhLVfIzg>a { display: none !important; }

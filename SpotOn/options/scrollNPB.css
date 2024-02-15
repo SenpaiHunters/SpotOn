@@ -1,6 +1,4 @@
-/* make the now playing bar be hidden below the normal value */
-.spotify__container--is-web #main .nav-ylx [data-testid="now-playing-bar"],
-.JG5J9NWJkaUO9fiKECMA {
+.spotify__container--is-web #main .nav-ylx [data-testid="now-playing-bar"],.JG5J9NWJkaUO9fiKECMA {
   position: fixed !important;
   left: 0 !important;
   top: 0 !important;
