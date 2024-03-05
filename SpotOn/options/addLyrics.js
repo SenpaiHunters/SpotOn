@@ -86,6 +86,21 @@ function getCSS(das) {
       transform: translateX(-80px) !important;
   }
 
+  /* temp fix for the album white border??? */
+  button,
+  .rVxzkDirgkuRPv5V1HYF.IcyWfMS5VkeOhaI7OWIx {
+    border: none !important;
+  }
+
+  .FqmFsMhuF4D0s35Z62Js,
+  .rVxzkDirgkuRPv5V1HYF.IcyWfMS5VkeOhaI7OWIx,
+  .H0HbpIM3UrcupWIAjLWu,
+  .BFR9Zt3zpL8BATBMiwQB  {
+    border-radius: 4% !important;
+    border-color: #000 !important;
+    background: #000 !important;
+  }
+
   .kpRBcW:hover,
   .RowButton-sc-xxkq4e-0.hIehTT:hover,
   .bgTbzH:hover:after,
@@ -307,9 +322,9 @@ function getCSS(das) {
   }
 
   /* right click menu */
-  [role="menu"] [role="presentation"] :first-child:has(.ellipsis-one-line) {
-      background: var(--hoverback) !important;
-      border-radius: var(--main-border-radius) !important;
+  ul.NbcaczStd8vD2rHWwaKv {
+    background: var(--hoverback) !important;
+    border-radius: var(--main-border-radius) !important;
   }
 
   .SboKmDrCTZng7t4EgNoM,
@@ -454,6 +469,7 @@ function getCSS(das) {
       #main>div.Root.encore-dark-theme>div,
       #context-menu>ul,
       #context-menu>div>ul {
+        -webkit-backdrop-filter: blur(var(--bg-blur));
           backdrop-filter: blur(var(--bg-blur));
       }
 
@@ -645,11 +661,8 @@ function getCSS(das) {
           overflow: visible;
           background-color: transparent !important;
           background-image: none !important;
-          /*   transition-duration: 0s;  */
           transition-duration: 0.5s;
-          /* Increased duration */
           transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-          /* Adjusted timing function */
       }
 
       #main>div.Root.encore-dark-theme>div>nav>div>ul>li:nth-child(3)>div,
@@ -678,14 +691,9 @@ function getCSS(das) {
       div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>div>section>div>div:hover>div>div:first-child>div,
       div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>section:nth-child(n+4)>div:nth-child(2)>div:hover>div>div:first-child>div,
       div.os-padding>div>div>div>main>section>div:nth-child(2)>div>div:nth-child(n+2):hover>div>div>div:first-child {
-          /* transform: scale(1.05);
-        transition-duration: 0.2s;
-        transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); */
           transform: scale(1.1) translateX(3px);
           transition-duration: 0.5s;
-          /* Increased duration */
           transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-          /* Adjusted timing function */
       }
 
       main-card-imageContainer,
@@ -704,12 +712,8 @@ function getCSS(das) {
       .KL469QQzoRZLOmKomNzk .B3i7kN8tRTwP9s4XEK10,
       view-homeShortcutsGrid-shortcut view-homeShortcutsGrid-imageContainer,
       .icV9eS36uZs9fhQmUujh {
-          /* transition-duration: 0.2s !important;
-        transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1) !important; */
           transition-duration: 0.5s;
-          /* Increased duration */
           transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-          /* Adjusted timing function */
       }
 
       ._560fb0a89f4ec24665eb945cfe2c97b0-scss,
