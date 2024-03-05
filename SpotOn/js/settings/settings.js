@@ -25,6 +25,12 @@
     hiddenPInfo: false,
     hiddenSPL: false,
     hiddenSTime: false,
+    hiddenSInfo: false,
+    hiddenSAlbum: false,
+    hiddenSDate: false,
+    hiddenSHeart: false,
+    hideSpotifyOffers: false, 
+    hiddenSDura: false,
     scrollNPB: false,
     removeprembutton: true,
     removemusixmatch: true,
@@ -66,6 +72,8 @@
     darkness: false,
     fontMain: true,
     removeLikedCover: false,
+    hometopsel: false,
+    youwontlike: false,
   };
 
   function updateToggleCounts() {

@@ -181,6 +181,12 @@ const defaultOptions = {
   hiddenPInfo: false,
   hiddenSPL: false,
   hiddenSTime: false,
+  hiddenSInfo: false,
+  hiddenSAlbum: false,
+  hiddenSDate: false,
+  hiddenSHeart: false,
+  hiddenSDura: false,
+  hideSpotifyOffers: false,
   scrollNPB: false,
   removeprembutton: true,
   removemusixmatch: true,
@@ -226,6 +232,8 @@ const defaultOptions = {
   darkness: false,
   fontMain: true,
   removeLikedCover: false,
+  hometopsel: false,
+  youwontlike: false,
 };
 
 function handleOption(option, tabId, options) {
