@@ -30,7 +30,7 @@ const sendCommandToTab = async (command, tabId) => {
       previous: [".spoticon-skip-back-16", "[data-testid=control-button-skip-back]"],
       shuffle: [".spoticon-shuffle-16", "[data-testid=control-button-shuffle]"],
       repeat: [".spoticon-repeat-16", ".spoticon-repeatonce-16", "[data-testid=control-button-repeat]"],
-      like: [".control-button-heart", "[data-testid=add-button]"],
+      like: ["button[aria-label='Add to Liked Songs']"],
       "volume-mute": [".volume-bar__icon-button.control-button", "[data-testid=volume-bar-toggle-mute-button]"],
     };
 
