@@ -1,3 +1,6 @@
+![SpotOn Stats](https://repobeats.axiom.co/api/embed/ce3ad3443e3619183781569395b7e46ab673eb42.svg "Repobeats analytics image")
+
+
 <div align="right"> 
 
 <a href="https://github.com/SenpaiHunters/SpotOn/issues/new/choose">Report a bug</a> ·
