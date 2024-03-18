@@ -1,6 +1,6 @@
 # Privacy Policy for SpotOn
 
-*Last Updated: 31/7/2023*
+## Last Updated: 18/3/2024
 
 ## Introduction
 
@@ -24,10 +24,8 @@ Please be apprised that this privacy policy is subject to periodic updates in or
 
 ## Contact Us
 
-We welcome any queries or concerns you may have regarding this privacy policy. Should you wish to get in touch, you can reach us via email at kamibusinessinquirers@gmail.com or by utilizing our dedicated communication channel on the Discord server.
+We welcome any queries or concerns you may have regarding this privacy policy. Should you wish to get in touch, you can reach us via [Discord](https://discord.com/users/325178652033679362) or via [email](kamibusinessinquirers@gmail.com).
 
 Your trust and privacy are the cornerstones of our commitment to you. We assure you of our dedication to facilitating a transparent and secure interaction within the SpotOn GitHub extension.
 
 Thank you for entrusting us with your privacy.
-
-*SpotOn Team*
