@@ -57,7 +57,7 @@ The notes section will be updated with patch notes and additional information ab
 <details>
     <summary>Notes and Info</summary>
 
-Today, on March 18, 2024, this repository has undergone a significant update. Every file, except SpotOn itself, has been changed. Moving forward, only the latest version, v3.0.2, will be supported. Consequently, all userscripts are now deprecated. The repository has been transformed from a large collection to a more streamlined view of SpotOn, which can be read in about 10 minutes. Previous resources have been replaced with an image folder. We have fully transitioned to [SpotOnThemes](https://github.com/SenpaiHunters/SpotOnTheme) for all theme repository needs. The previous reports and feature requests have been updated, giving the repository a fresh look. Additionally, some interesting statistics have been added at the top.
+Today, on March 18, 2024, this repository has undergone a significant update. Every file, except SpotOn itself, has been changed. Moving forward, only the latest version, v3.0.2, will be supported. Consequently, all userscripts are now deprecated. The repository has been transformed from a large collection to a more streamlined view of SpotOn, which can be read in about 10 minutes. Previous Resources have been replaced with an image folder. We have fully transitioned to [SpotOnThemes](https://github.com/SenpaiHunters/SpotOnTheme) for all theme repository needs. The previous reports and feature requests have been updated, giving the repository a fresh look. Additionally, some interesting statistics have been added at the top.
 
 </details>
 
@@ -76,11 +76,11 @@ Would you like to view SpotOn pictures without going through the whole repositor
 <details>
     <summary>SpotOn Pics</summary>
 
-![spot1 - how does this look](resources/images/spot1.png)
-![spot2 - how does this look](resources/images/spot4.png)
-![spot3 - how does this look](resources/images/spot2.png)
-![spot4 - how does this look](resources/images/spot3.png)
-![spot5 - how does this look](resources/images/spot5.png)
+![spot1 - how does this look](Resources/images/spot1.png)
+![spot2 - how does this look](Resources/images/spot4.png)
+![spot3 - how does this look](Resources/images/spot2.png)
+![spot4 - how does this look](Resources/images/spot3.png)
+![spot5 - how does this look](Resources/images/spot5.png)
 
 </details>
 
@@ -173,7 +173,7 @@ a. SpotOn (on by default) toggle one, this has your album art be made into your 
 
 **Image**
 
-![SpotOn Image](resources/images/spoton.png)
+![SpotOn Image](Resources/images/spoton.png)
 
 b. Translation (disabled by default). Currently, you can translate the lyrics into the following languages:
 
@@ -199,10 +199,10 @@ You can also modify the Lyrics color!
 
 **Image:**
 
-![Translation Image](resources/images/translate.png)
+![Translation Image](Resources/images/translate.png)
 
 **Image two:**
-![alt text](resources/images/translate-settings.png)
+![alt text](Resources/images/translate-settings.png)
 
 c. Custom CSS
 
@@ -210,11 +210,11 @@ Here, you can make whatever you want. I suggest turning off SpotOn before editin
 
 By default, we'll have a few themes you can pick from. These are the defaults. Then you have your controls.
 
-<img src="resources/images/custom-css.png" alt="custom css" width="400">
+<img src="Resources/images/custom-css.png" alt="custom css" width="400">
 
-<img src="resources/images/custom-css-2.png" alt="custom css" width="400">
+<img src="Resources/images/custom-css-2.png" alt="custom css" width="400">
 
-<img src="resources/images/custom-css-3.png" alt="custom css" width="400">
+<img src="Resources/images/custom-css-3.png" alt="custom css" width="400">
 
 (Refer to image two.) The `Save & Load Theme` button will do as stated: it will save the current theme and load it into the page without needing to reload. Now, a big note here is that this version of the Custom CSS does not have any sort of syntax highlighting or linting. This is a bare-bones lightweight CSS theme creator. If you need to lint and correct your CSS, you can do it in VSCode or any IDE.
 
@@ -223,7 +223,7 @@ By default, we'll have a few themes you can pick from. These are the defaults. T
 d. Non-codeable themes
 Here, you can change the lyrics color, lyrics font size, or (with SpotOn, which makes this feature actually useful), change the color of the navigation bar (NB), and now playing bar (NPB).
 
-![non codedable themes](resources/images/non-codetheme.png)
+![non codedable themes](Resources/images/non-codetheme.png)
 
 <br>
 
@@ -258,15 +258,15 @@ For more information on how to create a custom hotkey, it's pretty simple: click
 
 ### Settings (press the left cog icon)
 
-![settings img 1](resources/images/settings-1.png)
-![settings img 2](resources/images/settings-2.png)
-![settings img 3](resources/images/settings-3.png)
+![settings img 1](Resources/images/settings-1.png)
+![settings img 2](Resources/images/settings-2.png)
+![settings img 3](Resources/images/settings-3.png)
 
 ## Toggles
 
-![interface img 1](resources/images/interface-3.png)
-![interface img 2](resources/images/interface-1.png)
-![interface img 3](resources/images/interface-2.png)
+![interface img 1](Resources/images/interface-3.png)
+![interface img 2](Resources/images/interface-1.png)
+![interface img 3](Resources/images/interface-2.png)
 
 Honestly, this may seem minimal for now, but that's okay. I plan to enhance it further with each update. Currently, it's the lightest and fastest Spotify enhancer online, aligning with my goals for all extensions. While apps like Spcitify enhance the app directly, mine is based on Chrome extensions. (Maybe an FF version soon?)
 
