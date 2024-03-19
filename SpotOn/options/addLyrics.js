@@ -478,6 +478,15 @@ function getCSS(das) {
       .CoLO4pdSl8LGWyVZA00t {
         display: none !important;
     }
+
+    .rezqw3Q4OEPB1m4rmwfw,
+    .BL__GuO2JsHMR6RgNfwY {
+        background: transparent !important;
+    }
+
+    #Desktop_LeftSidebar_Id > nav > div.EZFyDnuQnx5hw78phLqP.hjb8tUL3rpUa0ez4ZtAj > div.PpUTJL2NIYDUnmfzVIbE.dNphEfQzPRaQufS04jUm > div._K79lE9KrIAkl_bUSSUM > div:nth-child(2) > div > div > ul > div > div:nth-child(2) {
+        transform: translateX(6px) !important;
+    }
     
     /* temp fix end */
 

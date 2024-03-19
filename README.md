@@ -65,6 +65,8 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 <details>
     <summary>Whats new!</summary>
 
+    20/3/2024: Bug fixes were implemented to address instances where SpotOn wouldn't be blurred, and several elements wouldn't be removed.
+
 The notes section: When I release a new update, I'll post it here. Most of the time, you can check the [Releases](https://github.com/SenpaiHunters/SpotOn/releases). There will be a detailed write-up to guide you through the new version.
 
 </details>
