@@ -468,10 +468,18 @@ function getCSS(das) {
 
       #main>div.Root.encore-dark-theme>div,
       #context-menu>ul,
-      #context-menu>div>ul {
+      #context-menu>div>ul,
+      /* temp class fix */
+      #main > div > div.ZQftYELq0aOsg6tPbVbV {
         -webkit-backdrop-filter: blur(var(--bg-blur));
           backdrop-filter: blur(var(--bg-blur));
       }
+
+      .CoLO4pdSl8LGWyVZA00t {
+        display: none !important;
+    }
+    
+    /* temp fix end */
 
       #context-menu>ul,
       #context-menu>div>ul {
