@@ -65,7 +65,16 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 <details>
     <summary>Whats new!</summary>
 
-    20/3/2024: Bug fixes were implemented to address instances where SpotOn wouldn't be blurred, and several elements wouldn't be removed.
+
+28/3/2024: Removed `declarativeContent` as indicated in the below email (thanks, Chrome); fixed some minor padding issues and corrected some minor coloring issues as well.
+
+Violation(s):
+Use of Permissions:
+- Violation: Requesting but not using the following permission(s):
+  - declarativeContent
+    - How to rectify: Remove the above permission(s).
+- Relevant section of the program policy:
+  - Request access to the narrowest permissions necessary to implement your product's features or services. Don't attempt to "future-proof" your product by requesting a permission that might benefit services or features that have not yet been implemented. (learn more).
 
 The notes section: When I release a new update, I'll post it here. Most of the time, you can check the [Releases](https://github.com/SenpaiHunters/SpotOn/releases). There will be a detailed write-up to guide you through the new version.
 
