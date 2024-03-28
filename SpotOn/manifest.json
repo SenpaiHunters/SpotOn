@@ -18,7 +18,6 @@
     "scripting",
     "tabs",
     "contextMenus",
-    "declarativeContent",
     "activeTab"
   ],
   "host_permissions": ["https://open.spotify.com/*"],

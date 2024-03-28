@@ -268,7 +268,7 @@ chrome.runtime.onInstalled.addListener((details) => {
       ...defaultOptions,
       extensionEnabled: true,
     }, () => console.log("Default options and extensionEnabled set."));
-    // chrome.tabs.create({ url: "https://blobsite.vercel.app/" });
+    // chrome.tabs.create({ url: "SITE-HERE" });
   }
 });
 
@@ -332,42 +332,6 @@ function generateColorCSS(customColor) {
       background-repeat: no-repeat !important;
       background-blend-mode: soft-light !important;
       overflow-x: none !important;
-    }
-    .BdcvqBAid96FaHAmPYw_ {
-      overflow-x: none !important;
-    }
-    .ifVI2CEdOZGgMWIUN2Cw,
-    .AzO2ondhaHJntbGy_3_S,
-    .EZFyDnuQnx5hw78phLqP {
-      background: transparent !important;
-      background-color: transparent !important;
-    }
-    .JG5J9NWJkaUO9fiKECMA {
-      border-radius: 45px !important;
-      min-height: -webkit-fill-available !important;
-      height: -webkit-fill-available !important;
-      width: -webkit-fill-available !important;
-    }
-    .deomraqfhIAoSB3SgXpu {
-      transform: translateX(28px) !important;
-    }
-    .OTfMDdomT5S7B5dbYTT8 {
-      border-radius: 30px !important;
-      min-height: -webkit-fill-available !important;
-      height: -webkit-fill-available !important;
-      width: -webkit-fill-available !important;
-    }
-    .EhyK_jJzB2PcWXd5lg24,
-    #context-menu[aria-labelledby="device-picker-icon-button"]:has(#device-picker-header [data-testid="animated-now-playing"]),
-    .aCtCKL9BxAoHeVZS0uRs.bk509U3ZhZc9YBJAmoP {
-      border-radius: 30px !important;
-    }
-    .pGU_qEtNT1qWKjrRbvan {
-      border-top-right-radius: 20px !important;
-      border-top-left-radius: 20px !important;
-    }
-    .Nw1INlIyra3LT1JjvoqH {
-      border-bottom-left-radius: 20px !important;
     }
   `;
 }

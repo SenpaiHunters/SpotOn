@@ -71,6 +71,7 @@ function getCSS(das) {
       --hoverback: rgba(255, 255, 255, 0.1);
       --blur: 20px;
       --hovercolor: rgba(0, 0, 0, 0.2);
+      --hoverbackdark: rgb(0, 0, 0, 0.5);
       --icons: var(--white);
       --bg-blur: 40px;
       --section-background-base: background: 0 0 !important;
@@ -128,12 +129,10 @@ function getCSS(das) {
   }
 
   .ojrThQm1wxR2gZ6GntJB.Ks_qLLEMUQzP7ejeQCwQ {
-      padding: 3px !important;
+      padding: 8px !important;
   }
 
-  .ojrThQm1wxR2gZ6GntJB.Ks_qLLEMUQzP7ejeQCwQ:hover,
   .ojrThQm1wxR2gZ6GntJB.Ks_qLLEMUQzP7ejeQCwQ:hover:after {
-      background-color: var(--hoverback) !important;
       background: var(--hoverback) !important;
   }
 
@@ -480,12 +479,29 @@ function getCSS(das) {
     }
 
     .rezqw3Q4OEPB1m4rmwfw,
-    .BL__GuO2JsHMR6RgNfwY {
+    .BL__GuO2JsHMR6RgNfwY,
+    .fEvxx8vl3zTNWsuC8lpx {
         background: transparent !important;
     }
 
-    #Desktop_LeftSidebar_Id > nav > div.EZFyDnuQnx5hw78phLqP.hjb8tUL3rpUa0ez4ZtAj > div.PpUTJL2NIYDUnmfzVIbE.dNphEfQzPRaQufS04jUm > div._K79lE9KrIAkl_bUSSUM > div:nth-child(2) > div > div > ul > div > div:nth-child(2) {
-        transform: translateX(6px) !important;
+    .EvQHNTBhaU3rGCRRlAWj {
+        top: 4px !important;
+        height: 50px !important;
+        border-radius: 10px !important;
+    }
+
+    .qJOhHoRcFhHJpEQ2CwFT .dZPmmYYhskhqHJCAruvI,
+    .koyeY6AgGRPmyPITi7yO.qJOhHoRcFhHJpEQ2CwFT {
+        background: var(--hoverbackdark) !important;
+        border-radius: 10px;
+    }
+
+    .koyeY6AgGRPmyPITi7yO.qJOhHoRcFhHJpEQ2CwFT {
+        top: 19px !important;
+    }
+
+    .EvQHNTBhaU3rGCRRlAWj.QplCuuGSoV4updqTSLq9 {
+        background: var(--hoverbackdark) !important;
     }
     
     /* temp fix end */
