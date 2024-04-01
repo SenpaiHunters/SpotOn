@@ -1,75 +1,63 @@
-const addHighlightClass = () => {
-  const style = document.createElement('style');
-  style.type = 'text/css';
-  style.innerHTML = '.highlight { background-color: var(--highlight); }';
-  document.head.appendChild(style);
-};
-
-const hideOptionGroups = () => {
-  const optionGroups = document.querySelectorAll(".option-group:not(#default-content)");
-  optionGroups.forEach(group => group.style.display = "none");
-};
-
-const highlightMatchingText = (option, searchInput) => {
-  const regex = new RegExp(`(${searchInput})`, 'gi');
-  option.innerHTML = option.textContent.replace(regex, "<span class='highlight'>$1</span>");
-};
-
 const searchInput = document.getElementById("search-input");
 const defaultContent = document.getElementById("default-content");
 const matchCountElement = document.getElementById('match-count');
 
-const handleNoResultsFound = () => {
-  searchInput.placeholder = "Try another word";
-  defaultContent.style.display = "block";
+const toggleDisplay = (element, show) => {
+  element.style.display = show ? "block" : "none";
 };
 
-const displayMatchCount = matchCount => {
-  matchCountElement.textContent = `Matches found: ${matchCount}`;
+const createHighlightStyle = () => {
+  if (!document.querySelector('#highlight-style')) {
+    const style = document.createElement('style');
+    style.id = 'highlight-style';
+    style.type = 'text/css';
+    style.textContent = '.highlight { background-color: var(--highlight); }';
+    document.head.appendChild(style);
+  }
 };
 
-const resetSearchInput = () => {
-  searchInput.placeholder = "Search...";
+const updatePlaceholder = (placeholder) => {
+  searchInput.placeholder = placeholder;
 };
 
-const removeExistingHighlights = () => {
-  const highlighted = document.querySelectorAll(".highlight");
-  highlighted.forEach(highlight => highlight.outerHTML = highlight.innerHTML);
+const updateMatchCount = (count) => {
+  matchCountElement.textContent = count ? `Matches found: ${count}` : "";
 };
 
-const showDefaultContent = () => {
-  defaultContent.style.display = "block";
-};
-
-const removeMatchCount = () => {
-  matchCountElement.textContent = "";
+const highlightMatchingText = (text, term) => {
+  const regex = new RegExp(`(${term})`, 'gi');
+  return text.replace(regex, "<span class='highlight'>$1</span>");
 };
 
 searchInput.addEventListener("input", () => {
-  const searchInputValue = searchInput.value.toLowerCase();
+  const term = searchInput.value.trim().toLowerCase();
   let matchCount = 0;
 
-  hideOptionGroups();
+  document.querySelectorAll(".option-group").forEach(group => {
+    toggleDisplay(group, group.id === "default-content");
+  });
 
-  if (searchInputValue.trim() !== "") {
-    const options = document.querySelectorAll(".option label");
-    options.forEach(option => {
-      if (option.textContent.toLowerCase().includes(searchInputValue)) {
-        option.closest(".option-group").style.display = "block";
-        highlightMatchingText(option, searchInputValue);
+  if (term) {
+    document.querySelectorAll(".option label").forEach(label => {
+      const text = label.textContent.toLowerCase();
+      if (text.includes(term)) {
+        const optionGroup = label.closest(".option-group");
+        toggleDisplay(optionGroup, true);
+        label.innerHTML = highlightMatchingText(label.textContent, term);
         matchCount++;
+      } else {
+        label.innerHTML = label.textContent; // Remove any previous highlights
       }
     });
 
-    const visibleGroups = document.querySelectorAll('.option-group[style="display: block;"]');
-    visibleGroups.length === 0 ? handleNoResultsFound() : null;
-    displayMatchCount(matchCount);
+    updatePlaceholder("Try another word");
+    updateMatchCount(matchCount);
+    toggleDisplay(defaultContent, matchCount === 0);
   } else {
-    resetSearchInput();
-    removeExistingHighlights();
-    showDefaultContent();
-    removeMatchCount();
+    updatePlaceholder("Search...");
+    updateMatchCount();
+    toggleDisplay(defaultContent, true);
   }
 });
 
-addHighlightClass();
+createHighlightStyle();

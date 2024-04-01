@@ -9,59 +9,59 @@ let startTime = performance.now();
 initSkin();
 
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
-  if (message.txt === "disable" && message.bool === "false" && !themeLock) {
-    removeSkin();
-    sendResponse({ status: "disabled" });
-    stat = STAT_DISABLED;
-  } else if (message.txt === "enable" && message.bool === "true" && !themeLock) {
-    initSkin(true);
-    sendResponse({ status: "enabled" });
-    stat = STAT_ENABLED;
-  } else if (message.txt === "check" || message.txt === "das") {
-    sendResponse({ status: stat });
-  } else if (message.txt === "lock") {
-    themeLock = true;
-    savedBackgroundImage = getAlbumArtBackground();
-    sendResponse({ status: "theme locked" });
-  } else if (message.txt === "unlock") {
-    themeLock = false;
-    restoreSavedBackground();
-    initSkin(true);
-    sendResponse({ status: "theme unlocked" });
-  } else if (message.txt === "getAlbumArtURL") {
-    const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
-    sendResponse({ albumArtURL: coverArtImage ? coverArtImage.src : null });
-  }
+    if (message.txt === "disable" && message.bool === "false" && !themeLock) {
+        removeSkin();
+        sendResponse({ status: "disabled" });
+        stat = STAT_DISABLED;
+    } else if (message.txt === "enable" && message.bool === "true" && !themeLock) {
+        initSkin(true);
+        sendResponse({ status: "enabled" });
+        stat = STAT_ENABLED;
+    } else if (message.txt === "check" || message.txt === "das") {
+        sendResponse({ status: stat });
+    } else if (message.txt === "lock") {
+        themeLock = true;
+        savedBackgroundImage = getAlbumArtBackground();
+        sendResponse({ status: "theme locked" });
+    } else if (message.txt === "unlock") {
+        themeLock = false;
+        restoreSavedBackground();
+        initSkin(true);
+        sendResponse({ status: "theme unlocked" });
+    } else if (message.txt === "getAlbumArtURL") {
+        const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
+        sendResponse({ albumArtURL: coverArtImage ? coverArtImage.src : null });
+    }
 });
 
 function initSkin(das) {
-  // console.log("CSS Functions Starting");
-  if (!themeLock || das) {
-    addStyleToDocument(getCSS(das));
-  }
-  addObserverIfDesiredNodeAvailable();
+    // console.log("CSS Functions Starting");
+    if (!themeLock || das) {
+        addStyleToDocument(getCSS(das));
+    }
+    addObserverIfDesiredNodeAvailable();
 }
 
 function addStyleToDocument(css) {
-  const styleNode = document.getElementById("skin") || document.createElement("style");
-  styleNode.id = "skin";
-  styleNode.type = "text/css";
-  styleNode.textContent = css;
-  document.head.appendChild(styleNode);
+    const styleNode = document.getElementById("skin") || document.createElement("style");
+    styleNode.id = "skin";
+    styleNode.type = "text/css";
+    styleNode.textContent = css;
+    document.head.appendChild(styleNode);
 }
 
 function removeSkin() {
-  if (!themeLock) {
-    const styleNode = document.getElementById("skin");
-    if (styleNode) {
-      styleNode.remove();
+    if (!themeLock) {
+        const styleNode = document.getElementById("skin");
+        if (styleNode) {
+            styleNode.remove();
+        }
     }
-  }
-  localStorage.setItem("skin", false);
+    localStorage.setItem("skin", false);
 }
 
 function getCSS(das) {
-  const commonCSS = `@charset "UTF-8";
+    const commonCSS = `@charset "UTF-8";
   /*------Created by Kami--------*/
   :root {
       --overlay-heavy: rgba(0, 0, 0, 0.4);
@@ -1123,46 +1123,48 @@ function getCSS(das) {
   }
   `;
 
-  return das ? `${commonCSS}\n${getCustomCSS()}` : commonCSS;
+    return das ? `${commonCSS}\n${getCustomCSS()}` : commonCSS;
 }
 
 function getCustomCSS() {
-  return `.Root__nav-bar, .nav-alt .Root__main-view, .nav-alt .Root__nav-bar, .Root__fixed-top-bar { background: var(--overlay-heavy) !important; }`;
+    return `.Root__nav-bar, .nav-alt .Root__main-view, .nav-alt .Root__nav-bar, .Root__fixed-top-bar { 
+    background: var(--overlay-heavy) !important; 
+  }`;
 }
 
 async function addObserverIfDesiredNodeAvailable() {
-  const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
-  if (!coverArtImage) {
-    setTimeout(addObserverIfDesiredNodeAvailable, 500);
-    return;
-  }
+    const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
+    if (!coverArtImage) {
+        setTimeout(addObserverIfDesiredNodeAvailable, 500);
+        return;
+    }
 
-  const backgroundSheet = document.getElementById("background") || document.createElement("style");
-  backgroundSheet.id = "background";
-  document.body.appendChild(backgroundSheet);
-  backgroundSheet.textContent = `:root { --backimg: url(${getAlbumArtBackground()}); }`;
+    const backgroundSheet = document.getElementById("background") || document.createElement("style");
+    backgroundSheet.id = "background";
+    document.body.appendChild(backgroundSheet);
+    backgroundSheet.textContent = `:root { --backimg: url(${getAlbumArtBackground()}); }`;
 
-  const observer = new MutationObserver((changes) => {
-    changes.forEach((change) => {
-      if (change.attributeName.includes("src") && !themeLock) {
-        backgroundSheet.textContent = `:root { --backimg: url(${getAlbumArtBackground()}); }`;
-      }
+    const observer = new MutationObserver((changes) => {
+        changes.forEach((change) => {
+            if (change.attributeName.includes("src") && !themeLock) {
+                backgroundSheet.textContent = `:root { --backimg: url(${getAlbumArtBackground()}); }`;
+            }
+        });
     });
-  });
 
-  observer.observe(coverArtImage, { attributes: true });
+    observer.observe(coverArtImage, { attributes: true });
 }
 
 function getAlbumArtBackground() {
-  const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
-  return coverArtImage ? coverArtImage.src : "";
+    const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
+    return coverArtImage ? coverArtImage.src : "";
 }
 
 function restoreSavedBackground() {
-  const backgroundSheet = document.getElementById("background");
-  if (backgroundSheet && savedBackgroundImage) {
-    backgroundSheet.textContent = `:root { --backimg: url(${savedBackgroundImage}); }`;
-  }
+    const backgroundSheet = document.getElementById("background");
+    if (backgroundSheet && savedBackgroundImage) {
+        backgroundSheet.textContent = `:root { --backimg: url(${savedBackgroundImage}); }`;
+    }
 }
 
 addObserverIfDesiredNodeAvailable();

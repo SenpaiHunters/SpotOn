@@ -65,6 +65,23 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 <details>
     <summary>Whats new!</summary>
 
+## Changelog - 2/4/2024
+Significant optimizations and bug fixes have been implemented. Detailed changes are as follows:
+
+- Manifest updated to version 3.0.3.5.
+- JavaScript file structure and codebase streamlined:
+  - The `options` folder has been removed; `settingsDown.js` is now located in the `settings` folder.
+  - Consolidated `toggle.js` and contents of the `shared` folder into a single file `themeToggles.js` within the `settings` folder.
+  - Enhanced theme settings functionality, particularly the 'Auto' feature, and resolved related bugs.
+  - Refined the extension's enabled state logic for improved performance.
+  - Resolved an issue in `import.js` to ensure reliable importing of user settings.
+  - Conducted code optimization for `settingsOptions.js`, `settings.js`, `search.js`, `locals.js`, and `background.js`.
+  - Corrected a defect affecting the lyrics color display.
+  - Improved code formatting across several files for better readability and maintenance.
+  - Addressed various minor bugs to enhance overall stability.
+
+
+---
 
 28/3/2024: Removed `declarativeContent` as indicated in the below email (thanks, Chrome); fixed some minor padding issues and corrected some minor coloring issues as well.
 

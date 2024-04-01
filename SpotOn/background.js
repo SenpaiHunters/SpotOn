@@ -164,7 +164,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     sendResponse({ status: themeLocked ? "theme_locked" : "theme_unlocked" });
   }
 });
-//
 
 // Checkbox functions for the settings.html
 const defaultOptions = {
@@ -244,40 +243,27 @@ function handleOption(option, tabId, options) {
     addLyricsButton: "addLyrics.js",
   };
 
-  if (optionScripts[option]) {
-    if (options[option]) {
-      chrome.scripting.executeScript({
-        target: { tabId: tabId },
-        files: [`./options/${optionScripts[option]}`],
-      });
-    }
-  } else {
-    const fileName = `./options/${option}.css`;
-    if (options[option]) {
-      chrome.scripting.insertCSS({
-        target: { tabId: tabId },
-        files: [fileName],
-      });
-    }
+  const fileToInject = optionScripts[option] ? `./options/${optionScripts[option]}` : `./options/${option}.css`;
+  const method = optionScripts[option] ? 'executeScript' : 'insertCSS';
+
+  if (options[option]) {
+    chrome.scripting[method]({
+      target: { tabId },
+      files: [fileToInject],
+    });
   }
 }
 
-chrome.runtime.onInstalled.addListener((details) => {
-  if (details.reason === "install") {
-    chrome.storage.sync.set({
-      ...defaultOptions,
-      extensionEnabled: true,
-    }, () => console.log("Default options and extensionEnabled set."));
-    // chrome.tabs.create({ url: "SITE-HERE" });
+chrome.runtime.onInstalled.addListener(({ reason }) => {
+  if (reason === "install") {
+    chrome.storage.sync.set({ ...defaultOptions, extensionEnabled: true });
   }
 });
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === "complete" && tab.url.startsWith("https://open.spotify.com/")) {
-    chrome.storage.sync.get(null, (options) => {
-      for (const option of Object.keys(options)) {
-        handleOption(option, tabId, options);
-      }
+chrome.tabs.onUpdated.addListener((tabId, { status }, tab) => {
+  if (status === "complete" && tab.url.startsWith("https://open.spotify.com/")) {
+    chrome.storage.sync.get(null, options => {
+      Object.keys(options).forEach(option => handleOption(option, tabId, options));
     });
   }
 });
@@ -320,7 +306,8 @@ function generateColorCSS(customColor) {
     .AzO2ondhaHJntbGy_3_S,
     .Nw1INlIyra3LT1JjvoqH,
     #main > div.Root.encore-dark-theme > div.ZQftYELq0aOsg6tPbVbV > div.JG5J9NWJkaUO9fiKECMA,
-    .pGU_qEtNT1qWKjrRbvan {
+    .pGU_qEtNT1qWKjrRbvan,
+    .EZFyDnuQnx5hw78phLqP {
       background-color: ${customColor} !important;
       background: ${customColor} !important;
       background: var(${customColor}) !important;

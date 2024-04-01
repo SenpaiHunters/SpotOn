@@ -3,7 +3,6 @@
 
   const saveButton = document.getElementById("save");
   const settingsButton = document.getElementById("settingsButton");
-  const checkboxElements = {};
   const countElements = {
     onCount: document.getElementById("on-count"),
     offCount: document.getElementById("off-count"),
@@ -76,55 +75,59 @@
     youwontlike: false,
   };
 
+  const defaultOptionsKeys = Object.keys(defaultOptions);
+  const totalCount = defaultOptionsKeys.length;
+  countElements.totalCount.textContent = totalCount;
+
+  const checkboxElements = defaultOptionsKeys.reduce((elements, id) => {
+    elements[id] = document.getElementById(id);
+    return elements;
+  }, {});
+
   function updateToggleCounts() {
-    const onCount = Object.values(checkboxElements).filter(el => el.checked).length;
-    const totalCount = Object.keys(defaultOptions).length;
+    const onCount = defaultOptionsKeys.reduce((count, id) => count + (checkboxElements[id].checked ? 1 : 0), 0);
     const offCount = totalCount - onCount;
 
     countElements.onCount.textContent = onCount;
     countElements.offCount.textContent = offCount;
-    countElements.totalCount.textContent = totalCount;
-    countElements.onPercentage.textContent = calculatePercentage(onCount, totalCount) + '%';
-    countElements.offPercentage.textContent = calculatePercentage(offCount, totalCount) + '%';
+    countElements.onPercentage.textContent = `${calculatePercentage(onCount)}%`;
+    countElements.offPercentage.textContent = `${calculatePercentage(offCount)}%`;
   }
 
-  function calculatePercentage(part, total) {
-    return ((part / total) * 100).toFixed(2);
+  function calculatePercentage(part) {
+    return ((part / totalCount) * 100).toFixed(2);
   }
 
-  async function saveOptions() {
-    try {
-      const options = gatherOptions();
-      await chrome.storage.sync.set(options);
-      await restoreOptions();
-      updateToggleCounts();
-      openSpotifyTab();
-    } catch (error) {
-      console.error('Error saving options:', error);
-    }
+  function saveOptions() {
+    const options = gatherOptions();
+    chrome.storage.sync.set(options, () => {
+      if (chrome.runtime.lastError) {
+        console.error('Error saving options:', chrome.runtime.lastError);
+      } else {
+        updateToggleCounts();
+        openSpotifyTab();
+      }
+    });
   }
 
   function gatherOptions() {
-    return Object.keys(defaultOptions).reduce((acc, id) => {
-      acc[id] = checkboxElements[id].checked;
-      return acc;
+    return defaultOptionsKeys.reduce((options, id) => {
+      options[id] = checkboxElements[id].checked;
+      return options;
     }, {});
   }
 
-  async function restoreOptions() {
-    try {
-      const items = await chrome.storage.sync.get(defaultOptions);
-      for (const [id, value] of Object.entries(items)) {
-        const checkbox = checkboxElements[id] || document.getElementById(id);
-        if (checkbox) {
-          checkboxElements[id] = checkbox;
-          checkbox.checked = value;
-        }
+  function restoreAndUpdateOptions() {
+    chrome.storage.sync.get(defaultOptions, (items) => {
+      if (chrome.runtime.lastError) {
+        console.error('Error restoring options:', chrome.runtime.lastError);
+      } else {
+        defaultOptionsKeys.forEach(id => {
+          checkboxElements[id].checked = items[id];
+        });
+        updateToggleCounts();
       }
-      updateToggleCounts();
-    } catch (error) {
-      console.error('Error restoring options:', error);
-    }
+    });
   }
 
   function openSpotifyTab() {
@@ -137,7 +140,7 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", restoreOptions);
+  document.addEventListener("DOMContentLoaded", restoreAndUpdateOptions);
   saveButton.addEventListener("click", saveOptions);
   settingsButton.addEventListener("click", openSpotifyTab);
 })();
