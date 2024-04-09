@@ -65,6 +65,13 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 <details>
     <summary>Whats new!</summary>
 
+## Changelog - 9/4/2024
+
+- Fast fix for broken values in SpotOn, this took me half an hour to find one call it may not be a temp fix after all...
+- Shifted manifest to 3.0.5.6
+
+
+
 ## Changelog - 2/4/2024
 Significant optimizations and bug fixes have been implemented. Detailed changes are as follows:
 
@@ -79,7 +86,6 @@ Significant optimizations and bug fixes have been implemented. Detailed changes 
   - Corrected a defect affecting the lyrics color display.
   - Improved code formatting across several files for better readability and maintenance.
   - Addressed various minor bugs to enhance overall stability.
-
 
 ---
 

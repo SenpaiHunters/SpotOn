@@ -93,15 +93,6 @@ function getCSS(das) {
     border: none !important;
   }
 
-  .FqmFsMhuF4D0s35Z62Js,
-  .rVxzkDirgkuRPv5V1HYF.IcyWfMS5VkeOhaI7OWIx,
-  .H0HbpIM3UrcupWIAjLWu,
-  .BFR9Zt3zpL8BATBMiwQB  {
-    border-radius: 4% !important;
-    border-color: #000 !important;
-    background: #000 !important;
-  }
-
   .kpRBcW:hover,
   .RowButton-sc-xxkq4e-0.hIehTT:hover,
   .bgTbzH:hover:after,
@@ -479,9 +470,26 @@ function getCSS(das) {
     }
 
     .rezqw3Q4OEPB1m4rmwfw,
+    .NmPFqFYcYmtFfPShmtj3,
     .BL__GuO2JsHMR6RgNfwY,
+    #Desktop_LeftSidebar_Id > nav > div.lHJd4oSttKLxkxuoZ0Lr.wM72343CksOCaL3bZvKK > div.hgJel0bLlS_1Uf0EIfSA > div.WxM1eb7qnneSkMiT4dvw,
+    .ZQftYELq0aOsg6tPbVbV,
+    ._W_0W9Uld1vxrRfsgdQR,
+    .lHJd4oSttKLxkxuoZ0Lr,
+    ._W_0W9Uld1vxrRfsgdQR,
+    .hgJel0bLlS_1Uf0EIfSA, .uBqliBvyhxGsiql8_OJv,
+    .hgJel0bLlS_1Uf0EIfSA,
+    .wM72343CksOCaL3bZvKK,
+    #main > div > div.ZQftYELq0aOsg6tPbVbV > div.jEMA2gVoLgPQqAFrPhFw > div.main-view-container > div.main-view-container__scroll-node > div:nth-child(2) > div.main-view-container__scroll-node-child > main > div.S4OmZ_IZexmZ5dasPqW5,
+    #Desktop_LeftSidebar_Id > nav > div.lHJd4oSttKLxkxuoZ0Lr.wM72343CksOCaL3bZvKK > div.hgJel0bLlS_1Uf0EIfSA > div.WxM1eb7qnneSkMiT4dvw > div:nth-child(2),
+    .FqmFsMhuF4D0s35Z62Js, .rVxzkDirgkuRPv5V1HYF.IcyWfMS5VkeOhaI7OWIx, .H0HbpIM3UrcupWIAjLWu, nav.lYpiKR_qEjl1jGGyEvsA, .BFR9Zt3zpL8BATBMiwQB,
+    .EmeHQXR87mUskYK6xEde,
     .fEvxx8vl3zTNWsuC8lpx {
         background: transparent !important;
+    }
+
+    div#Desktop_LeftSidebar_Id {
+        border-radius: var(--main-border-radius) !important;
     }
 
     .EvQHNTBhaU3rGCRRlAWj {
@@ -490,13 +498,14 @@ function getCSS(das) {
         border-radius: 10px !important;
     }
 
-    .qJOhHoRcFhHJpEQ2CwFT .dZPmmYYhskhqHJCAruvI,
-    .koyeY6AgGRPmyPITi7yO.qJOhHoRcFhHJpEQ2CwFT {
+    .hIFR8WDm_54EEIa1gwpC,
+    ._2ajKWDiy6YvJu5wo8I1g.IpXjqI9ouS_N5zi0WM88 {
         background: var(--hoverbackdark) !important;
         border-radius: 10px;
     }
 
-    .koyeY6AgGRPmyPITi7yO.qJOhHoRcFhHJpEQ2CwFT {
+    .cj6vRk3nFAi80HSVqX91,
+    ._2ajKWDiy6YvJu5wo8I1g.IpXjqI9ouS_N5zi0WM88 {
         top: 19px !important;
     }
 
