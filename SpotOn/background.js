@@ -287,7 +287,7 @@ async function applyCustomizations(tabId) {
 
 function generateLyricsCSS(customLyrics) {
   return `
-  .NiCdLCpp3o2z6nBrayOn._LKG3z7SnerR0eigPCoK.MEjuIn9iTBQbnCqHpkoQ {
+  .nw6rbs8R08fpPn7RWW2w.aeO5D7ulxy19q4qNBrkk {
       color: ${customLyrics.color} !important;
       font-size: ${customLyrics.fontSize}px !important;
     }

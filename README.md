@@ -61,18 +61,20 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 
 </details>
 
-
 <details>
     <summary>Whats new!</summary>
+
+## Changelog - 30/4/2024
+
+- Small bug fixes where SpotOn's theme would not be fully applied and elements would not be replaced
 
 ## Changelog - 9/4/2024
 
 - Fast fix for broken values in SpotOn, this took me half an hour to find one call it may not be a temp fix after all...
 - Shifted manifest to 3.0.5.6
 
-
-
 ## Changelog - 2/4/2024
+
 Significant optimizations and bug fixes have been implemented. Detailed changes are as follows:
 
 - Manifest updated to version 3.0.3.5.
@@ -93,6 +95,7 @@ Significant optimizations and bug fixes have been implemented. Detailed changes 
 
 Violation(s):
 Use of Permissions:
+
 - Violation: Requesting but not using the following permission(s):
   - declarativeContent
     - How to rectify: Remove the above permission(s).
@@ -102,8 +105,6 @@ Use of Permissions:
 The notes section: When I release a new update, I'll post it here. Most of the time, you can check the [Releases](https://github.com/SenpaiHunters/SpotOn/releases). There will be a detailed write-up to guide you through the new version.
 
 </details>
-
-
 
 ---
 Would you like to view SpotOn pictures without going through the whole repository? Click here!
@@ -120,13 +121,13 @@ Would you like to view SpotOn pictures without going through the whole repositor
 
 ---
 
- ## Features
- 
+## Features
+
  **TL;DR:** SpotOn enhances your Spotify experience with 61 customizable toggles, allowing for a personalized UI including full custom CSS support, simple color changes without coding, and import/export functionality. Or enjoy your album art being your background!
- 
+
  <details>
      <summary>Long version</summary>
-   
+
  Here's a more detailed look at what SpotOn offers:
   
 ## Toggles
@@ -211,15 +212,15 @@ a. SpotOn (on by default) toggle one, this has your album art be made into your 
 
 b. Translation (disabled by default). Currently, you can translate the lyrics into the following languages:
 
-1.  Türkçe
-2.  English
-3.  Deutsch
-4.  Français
-5.  Español
-6.  Italiano
-7.  Русский
-8.  العربية
-9.  中文
+1. Türkçe
+2. English
+3. Deutsch
+4. Français
+5. Español
+6. Italiano
+7. Русский
+8. العربية
+9. 中文
 10. 日本語
 11. 한국어
 12. Português
@@ -323,7 +324,8 @@ The Chrome extension store lags in releases because Chrome's review process can 
 2. **Get Started with SpotOn:**
    - Load Spotify or open a new tab and modify SpotOn settings as needed.
 
-### Permissions Explained:
+### Permissions Explained
+
 When installing SpotOn (from the chrome web store), you'll be prompted to grant certain permissions. Here's why they are necessary:
 
 - **Read and Change Your Data on open.spotify.com**:

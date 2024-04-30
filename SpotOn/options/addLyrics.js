@@ -87,6 +87,12 @@ function getCSS(das) {
       transform: translateX(-80px) !important;
   }
 
+  ._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss,
+  .i_0L07qd2CAeOLFiK8dP {
+    overflow-y: visible !important;
+    backdrop-filter: blur(3px) !important;
+}
+
   /* temp fix for the album white border??? */
   button,
   .rVxzkDirgkuRPv5V1HYF.IcyWfMS5VkeOhaI7OWIx {
@@ -317,9 +323,6 @@ function getCSS(das) {
     border-radius: var(--main-border-radius) !important;
   }
 
-  .SboKmDrCTZng7t4EgNoM,
-  div#trippy-7,
-  .SboKmDrCTZng7t4EgNoM,
   div#trippy-7,
   .SboKmDrCTZng7t4EgNoM {
       background: var(--hovercolor) !important;
@@ -357,8 +360,9 @@ function getCSS(das) {
       max-width: -webkit-fill-available !important;
   }
 
-  .main-view-container__scroll-node .os-content .main-view-container__scroll-node-child [data-testid="settings-page"]:after {
-      content: "CSS/JS made by Kami. Specifically made for SpotOn (https://github.com/senpaihunters/spoton), any distrubtion is prohibited, unless contacted and allowed otherwise.";
+  ._czgnX6y44Or6X9pI6gc::after {
+      content: "Developed by Kami for SpotOn (https://github.com/SenpaiHunters/SpotOn). Redistribution not permitted without permission.";
+      color: var(--white);
       cursor: auto;
   }
 
@@ -387,20 +391,6 @@ function getCSS(das) {
   .btn.btn-fg-green {
       padding-top: 2em !important;
       padding-bottom: 2em !important;
-  }
-
-  .middle-align.progress-bar__slider {
-      transform: scale(0.7) !important;
-      border: 0 solid #00000001 !important;
-      background: radial-gradient(at left top, rgba(255, 255, 255, 1), var(--playCol), rgba(0, 0, 0, 1)) !important;
-  }
-
-  .volume-bar .middle-align.progress-bar__slider {
-      border: 0 solid #1e1e1e !important;
-  }
-
-  .now-playing-bar__right__inner {
-      padding-right: 6px !important;
   }
 
   .accountPage .icon,
@@ -484,7 +474,36 @@ function getCSS(das) {
     #Desktop_LeftSidebar_Id > nav > div.lHJd4oSttKLxkxuoZ0Lr.wM72343CksOCaL3bZvKK > div.hgJel0bLlS_1Uf0EIfSA > div.WxM1eb7qnneSkMiT4dvw > div:nth-child(2),
     .FqmFsMhuF4D0s35Z62Js, .rVxzkDirgkuRPv5V1HYF.IcyWfMS5VkeOhaI7OWIx, .H0HbpIM3UrcupWIAjLWu, nav.lYpiKR_qEjl1jGGyEvsA, .BFR9Zt3zpL8BATBMiwQB,
     .EmeHQXR87mUskYK6xEde,
+    .main-view-container__mh-footer-container,
+    .o4GE4jG5_QICak2JK_bn,
+    .GQ5_gIWzIqAfBdmQm8yJ.IcyWfMS5VkeOhaI7OWIx,
+    .ffFwfKcPDbmAPLXzxzKq,
+    .fNXmHtlrj4UVWmhQrJ_5,
+    button.HD9s7U5E1RLSWKpXmrqx,
     .fEvxx8vl3zTNWsuC8lpx {
+        background: transparent !important;
+    }
+
+    .DquSH3YjnaIIXMZiOvwA,
+    .tippy-box[data-theme~=device-picker],
+    .qSTDtICR1fiIGRni1cwy,
+    .mjprSb2e1tKJpqwvgFSh,
+    .DvGZmNajy4oaZxPG45JM,
+    .X5mwWAw7ijxPvQOoabzQ {
+        background: var(--hovercolor) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+
+    .DvGZmNajy4oaZxPG45JM {
+        border-radius: 2rem;
+    }
+
+    .NXiYChVp4Oydfxd7rT5r.XPjEhsPyuOvMZ9NsDrxT {
+        height: 20vh !important;
+    }
+
+    .JUa6JJNj7R_Y3i4P8YUX,
+    #main > div > div.ZQftYELq0aOsg6tPbVbV > div.jEMA2gVoLgPQqAFrPhFw > div.main-view-container > div.main-view-container__scroll-node > div:nth-child(2) > div.main-view-container__scroll-node-child > main > div.GlueDropTarget > section > div.rezqw3Q4OEPB1m4rmwfw > div.CoLO4pdSl8LGWyVZA00t {
         background: transparent !important;
     }
 
@@ -699,7 +718,8 @@ function getCSS(das) {
           background: var(--hovercolor) !important;
       }
 
-      div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>div>section>div:nth-child(2)>div {
+      div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>div>section>div:nth-child(2)>div
+      /* .nw6rbs8R08fpPn7RWW2w.EhKgYshvOwpSrTv399Mw */ {
           overflow: visible;
           background-color: transparent !important;
           background-image: none !important;
@@ -739,6 +759,7 @@ function getCSS(das) {
       }
 
       main-card-imageContainer,
+      .nw6rbs8R08fpPn7RWW2w.EhKgYshvOwpSrTv399Mw,
       .OALAQFKvC7XQOVYpklB4 .JI_jg7MaIJ2TCTmebcdd {
           transition-duration: 0.4s;
           transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -1043,7 +1064,8 @@ function getCSS(das) {
           transition-duration: 0.2s;
       }
 
-      .YWQ6MaodStrAvAMCg1wx:hover .byhpDrPqhYGoCXVANcn9 {
+      .YWQ6MaodStrAvAMCg1wx:hover .byhpDrPqhYGoCXVANcn9,
+      .nw6rbs8R08fpPn7RWW2w.EhKgYshvOwpSrTv399Mw {
           transform: scale(1.05);
           transition-duration: 0.2s;
           transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
