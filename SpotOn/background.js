@@ -9,7 +9,7 @@ const sendCommandToTab = async (command, tabId) => {
       e.style.transform = 'scale(1.2)';
       setTimeout(() => e.style.transform = 'scale(1)', 200);
     };
-    
+
     const clickAndAnimate = (e) => {
       if (!e) throw new Error("Element not found");
       e.click();
@@ -75,10 +75,10 @@ chrome.commands.onCommand.addListener(async (command) => {
 // On and off button initialization.
 chrome.commands.onCommand.addListener((command) => {
   if (command === "toggle_extension") {
-    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs.length === 0) return; // No active tab found
       const currentTabId = tabs[0].id;
-      chrome.tabs.sendMessage(currentTabId, {action: "toggleExtension"});
+      chrome.tabs.sendMessage(currentTabId, { action: "toggleExtension" });
     });
   } else {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -167,91 +167,40 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Checkbox functions for the settings.html
 const defaultOptions = {
-  addLyricsButton: true,
-  righter: true,
-  roundAlbumArt: true,
-  rainbowControls: false,
-  appendButton: false,
-  hiddenPIcon: false,
-  hiddenPAlbum: false,
-  hiddenPDate: false,
-  hiddenPDura: false,
-  hiddenPHeart: false,
-  hiddenPInfo: false,
-  hiddenSPL: false,
-  hiddenSTime: false,
-  hiddenSInfo: false,
-  hiddenSAlbum: false,
-  hiddenSDate: false,
-  hiddenSHeart: false,
-  hiddenSDura: false,
-  hideSpotifyOffers: false,
-  scrollNPB: false,
-  removeprembutton: true,
-  removemusixmatch: true,
-  spinAlbum: true,
-  navToggle: true,
-  footernomore: true,
-  byeappthing: true,
-  fontLsize: true,
-  hideCB: false,
-  removeVolBar: false,
-  scrollbar: false,
-  enableLogging: false,
-  removeOnTour: false,
-  removeFeatArtist: false,
-  removeFansLiked: false,
-  removeAppearsOn: false,
-  removeDiscovergraphy: false,
-  removePodcasts: true,
-  hiddenAbout: false,
-  hiddenArtistPick: false,
-  removeNPB: false,
-  thickerPB: true,
-  hiddenNPVqueue: false,
-  removePiP: true,
-  removeNewStuff: false,
-  removeNPV: false,
-  hiddenNPVtour: true,
-  hiddenNPVartist: false,
-  featInDev: false,
-  featinDev: false,
-  rainbowProgressbar: false,
-  shadow: true,
-  hiddenLyricsButton: false,
-  hiddenDevicePicker: false,
-  removeAlbumArt: false,
-  disableHi: true,
-  reducedTransparency: false,
-  lyricsColor: false,
-  removeMoreLike: false,
-  removeMerch: false,
-  removeScroll: false,
-  hiddenNPVcredits: false,
-  darkness: false,
-  fontMain: true,
-  removeLikedCover: false,
-  hometopsel: false,
-  youwontlike: false,
+  addLyricsButton: true, righter: true, roundAlbumArt: true, rainbowControls: true,
+    hiddenPIcon: false, hiddenPAlbum: false, hiddenPDate: false, hiddenPDura: false,
+    hiddenPHeart: false, hiddenPInfo: false, hiddenSPL: false, hiddenSTime: false,
+    hiddenSInfo: false, hiddenSAlbum: false, hiddenSDate: false, hiddenSHeart: false,
+    hideSpotifyOffers: false, hiddenSDura: false, scrollNPB: false, removeprembutton: true,
+    removemusixmatch: true, spinAlbum: true, navToggle: true, footernomore: true,
+    byeappthing: true, fontLsize: true, hideCB: false, removeVolBar: false,
+    removeOnTour: false, removeFeatArtist: false, removeFansLiked: false,
+    removeAppearsOn: false, removeDiscovergraphy: false, removePodcasts: true, hiddenAbout: false,
+    hiddenArtistPick: false, removeNPB: false, thickerPB: true, hiddenNPVqueue: false,
+    removeNPV: false, hiddenNPVtour: true, hiddenNPVartist: false, featInDev: false,
+    featinDev: false, rainbowProgressbar: false, shadow: true, hiddenLyricsButton: false,
+    hiddenDevicePicker: false, removeAlbumArt: false, reducedTransparency: false,
+    lyricsColor: false, removeMerch: false, removeScroll: false, hiddenNPVcredits: false,
+    darkness: false, fontMain: true, removeLikedCover: false, hometopsel: false,
+    youwontlike: false, contextApp: false,
+  };
+
+const optionScripts = {
+  featInDev: "featInDev.js",
+  navToggle: "navToggle.js",
+  addLyricsButton: "addLyrics.js",
 };
 
 function handleOption(option, tabId, options) {
-  const optionScripts = {
-    featInDev: "featInDev.js",
-    logging: "logging.js",
-    navToggle: "navToggle.js",
-    addLyricsButton: "addLyrics.js",
-  };
+  if (!options[option]) return;
 
   const fileToInject = optionScripts[option] ? `./options/${optionScripts[option]}` : `./options/${option}.css`;
   const method = optionScripts[option] ? 'executeScript' : 'insertCSS';
 
-  if (options[option]) {
-    chrome.scripting[method]({
-      target: { tabId },
-      files: [fileToInject],
-    });
-  }
+  chrome.scripting[method]({
+    target: { tabId },
+    files: [fileToInject],
+  });
 }
 
 chrome.runtime.onInstalled.addListener(({ reason }) => {
@@ -263,7 +212,11 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
 chrome.tabs.onUpdated.addListener((tabId, { status }, tab) => {
   if (status === "complete" && tab.url.startsWith("https://open.spotify.com/")) {
     chrome.storage.sync.get(null, options => {
-      Object.keys(options).forEach(option => handleOption(option, tabId, options));
+      Object.keys(options).forEach(option => {
+        if (options[option]) {
+          handleOption(option, tabId, options);
+        }
+      });
     });
   }
 });

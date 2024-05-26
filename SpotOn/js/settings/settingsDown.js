@@ -1,32 +1,49 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const buttons = {
-    downloadAlbumArt: "getAlbumArtURL",
-    lockTheme: "lock",
-    unlockTheme: "unlock"
-  };
-
+  const toggleButton = document.getElementById("toggleThemeLock");
   const anchor = document.createElement("a");
   anchor.style.display = "none";
   document.body.appendChild(anchor);
 
-  Object.entries(buttons).forEach(([id, message]) => {
-    document.getElementById(id)?.addEventListener("click", () => sendMessage(message));
-  });
-
-  async function sendMessage(message) {
+  // Centralized function to query active tab and send message
+  async function queryTabAndSendMessage(message) {
     try {
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      const response = await chrome.tabs.sendMessage(tab.id, { txt: message });
-      if (message === "getAlbumArtURL") {
-        downloadAlbumArt(response.albumArtURL);
-      } else {
-        console.log(`Theme: ${response.themeState}, Extension: ${response.extensionEnabled}`);
-      }
+      if (!tab) throw new Error("No active tab found");
+      return await chrome.tabs.sendMessage(tab.id, { txt: message });
     } catch (error) {
-      console.error(`Error: '${message}':`, error);
+      console.error(`Error with tab operation '${message}':`, error);
+      throw error; // Rethrow to handle specific cases outside
     }
   }
 
+  // Update button based on theme lock status
+  function updateButton(locked) {
+    toggleButton.innerHTML = locked ? '<i class="fas fa-lock"></i> Unlock Theme' : '<i class="fas fa-lock-open"></i> Lock Theme';
+    toggleButton.classList.toggle('is-danger', locked);
+    toggleButton.classList.toggle('is-warning', !locked);
+  }
+
+  // Toggle theme lock and update button
+  async function toggleThemeLock() {
+    try {
+      const response = await queryTabAndSendMessage("toggleLock");
+      updateButton(response.themeLocked);
+    } catch (error) {
+      console.error("Error toggling theme lock:", error);
+    }
+  }
+
+  // Check initial theme lock status
+  async function checkInitialThemeLock() {
+    try {
+      const response = await queryTabAndSendMessage("checkLock");
+      updateButton(response.themeLocked);
+    } catch (error) {
+      console.error("Error checking initial theme lock:", error);
+    }
+  }
+
+  // Handle album art download
   async function downloadAlbumArt(url) {
     if (!url) return;
     try {
@@ -40,19 +57,32 @@ document.addEventListener("DOMContentLoaded", async () => {
         const canvas = document.createElement('canvas');
         canvas.width = img.width * scale;
         canvas.height = img.height * scale;
-        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         canvas.toBlob((blob) => {
           const newImgUrl = URL.createObjectURL(blob);
           anchor.href = newImgUrl;
-          anchor.download = "spotify_album_art.png";
+          anchor.download = "SpotOn_Album_Art.png";
           anchor.click();
           URL.revokeObjectURL(newImgUrl);
         }, 'image/png');
       };
+      img.onerror = () => console.error("Error loading image from blob.");
     } catch (error) {
       console.error("Error downloading album art:", error);
     }
   }
 
-  sendMessage("check");
+  // Event listeners
+  toggleButton.addEventListener("click", toggleThemeLock);
+  document.getElementById("downloadAlbumArt")?.addEventListener("click", async () => {
+    try {
+      const response = await queryTabAndSendMessage("getAlbumArtURL");
+      downloadAlbumArt(response.albumArtURL);
+    } catch (error) {
+      console.error("Error initiating album art download:", error);
+    }
+  });
+
+  checkInitialThemeLock();
 });

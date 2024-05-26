@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SpotOn",
-  "version": "3.0.5.6",
+  "version": "3.0.6.0",
   "description": "Upgrade your Spotify Web Player with SpotOn, and enjoy a completely customizable UX/UI redesign!",
   "author": "Kami",
   "homepage_url": "https://github.com/senpaihunters/spoton",
@@ -13,13 +13,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": [
-    "storage",
-    "scripting",
-    "tabs",
-    "contextMenus",
-    "activeTab"
-  ],
+  "permissions": ["storage", "scripting", "tabs", "contextMenus", "activeTab"],
   "host_permissions": ["https://open.spotify.com/*"],
   "action": {
     "default_popup": "settings.html"
@@ -27,16 +21,12 @@
   "commands": {
     "play-pause": {
       "description": "Play/Pause",
-      "suggested_key": {
-        "default": "MediaPlayPause"
-      },
+      "suggested_key": { "default": "MediaPlayPause" },
       "global": true
     },
     "previous": {
       "description": "Previous Track",
-      "suggested_key": {
-        "default": "MediaPrevTrack"
-      },
+      "suggested_key": { "default": "MediaPrevTrack" },
       "global": true
     },
     "next": {
@@ -51,7 +41,7 @@
     "open_spotify": { "description": "Open Spotify" },
     "shuffle": { "description": "Toggle Shuffle" },
     "repeat": { "description": "Toggle Repeat" },
-    "like": { "description": "Like/Dislike" },
+    "like": { "description": "Like Song" },
     "seek-forward": { "description": "Seek Forward" },
     "seek-backward": { "description": "Seek Backward" },
     "volume-up": { "description": "Volume Up" },

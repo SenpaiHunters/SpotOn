@@ -1,5 +1,5 @@
-@import "/css/colors.css";
-@import "/css/toggle.css";
+@import "colors.css";
+@import "toggle.css";
 
 @font-face {
   font-family: 'Open Runde';
@@ -78,6 +78,10 @@ span,
 div,
 text {
   color: var(--text);
+}
+
+a {
+  text-decoration: none;
 }
 
 input {

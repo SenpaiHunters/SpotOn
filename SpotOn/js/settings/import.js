@@ -7,7 +7,7 @@ function triggerDownload(jsonData, filename) {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  URL.revokeObjectURL(url); // Clean up the object URL
+  URL.revokeObjectURL(url);
 }
 
 async function exportOptions() {
@@ -18,9 +18,10 @@ async function exportOptions() {
     ]);
     const allOptions = { sync: syncOptions, local: localOptions };
     triggerDownload(JSON.stringify(allOptions), "SpotOn_Options.json");
+    alert("Exporting options...");
   } catch (error) {
-    console.error("Error during export:", error);
-    alert("Error exporting options.");
+    console.error("Export Error:", error);
+    alert("Failed to export options. See console for details.");
   }
 }
 
@@ -34,19 +35,24 @@ async function importOptions(event) {
   try {
     const text = await file.text();
     const importedOptions = JSON.parse(text);
-    const promises = [];
-    if (importedOptions.sync) {
-      promises.push(chrome.storage.sync.set(importedOptions.sync));
-    }
-    if (importedOptions.local) {
-      promises.push(chrome.storage.local.set(importedOptions.local));
-    }
-    await Promise.all(promises);
-    alert("All options imported successfully!");
-    window.location.reload();
+    await Promise.all([
+      importedOptions.sync && chrome.storage.sync.set(importedOptions.sync),
+      importedOptions.local && chrome.storage.local.set(importedOptions.local)
+    ]);
+    updateUI(importedOptions.sync); // Update UI with the new settings
+    window.saveOptions(); // Call saveOptions from settings.js
   } catch (error) {
-    console.error("Error during import:", error);
-    alert("Error importing options. Please check the console for more details.");
+    console.error("Import Error:", error);
+    alert("Failed to import options. Check console for details.");
+  }
+}
+
+function updateUI(settings) {
+  for (const key in settings) {
+    const element = document.getElementById(key);
+    if (element && element.type === 'checkbox') {
+      element.checked = settings[key];
+    }
   }
 }
 

@@ -45,13 +45,18 @@
             <span class="material-icons">arrow_back</span>
           </button>
 
-          <button class="ideas-bugs-button">
-            <span class="material-icons">lightbulb_outline</span> Ideas & Bugs
-          </button>
+          <a rel="noopener" href="https://github.com/SenpaiHunters/SpotOn/issues/new/choose" target="_blank">
+            <button class="ideas-bugs-button">
+              <span class="material-icons">lightbulb_outline</span> Ideas & Bugs
+            </button>
+          </a>
 
-          <button class="extra-button">
-            <span class="material-icons">more_vert</span> Extra
-          </button>
+          <a rel="noopener" href="https://chromewebstore.google.com/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff"
+            target="_blank">
+            <button class="extra-button">
+              <span class="material-icons">more_vert</span> Extra
+            </button>
+          </a>
 
         </div>
         <p class="text-content"><i class="fas fa-cogs"></i> Features</p>
@@ -93,8 +98,6 @@
                 <span class="material-icons">file_upload</span> Import Options
               </button>
               <input type="file" title="import" accept="JSON" id="importOptionsInput" hidden />
-              <p> If it doesn't automatically reload, then go out and back to the homepage and press "Save Options."
-                This will ensure that everything is then saved and loaded in!</p>
             </div>
           </div>
           <div class="mode-underline"></div>
@@ -130,7 +133,6 @@
         <option value="section6">Development</option>
       </optgroup>
     </select>
- 
 
     <button id="save" class="button is-success">Save options</button>
 
@@ -139,7 +141,7 @@
       <div class="row">
         <div id="top_content">
           <div id="image_wrapper">
-            <img title="Start Spotify to see Cover Art" id="cover_art" />
+            <img title="Start a song!" id="cover_art" />
           </div>
           <div id="title_artist_container">
             <div class="truncate" id="title"></div>
@@ -148,12 +150,8 @@
         </div>
       </div>
 
-      <button id="lockTheme" class="button is-danger is-fullwidth">
+      <button id="toggleThemeLock" class="button is-fullwidth">
         <i class="fas fa-lock"></i> Lock Theme
-      </button>
-
-      <button id="unlockTheme" class="button is-warning is-fullwidth">
-        <i class="fas fa-unlock"></i> Unlock Theme
       </button>
 
       <button id="copy_info" class="button">
@@ -310,7 +308,12 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="hideSpotifyOffers" />
-          <label for="hideSpotifyOffers"> Remove any Spotify offer</label>
+          <label for="hideSpotifyOffers"> Remove any Spotify offer(s)</label>
+        </div>
+
+        <div class="option checkbox">
+          <input type="checkbox" id="contextApp" />
+          <label for="contextApp"> Remove the "Open In App" button in the context menu</label>
         </div>
 
         <div class="option checkbox">
@@ -523,11 +526,6 @@
         <div class="section-content">
 
           <div class="option checkbox">
-            <input type="checkbox" id="enableLogging" />
-            <label for="enableLogging">Enable Logging</label>
-          </div>
-
-          <div class="option checkbox">
             <input type="checkbox" id="featInDev" />
             <label for="featInDev">Enable features in development</label>
           </div>
@@ -535,11 +533,6 @@
           <div class="option checkbox">
             <input type="checkbox" id="featinDev" />
             <label for="featinDev">Enable features in development (CSS)</label>
-          </div>
-
-          <div class="option checkbox">
-            <input type="checkbox" id="scrollbar" />
-            <label for="scrollbar">Scrollbar Customisation thing</label>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ const initializeTheme = () => {
 
 initializeTheme();
 
-modeSelect.addEventListener("change", () => applyAndSaveMode(modeSelect.value));
+modeSelect.onchange = () => applyAndSaveMode(modeSelect.value);
 
 systemThemeMediaQuery.addEventListener('change', () => {
   if (modeSelect.value === "automatic") {
@@ -35,7 +35,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  const getExtensionEnabled = () => chrome.storage.sync.get('extensionEnabled').then(({ extensionEnabled }) => extensionEnabled);
+  const getExtensionEnabled = async () => {
+    const { extensionEnabled } = await chrome.storage.sync.get('extensionEnabled');
+    return extensionEnabled;
+  };
 
   const updateUI = async () => {
     const isEnabled = await getExtensionEnabled();
@@ -56,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateUI();
   };
 
-  powerButton.addEventListener('click', toggleExtension);
+  powerButton.onclick = toggleExtension;
 
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.message === 'extension_state_changed') {

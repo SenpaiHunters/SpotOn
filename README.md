@@ -43,7 +43,7 @@ Now for some fun SpotOn stats!
 
 - Total options count: 61 toggles + additional custom settings.
 - SpotOn load times: 1 ms (lowest 0.5 ms/0.9 ms).
-- Totalized SpotOn extension size: 153 KB.
+- Totalized SpotOn extension size: 148 KB.
 - Totalized SpotOn repo size: refer to `CODE SIZE`.
 - First screenshot(s): October 2, 2022.
 - Original userscript size: 800 KB (single use).
@@ -63,6 +63,30 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 
 <details>
     <summary>Whats new!</summary>
+
+## Changelog - 26/5/2024
+
+### Version 3.0.6.0
+
+- Changed how SpotOn appends itself for faster and more reliable load times. Measured it down to `0.80ms`, which may only be a 10% decrease in its best cases, but it took a little to achieve!
+- Fixed some annoying CSS issues, such as:
+  - Premium button not removing itself
+  - App install button reappearing
+  - Various CSS issues inside SpotOn's main theming
+  - Removed additional elements in the podcasts section
+- Optimized the whole JS settings section once more, fixing:
+  - An issue where importing settings would not save the toggle state nor reload Spotify's page
+  - Minor adjustments in searching, should be a smidge faster now
+  - Refactored Settings defaults section
+  - Refactored and optimized `SettingsExtra`, `SettingsDown`
+    - In reference to `SettingsDown`, users will now have one button to lock/unlock SpotOn's theme, it will show its current state if it's locked, providing more feedback.
+  - and other minor refactors and optimizations in the rest of the JS files
+- Removed settings `scrollbar` and `logging` inside of `development`
+- Rigged up `Issues & Ideas` to GitHub and `Extra` to Chromium Web Store
+- Fixed an annoying issue with theming on settings, where if Auto was on, it would revert to Dark; that is now fixed.
+- Refactored `background.js` and optimized how SpotOn loads its options into the page
+- Added a new option `Remove the "Open In App" button in the context menu`
+- Fixed `css` path in `settings.css` as it was not pointed correctly, but still loaded? Strange
 
 ## Changelog - 30/4/2024
 

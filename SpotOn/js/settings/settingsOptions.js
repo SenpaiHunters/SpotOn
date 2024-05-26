@@ -2,48 +2,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const colorInput = document.getElementById("colorInput");
   const lyricsColorInput = document.getElementById("lyricsColorInput");
   const lyricsFontSizeInput = document.getElementById("lyricsFontSizeInput");
+  const colorPreview = document.getElementById('colorPreview') || createPreview('colorPreview');
+  const lyricsPreview = document.getElementById('lyricsPreview') || createPreview('lyricsPreview');
 
   chrome.storage.sync.get(["customColor", "customLyrics"], function (result) {
     const { customColor, customLyrics } = result;
     colorInput.value = customColor || '';
     lyricsColorInput.value = customLyrics?.color || '';
     lyricsFontSizeInput.value = customLyrics?.fontSize || '';
-    updatePreview('colorPreview', customColor, 'color');
-    updateLyricsPreview(customLyrics);
+    updatePreview(colorPreview, customColor, 'color');
+    updateLyricsPreview(lyricsPreview, customLyrics);
   });
 
-  colorInput.addEventListener("input", () => handleInput('customColor', colorInput.value));
-  lyricsColorInput.addEventListener("input", () => handleLyricsInput({ color: lyricsColorInput.value }));
-  lyricsFontSizeInput.addEventListener("input", () => handleLyricsInput({ fontSize: lyricsFontSizeInput.value }));
+  colorInput.addEventListener("input", () => handleInput('customColor', colorInput.value, colorPreview));
+  lyricsColorInput.addEventListener("input", () => handleLyricsInput({ color: lyricsColorInput.value }, lyricsPreview));
+  lyricsFontSizeInput.addEventListener("input", () => handleLyricsInput({ fontSize: lyricsFontSizeInput.value }, lyricsPreview));
 });
 
-function handleInput(key, value) {
-  updatePreview('colorPreview', value, 'color');
+function handleInput(key, value, preview) {
+  updatePreview(preview, value, 'color');
   saveToStorage(key, value);
 }
 
-function handleLyricsInput(options) {
-  updateLyricsPreview(options);
+function handleLyricsInput(options, preview) {
+  updateLyricsPreview(preview, options);
   saveToStorage('customLyrics', options, true);
 }
 
 function saveToStorage(key, value, merge = false) {
-  const setStorage = (newValue) => chrome.storage.sync.set({ [key]: newValue });
   if (merge) {
-    chrome.storage.sync.get({ [key]: {} }, (obj) => setStorage({ ...obj[key], ...value }));
+    chrome.storage.sync.get({ [key]: {} }, (obj) => {
+      chrome.storage.sync.set({ [key]: { ...obj[key], ...value } });
+    });
   } else {
-    setStorage(value);
+    chrome.storage.sync.set({ [key]: value });
   }
 }
 
-function updatePreview(id, value, type) {
-  let preview = document.getElementById(id) || createPreview(id);
+function updatePreview(preview, value, type) {
   resetStyles(preview);
   applyStyles(preview, value, type);
 }
 
-function updateLyricsPreview({ color, fontSize } = {}) {
-  const preview = document.getElementById('lyricsPreview') || createPreview('lyricsPreview');
+function updateLyricsPreview(preview, { color, fontSize } = {}) {
   resetStyles(preview);
   applyStyles(preview, color, 'color');
   preview.style.fontSize = fontSize || '';

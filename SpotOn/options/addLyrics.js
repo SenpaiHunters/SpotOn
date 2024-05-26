@@ -8,34 +8,42 @@ let startTime = performance.now();
 
 initSkin();
 
-chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
-    if (message.txt === "disable" && message.bool === "false" && !themeLock) {
-        removeSkin();
-        sendResponse({ status: "disabled" });
-        stat = STAT_DISABLED;
-    } else if (message.txt === "enable" && message.bool === "true" && !themeLock) {
-        initSkin(true);
-        sendResponse({ status: "enabled" });
-        stat = STAT_ENABLED;
-    } else if (message.txt === "check" || message.txt === "das") {
-        sendResponse({ status: stat });
-    } else if (message.txt === "lock") {
-        themeLock = true;
-        savedBackgroundImage = getAlbumArtBackground();
-        sendResponse({ status: "theme locked" });
-    } else if (message.txt === "unlock") {
-        themeLock = false;
-        restoreSavedBackground();
-        initSkin(true);
-        sendResponse({ status: "theme unlocked" });
-    } else if (message.txt === "getAlbumArtURL") {
-        const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
-        sendResponse({ albumArtURL: coverArtImage ? coverArtImage.src : null });
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    switch (message.txt) {
+        case "toggleLock":
+            themeLock = !themeLock;
+            savedBackgroundImage = themeLock ? getAlbumArtBackground() : savedBackgroundImage;
+            restoreSkinState();
+            sendResponse({ themeLocked: themeLock });
+            break;
+        case "checkLock":
+            sendResponse({ themeLocked: themeLock });
+            break;
+        case "disable":
+            if (message.bool === "false" && !themeLock) {
+                removeSkin();
+                stat = STAT_DISABLED;
+                sendResponse({ status: "disabled" });
+            }
+            break;
+        case "enable":
+            if (message.bool === "true" && !themeLock) {
+                initSkin(true);
+                stat = STAT_ENABLED;
+                sendResponse({ status: "enabled" });
+            }
+            break;
+        case "check":
+        case "das":
+            sendResponse({ status: stat });
+            break;
+        case "getAlbumArtURL":
+            sendResponse({ albumArtURL: getCoverArtURL() });
+            break;
     }
 });
 
-function initSkin(das) {
-    // console.log("CSS Functions Starting");
+function initSkin(das = false) {
     if (!themeLock || das) {
         addStyleToDocument(getCSS(das));
     }
@@ -43,21 +51,24 @@ function initSkin(das) {
 }
 
 function addStyleToDocument(css) {
-    const styleNode = document.getElementById("skin") || document.createElement("style");
+    let styleNode = document.getElementById("skin") || createStyleNode();
+    styleNode.textContent = css;
+}
+
+function createStyleNode() {
+    const styleNode = document.createElement("style");
     styleNode.id = "skin";
     styleNode.type = "text/css";
-    styleNode.textContent = css;
     document.head.appendChild(styleNode);
+    return styleNode;
 }
 
 function removeSkin() {
     if (!themeLock) {
         const styleNode = document.getElementById("skin");
-        if (styleNode) {
-            styleNode.remove();
-        }
+        styleNode?.remove();
+        localStorage.setItem("skin", "false");
     }
-    localStorage.setItem("skin", false);
 }
 
 function getCSS(das) {
@@ -107,10 +118,6 @@ function getCSS(das) {
       background: var(--hovercolor) !important;
       background-color: var(--hovercolor) !important;
       border-radius: 11px !important;
-  }
-
-  .fVB_YDdnaDlztX7CcWTA {
-      background: transparent !important;
   }
 
   span.Type__TypeElement-sc-goli3j-0.bGROfl.lgo_zhUnwxG2Qan4WLBY {
@@ -449,13 +456,16 @@ function getCSS(das) {
       #main>div.Root.encore-dark-theme>div,
       #context-menu>ul,
       #context-menu>div>ul,
+
       /* temp class fix */
+      
       #main > div > div.ZQftYELq0aOsg6tPbVbV {
         -webkit-backdrop-filter: blur(var(--bg-blur));
           backdrop-filter: blur(var(--bg-blur));
       }
 
-      .CoLO4pdSl8LGWyVZA00t {
+      .CoLO4pdSl8LGWyVZA00t,
+      div#ad-tracking-pixel {
         display: none !important;
     }
 
@@ -480,7 +490,11 @@ function getCSS(das) {
     .ffFwfKcPDbmAPLXzxzKq,
     .fNXmHtlrj4UVWmhQrJ_5,
     button.HD9s7U5E1RLSWKpXmrqx,
-    .fEvxx8vl3zTNWsuC8lpx {
+    .fEvxx8vl3zTNWsuC8lpx,
+    .fVB_YDdnaDlztX7CcWTA,
+    .AzO2ondhaHJntbGy_3_S,
+    .JUa6JJNj7R_Y3i4P8YUX,
+    #main > div > div.ZQftYELq0aOsg6tPbVbV > div.jEMA2gVoLgPQqAFrPhFw > div.main-view-container > div.main-view-container__scroll-node > div:nth-child(2) > div.main-view-container__scroll-node-child > main > div.GlueDropTarget > section > div.rezqw3Q4OEPB1m4rmwfw > div.CoLO4pdSl8LGWyVZA00t {
         background: transparent !important;
     }
 
@@ -500,11 +514,6 @@ function getCSS(das) {
 
     .NXiYChVp4Oydfxd7rT5r.XPjEhsPyuOvMZ9NsDrxT {
         height: 20vh !important;
-    }
-
-    .JUa6JJNj7R_Y3i4P8YUX,
-    #main > div > div.ZQftYELq0aOsg6tPbVbV > div.jEMA2gVoLgPQqAFrPhFw > div.main-view-container > div.main-view-container__scroll-node > div:nth-child(2) > div.main-view-container__scroll-node-child > main > div.GlueDropTarget > section > div.rezqw3Q4OEPB1m4rmwfw > div.CoLO4pdSl8LGWyVZA00t {
-        background: transparent !important;
     }
 
     div#Desktop_LeftSidebar_Id {
@@ -528,7 +537,10 @@ function getCSS(das) {
         top: 19px !important;
     }
 
-    .EvQHNTBhaU3rGCRRlAWj.QplCuuGSoV4updqTSLq9 {
+    .EvQHNTBhaU3rGCRRlAWj.QplCuuGSoV4updqTSLq9,
+    .zZMsUUWG29PYcwWPXhOV._kfmGT75UTPoF_D2afwa,
+    .NU8xwWC0RWBRh_PBJdJe,
+    .zZMsUUWG29PYcwWPXhOV {
         background: var(--hoverbackdark) !important;
     }
     
@@ -718,8 +730,7 @@ function getCSS(das) {
           background: var(--hovercolor) !important;
       }
 
-      div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>div>section>div:nth-child(2)>div
-      /* .nw6rbs8R08fpPn7RWW2w.EhKgYshvOwpSrTv399Mw */ {
+      div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>div>section>div:nth-child(2)>div {
           overflow: visible;
           background-color: transparent !important;
           background-image: none !important;
@@ -907,6 +918,10 @@ function getCSS(das) {
           box-shadow: none !important;
       }
 
+      .NXiYChVp4Oydfxd7rT5r.RMDSGDMFrx8eXHpFphqG {
+        height: 200px !important;
+      }
+
       .EGbXItTF_kUHbao1jeCp,
       .Hn_m1H5t0xMhZa46UHuC,
       .I1cppg1eJlgG6FCdhjO3,
@@ -970,10 +985,6 @@ function getCSS(das) {
       a:hover,
       a {
           transition-duration: 0.2s;
-      }
-
-      .AzO2ondhaHJntbGy_3_S {
-          background: transparent !important;
       }
 
       .nav-ylx .OCY4jHBlCVZEyGvtSv0J {
@@ -1159,47 +1170,72 @@ function getCSS(das) {
 
 function getCustomCSS() {
     return `.Root__nav-bar, .nav-alt .Root__main-view, .nav-alt .Root__nav-bar, .Root__fixed-top-bar { 
-    background: var(--overlay-heavy) !important; 
-  }`;
+        background: var(--overlay-heavy) !important; 
+    }`;
 }
 
-async function addObserverIfDesiredNodeAvailable() {
+function addObserverIfDesiredNodeAvailable() {
     const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
     if (!coverArtImage) {
-        setTimeout(addObserverIfDesiredNodeAvailable, 500);
+        requestAnimationFrame(addObserverIfDesiredNodeAvailable);
         return;
     }
 
-    const backgroundSheet = document.getElementById("background") || document.createElement("style");
-    backgroundSheet.id = "background";
-    document.body.appendChild(backgroundSheet);
-    backgroundSheet.textContent = `:root { --backimg: url(${getAlbumArtBackground()}); }`;
+    let backgroundSheet = document.getElementById("background") || createBackgroundSheet();
+    updateBackgroundImage(backgroundSheet, coverArtImage.src);
 
-    const observer = new MutationObserver((changes) => {
-        changes.forEach((change) => {
-            if (change.attributeName.includes("src") && !themeLock) {
-                backgroundSheet.textContent = `:root { --backimg: url(${getAlbumArtBackground()}); }`;
-            }
-        });
-    });
-
-    observer.observe(coverArtImage, { attributes: true });
+    manageObserver(coverArtImage, backgroundSheet);
 }
 
-function getAlbumArtBackground() {
-    const coverArtImage = document.querySelector("[data-testid=cover-art-image]");
-    return coverArtImage ? coverArtImage.src : "";
+function createBackgroundSheet() {
+    let backgroundSheet = document.getElementById("background");
+    if (!backgroundSheet) {
+        backgroundSheet = document.createElement("style");
+        backgroundSheet.id = "background";
+        document.head.appendChild(backgroundSheet);
+    }
+    return backgroundSheet;
+}
+
+function manageObserver(coverArtImage, backgroundSheet) {
+    if (!window.coverArtObserver) {
+        window.coverArtObserver = new MutationObserver(changes => {
+            for (const change of changes) {
+                if (change.attributeName === "src") {
+                    updateBackgroundImage(backgroundSheet, coverArtImage.src);
+                    break;
+                }
+            }
+        });
+    }
+
+    const shouldObserve = !themeLock && !window.coverArtObserverObserving;
+    const shouldDisconnect = themeLock && window.coverArtObserverObserving;
+
+    if (shouldObserve) {
+        window.coverArtObserver.observe(coverArtImage, { attributes: true, attributeFilter: ['src'] });
+        window.coverArtObserverObserving = true;
+    } else if (shouldDisconnect) {
+        window.coverArtObserver.disconnect();
+        window.coverArtObserverObserving = false;
+    }
+}
+
+function updateBackgroundImage(sheet, imageUrl) {
+    if (!themeLock) {
+        sheet.textContent = `:root { --backimg: url(${imageUrl}); }`;
+    }
 }
 
 function restoreSavedBackground() {
     const backgroundSheet = document.getElementById("background");
     if (backgroundSheet && savedBackgroundImage) {
-        backgroundSheet.textContent = `:root { --backimg: url(${savedBackgroundImage}); }`;
+        updateBackgroundImage(backgroundSheet, savedBackgroundImage);
     }
 }
 
-addObserverIfDesiredNodeAvailable();
+// Initialize the observer as soon as possible without waiting for the entire DOM to load
+document.addEventListener('DOMContentLoaded', addObserverIfDesiredNodeAvailable);
 
 let endTime = performance.now();
-let timeTaken = endTime - startTime;
-console.log(`SpotOn finished loading in ${timeTaken.toFixed(2)} ms.`);
+console.log(`SpotOn finished loading in ${(endTime - startTime).toFixed(2)} ms.`);
