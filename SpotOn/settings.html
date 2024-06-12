@@ -45,14 +45,14 @@
             <span class="material-icons">arrow_back</span>
           </button>
 
-          <a rel="noopener" href="https://github.com/SenpaiHunters/SpotOn/issues/new/choose" target="_blank">
+          <a rel="noopener noreferrer" href="https://github.com/SenpaiHunters/SpotOn/issues/new/choose" target="_blank">
             <button class="ideas-bugs-button">
               <span class="material-icons">lightbulb_outline</span> Ideas & Bugs
             </button>
           </a>
 
-          <a rel="noopener" href="https://chromewebstore.google.com/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff"
-            target="_blank">
+          <a rel="noopener noreferrer"
+            href="https://chromewebstore.google.com/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff" target="_blank">
             <button class="extra-button">
               <span class="material-icons">more_vert</span> Extra
             </button>
@@ -77,7 +77,7 @@
 
               <h2>Exporting Your Settings</h2>
               <ol>
-                <li>Click the "Export Options" button to generate a JSON file containing your current settings such as
+                <li>Click the "Export Options" button to generate a JSON file containing your current settings, such as
                   toggles and custom colors.</li>
                 <li>A file will be downloaded to your device. Keep this file safe as it contains your SpotOn settings.
                 </li>
@@ -97,18 +97,19 @@
               <button id="importOptionsButton" class="button">
                 <span class="material-icons">file_upload</span> Import Options
               </button>
-              <input type="file" title="import" accept="JSON" id="importOptionsInput" hidden />
+              <input type="file" title="import" accept=".json" id="importOptionsInput" hidden />
             </div>
           </div>
           <div class="mode-underline"></div>
           <div class="mode-dropdown">
             <i class="fas fa-palette theme-icon"></i>
             <p class="theme-text">Extension Theme</p>
-            <select title="theme-changer" name="theme=changer" id="mode-select">
+            <select title="theme-changer" name="theme-changer" id="mode-select">
               <option value="automatic" selected>Auto</option>
               <option value="dark">Dark</option>
               <option value="light">Light</option>
               <option value="grey">Grey</option>
+              <option value="freya">Freya</option>
             </select>
           </div>
         </div>
@@ -201,7 +202,7 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="fontLsize" />
-          <label for="fontLsize">Enable/disable capitalisation of first letter</label>
+          <label for="fontLsize">Enable/disable capitalization of the first letter</label>
         </div>
 
         <div class="option checkbox">
@@ -278,7 +279,7 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="removeLikedCover" />
-          <label for="removeLikedCover">Remove Liked Songs Covert Art</label>
+          <label for="removeLikedCover">Remove Liked Songs Cover Art</label>
         </div>
 
         <div class="option checkbox">
@@ -303,12 +304,12 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="removeprembutton" />
-          <label for="removeprembutton"> Remove premium button</label>
+          <label for="removeprembutton">Remove the Premium button</label>
         </div>
 
         <div class="option checkbox">
           <input type="checkbox" id="hideSpotifyOffers" />
-          <label for="hideSpotifyOffers"> Remove any Spotify offer(s)</label>
+          <label for="hideSpotifyOffers">Remove any Spotify offer(s)</label>
         </div>
 
         <div class="option checkbox">
@@ -418,7 +419,7 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="hiddenSPL" />
-          <label for="hiddenSPL">Hides songs album/playlist</label>
+          <label for="hiddenSPL">Hide Song's Album/Playlist</label>
         </div>
 
         <div class="option checkbox">
@@ -428,17 +429,17 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="hiddenSDate" />
-          <label for="hiddenSDate">Hides songs date</label>
+          <label for="hiddenSDate">Hides Song's Date</label>
         </div>
 
         <div class="option checkbox">
           <input type="checkbox" id="hiddenSDura" />
-          <label for="hiddenSDura">Hides songs duration</label>
+          <label for="hiddenSDura">Hide Song's Duration</label>
         </div>
 
         <div class="option checkbox">
           <input type="checkbox" id="hiddenSHeart" />
-          <label for="hiddenSHeart">Hides songs heart icon</label>
+          <label for="hiddenSHeart">Hide Song's Heart Icon</label>
         </div>
 
         <div class="option checkbox">
@@ -453,12 +454,12 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="byeappthing" />
-          <label for="byeappthing">Send the Install our app to another dimension</label>
+          <label for="byeappthing">Send the Install button to another dimension</label>
         </div>
 
         <div class="option checkbox">
           <input type="checkbox" id="hiddenSTime" />
-          <label for="hiddenSTime">Hides date added</label>
+          <label for="hiddenSTime">Hide Date Added</label>
         </div>
 
         <div class="option checkbox">
@@ -493,7 +494,7 @@
 
         <div class="option checkbox">
           <input type="checkbox" id="removeNewStuff" />
-          <label for="removeNewStuff">Remove the "Whats New" button next to the profile</label>
+          <label for="removeNewStuff">Remove the "What's New" button next to the profile</label>
         </div>
 
         <div class="option checkbox">
@@ -565,7 +566,7 @@
     <div id="custom-css" class="option-group">
       <h3>Theme Selection and Editing</h3>
       <div class="theme-selection">
-        <select id="themeSelector" title="themeselection" class="input-field"></select>
+        <select id="themeSelector" title="Theme selection" class="input-field"></select>
         <textarea id="cssEditor" title="editor" rows="20"></textarea>
         <button id="saveButton" class="button" data-action="saveTheme"> Save & Load Theme </button>
       </div>
@@ -573,30 +574,31 @@
       <h3>Theme Management</h3>
       <div class="input-container">
         <div class="theme-actions">
-          <input type="text" id="themeName" placeholder="Enter new theme name" class="input-field" />
+          <input type="text" id="themeName" placeholder="Enter a new theme name" class="input-field" />
           <button id="renameThemeButton" class="button" data-action="renameTheme"> Rename Theme </button>
           <button id="deleteThemeButton" class="button" data-action="deleteTheme"> Delete Theme </button>
         </div>
 
         <div class="css-import-export">
           <label for="fileInput" class="button file-input-label">Import local CSS File</label>
-          <input type="file" title="import" id="fileInput" accept=".css" class="file-input"
+          <input type="file" title="Import local CSS file" id="fileInput" accept=".css" class="file-input"
             data-action="importThemeFromFile" />
           <button id="exportThemeButton" class="button" data-action="exportTheme"> Export Theme </button>
         </div>
 
         <h3>Example CSS</h3>
         <div class="input-container">
-          <select id="cssExamplesDropdown" class="input-field" title="exampleCSSselection"></select>
-          <textarea id="generatedCSS" readonly rows="15" title="exampleCSS"></textarea>
+          <select id="cssExamplesDropdown" class="input-field" title="Example CSS selection"></select>
+          <textarea id="generatedCSS" readonly rows="15" title="Generated example CSS"></textarea>
           <button id="copyToClipboardButton" class="button" data-action="copyToClipboard"> Copy to Clipboard </button>
         </div>
 
         <h3>GitHub Integration</h3>
         <div class="github-integration">
-          <input type="text" id="githubLink" placeholder="Enter GitHub link" class="input-field" />
-          <button id="loadFromGithubButton" class="button" data-action="importThemeFromGithub"> Pull CSS file from
-            GitHub </button>
+          <input type="text" id="githubLink" placeholder="Enter GitHub link" title="GitHub link input"
+            class="input-field" />
+          <button id="loadFromGithubButton" class="button" data-action="importThemeFromGithub">Pull a CSS file from
+            GitHub</button>
           <button id="checkForNewThemesButton" class="button" data-action="importDefaultThemes"> Check for New Themes
           </button>
         </div>

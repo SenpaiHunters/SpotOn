@@ -255,6 +255,22 @@ function getCSS(das) {
       background-color: var(--hovercolor) !important;
   }
 
+  /* temp fix for rhm */
+  #tippy-24,
+  .GenericModal,
+  .i8EjndRQjYlli0aLGYEm {
+      background: var(--hovercolor) !important;
+      backdrop-filter: var(blur(--bg-blur)) !important;
+      border-radius: var(--main-border-radius) !important;
+  }
+
+  /* this is an spotify issue, this is just a temp fix ty spot */
+  .ffFwfKcPDbmAPLXzxzKq {
+    width: 100% !important;
+  }
+
+  /* Consider it an undocumented "feature". :joy: */
+
   ._p8ywioveAdTZ8yZmPfr,
   .kUkjSLUuPyag37OAbVPH.sKrYQkHlFOyAc0bM142q,
   .kUkjSLUuPyag37OAbVPH:hover,

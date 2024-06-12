@@ -3,8 +3,8 @@
 }
 
 @font-face {
-    font-family: 'OpenRunde';
-    src: url('https://github.com/lauridskern/open-runde/blob/main/src/web/OpenRunde-Regular.woff2') format('woff2');
+    font-family: 'Open Runde';
+    src: url('https://raw.githubusercontent.com/lauridskern/open-runde/main/src/web/OpenRunde-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }

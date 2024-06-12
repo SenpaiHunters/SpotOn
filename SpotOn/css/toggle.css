@@ -1,4 +1,4 @@
-@import "/css/colors.css";
+@import "colors.css";
 
 .option {
   position: relative;
@@ -8,7 +8,6 @@
   margin: 10px 0;
   padding: 5px;
 }
-
 
 .option:not(:last-child) {
   border-bottom: 1.5px solid #000;

@@ -168,22 +168,22 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 // Checkbox functions for the settings.html
 const defaultOptions = {
   addLyricsButton: true, righter: true, roundAlbumArt: true, rainbowControls: true,
-    hiddenPIcon: false, hiddenPAlbum: false, hiddenPDate: false, hiddenPDura: false,
-    hiddenPHeart: false, hiddenPInfo: false, hiddenSPL: false, hiddenSTime: false,
-    hiddenSInfo: false, hiddenSAlbum: false, hiddenSDate: false, hiddenSHeart: false,
-    hideSpotifyOffers: false, hiddenSDura: false, scrollNPB: false, removeprembutton: true,
-    removemusixmatch: true, spinAlbum: true, navToggle: true, footernomore: true,
-    byeappthing: true, fontLsize: true, hideCB: false, removeVolBar: false,
-    removeOnTour: false, removeFeatArtist: false, removeFansLiked: false,
-    removeAppearsOn: false, removeDiscovergraphy: false, removePodcasts: true, hiddenAbout: false,
-    hiddenArtistPick: false, removeNPB: false, thickerPB: true, hiddenNPVqueue: false,
-    removeNPV: false, hiddenNPVtour: true, hiddenNPVartist: false, featInDev: false,
-    featinDev: false, rainbowProgressbar: false, shadow: true, hiddenLyricsButton: false,
-    hiddenDevicePicker: false, removeAlbumArt: false, reducedTransparency: false,
-    lyricsColor: false, removeMerch: false, removeScroll: false, hiddenNPVcredits: false,
-    darkness: false, fontMain: true, removeLikedCover: false, hometopsel: false,
-    youwontlike: false, contextApp: false,
-  };
+  hiddenPIcon: false, hiddenPAlbum: false, hiddenPDate: false, hiddenPDura: false,
+  hiddenPHeart: false, hiddenPInfo: false, hiddenSPL: false, hiddenSTime: false,
+  hiddenSInfo: false, hiddenSAlbum: false, hiddenSDate: false, hiddenSHeart: false,
+  hideSpotifyOffers: false, hiddenSDura: false, scrollNPB: false, removeprembutton: true,
+  removemusixmatch: true, spinAlbum: true, navToggle: true, footernomore: true,
+  byeappthing: true, fontLsize: true, hideCB: false, removeVolBar: false,
+  removeOnTour: false, removeFeatArtist: false, removeFansLiked: false,
+  removeAppearsOn: false, removeDiscovergraphy: false, removePodcasts: true, hiddenAbout: false,
+  hiddenArtistPick: false, removeNPB: false, thickerPB: true, hiddenNPVqueue: false,
+  removeNPV: false, hiddenNPVtour: true, hiddenNPVartist: false, featInDev: false,
+  featinDev: false, rainbowProgressbar: false, shadow: true, hiddenLyricsButton: false,
+  hiddenDevicePicker: false, removeAlbumArt: false, reducedTransparency: false,
+  lyricsColor: false, removeMerch: false, removeScroll: false, hiddenNPVcredits: false,
+  darkness: false, fontMain: true, removeLikedCover: false, hometopsel: false,
+  youwontlike: false, contextApp: false,
+};
 
 const optionScripts = {
   featInDev: "featInDev.js",

@@ -64,6 +64,19 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 <details>
     <summary>Whats new!</summary>
 
+## Changelog - 13/6/2024
+
+### Version 3.0.6.1
+
+- Fixed some spelling and grammatical mistakes in the popup
+- Resolved minor CSS issues
+- Corrected an issue where the download button would reappear; this has been permanently fixed
+- Added a new extension theme
+- Addressed pathing issues with the `font-face` directive
+- Implemented various miscellaneous fixes
+
+---
+
 ## Changelog - 26/5/2024
 
 ### Version 3.0.6.0

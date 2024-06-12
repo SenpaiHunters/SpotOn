@@ -1,0 +1,65 @@
+/*
+* This is more of a sorta interesting UI refresh inspo from 
+* https://www.youtube.com/watch?v=suhEIUapSJQ
+*/
+
+.player-controls {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%; 
+}
+
+.player-controls__buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0;
+    flex-flow: row nowrap;
+}
+
+.playback-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--playback-bar-grid-gap);
+    width: 100%;
+}
+
+.JG5J9NWJkaUO9fiKECMA {
+    border-radius: 20px !important;
+}
+
+.player-controls__left {
+    display: flex !important;
+    gap: 8px !important;
+}
+
+/* I don't think the order does anything... */
+/* It does, but not fully, tldr find a better method */
+
+/* Play button */
+.vnCew8qzJq3cVGlYFXRI {
+    order: 1 !important;
+}
+
+/* Skip button */
+.mnipjT4SLDMgwiDCEnRC {
+    order: 3 !important;
+}
+
+/* Previous button */
+.fn72ari9aEmKo4JcwteT {
+    order: 2 !important;
+}
+
+/* Shuffle button */
+.KVKoQ3u4JpKTvSSFtd6J {
+    order: 4 !important;
+}
+
+/* Repeat button */
+.Vz6yjzttS0YlLcwrkoUR {
+    order: 5 !important;
+}
