@@ -42,22 +42,22 @@
   --shadow: #d1d1d6;
 }
 
-[data-theme="freya"] {
-  --background: #2b2b2b;
-  --second-background: #414449;
-  --text: #d6e3f0;
-  --icons: #cc7832;
-  --text-color: #5e768f;
-  --highlight: #6897bb;
-  --border-color: #515658;
-  --shadow: #383b3d;
-  --feat-text: #6a8759;
-  --box-text: #dedede;
+[data-theme="vesper"] {
+  --background: #5D5D5D;
+  --second-background: #474747;
+  --text: #E0E0E2;
+  --icons: #B1B1B3;
+  --text-color: #FFFFFF;
+  --highlight: #8A2BE2;
+  --border-color: #666666;
+  --shadow: #3C3C3C;
+  --feat-text: #9e9ea4;
+  --box-text: #d1d1d6;
 }
 
 [data-theme="dark"],
 [data-theme="grey"],
-[data-theme="freya"],
+[data-theme="vesper"],
 [data-theme="light"] {
   --feat-text: #9e9ea4;
   --box-text: #d1d1d6;

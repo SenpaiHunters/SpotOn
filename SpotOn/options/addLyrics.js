@@ -240,7 +240,8 @@ function getCSS(das) {
   div.contentSpacing,
   div.os-padding>div>div>div.main-view-container__scroll-node-child>div>div,
   div.os-padding>div>div>div.main-view-container__scroll-node-child>main>div>nav,
-  div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>div>div:nth-child(3)>section:nth-child(2)>div:nth-child(2)>div {
+  div.os-padding>div>div>div.main-view-container__scroll-node-child>main>section>div>div>div:nth-child(3)>section:nth-child(2)>div:nth-child(2)>div,
+  .Xf30G8NSPQ3pex0iD4zB {
       background: 0 0 !important;
   }
 

@@ -1,22 +1,6 @@
 @import "colors.css";
 @import "toggle.css";
 
-/* @font-face {
-  font-family: 'Open Runde';
-  src: url('https://raw.githubusercontent.com/lauridskern/open-runde/main/src/web/OpenRunde-Regular.woff') format('woff'),
-    url('https://raw.githubusercontent.com/lauridskern/open-runde/main/src/web/OpenRunde-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-* {
-  font-family: 'Open Runde', sans-serif;
-  outline: none;
-} */
-
-/* Font face for now will be commented out until i find a nicer one :smile: */
-
 body {
   min-width: 372px;
   min-height: 600px;
@@ -77,6 +61,7 @@ h1,
 .truncate,
 span,
 div,
+a,
 text {
   color: var(--text);
 }

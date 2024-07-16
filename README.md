@@ -64,6 +64,21 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 <details>
     <summary>Whats new!</summary>
 
+## Changelog - 16/7/2024
+
+### Version 3.0.6.2
+
+This update is pretty small, so no massive version jump.
+
+- Added a donation button
+- Changed theme `Freya` to `Vesper`
+- Added a function to remove open in app popup (in dev)
+- Some minor CSS fixes
+
+I've noticed that in Spotify, the `Seek Forwards` & `Seek Backwards` commands are broken. This is actually an issue with Spotify, and I cannot fix it. So, until Spotify releases a fix, it will sadly remain broken.
+
+---
+
 ## Changelog - 13/6/2024
 
 ### Version 3.0.6.1
@@ -74,8 +89,6 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 - Added a new extension theme
 - Addressed pathing issues with the `font-face` directive
 - Implemented various miscellaneous fixes
-
----
 
 ## Changelog - 26/5/2024
 
