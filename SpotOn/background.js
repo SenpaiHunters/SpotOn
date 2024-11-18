@@ -1,3 +1,12 @@
+// Utility functions
+const openTab = (url, isActive = true) => chrome.tabs.create({ url, active: isActive });
+const closeCurrentTab = () => chrome.tabs.query({ active: true, currentWindow: true }, tabs => chrome.tabs.remove(tabs[0].id));
+const openSpotifyTab = () => {
+  chrome.tabs.query({ url: "https://open.spotify.com/*" }, tabs => {
+    tabs.length ? chrome.tabs.update(tabs[0].id, { active: true }) : openTab("https://open.spotify.com/");
+  });
+};
+
 // Hotkeys
 const sendCommandToTab = async (command, tabId) => {
   const findAndClick = (command) => {
@@ -58,27 +67,25 @@ const sendCommandToTab = async (command, tabId) => {
       args: [command],
     });
   } catch (error) {
-    console.error(`[SpotOn Hotkeys] Error executing '${command}': ${error}`);
+    console.error(`[SpotOn Hotkeys] Error executing '${command}':`, error);
   }
 };
 
+// Event Listeners
 chrome.commands.onCommand.addListener(async (command) => {
   try {
     const tabs = await chrome.tabs.query({ url: "https://open.spotify.com/*" });
     await Promise.all(tabs.map(tab => sendCommandToTab(command, tab.id)));
   } catch (error) {
-    console.error(`[SpotOn Hotkeys] Error sending command '${command}': ${error}`);
+    console.error(`[SpotOn Hotkeys] Error sending command '${command}':`, error);
   }
 });
-//
 
-// On and off button initialization.
 chrome.commands.onCommand.addListener((command) => {
   if (command === "toggle_extension") {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      if (tabs.length === 0) return; // No active tab found
-      const currentTabId = tabs[0].id;
-      chrome.tabs.sendMessage(currentTabId, { action: "toggleExtension" });
+      if (tabs.length === 0) return;
+      chrome.tabs.sendMessage(tabs[0].id, { action: "toggleExtension" });
     });
   } else {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -106,7 +113,7 @@ const contextMenus = [
     id: Command.OpenSpotify,
     title: "🎧 Open Spotify In Tab",
     contexts: ["page"],
-    handler: () => openSpotifyTab(),
+    handler: openSpotifyTab,
   },
   {
     id: Command.CreatePlaylist,
@@ -118,29 +125,13 @@ const contextMenus = [
     id: Command.CloseTab,
     title: "❌ Close Current Tab",
     contexts: ["page"],
-    handler: () => closeCurrentTab(),
+    handler: closeCurrentTab,
   },
 ];
 
-function openTab(url, isActive = true) {
-  chrome.tabs.create({ url, active: isActive });
-}
-
-function openSpotifyTab() {
-  chrome.tabs.query({ url: "https://open.spotify.com/*" }, tabs => {
-    tabs.length ? chrome.tabs.update(tabs[0].id, { active: true }) : openTab("https://open.spotify.com/");
-  });
-}
-
-function closeCurrentTab() {
-  chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-    chrome.tabs.remove(tabs[0].id);
-  });
-}
-
-function initializeContextMenus() {
+const initializeContextMenus = () => {
   chrome.runtime.onInstalled.addListener(() => {
-    contextMenus.forEach(({ id, title, contexts, handler }) => {
+    contextMenus.forEach(({ id, title, contexts }) => {
       chrome.contextMenus.create({ id, title, contexts }, () => {
         if (chrome.runtime.lastError) console.error("Error creating context menu:", chrome.runtime.lastError);
       });
@@ -151,7 +142,7 @@ function initializeContextMenus() {
     const action = contextMenus.find(a => a.id === info.menuItemId);
     if (action) action.handler(info);
   });
-}
+};
 
 initializeContextMenus();
 
@@ -165,7 +156,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-// Checkbox functions for the settings.html
+// Default options and option handling
 const defaultOptions = {
   addLyricsButton: true, righter: true, roundAlbumArt: true, rainbowControls: true,
   hiddenPIcon: false, hiddenPAlbum: false, hiddenPDate: false, hiddenPDura: false,
@@ -182,7 +173,7 @@ const defaultOptions = {
   hiddenDevicePicker: false, removeAlbumArt: false, reducedTransparency: false,
   lyricsColor: false, removeMerch: false, removeScroll: false, hiddenNPVcredits: false,
   darkness: false, fontMain: true, removeLikedCover: false, hometopsel: false,
-  youwontlike: false, contextApp: false,
+  youwontlike: false, contextApp: false, removeMusicVids: false,
 };
 
 const optionScripts = {
@@ -191,7 +182,7 @@ const optionScripts = {
   addLyricsButton: "addLyrics.js",
 };
 
-function handleOption(option, tabId, options) {
+const handleOption = (option, tabId, options) => {
   if (!options[option]) return;
 
   const fileToInject = optionScripts[option] ? `./options/${optionScripts[option]}` : `./options/${option}.css`;
@@ -201,7 +192,7 @@ function handleOption(option, tabId, options) {
     target: { tabId },
     files: [fileToInject],
   });
-}
+};
 
 chrome.runtime.onInstalled.addListener(({ reason }) => {
   if (reason === "install") {
@@ -221,14 +212,52 @@ chrome.tabs.onUpdated.addListener((tabId, { status }, tab) => {
   }
 });
 
-// Custom options -- main popup
-chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
-  if (changeInfo.status === "complete") {
-    applyCustomizations(tabId);
+// Custom options and CSS management
+const generateLyricsCSS = (customLyrics) => `
+  .nw6rbs8R08fpPn7RWW2w.aeO5D7ulxy19q4qNBrkk {
+    color: ${customLyrics.color} !important;
+    font-size: ${customLyrics.fontSize}px !important;
   }
-});
+`;
 
-async function applyCustomizations(tabId) {
+const generateColorCSS = (customColor) => `
+  .sqKERfoKl4KwrtHqcKOd,
+  .JG5J9NWJkaUO9fiKECMA,
+  .OTfMDdomT5S7B5dbYTT8,
+  .EhyK_jJzB2PcWXd5lg24,
+  #context-menu[aria-labelledby="device-picker-icon-button"]:has(#device-picker-header [data-testid="animated-now-playing"]),
+  .aCtCKL9BxAoHeVZS0uRs.bk509U3ZhZc9YBJAmoPB,
+  .uV8q95GGAb2VDtL3gpYa,
+  .lYpiKR_qEjl1jGGyEvsA,
+  div#Desktop_LeftSidebar_Id,
+  .AzO2ondhaHJntbGy_3_S,
+  div#Desktop_LeftSidebar_Id,
+  .Nw1INlIyra3LT1JjvoqH,
+  #main > div.Root.encore-dark-theme > div.ZQftYELq0aOsg6tPbVbV > div.JG5J9NWJkaUO9fiKECMA,
+  .pGU_qEtNT1qWKjrRbvan,
+  .EZFyDnuQnx5hw78phLqP {
+    background-color: ${customColor} !important;
+    background: ${customColor} !important;
+    background: var(${customColor}) !important;
+    background-image: url('${customColor}') !important;
+    background-image: var(${customColor}) !important;
+    background-image: ${customColor} !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-blend-mode: soft-light !important;
+    overflow-x: none !important;
+  }
+`;
+
+const insertCSS = (tabId, css) => {
+  chrome.scripting.insertCSS({
+    target: { tabId },
+    css,
+  });
+};
+
+const applyCustomizations = async (tabId) => {
   try {
     const { customColor, customLyrics } = await chrome.storage.sync.get(["customColor", "customLyrics"]);
     if (customColor) insertCSS(tabId, generateColorCSS(customColor));
@@ -236,87 +265,15 @@ async function applyCustomizations(tabId) {
   } catch (error) {
     console.error("Error retrieving options:", error);
   }
-}
-
-function generateLyricsCSS(customLyrics) {
-  return `
-  .nw6rbs8R08fpPn7RWW2w.aeO5D7ulxy19q4qNBrkk {
-      color: ${customLyrics.color} !important;
-      font-size: ${customLyrics.fontSize}px !important;
-    }
-  `;
-}
-
-function generateColorCSS(customColor) {
-  return `
-    .sqKERfoKl4KwrtHqcKOd,
-    .JG5J9NWJkaUO9fiKECMA,
-    .OTfMDdomT5S7B5dbYTT8,
-    .EhyK_jJzB2PcWXd5lg24,
-    #context-menu[aria-labelledby="device-picker-icon-button"]:has(#device-picker-header [data-testid="animated-now-playing"]),
-    .aCtCKL9BxAoHeVZS0uRs.bk509U3ZhZc9YBJAmoPB,
-    .uV8q95GGAb2VDtL3gpYa,
-    .lYpiKR_qEjl1jGGyEvsA,
-    div#Desktop_LeftSidebar_Id,
-    .AzO2ondhaHJntbGy_3_S,
-    div#Desktop_LeftSidebar_Id,
-    .Nw1INlIyra3LT1JjvoqH,
-    #main > div.Root.encore-dark-theme > div.ZQftYELq0aOsg6tPbVbV > div.JG5J9NWJkaUO9fiKECMA,
-    .pGU_qEtNT1qWKjrRbvan,
-    .EZFyDnuQnx5hw78phLqP {
-      background-color: ${customColor} !important;
-      background: ${customColor} !important;
-      background: var(${customColor}) !important;
-      background-image: url('${customColor}') !important;
-      background-image: var(${customColor}) !important;
-      background-image: ${customColor} !important;
-      background-size: cover !important;
-      background-attachment: fixed !important;
-      background-repeat: no-repeat !important;
-      background-blend-mode: soft-light !important;
-      overflow-x: none !important;
-    }
-  `;
-}
-
-function insertCSS(tabId, css) {
-  chrome.scripting.insertCSS({
-    target: { tabId: tabId },
-    css: css,
-  });
-}
-
-// Translator
-const Actions = {
-  TranslateSonglyrics: "translate-song-lyrics",
 };
 
-chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
-  const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-  const tabId = tabs[0].id;
-
-  const executeScript = async (functionToExecute, args = []) => {
-    chrome.scripting.executeScript(
-      {
-        target: { tabId: tabId },
-        function: functionToExecute,
-        args: args,
-      },
-      () => {
-        sendResponse();
-      }
-    );
-  };
-
-  if (request.action === Actions.TranslateSonglyrics) {
-    executeScript(
-      async (targetLanguage) => await translateSongLyrics(targetLanguage),
-      [request.targetLanguage]
-    );
+chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
+  if (changeInfo.status === "complete") {
+    applyCustomizations(tabId);
   }
 });
 
-// Custom CSS
+// Custom CSS Manager
 class CustomCSSManager {
   constructor() {
     this.css = '';
@@ -362,9 +319,25 @@ class CustomCSSManager {
 
     chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       if (changeInfo.status === "complete" && tab.url.startsWith("https://open.spotify.com/")) {
-        this.applyToTab(tabId);
+        this.injectContentScript(tabId);
       }
     });
+  }
+
+  async injectContentScript(tabId) {
+    try {
+      const response = await chrome.tabs.sendMessage(tabId, { action: "checkInit" });
+      if (!response || !response.initialized) {
+        await chrome.scripting.executeScript({
+          target: { tabId },
+          files: ["options/addLyrics.js"]
+        });
+        console.log("Content script injected successfully");
+      }
+      chrome.tabs.sendMessage(tabId, { action: "init" });
+    } catch (error) {
+      console.error("Error injecting content script:", error);
+    }
   }
 }
 

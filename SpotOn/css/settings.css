@@ -4,7 +4,8 @@
 body {
   min-width: 372px;
   min-height: 600px;
-  background-color: var(--background);
+  background: var(--background);
+  font-family: 'Open Runde', sans-serif;
   padding: 10px;
   margin: 0;
 }
@@ -29,7 +30,6 @@ body {
 }
 
 .button,
-#translateButton,
 #button_group button {
   background: var(--bg-2);
   color: var(--text-color);
@@ -48,7 +48,6 @@ body {
 }
 
 .button:hover,
-#translateButton:hover,
 #button_group button:hover {
   background: var(--bg-1);
   transform: translateY(-2px);

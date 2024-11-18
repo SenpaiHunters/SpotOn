@@ -5,19 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpotOn Settings</title>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <!-- CSS Themes -->
     <link href="css/settings.css" rel="stylesheet" />
-    <!-- Icons -->
     <link rel="icon" href="icons/icon128.png" type="image/png" />
-    <!-- Load Font -->
-    <link rel="preconnect" href="https://github.com" crossorigin />
-    <link rel="dns-prefetch" href="https://github.com" />
-    <link rel="preload" href="https://github.com/lauridskern/open-runde/blob/main/src/web/OpenRunde-Regular.woff2"
-      as="font" type="font/woff2" crossorigin />
   </head>
 
   <body>
@@ -119,7 +110,7 @@
           <div class="mode-underline"></div>
 
           <div class="mode-dropdown">
-            <i class="fas fa-coffee theme-icon"></i> <!-- Changed icon to coffee -->
+            <i class="fas fa-coffee theme-icon"></i>
             <p class="theme-text"><a href="https://www.buymeacoffee.com/kami.dev" target="_blank"
                 rel="noopener noreferrer">Donate</a></p>
           </div>
@@ -139,7 +130,6 @@
         <option value="section1">Main Options</option>
         <option value="section2">Interface</option>
         <option value="section4">Removal</option>
-        <option value="translate">Translator</option>
       </optgroup>
 
       <optgroup label="Development">
@@ -225,6 +215,11 @@
         <div class="option checkbox">
           <input type="checkbox" id="removeNPB" />
           <label for="removeNPB">Remove the Now Playing bar entirely</label>
+        </div>
+
+        <div class="option checkbox">
+          <input type="checkbox" id="removeMusicVids" />
+          <label for="removeMusicVids">Remove the Music Videos items</label>
         </div>
 
         <div class="option checkbox">
@@ -562,19 +557,6 @@
       </div>
     </div>
 
-    <div id="translate" class="option-group">
-      <select id="languageSelect" title="Language Selection"></select>
-      <button id="translateButton">Manual Translation</button>
-      <div class="option">
-        <label for="lyricsColorPicker">Lyrics Color:</label>
-        <input type="color" id="lyricsColorPicker" />
-      </div>
-      <div class="option checkbox">
-        <input type="checkbox" id="autoTranslateCheckbox" />
-        <label for="autoTranslateCheckbox">Auto Translate</label>
-      </div>
-    </div>
-
     <div id="custom-css" class="option-group">
       <h3>Theme Selection and Editing</h3>
       <div class="theme-selection">
@@ -628,9 +610,6 @@
     <script src="js/player/miniPlayer.js"></script>
 
     <script src="js/css/css_editor.js"></script>
-
-    <script src="js/translater/locals.js"></script>
-    <script src="js/translater/translater.js"></script>
   </body>
 
 </html>

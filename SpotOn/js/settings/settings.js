@@ -27,7 +27,7 @@
     hiddenDevicePicker: false, removeAlbumArt: false, reducedTransparency: false,
     lyricsColor: false, removeMerch: false, removeScroll: false, hiddenNPVcredits: false,
     darkness: false, fontMain: true, removeLikedCover: false, hometopsel: false,
-    youwontlike: false, contextApp: false,
+    youwontlike: false, contextApp: false, removeMusicVids: false,
   };
 
   const defaultOptionsKeys = Object.keys(defaultOptions);

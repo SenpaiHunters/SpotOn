@@ -1,35 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const colorInput = document.getElementById("colorInput");
-  const lyricsColorInput = document.getElementById("lyricsColorInput");
-  const lyricsFontSizeInput = document.getElementById("lyricsFontSizeInput");
-  const colorPreview = document.getElementById('colorPreview') || createPreview('colorPreview');
-  const lyricsPreview = document.getElementById('lyricsPreview') || createPreview('lyricsPreview');
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = {
+    colorInput: document.getElementById("colorInput"),
+    lyricsColorInput: document.getElementById("lyricsColorInput"),
+    lyricsFontSizeInput: document.getElementById("lyricsFontSizeInput"),
+    colorPreview: document.getElementById('colorPreview') || createPreview('colorPreview'),
+    lyricsPreview: document.getElementById('lyricsPreview') || createPreview('lyricsPreview')
+  };
 
-  chrome.storage.sync.get(["customColor", "customLyrics"], function (result) {
-    const { customColor, customLyrics } = result;
-    colorInput.value = customColor || '';
-    lyricsColorInput.value = customLyrics?.color || '';
-    lyricsFontSizeInput.value = customLyrics?.fontSize || '';
-    updatePreview(colorPreview, customColor, 'color');
-    updateLyricsPreview(lyricsPreview, customLyrics);
-  });
+  loadSettings(elements);
 
-  colorInput.addEventListener("input", () => handleInput('customColor', colorInput.value, colorPreview));
-  lyricsColorInput.addEventListener("input", () => handleLyricsInput({ color: lyricsColorInput.value }, lyricsPreview));
-  lyricsFontSizeInput.addEventListener("input", () => handleLyricsInput({ fontSize: lyricsFontSizeInput.value }, lyricsPreview));
+  elements.colorInput.addEventListener("input", () => handleInput('customColor', elements.colorInput.value, elements.colorPreview));
+  elements.lyricsColorInput.addEventListener("input", () => handleLyricsInput({ color: elements.lyricsColorInput.value }, elements.lyricsPreview));
+  elements.lyricsFontSizeInput.addEventListener("input", () => handleLyricsInput({ fontSize: elements.lyricsFontSizeInput.value }, elements.lyricsPreview));
 });
 
-function handleInput(key, value, preview) {
+const loadSettings = (elements) => {
+  chrome.storage.sync.get(["customColor", "customLyrics"], ({ customColor, customLyrics = {} }) => {
+    elements.colorInput.value = customColor || '';
+    elements.lyricsColorInput.value = customLyrics.color || '';
+    elements.lyricsFontSizeInput.value = customLyrics.fontSize || '';
+    updatePreview(elements.colorPreview, customColor, 'color');
+    updateLyricsPreview(elements.lyricsPreview, customLyrics);
+  });
+};
+
+const handleInput = (key, value, preview) => {
   updatePreview(preview, value, 'color');
   saveToStorage(key, value);
-}
+};
 
-function handleLyricsInput(options, preview) {
+const handleLyricsInput = (options, preview) => {
   updateLyricsPreview(preview, options);
   saveToStorage('customLyrics', options, true);
-}
+};
 
-function saveToStorage(key, value, merge = false) {
+const saveToStorage = (key, value, merge = false) => {
   if (merge) {
     chrome.storage.sync.get({ [key]: {} }, (obj) => {
       chrome.storage.sync.set({ [key]: { ...obj[key], ...value } });
@@ -37,43 +42,38 @@ function saveToStorage(key, value, merge = false) {
   } else {
     chrome.storage.sync.set({ [key]: value });
   }
-}
+};
 
-function updatePreview(preview, value, type) {
+const updatePreview = (preview, value, type) => {
   resetStyles(preview);
   applyStyles(preview, value, type);
-}
+};
 
-function updateLyricsPreview(preview, { color, fontSize } = {}) {
+const updateLyricsPreview = (preview, { color, fontSize } = {}) => {
   resetStyles(preview);
   applyStyles(preview, color, 'color');
   preview.style.fontSize = fontSize || '';
-}
+};
 
-function createPreview(id) {
+const createPreview = (id) => {
   const preview = document.createElement('div');
   preview.id = id;
   document.body.appendChild(preview);
   return preview;
-}
+};
 
-function resetStyles(element) {
+const resetStyles = (element) => {
   element.style = '';
   element.style.cssText = "width: calc(30vw); height: calc(30vh); margin-top: 10px; border: 1px solid #000; padding: 5px;";
-}
+};
 
-function applyStyles(element, value, type) {
+const applyStyles = (element, value, type) => {
   if (type === 'color') {
     element.style.background = isGradient(value) || isImageUrl(value) ? value : '';
     element.style.backgroundColor = !element.style.background ? value : '';
     element.style.cssText += "width: 100px; height: 100px; margin-left: 40px;";
   }
-}
+};
 
-function isGradient(value) {
-  return value.includes("gradient");
-}
-
-function isImageUrl(value) {
-  return /\.(jpeg|jpg|png|gif)$/i.test(value);
-}
+const isGradient = (value) => value.includes("gradient");
+const isImageUrl = (value) => /\.(jpeg|jpg|png|gif)$/i.test(value);

@@ -36,10 +36,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Check initial theme lock status
   async function checkInitialThemeLock() {
     try {
-      const response = await queryTabAndSendMessage("checkLock");
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      if (!tab) throw new Error("No active tab found");
+      if (!tab.url.startsWith("https://open.spotify.com/")) {
+        console.log("Not on Spotify tab, skipping theme lock check");
+        return;
+      }
+      const response = await chrome.tabs.sendMessage(tab.id, { txt: "checkLock" });
+      if (chrome.runtime.lastError) {
+        console.log("Content script not ready, retrying in 1 second");
+        setTimeout(checkInitialThemeLock, 1000);
+        return;
+      }
       updateButton(response.themeLocked);
     } catch (error) {
       console.error("Error checking initial theme lock:", error);
+      updateButton(false);
     }
   }
 

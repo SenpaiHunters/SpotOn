@@ -64,7 +64,16 @@ Today, on March 18, 2024, this repository has undergone a significant update. Ev
 <details>
     <summary>Whats new!</summary>
 
-## Changelog - 16/7/2024
+## Changelog - 18/11/2024
+
+### Version 3.1.0
+
+- Added `removeMusicVids` toggle to remove all music video results from Spotify's update
+- Fixed numerous CSS issues across the extension
+- Removed the Translator feature due to low usage and recurring technical issues
+- Further optimized the extension size
+
+Note: Due to low user adoption, I'm evaluating whether to continue active development. Regardless of the decision, SpotOn will remain open-source and free forever. Development has slowed as I focus on macOS app development. I apologize for delayed updates.
 
 ### Version 3.0.6.2
 
@@ -249,8 +258,6 @@ Would you like to view SpotOn pictures without going through the whole repositor
 65. Enable features in development
 66. Enable features in development (CSS)
 67. Scrollbar Customisation thing
-68. Auto Translate
-    (at the bottom you can see images for each toggle section)
 
 ## Features
 
@@ -260,36 +267,7 @@ a. SpotOn (on by default) toggle one, this has your album art be made into your 
 
 ![SpotOn Image](Resources/images/spoton.png)
 
-b. Translation (disabled by default). Currently, you can translate the lyrics into the following languages:
-
-1. Türkçe
-2. English
-3. Deutsch
-4. Français
-5. Español
-6. Italiano
-7. Русский
-8. العربية
-9. 中文
-10. 日本語
-11. 한국어
-12. Português
-13. हिन्दी
-14. Nederlands
-15. Svenska
-
-If you want more languages added, please make a request.
-
-You can also modify the Lyrics color!
-
-**Image:**
-
-![Translation Image](Resources/images/translate.png)
-
-**Image two:**
-![alt text](Resources/images/translate-settings.png)
-
-c. Custom CSS
+b. Custom CSS
 
 Here, you can make whatever you want. I suggest turning off SpotOn before editing a theme or making it support SpotOn.
 
@@ -305,14 +283,14 @@ By default, we'll have a few themes you can pick from. These are the defaults. T
 
 <br>
 
-d. Non-codeable themes
+c. Non-codeable themes
 Here, you can change the lyrics color, lyrics font size, or (with SpotOn, which makes this feature actually useful), change the color of the navigation bar (NB), and now playing bar (NPB).
 
 ![non codedable themes](Resources/images/non-codetheme.png)
 
 <br>
 
-e. Hotkeys
+d. Hotkeys
 SpotOn comes with full customisable hotkeys, Play/Pause and Skip/Reverse with your Media Keys! All changeable at `chrome://extensions/shortcuts`
 
 | Name                     | Hotkey               | Defaults |
