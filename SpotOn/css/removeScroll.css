@@ -1,0 +1,2 @@
+/* removeScroll.css - I HATE scrollbars, like, a lot.... so they're gone. */
+.os-scrollbar-handle, .active * { display: none !important; }

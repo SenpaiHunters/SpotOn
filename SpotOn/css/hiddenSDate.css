@@ -1,0 +1,5 @@
+/* hiddenSDate - Removes the songs date added */
+#main>div>div.ZQftYELq0aOsg6tPbVbV>div.jEMA2gVoLgPQqAFrPhFw>div>div.main-view-container__scroll-node.ZjfaJlGQZ42nCWjD3FDm>div:nth-child(1)>div>main>section>div.contentSpacing>div>div>div.IpXjqI9ouS_N5zi0WM88>div>div:nth-child(4),
+#main>div>div.ZQftYELq0aOsg6tPbVbV>div.jEMA2gVoLgPQqAFrPhFw>div>div.main-view-container__scroll-node.ZjfaJlGQZ42nCWjD3FDm>div:nth-child(1)>div>main>section>div.contentSpacing>div>div>div.JUa6JJNj7R_Y3i4P8YUX>div:nth-child(2)>div:nth-child(1)>div>div:nth-child(4)>span {
+    display: none !important;
+}

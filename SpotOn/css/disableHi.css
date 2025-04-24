@@ -1,0 +1,2 @@
+/* disableHi.css - Disables all highlighting on Spotify */
+* { user-select: none; -webkit-user-select: none; }

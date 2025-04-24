@@ -1,0 +1,2 @@
+/* removePodcasts.css - Your name is Spotify, MUSIC, not podcasts, im good, thanks... */
+#main > div > div.ZQftYELq0aOsg6tPbVbV > div.jEMA2gVoLgPQqAFrPhFw > div.main-view-container > div.main-view-container__scroll-node > div:nth-child(2) > div.main-view-container__scroll-node-child > main > section > div > section:nth-child(10), .main-view-container__scroll-node-child [data-testid="home-page"] .contentSpacing [aria-label="Episodes\ for\ you"] { display: none !important; }

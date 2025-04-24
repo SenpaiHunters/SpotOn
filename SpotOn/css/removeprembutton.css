@@ -1,0 +1,2 @@
+/* removeprembutton.css - Removes the upgrade to premium button, i'm sure a lot of you have this on. */
+button.encore-text-body-small-bold.e-9812-button-primary.e-9812-button { display: none !important; }

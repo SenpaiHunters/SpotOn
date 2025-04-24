@@ -1,23 +1,38 @@
 {
   "manifest_version": 3,
   "name": "SpotOn",
-  "version": "3.1.0",
-  "description": "Upgrade your Spotify Web Player with SpotOn, and enjoy a completely customizable UX/UI redesign!",
+  "version": "4.0.0",
+  "description": "Enhance your Spotify Web Player experience with SpotOn. A complete UX/UI overhaul!",
   "author": "Kami",
   "homepage_url": "https://github.com/senpaihunters/spoton",
   "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
   },
-  "background": {
-    "service_worker": "background.js"
-  },
-  "permissions": ["storage", "scripting", "tabs", "contextMenus", "activeTab"],
+  "permissions": ["storage", "tabs", "scripting", "contextMenus", "commands"],
   "host_permissions": ["https://open.spotify.com/*"],
-  "action": {
-    "default_popup": "settings.html"
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
   },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": ["js/content.js", "js/utils/color-theming.js"],
+      "css": ["css/spoton.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
   "commands": {
     "play-pause": {
       "description": "Play/Pause",
@@ -36,9 +51,6 @@
       },
       "global": true
     },
-    "hide_sidebar": { "description": "Hide the Sidebar" },
-    "hide_npb": { "description": "Hide the Now Playing Bar" },
-    "open_spotify": { "description": "Open Spotify" },
     "shuffle": { "description": "Toggle Shuffle" },
     "repeat": { "description": "Toggle Repeat" },
     "like": { "description": "Like Song" },
@@ -47,5 +59,11 @@
     "volume-up": { "description": "Volume Up" },
     "volume-down": { "description": "Volume Down" },
     "volume-mute": { "description": "Toggle Mute" }
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["css/*", "js/*", "update-notice.html"],
+      "matches": ["https://open.spotify.com/*"]
+    }
+  ]
 }

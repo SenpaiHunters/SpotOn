@@ -1,0 +1,2 @@
+/* byeappthing.css - Removes the download button */
+a[href="/download"] { display: none !important; }

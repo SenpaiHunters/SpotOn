@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SpotOn Settings</title>
+        <link rel="stylesheet" href="css/popup/popup.css">
+        <link rel="icon" href="assets/icon128.png" type="image/png">
+    </head>
+
+    <body>
+        <div class="app-container">
+            <!-- Header Section -->
+            <header class="app-header">
+                <div class="header-content">
+                    <img src="assets/icon48.png" alt="SpotOn Logo" class="logo">
+                    <h1>SpotOn</h1>
+                    <div class="header-actions">
+                        <button id="theme-lock" class="icon-button" title="Lock Current Background" data-locked="false">
+                            <img src="assets/svg/unlocked.svg" alt="Unlock" class="icon">
+                        </button>
+                        <button id="theme-toggle" class="icon-button" title="Toggle Theme">
+                            <img src="assets/svg/moon.svg" alt="Theme" class="icon" data-theme="dark">
+                        </button>
+                        <button id="settings-toggle" class="icon-button">
+                            <img src="assets/svg/settings.svg" alt="Settings" class="icon">
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="app-main">
+                <!-- Now Playing Section -->
+                <section id="now-playing" class="now-playing-section">
+                    <div class="album-art-container">
+                        <img id="album-art" src="" alt="Album Art">
+                    </div>
+                    <div class="track-info">
+                        <h2 id="track-title">No track playing</h2>
+                        <p id="track-artist">Unknown artist</p>
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="quick-actions">
+                    <button id="copy-info" class="action-button">
+                        <img src="assets/svg/copy.svg" alt="Copy" class="icon">
+                        <span>Copy Track Info</span>
+                    </button>
+                    <button id="search-genius" class="action-button">
+                        <img src="assets/svg/search.svg" alt="Search" class="icon">
+                        <span>Search on Genius</span>
+                    </button>
+                    <button id="download-art" class="action-button">
+                        <img src="assets/svg/download.svg" alt="Download" class="icon">
+                        <span>Download Art</span>
+                    </button>
+                </section>
+
+                <!-- Features Tabs -->
+                <div class="features-tabs">
+                    <button class="tab-button active" data-tab="main">Main</button>
+                    <button class="tab-button" data-tab="visual">Visual</button>
+                    <button class="tab-button" data-tab="hide">Hide</button>
+                    <button class="tab-button" data-tab="css">CSS</button>
+                </div>
+
+                <!-- Features Sections will be dynamically generated here -->
+                <div id="features-container"></div>
+
+                <!-- CSS Editor Section -->
+                <section id="css-editor-section" class="css-editor-section" style="display: none;">
+                    <div class="css-editor-header">
+                        <h3>Custom CSS</h3>
+                        <div class="css-editor-actions">
+                            <button id="save-css" class="icon-button" title="Save CSS">
+                                <img src="assets/svg/save.svg" alt="Save" class="icon">
+                            </button>
+                            <button id="import-css" class="icon-button" title="Import CSS">
+                                <img src="assets/svg/import.svg" alt="Import" class="icon">
+                            </button>
+                            <button id="export-css" class="icon-button" title="Export CSS">
+                                <img src="assets/svg/export.svg" alt="Export" class="icon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="css-editor-container">
+                        <div class="color-theming-section">
+                            <div class="color-picker-group">
+                                <label for="nav-color">Navigation Bar Color/Image:</label>
+                                <input type="text" id="nav-color" class="color-input"
+                                    placeholder="Enter color (hex/rgb) or image URL">
+                                <div id="nav-color-preview" class="color-preview"></div>
+                            </div>
+                            <div class="color-picker-group">
+                                <label for="lyrics-color">Lyrics Color:</label>
+                                <input type="text" id="lyrics-color" class="color-input"
+                                    placeholder="Enter color (hex/rgb)">
+                                <div id="lyrics-color-preview" class="color-preview"></div>
+                            </div>
+                        </div>
+                        <textarea id="css-editor" class="css-editor" spellcheck="false"></textarea>
+                    </div>
+                    <div class="css-editor-footer">
+                        <div id="css-error" class="css-error"></div>
+                        <div class="css-examples">
+                            <select id="css-examples-dropdown" class="css-examples-dropdown">
+                                <option value="">Select Example</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Settings Panel -->
+            <div id="settings-panel" class="settings-panel">
+                <div class="settings-header">
+                    <h2>Settings</h2>
+                    <button id="close-settings" class="icon-button">
+                        <img src="assets/svg/close.svg" alt="Close" class="icon">
+                    </button>
+                </div>
+
+                <div class="settings-content">
+                    <div class="settings-section">
+                        <h3>Import/Export</h3>
+                        <p>Backup or restore your SpotOn settings</p>
+                        <button id="export-settings" class="settings-button">
+                            <img src="assets/svg/export.svg" alt="Export" class="icon">
+                            Export Settings
+                        </button>
+                        <button id="import-settings" class="settings-button">
+                            <img src="assets/svg/import.svg" alt="Import" class="icon">
+                            Import Settings
+                        </button>
+                        <input type="file" id="import-file" accept=".json" hidden>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Theme</h3>
+                        <p>Customize the appearance of SpotOn</p>
+                        <select id="theme-select" class="theme-select">
+                            <option value="dark">Dark</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                        <div id="custom-theme" class="custom-theme-picker" style="display: none;">
+                            <div class="color-picker-group">
+                                <label for="primary-color">Primary Color</label>
+                                <input type="color" id="primary-color" class="color-picker">
+                            </div>
+                            <div class="color-picker-group">
+                                <label for="secondary-color">Secondary Color</label>
+                                <input type="color" id="secondary-color" class="color-picker">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>About</h3>
+                        <p>SpotOn v4.0.0</p>
+                        <p>A powerful Spotify enhancement extension</p>
+                        <div class="settings-links">
+                            <a href="https://github.com/senpaihunters/spoton" target="_blank" class="settings-link">
+                                <img src="assets/svg/github.svg" alt="GitHub" class="icon">
+                                GitHub Repository
+                            </a>
+                            <a href="https://www.buymeacoffee.com/kami.dev" target="_blank" class="settings-link">
+                                <img src="assets/svg/coffee.svg" alt="Support" class="icon">
+                                Support Development (Buymeacoffee)
+                            </a>
+                            <a href="https://github.com/sponsors/SenpaiHunters" target="_blank" class="settings-link">
+                                <img src="assets/svg/coffee.svg" alt="Support" class="icon">
+                                Support Development (GitHub)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/utils/feature-config.js" type="module"></script>
+        <script src="js/popup.js" type="module"></script>
+        <script src="js/utils/css-manager.js" type="module"></script>
+        <script src="js/utils/color-theming.js" type="module"></script>
+    </body>
+
+</html>

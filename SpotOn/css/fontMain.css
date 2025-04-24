@@ -1,0 +1,15 @@
+/* fontMain.css - Changes the font to Open Runde */
+:root {
+    --font-family: 'Open Runde', sans-serif;
+}
+
+@font-face {
+    font-family: 'Open Runde';
+    src: url('https://raw.githubusercontent.com/lauridskern/open-runde/main/src/web/OpenRunde-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: var(--font-family) !important;
+}

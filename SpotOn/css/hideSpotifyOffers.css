@@ -1,0 +1,2 @@
+/* hideSpotifyOffers.css - As the name suggests, removes the popups for offers */
+.GenericModal__overlay.GenericModal__overlay--animated.GenericModal__overlay--afterOpen { display: none !important; }

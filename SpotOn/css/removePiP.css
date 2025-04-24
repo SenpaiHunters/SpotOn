@@ -1,0 +1,2 @@
+/* removePIP.css - Removes the Picture In Picture button in the Now Playing Bar */
+[data-testid="now-playing-bar"] [data-testid="pip-toggle-button"] { display: none !important; }

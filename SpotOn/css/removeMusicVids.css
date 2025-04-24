@@ -1,0 +1,4 @@
+/* removeMusicVids.css - I just need the songs, not a music video, so strips all of this */
+/* Small tip: In settings `https://open.spotify.com/preferences` turn off "Display short, looping visuals on tracks (Canvas)" */
+
+span.encore-text.encore-text-body-medium.nOw3c5b4tD945Qcv8oV4.KxVesa2Eh_xZFQYF4bD6, .Ai_McRq9wJEYK21w8nX_.TIoJv8dV373UyvBWRDav { display: none !important; }

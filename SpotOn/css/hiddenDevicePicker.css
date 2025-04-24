@@ -1,0 +1,2 @@
+/* hiddenDevicePicker - Hides the device picker... */
+button#device-picker-icon-button { display: none !important; }

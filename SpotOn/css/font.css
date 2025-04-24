@@ -1,0 +1,22 @@
+/* font.css - Changes specific sizes */
+
+/* Font specific styles */
+body, button, input, select, textarea {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+[data-testid="context-item-info-title"],
+[data-testid="track-name"],
+[data-testid="playlist-name"],
+[data-testid="album-name"],
+[data-testid="artist-name"] {
+    font-weight: 600;
+}
+
+[data-testid="context-item-info-subtitle"],
+[data-testid="track-artist"],
+[data-testid="playlist-owner"],
+[data-testid="album-artist"] {
+    font-weight: 400;
+    opacity: 0.8;
+} 

@@ -1,0 +1,2 @@
+/* hiddenSPL - Hides the songs playlist */
+[role="row"] [data-testid="tracklist-row"] [data-encore-id="type"] .standalone-ellipsis-one-line { display: none !important; }

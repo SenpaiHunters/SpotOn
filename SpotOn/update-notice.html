@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>SpotOn Update Notice</title>
+        <link rel="stylesheet" href="css/popup/popup.css">
+        <style>
+            body {
+                width: 100%;
+                height: 100%;
+                padding: var(--space-lg);
+                background-color: var(--bg-primary);
+            }
+
+            .notice-container {
+                background-color: var(--bg-secondary);
+                border-radius: var(--radius-lg);
+                padding: var(--space-xl);
+                margin: 0 auto;
+                max-width: 800px;
+                box-shadow: var(--shadow-md);
+            }
+
+            h1 {
+                color: var(--accent-color);
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: var(--space-lg);
+            }
+
+            h2 {
+                color: var(--text-primary);
+                font-size: 18px;
+                font-weight: 600;
+                margin: var(--space-lg) 0 var(--space-md);
+            }
+
+            p {
+                color: var(--text-secondary);
+                margin-bottom: var(--space-md);
+            }
+
+            .warning {
+                background-color: var(--bg-tertiary);
+                border-left: 4px solid var(--warning);
+                padding: var(--space-md);
+                margin: var(--space-lg) 0;
+                color: var(--text-primary);
+            }
+
+            .warning strong {
+                color: var(--warning);
+            }
+
+            ul {
+                color: var(--text-secondary);
+                margin-left: var(--space-md);
+                margin-bottom: var(--space-lg);
+            }
+
+            li {
+                margin-bottom: var(--space-sm);
+            }
+
+            .button {
+                display: inline-block;
+                background-color: var(--accent-color);
+                color: var(--text-white);
+                padding: var(--space-md) var(--space-lg);
+                border-radius: var(--radius-md);
+                text-decoration: none;
+                margin-top: var(--space-lg);
+                transition: background-color var(--transition-fast);
+                font-weight: 600;
+            }
+
+            .button:hover {
+                background-color: var(--accent-color-bright);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="notice-container">
+            <h1>SpotOn Update Notice</h1>
+            <p>
+                Welcome to the latest version (4.0.0) of SpotOn! We've made some
+                significant changes to improve your experience.
+            </p>
+            <div class="warning">
+                <strong>Important:</strong>
+                If you're upgrading from version 3.1.0 or
+                lower, please note that many (and I mean many) features have been
+                updated or changed. Some settings or options you previously had may have
+                been removed or reset, it's recommended you start from scratch, sorry
+                for any setbacks this has caused.
+            </div>
+            <h2>What's Changed?</h2>
+            <ul>
+                <li>Major UI improvements and optimizations</li>
+                <li>Massive performance enhancements</li>
+                <li>Updated settings structure</li>
+                <li>Updated and removed redundant css</li>
+            </ul>
+            <h2>What Should You Do?</h2>
+            <p>
+                We recommend reviewing and reconfiguring your settings to ensure
+                everything is set up according to your preferences. Some of your
+                previous settings may need to be adjusted to work with the new version.
+                <br><br>
+                PS: If something breaks, turn it off and on again, like a toggle, and or
+                reload the page, 9/10 times it fixes the issue(s)!
+            </p>
+            <h2>What to Expect Next / Please Read.</h2>
+            <p>
+                Sadly, this cannot continue. I've spent the past five months (2 of which
+                was me fixing issues, than resolving myself to a full rewrite is now
+                required, considering how extensive my knowledge is in JS compared to
+                the start.) rewriting the entire extension from the ground up-again.
+                This means every single CSS file has been updated and changed, with new
+                comments in each file explaining what it does. All of the JavaScript has
+                been rewritten from scratch. As a result, SpotOn now loads in under
+                0.1ms, and the locking/unlocking process feels smoother. The entire
+                settings menu has also been redesigned and overhauled to be more
+                user-friendly.
+                <br><br>
+                I mentioned in one of the previous releases that I may never update this
+                again, and it's very likely this will be the last major version before I
+                stop working on it or add anything new. It's come to my attention that
+                I've been developing this extension for over three years now. During
+                that time, others have copied parts of my code and climbed higher in the
+                extension store rankings. I never did this for fame, but it saddens me
+                to see my work being profited from. To this day (23/05/2025), I haven't
+                earned a single cent. I never created this for money-I'm just stating
+                the fact that my work has been unpaid, and with all the time I've put
+                in... man, I could've done so much more.
+                <br><br>
+                So now, SpotOn will only receive slower and minor CSS updates when
+                something major breaks. Eventually, it might be removed from the store
+                or fully archived as I shift my focus to other development projects,
+                thank you for coming along in the journey with me, it's been a pleasure.
+                <br><br>
+                If you wish to support me, there is a link in the settings page, or on
+                my GitHub as to how to sponsor, or one time send anything, although,
+                I'll be frank, I do not believe anyone will, as this is, and always will
+                be a free extension.
+            </p>
+            <a href="https://github.com/senpaihunters/spoton/releases" class="button" target="_blank">View Release Notes
+            </a>
+        </div>
+    </body>
+
+</html>

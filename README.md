@@ -1,339 +1,99 @@
 # SpotOn
 
-Improve your Spotify Web Player experience with SpotOn! This browser extension offers a customizable UX/UI redesign, enhancing your listening sessions with new features and themes.
+Enhance your Spotify Web Player experience with SpotOn. A complete UX/UI overhaul!
 
 ## Stats
-
-![SpotOn Stats](https://repobeats.axiom.co/api/embed/ce3ad3443e3619183781569395b7e46ab673eb42.svg "SpotOn Stats")
-
-<p align="center">
- <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">
-        <img src="https://img.shields.io/chrome-web-store/v/hnbcgkmojpjmncmplcnefjnmcbckadff?style=for-the-badge" alt="Chrome Web Store" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn">
-        <img src="https://img.shields.io/github/stars/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Stars" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/issues">
-        <img src="https://img.shields.io/github/issues/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Issues" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/releases">
-        <img src="https://img.shields.io/github/v/release/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Release" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/CONTRIBUTING.md">
-        <img src="https://img.shields.io/github/contributors/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Contributors" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/watchers">
-        <img src="https://img.shields.io/github/watchers/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Watchers" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/forks">
-        <img src="https://img.shields.io/github/forks/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub Forks" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/commits">
-        <img src="https://img.shields.io/github/last-commit/SenpaiHunters/SpotOn?style=for-the-badge" alt="Last Commit" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/releases">
-        <img src="https://img.shields.io/github/downloads/SenpaiHunters/SpotOn/total?style=for-the-badge" alt="GitHub all releases" />
-    </a>
-    <a href="https://github.com/SenpaiHunters/SpotOn/releases">
-        <img src="https://img.shields.io/github/languages/code-size/SenpaiHunters/SpotOn?style=for-the-badge" alt="GitHub code size in bytes" />
-    </a>
-</p>
 
 Now for some fun SpotOn stats!
 
 - Total options count: 61 toggles + additional custom settings.
-- SpotOn load times: 1 ms (lowest 0.5 ms/0.9 ms).
-- Totalized SpotOn extension size: 148 KB.
-- Totalized SpotOn repo size: refer to `CODE SIZE`.
+- SpotOn load times: 0.3 ms (lowest 0.1 ms/0.6 ms).
+- Totalized SpotOn extension size: 193 KB.
 - First screenshot(s): October 2, 2022.
 - Original userscript size: 800 KB (single use).
 - First extension release date: May 14, 2023.
 - Initial extension size: 574 KB.
 
+<h6 align="center">
+ <a href="https://chrome.google.com/webstore/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl=en&authuser=0">
+        <img src="https://img.shields.io/chrome-web-store/v/hnbcgkmojpjmncmplcnefjnmcbckadff?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="Chrome Web Store" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn">
+        <img src="https://img.shields.io/github/stars/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub Stars" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/issues">
+        <img src="https://img.shields.io/github/issues/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub Issues" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/releases">
+        <img src="https://img.shields.io/github/v/release/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub Release" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/blob/Main/CONTRIBUTING.md">
+        <img src="https://img.shields.io/github/contributors/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub Contributors" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/watchers">
+        <img src="https://img.shields.io/github/watchers/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub Watchers" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/forks">
+        <img src="https://img.shields.io/github/forks/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub Forks" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/commits">
+        <img src="https://img.shields.io/github/last-commit/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="Last Commit" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/releases">
+        <img src="https://img.shields.io/github/downloads/SenpaiHunters/SpotOn/total?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub all releases" />
+    </a>
+    <a href="https://github.com/SenpaiHunters/SpotOn/releases">
+        <img src="https://img.shields.io/github/languages/code-size/SenpaiHunters/SpotOn?label=Issues&color=FEE75C&style=for-the-badge&labelColor=23272A" alt="GitHub code size in bytes" />
+    </a>
+</h6>
+
 <br>
 
-The notes section will be updated with patch notes and additional information about SpotOn with each update. Visit here when you notice a new version or request; it might be helpful!
-
-<details>
-    <summary>Notes and Info</summary>
-
-Today, on March 18, 2024, this repository has undergone a significant update. Every file, except SpotOn itself, has been changed. Moving forward, only the latest version, v3.0.2, will be supported. Consequently, all userscripts are now deprecated. The repository has been transformed from a large collection to a more streamlined view of SpotOn, which can be read in about 10 minutes. Previous Resources have been replaced with an image folder. We have fully transitioned to [SpotOnThemes](https://github.com/SenpaiHunters/SpotOnTheme) for all theme repository needs. The previous reports and feature requests have been updated, giving the repository a fresh look. Additionally, some interesting statistics have been added at the top.
-
-</details>
-
-<details>
-    <summary>Whats new!</summary>
-
-## Changelog - 18/11/2024
-
-### Version 3.1.0
-
-- Added `removeMusicVids` toggle to remove all music video results from Spotify's update
-- Fixed numerous CSS issues across the extension
-- Removed the Translator feature due to low usage and recurring technical issues
-- Further optimized the extension size
-
-Note: Due to low user adoption, I'm evaluating whether to continue active development. Regardless of the decision, SpotOn will remain open-source and free forever. Development has slowed as I focus on macOS app development. I apologize for delayed updates.
-
-### Version 3.0.6.2
-
-This update is pretty small, so no massive version jump.
-
-- Added a donation button
-- Changed theme `Freya` to `Vesper`
-- Added a function to remove open in app popup (in dev)
-- Some minor CSS fixes
-
-I've noticed that in Spotify, the `Seek Forwards` & `Seek Backwards` commands are broken. This is actually an issue with Spotify, and I cannot fix it. So, until Spotify releases a fix, it will sadly remain broken.
-
 ---
 
-## Changelog - 13/6/2024
+## SpotOn Pics
 
-### Version 3.0.6.1
+### How does SpotOn Look?
 
-- Fixed some spelling and grammatical mistakes in the popup
-- Resolved minor CSS issues
-- Corrected an issue where the download button would reappear; this has been permanently fixed
-- Added a new extension theme
-- Addressed pathing issues with the `font-face` directive
-- Implemented various miscellaneous fixes
+| ![Spot 1](Resources/images/spot1.png) | ![Spot 2](Resources/images/spot4.png) | ![Spot 3](Resources/images/spot2.png) |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| ![Spot 4](Resources/images/spot3.png) | ![Spot 5](Resources/images/spot5.png) | ![Spot](Resources/images/spoton.png)  |
 
-## Changelog - 26/5/2024
+### Settings
 
-### Version 3.0.6.0
-
-- Changed how SpotOn appends itself for faster and more reliable load times. Measured it down to `0.80ms`, which may only be a 10% decrease in its best cases, but it took a little to achieve!
-- Fixed some annoying CSS issues, such as:
-  - Premium button not removing itself
-  - App install button reappearing
-  - Various CSS issues inside SpotOn's main theming
-  - Removed additional elements in the podcasts section
-- Optimized the whole JS settings section once more, fixing:
-  - An issue where importing settings would not save the toggle state nor reload Spotify's page
-  - Minor adjustments in searching, should be a smidge faster now
-  - Refactored Settings defaults section
-  - Refactored and optimized `SettingsExtra`, `SettingsDown`
-    - In reference to `SettingsDown`, users will now have one button to lock/unlock SpotOn's theme, it will show its current state if it's locked, providing more feedback.
-  - and other minor refactors and optimizations in the rest of the JS files
-- Removed settings `scrollbar` and `logging` inside of `development`
-- Rigged up `Issues & Ideas` to GitHub and `Extra` to Chromium Web Store
-- Fixed an annoying issue with theming on settings, where if Auto was on, it would revert to Dark; that is now fixed.
-- Refactored `background.js` and optimized how SpotOn loads its options into the page
-- Added a new option `Remove the "Open In App" button in the context menu`
-- Fixed `css` path in `settings.css` as it was not pointed correctly, but still loaded? Strange
-
-## Changelog - 30/4/2024
-
-- Small bug fixes where SpotOn's theme would not be fully applied and elements would not be replaced
-
-## Changelog - 9/4/2024
-
-- Fast fix for broken values in SpotOn, this took me half an hour to find one call it may not be a temp fix after all...
-- Shifted manifest to 3.0.5.6
-
-## Changelog - 2/4/2024
-
-Significant optimizations and bug fixes have been implemented. Detailed changes are as follows:
-
-- Manifest updated to version 3.0.3.5.
-- JavaScript file structure and codebase streamlined:
-  - The `options` folder has been removed; `settingsDown.js` is now located in the `settings` folder.
-  - Consolidated `toggle.js` and contents of the `shared` folder into a single file `themeToggles.js` within the `settings` folder.
-  - Enhanced theme settings functionality, particularly the 'Auto' feature, and resolved related bugs.
-  - Refined the extension's enabled state logic for improved performance.
-  - Resolved an issue in `import.js` to ensure reliable importing of user settings.
-  - Conducted code optimization for `settingsOptions.js`, `settings.js`, `search.js`, `locals.js`, and `background.js`.
-  - Corrected a defect affecting the lyrics color display.
-  - Improved code formatting across several files for better readability and maintenance.
-  - Addressed various minor bugs to enhance overall stability.
-
----
-
-28/3/2024: Removed `declarativeContent` as indicated in the below email (thanks, Chrome); fixed some minor padding issues and corrected some minor coloring issues as well.
-
-Violation(s):
-Use of Permissions:
-
-- Violation: Requesting but not using the following permission(s):
-  - declarativeContent
-    - How to rectify: Remove the above permission(s).
-- Relevant section of the program policy:
-  - Request access to the narrowest permissions necessary to implement your product's features or services. Don't attempt to "future-proof" your product by requesting a permission that might benefit services or features that have not yet been implemented. (learn more).
-
-The notes section: When I release a new update, I'll post it here. Most of the time, you can check the [Releases](https://github.com/SenpaiHunters/SpotOn/releases). There will be a detailed write-up to guide you through the new version.
-
-</details>
-
----
-Would you like to view SpotOn pictures without going through the whole repository? Click here!
-<details>
-    <summary>SpotOn Pics</summary>
-
-![spot1 - how does this look](Resources/images/spot1.png)
-![spot2 - how does this look](Resources/images/spot4.png)
-![spot3 - how does this look](Resources/images/spot2.png)
-![spot4 - how does this look](Resources/images/spot3.png)
-![spot5 - how does this look](Resources/images/spot5.png)
-
-</details>
+| Settings main view                      | CSS section / Sidebar & Lyrics Coloring | Settings (top right cog)                |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| ![set1](Resources/images/settings1.png) | ![set2](Resources/images/settings2.png) | ![set3](Resources/images/settings3.png) |
 
 ---
 
 ## Features
 
- **TL;DR:** SpotOn enhances your Spotify experience with 61 customizable toggles, allowing for a personalized UI including full custom CSS support, simple color changes without coding, and import/export functionality. Or enjoy your album art being your background!
-
- <details>
-     <summary>Long version</summary>
-
- Here's a more detailed look at what SpotOn offers:
-  
-## Toggles
-
-1. Enable SpotOn
-2. Enable SpotOn Righter
-3. Enable SpotOn Font Face
-4. Enable the Nav Toggle
-5. Add a 10% darkness site-wide
-6. Enable/disable capitalisation of first letter
-7. Make the NPB hide below the player
-8. Remove the Now Playing bar entirely
-9. Make the playing bar thicker by 8px
-10. Enable spinning album art
-11. Enable auto color shifting for lyrics
-12. Round Album Art
-13. Rainbow Controls
-14. Rainbow Progress bar
-15. Add a shadow to the NPB & NB
-16. Reduced Transparency for Home
-17. Disable highlight
-18. Remove Podcasts
-19. Remove scrollbars
-20. Remove Liked Songs Covert Art
-21. Remove top home selector (Podcasts, etc)
-22. Remove the content bar
-23. Hides Profile button
-24. Remove the "You May Also Like" at the bottoms of albums
-25. Remove premium button
-26. Remove any Spotify offer
-27. Remove "Lyrics provided by Musixmatch"
-28. Remove lyrics button
-29. Remove device picker button
-30. Remove ALL album art
-31. Hides the album song can be found at
-32. Hides the date added
-33. Remove "More Of What You Like" on the home page
-34. Hides the Merch box on the Artist(s) page
-35. Removes the Merch box on the Artist(s) page
-36. Removes the discography on the Artist(s) page
-37. Removes the Fans Also Liked on the Artist(s) page
-38. Removes the Appears On on the Artist(s) page
-39. Removes the On Tour on the Artist(s) page
-40. Removes the featuring X artist on the Artist(s) page
-41. Removes the Discover On box on the Artist(s) page
-42. Hides the About box on the Artist(s) page
-43. Hides the Artist Pick box on the Artist(s) page
-44. Hides the duration of a song
-45. Hides the heart icon on a song
-46. Hides playlist info
-47. Hides songs album/playlist
-48. Hides songs album
-49. Hides songs date
-50. Hides songs duration
-51. Hides songs heart icon
-52. Remove top info header
-53. Send the footer to another dimension
-54. Send the Install our app to another dimension
-55. Hides date added
-56. Remove the volume bar (keeps icon)
-57. Remove the Now Playing View
-58. Remove the queue in the Now Playing View
-59. Remove the on tour in the Now Playing View
-60. Remove the about this artist in the Now Playing View
-61. Remove the credits section in the Now Playing View
-62. Remove the "Whats New" button next to the profile
-63. Remove the "Picture in Picture" button on the NPB
-64. Enable Logging
-65. Enable features in development
-66. Enable features in development (CSS)
-67. Scrollbar Customisation thing
-
-## Features
-
-a. SpotOn (on by default) toggle one, this has your album art be made into your background
-
-**Image**
-
-![SpotOn Image](Resources/images/spoton.png)
-
-b. Custom CSS
-
-Here, you can make whatever you want. I suggest turning off SpotOn before editing a theme or making it support SpotOn.
-
-By default, we'll have a few themes you can pick from. These are the defaults. Then you have your controls.
-
-<img src="Resources/images/custom-css.png" alt="custom css" width="400">
-
-<img src="Resources/images/custom-css-2.png" alt="custom css" width="400">
-
-<img src="Resources/images/custom-css-3.png" alt="custom css" width="400">
-
-(Refer to image two.) The `Save & Load Theme` button will do as stated: it will save the current theme and load it into the page without needing to reload. Now, a big note here is that this version of the Custom CSS does not have any sort of syntax highlighting or linting. This is a bare-bones lightweight CSS theme creator. If you need to lint and correct your CSS, you can do it in VSCode or any IDE.
-
-<br>
-
-c. Non-codeable themes
-Here, you can change the lyrics color, lyrics font size, or (with SpotOn, which makes this feature actually useful), change the color of the navigation bar (NB), and now playing bar (NPB).
-
-![non codedable themes](Resources/images/non-codetheme.png)
+**TL;DR:** SpotOn enhances your Spotify experience with 61 customizable toggles, allowing for a personalized UI including full custom CSS support, simple color changes without coding, and import/export functionality. Or enjoy your album art being your background!
 
 <br>
 
 d. Hotkeys
 SpotOn comes with full customisable hotkeys, Play/Pause and Skip/Reverse with your Media Keys! All changeable at `chrome://extensions/shortcuts`
 
-| Name                     | Hotkey               | Defaults |
-| ------------------------ | -------------------- | -------- |
-| Activate the extension   | N/A                  | N/A      |
-| Hide the Now Playing Bar | ⌃⌘A                  | N/A      |
-| Hide the Sidebar         | ⌃⌘S                  | N/A      |
-| Like/Dislike             | ⌘⇧B                  | N/A      |
-| Next Track               | Media Next Track     | Yes      |
-| Open Spotify             | ⌘⇧O                  | N/A      |
-| Play/Pause               | Media Play/Pause     | Yes      |
-| Previous Track           | Media Previous Track | Yes      |
-| Toggle Repeat            | ⌥R                   | N/A      |
-| Seek Backward            | N/A                  | N/A      |
-| Seek Forward             | N/A                  | N/A      |
-| Toggle Shuffle           | ⌥S                   | N/A      |
-| Volume Down              | N/A                  | N/A      |
-| Toggle Mute              | N/A                  | N/A      |
-| Volume Up                | N/A                  | N/A      |
+| Name                   | Hotkey               | Defaults |
+| ---------------------- | -------------------- | -------- |
+| Activate the extension | N/A                  | N/A      |
+| Like/Dislike           | ⌘⇧B                  | N/A      |
+| Next Track             | Media Next Track     | Yes      |
+| Play/Pause             | Media Play/Pause     | Yes      |
+| Previous Track         | Media Previous Track | Yes      |
+| Toggle Repeat          | ⌥R                   | N/A      |
+| Seek Backward          | N/A                  | N/A      |
+| Seek Forward           | N/A                  | N/A      |
+| Toggle Shuffle         | ⌥S                   | N/A      |
+| Volume Down            | N/A                  | N/A      |
+| Toggle Mute            | N/A                  | N/A      |
+| Volume Up              | N/A                  | N/A      |
 
 What I mean by "hotkey" are suggested and used hotkeys (those used by me). The only three set by default and cannot be reset (if changed) are the media keys, which can be made global (works outside of the browser) or only inside the browser.
 
 For more information on how to create a custom hotkey, it's pretty simple: click the hotkey box, then on your keyboard, press the combination you want. Let go, and voilà! If there are no conflicts, you'll see that your keybind is ready to use! The keen-eyed among you might have noticed that the list includes macOS keybinds. However, this doesn't matter as Chrome will detect your system and adjust accordingly. (This repository won't; I use a Mac, so there will be Mac keybinds :0)
-
-<br>
-
-## Images
-
-### Settings (press the left cog icon)
-
-![settings img 1](Resources/images/settings-1.png)
-![settings img 2](Resources/images/settings-2.png)
-![settings img 3](Resources/images/settings-3.png)
-
-## Toggles
-
-![interface img 1](Resources/images/interface-3.png)
-![interface img 2](Resources/images/interface-1.png)
-![interface img 3](Resources/images/interface-2.png)
-
-Honestly, this may seem minimal for now, but that's okay. I plan to enhance it further with each update. Currently, it's the lightest and fastest Spotify enhancer online, aligning with my goals for all extensions. While apps like Spcitify enhance the app directly, mine is based on Chrome extensions. (Maybe an FF version soon?)
-
-</details>
 
 ---
 
@@ -344,7 +104,6 @@ The Chrome extension store lags in releases because Chrome's review process can 
 ### Install from Chrome Web Store
 
 1. **Install SpotOn Extension:**
-
    - Visit [Chrome Web Store](https://chromewebstore.google.com/detail/spoton/hnbcgkmojpjmncmplcnefjnmcbckadff?hl)
    - Click "Add to Chrome" and review the permissions required.
    - Proceed by clicking "Add Extension."
@@ -369,7 +128,6 @@ SpotOn is committed to full transparency and privacy. Being an open-source proje
 ### Install from Source
 
 1. **Clone the Source Repository:**
-
    - Clone via terminal: `gh repo clone SenpaiHunters/SpotOn` or `git clone https://github.com/SenpaiHunters/SpotOn.git`
    - Alternatively, download the source as a ZIP file from the repository.
 
@@ -393,6 +151,4 @@ For support or inquiries, reach out to me via discord at [Kami](https://discord.
 
 ## Sponsoring
 
-[Buy me a coffee](https://buymeacoffee.com/KamiAMVS)
-[Patreon](https://patreon.com/Kami_YT)
-[Ko-fi](https://ko-fi.com/kamiyt)
+[Buy me a coffee](https://buymeacoffee.com/kami.dev) or [Github Sponsor](https://github.com/sponsors/SenpaiHunters)

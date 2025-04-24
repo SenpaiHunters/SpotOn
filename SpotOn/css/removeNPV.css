@@ -1,0 +1,2 @@
+/* removeNPV.css - Removes the Now Playing View */
+[data-testid="now-playing-bar"] [data-testid="control-button-npv"] { display: none !important; }
