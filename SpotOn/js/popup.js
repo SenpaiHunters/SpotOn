@@ -30,6 +30,7 @@
  * @event change - Manages theme and color picker changes
  */
 
+import '../vendor/browser-polyfill.min.js';
 import { SpotifyAPI } from './utils/spotify-api.js';
 import { featureConfig } from './utils/feature-config.js';
 import { ColorTheming } from './utils/color-theming.js';

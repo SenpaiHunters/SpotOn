@@ -22,6 +22,8 @@
  * 
  */
 
+importScripts('vendor/browser-polyfill.min.js');
+
 class BackgroundManager {
     constructor() {
         this.initialize();

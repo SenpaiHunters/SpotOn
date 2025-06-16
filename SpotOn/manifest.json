@@ -1,21 +1,32 @@
 {
   "manifest_version": 3,
-  "name": "SpotOn",
-  "version": "4.0.0",
+  "name": "SpotOn-Firefox",
+  "version": "1.0.0",
   "description": "Enhance your Spotify Web Player experience with SpotOn. A complete UX/UI overhaul!",
-  "author": "Kami",
-  "homepage_url": "https://github.com/senpaihunters/spoton",
+  "author": "DieTheVillain",
+  "homepage_url": "https://github.com/DieTheVillain/SpotOn-Firefox",
+
   "icons": {
     "16": "assets/icon16.png",
     "48": "assets/icon48.png",
     "128": "assets/icon128.png"
   },
-  "permissions": ["storage", "tabs", "scripting", "contextMenus", "commands"],
+
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "contextMenus",
+    "activeTab"
+  ],
+
   "host_permissions": ["https://open.spotify.com/*"],
+
   "background": {
-    "service_worker": "js/background.js",
-    "type": "module"
+	"scripts": ["js/background.js"],
+    "service_worker": "js/background.js"
   },
+
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -24,32 +35,33 @@
       "128": "assets/icon128.png"
     }
   },
+
   "content_scripts": [
     {
       "matches": ["https://open.spotify.com/*"],
-      "js": ["js/content.js", "js/utils/color-theming.js"],
+      "js": [
+        "vendor/browser-polyfill.min.js",
+        "js/content.js",
+        "js/utils/color-theming.js"
+      ],
       "css": ["css/spoton.css"],
       "run_at": "document_start",
       "all_frames": true
     }
   ],
+
   "commands": {
     "play-pause": {
       "description": "Play/Pause",
-      "suggested_key": { "default": "MediaPlayPause" },
-      "global": true
+      "suggested_key": { "default": "MediaPlayPause" }
     },
     "previous": {
       "description": "Previous Track",
-      "suggested_key": { "default": "MediaPrevTrack" },
-      "global": true
+      "suggested_key": { "default": "MediaPrevTrack" }
     },
     "next": {
       "description": "Next Track",
-      "suggested_key": {
-        "default": "MediaNextTrack"
-      },
-      "global": true
+      "suggested_key": { "default": "MediaNextTrack" }
     },
     "shuffle": { "description": "Toggle Shuffle" },
     "repeat": { "description": "Toggle Repeat" },
@@ -60,10 +72,22 @@
     "volume-down": { "description": "Volume Down" },
     "volume-mute": { "description": "Toggle Mute" }
   },
+
   "web_accessible_resources": [
     {
       "resources": ["css/*", "js/*", "update-notice.html"],
       "matches": ["https://open.spotify.com/*"]
     }
-  ]
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "spoton@dievillain",
+      "strict_min_version": "109.0"
+    }
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
 }

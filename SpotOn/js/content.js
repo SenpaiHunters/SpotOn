@@ -27,6 +27,8 @@
  * @property {boolean} coverArtObserverObserving - Whether the observer is active
  */
 
+importScripts('vendor/browser-polyfill.min.js');
+
 class ContentManager {
     constructor() {
         this.state = {
