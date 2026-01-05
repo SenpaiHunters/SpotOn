@@ -2,6 +2,29 @@
 
 Enhance your Spotify Web Player experience with SpotOn. A complete UX/UI overhaul!
 
+---
+
+# DEPRECATED
+
+As of **5 January 2026**, SpotOn is officially deprecated and will no longer be updated or maintained. In addition, the SpotOn extension has been removed from the web store from today onwards and is no longer available for new installs.
+
+Over the years, I have been the sole developer of SpotOn. During that time, the extension reached around 401 users. While I’m grateful for everyone who tried and used it, growth remained limited, and the project never quite reached the momentum needed to justify ongoing maintenance.
+
+SpotOn began as a personal project, where I fixed issues when I could reproduce them in my own setup. However, recent changes to the Spotify web player have introduced frequent breaking updates, making it increasingly time‑consuming to keep everything working. Combined with slower feature releases from Spotify and a generally declining web experience, the effort required to maintain the extension stopped being sustainable for a one‑person project.
+
+With no growth and me as the only maintainer, I’ve decided to shift my focus to other work, particularly apps and personal websites. If you’d like to see what I’m currently building, you can visit my site at [Kamidevs](https://kamidevs) and explore projects I’m involved in, such as [Loop](https://loop.kamidevs.com).
+
+All existing code for SpotOn will remain publicly available. If you’re interested in forking the project or taking it over, you’re very welcome to reach out via Discord at [Kami](https://discord.com/users/325178652033679362).
+
+If you’d like to support my ongoing work, you can do so via  
+
+- [GitHub Sponsors](https://github.com/sponsors/SenpaiHunters)  
+- [Buy Me A Coffee](https://www.buymeacoffee.com/kami.dev)
+
+Thank you to everyone who installed, used, or gave feedback on SpotOn.
+
+---
+
 ## Stats
 
 Now for some fun SpotOn stats!
